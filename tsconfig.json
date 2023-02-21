@@ -7,6 +7,8 @@
     "jsx": "react-jsx",
     "allowJs": true, // Компилятор будет обрабатывать не только TS файлы, но и JS файлы
     "moduleResolution": "node", // Определяет какие импорты будут (node или classic), 99% случаях используется node
+    "baseUrl": ".",
+    "paths": { "*": ["./src/*"] },
     "esModuleInterop": true, // esModuleInterop позволяет работать с пакетами, которые используют common js
     // как с обычными пакетами с помощью import requier() module.export = common.js
     "allowSyntheticDefaultImports": true // Если какая-либо библиотека не имеет default import,

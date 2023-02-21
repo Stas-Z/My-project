@@ -24,6 +24,6 @@ export function buildWebpackConfig(
     module: {
       rules: buildLoaders(options), // Вызываем функцию которая возвращает список лоадеров
     },
-    resolve: buildResolvers(), // Вызываем функцию которая возвращает список расширений
+    resolve: buildResolvers(options), // Вызываем функцию которая возвращает список расширений
   }
 }
