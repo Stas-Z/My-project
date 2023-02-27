@@ -7,6 +7,21 @@ export function buildLoaders({ isDev }: BuildOptions): webpack.RuleSetRule[] {
   // конфигурируем загрузчики (loaders) для файлов (*.png, *.jpg, *.svg, *.css, *.ts и т.д.)
 
   // Если не используем тайпскрипт - нужен babel-loader
+
+  const fileLoader = {
+    test: /\.(png|jpe?g|gif|woff2|woff)$/i,
+    use: [
+      {
+        loader: 'file-loader',
+      },
+    ],
+  }
+
+  const svgLoader = {
+    test: /\.svg$/,
+    use: ['@svgr/webpack'],
+  }
+
   const typescriptLoader = {
     test: /\.tsx?$/,
     use: 'ts-loader',
@@ -32,5 +47,5 @@ export function buildLoaders({ isDev }: BuildOptions): webpack.RuleSetRule[] {
     ],
   }
 
-  return [typescriptLoader, cssLoader]
+  return [fileLoader, svgLoader, typescriptLoader, cssLoader]
 }
