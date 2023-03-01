@@ -2,6 +2,7 @@ import HtmlWebpackPlugin from 'html-webpack-plugin'
 import webpack from 'webpack'
 import { BuildOptions } from './types/config'
 import MiniCssExtractPlugin from 'mini-css-extract-plugin'
+import ReactRefreshWebpackPlugin from '@pmmmwh/react-refresh-webpack-plugin'
 
 // Функция которая возвращает список плагинов
 export function buildPlugins({
@@ -9,6 +10,7 @@ export function buildPlugins({
   isDev,
 }: BuildOptions): webpack.WebpackPluginInstance[] {
   // Специальный тип для плагинов
+
   return [
     new HtmlWebpackPlugin({
       // Создаёт для сборки фаил index.html и подключает в него все скрпты и другие файлы
@@ -22,5 +24,6 @@ export function buildPlugins({
     new webpack.DefinePlugin({
       __IS_DEV__: JSON.stringify(isDev),
     }),
-  ]
+    isDev && new ReactRefreshWebpackPlugin(), // наш hmr плагин
+  ].filter(Boolean)
 }
