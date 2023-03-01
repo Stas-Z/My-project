@@ -6,7 +6,7 @@ import { buildResolvers } from './buildResolvers'
 import { BuildOptions } from './types/config'
 
 export function buildWebpackConfig(
-  options: BuildOptions
+  options: BuildOptions,
 ): webpack.Configuration {
   const { paths, mode, isDev } = options // Деструктуризируем объект опций полученых из BuildOptions
   return {
@@ -14,7 +14,7 @@ export function buildWebpackConfig(
     entry: paths.entry,
     output: {
       // Место и название сборки нашего приложения
-      filename: '[name].[contenthash].js', //[Дефолтное название] [генератор, для оновления кэша]
+      filename: '[name].[contenthash].js', // [Дефолтное название] [генератор, для оновления кэша]
       path: paths.build, // Путь до сборки
       clean: true, // Для очистки от старых файлов
     },
