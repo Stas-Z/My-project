@@ -9,5 +9,6 @@
     }
   ],
   "semi": false,
-  "trailingComma": "all"
+  "trailingComma": "all",
+  "single-attribute-per-line": true
 }
