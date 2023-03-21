@@ -5,6 +5,7 @@ import { Suspense } from 'react'
 import { AppRouter } from './providers/router'
 import { useTheme } from './providers/ThemeProvider'
 import './styles/index.scss'
+import { ErrorBoundary } from './providers/ErrorBoundary'
 
 const App = () => {
   const { theme } = useTheme()
@@ -15,7 +16,9 @@ const App = () => {
         <Navbar />
         <div className="content-page">
           <Sidebar />
-          <AppRouter />
+          <ErrorBoundary>
+            <AppRouter />
+          </ErrorBoundary>
         </div>
       </Suspense>
     </div>

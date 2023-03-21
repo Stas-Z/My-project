@@ -33,7 +33,7 @@ module.exports = {
     'import/extensions': 'off',
     'import/no-extraneous-dependencies': 'off',
     'no-underscore-dangle': 'off',
-    semi: 0,
+    semi: ['error', 'never'],
     'max-len': ['error', { ignoreComments: true }],
     'i18next/no-literal-string': [
       'error',
