@@ -10,6 +10,8 @@ export default (env: BuildEnv) => {
   const mode = env.mode || 'development' // Пытаемся получить переменные env, если переменные не заданы, у нас есть дефолтное значение "development".
   const isDev = mode === 'development'
 
+  const { analyze } = env
+
   const paths: BuildPaths = {
     // Список путей
     entry: path.resolve(__dirname, 'src', 'index.tsx'), // Стартовая точка приложения
@@ -23,6 +25,7 @@ export default (env: BuildEnv) => {
     paths,
     isDev,
     port: PORT,
+    analyze,
   })
 
   return config
