@@ -3,6 +3,8 @@
  * https://jestjs.io/docs/configuration
  */
 
+import path from 'path'
+
 export default {
   // All imported modules in your tests should be mocked automatically
   // automock: false,
@@ -34,7 +36,16 @@ export default {
   ],
 
   // An array of directory names to be searched recursively up from the requiring module's location
-  moduleDirectories: ['node_modules'],
+  moduleDirectories: ['node_modules', 'src'],
+
+  setupFilesAfterEnv: ['<rootDir>/config/jest/setupTests.ts'],
+
+  moduleNameMapper: {
+    '\\.s?css$': 'identity-obj-proxy',
+    '\\.svg': path.resolve(__dirname, 'jestEmptyComponent.tsx'),
+  },
+
+  // modulePaths: ['<rootDir>src'],
 
   // An array of file extensions your modules use
   moduleFileExtensions: ['js', 'jsx', 'ts', 'tsx', 'json', 'node'],
@@ -44,6 +55,9 @@ export default {
 
   // The test environment that will be used for testing
   testEnvironment: 'jsdom',
+
+  // The paths to modules that run some code to configure or set up the testing environment before each test
+  setupFiles: ['./config/jest/setupTests.ts'],
 
   // Indicates which provider should be used to instrument code for coverage
   // coverageProvider: "babel",
@@ -120,9 +134,6 @@ export default {
 
   // Allows you to use a custom runner instead of Jest's default test runner
   // runner: "jest-runner",
-
-  // The paths to modules that run some code to configure or set up the testing environment before each test
-  // setupFiles: [],
 
   // A list of paths to modules that run some code to configure or set up the testing framework before each test
   // setupFilesAfterEnv: [],
