@@ -38,6 +38,7 @@ export default {
   // An array of directory names to be searched recursively up from the requiring module's location
   moduleDirectories: ['node_modules', 'src'],
 
+  // A list of paths to modules that run some code to configure or set up the testing framework before each test
   setupFilesAfterEnv: ['<rootDir>/config/jest/setupTests.ts'],
 
   moduleNameMapper: {
@@ -55,9 +56,6 @@ export default {
 
   // The test environment that will be used for testing
   testEnvironment: 'jsdom',
-
-  // The paths to modules that run some code to configure or set up the testing environment before each test
-  setupFiles: ['./config/jest/setupTests.ts'],
 
   // Indicates which provider should be used to instrument code for coverage
   // coverageProvider: "babel",
@@ -135,8 +133,8 @@ export default {
   // Allows you to use a custom runner instead of Jest's default test runner
   // runner: "jest-runner",
 
-  // A list of paths to modules that run some code to configure or set up the testing framework before each test
-  // setupFilesAfterEnv: [],
+  // The paths to modules that run some code to configure or set up the testing environment before each test
+  // setupFiles: ["./config/jest/setupTests.ts"],
 
   // The number of seconds after which a test is considered as slow and reported as such in the results.
   // slowTestThreshold: 5,
