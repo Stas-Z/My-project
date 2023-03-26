@@ -1,5 +1,5 @@
 import path from 'path'
-import webpack, { RuleSetRule } from 'webpack'
+import webpack from 'webpack'
 import { buildCssLoader } from '../build/loaders/buildCssLoader'
 import { BuildPaths } from '../build/types/config'
 
@@ -16,6 +16,7 @@ export default ({ config }: { config: webpack.Configuration }) => {
 
   if (config.module?.rules) {
     // Исключаем дефолтный svg loader
+    // eslint-disable-next-line no-param-reassign
     config.module.rules = config.module?.rules?.map(
       (rule: webpack.RuleSetRule | '...') => {
         if (rule !== '...' && /svg/.test(rule.test as string)) {

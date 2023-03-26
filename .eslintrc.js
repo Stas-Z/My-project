@@ -4,7 +4,12 @@ module.exports = {
     es2021: true,
     jest: true,
   },
-  extends: ['plugin:react/recommended', 'airbnb', 'plugin:i18next/recommended'],
+  extends: [
+    'plugin:react/recommended',
+    'airbnb',
+    'plugin:i18next/recommended',
+    'plugin:storybook/recommended',
+  ],
   parser: '@typescript-eslint/parser',
   parserOptions: {
     ecmaFeatures: {
@@ -20,7 +25,9 @@ module.exports = {
     indent: [2, 2],
     'react/jsx-filename-extension': [
       2,
-      { extensions: ['.js', '.jsx', '.tsx'] },
+      {
+        extensions: ['.js', '.jsx', '.tsx'],
+      },
     ],
     'import/no-unresolved': 'off',
     'import/prefer-default-export': 'off',
@@ -34,10 +41,19 @@ module.exports = {
     'import/no-extraneous-dependencies': 'off',
     'no-underscore-dangle': 'off',
     semi: ['error', 'never'],
-    'max-len': ['error', { ignoreComments: true, code: 120 }],
+    'max-len': [
+      'error',
+      {
+        ignoreComments: true,
+        code: 120,
+      },
+    ],
     'i18next/no-literal-string': [
       'error',
-      { markupOnly: true, onlyAttribute: [''] },
+      {
+        markupOnly: true,
+        onlyAttribute: [''],
+      },
     ],
   },
   globals: {
@@ -48,6 +64,13 @@ module.exports = {
       files: ['**/src/**/*.test.{ts,tsx}'],
       rules: {
         'i18next/no-literal-string': 'off',
+      },
+    },
+    {
+      // or whatever matches stories specified in .storybook/main.js
+      files: ['**/src/**/*.stories.{ts,tsx}'],
+      rules: {
+        'react/jsx-props-no-spreading': ['error', { custom: 'ignore' }],
       },
     },
   ],
