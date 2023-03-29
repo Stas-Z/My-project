@@ -13,7 +13,7 @@ export function buildPlugins({
 }: BuildOptions): webpack.WebpackPluginInstance[] {
   // Специальный тип для плагинов
 
-  return [
+  const plugins = [
     new HtmlWebpackPlugin({
       // Создаёт для сборки фаил index.html и подключает в него все скрпты и другие файлы
       template: paths.html, // Путь к шаблоны index.html
@@ -26,7 +26,12 @@ export function buildPlugins({
     new webpack.DefinePlugin({
       __IS_DEV__: JSON.stringify(isDev),
     }),
-    isDev && new ReactRefreshWebpackPlugin(), // наш hmr плагин
     analyze && new BundleAnalyzerPlugin(),
   ].filter(Boolean)
+
+  if (isDev) {
+    plugins.push(new ReactRefreshWebpackPlugin()) // наш hmr плагин
+  }
+
+  return plugins
 }
