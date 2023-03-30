@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 20 20" >
+<rect x="6" y="5" class="st0" width="1" height="1"/>
+<rect x="6" y="7" class="st0" width="1" height="1"/>
+<rect x="8" y="7" class="st0" width="6" height="1"/>
+<rect x="6" y="9" class="st0" width="1" height="1"/>
+<rect x="8" y="9" class="st0" width="6" height="1"/>
+<rect x="6" y="11" class="st0" width="1" height="1"/>
+<rect x="8" y="11" class="st0" width="6" height="1"/>
+<rect x="6" y="13" class="st0" width="1" height="1"/>
+<rect x="8" y="13" class="st0" width="6" height="1"/>
+<rect x="6" y="15" class="st0" width="1" height="1"/>
+<rect x="8" y="15" class="st0" width="6" height="1"/>
+<circle class="st0" cx="16.6" cy="3.4" r="2.6"/>
+<path class="st0" d="M16,7.4L16,18L4,18L4,3l8.5,0c0-0.3,0.1-0.7,0.2-1L3,2l0,17h14l0-11.5c-0.1,0-0.2,0-0.3,0
+	C16.4,7.5,16.2,7.5,16,7.4z"/>
+<path class="st0" d="M8,5v1h5.5c-0.3-0.3-0.5-0.6-0.6-1H8z"/>
+</svg>
