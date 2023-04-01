@@ -1,10 +1,9 @@
 import { classNames } from 'shared/lib/classNames/classNames'
 import { Navbar } from 'widgets/Navbar'
 import { Sidebar } from 'widgets/Sidebar'
-import { Suspense } from 'react'
+import { Suspense, useState } from 'react'
 import { AppRouter } from './providers/router'
 import { useTheme } from './providers/ThemeProvider'
-import './styles/index.scss'
 import { ErrorBoundary } from './providers/ErrorBoundary'
 
 const App = () => {
