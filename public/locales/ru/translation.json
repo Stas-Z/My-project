@@ -10,5 +10,7 @@
   "throw error": "Вызвать ошибку",
   "lng": "En",
   "Lorem": "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Reprehenderit, iste ut obcaecati, esse temporibus et quasi, omnis dolorum eveniet quos eius corrupti nam magni inventore excepturi dolor! Officiis, placeat sed.",
-  "Sign in": "Войти"
+  "Sign in": "Войти",
+  "increment": "добавить",
+  "decrement": "убавить"
 }
