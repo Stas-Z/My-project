@@ -33,5 +33,11 @@ export default ({ config }: { config: webpack.Configuration }) => {
   })
   config.module?.rules?.push(buildCssLoader(true)) // Загрузчик стилей css
 
+  config.plugins.push(
+    new webpack.DefinePlugin({
+      __IS_DEV__: false,
+    }),
+  )
+
   return config
 }
