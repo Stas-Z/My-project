@@ -12,5 +12,8 @@
   "Lorem": "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Reprehenderit, iste ut obcaecati, esse temporibus et quasi, omnis dolorum eveniet quos eius corrupti nam magni inventore excepturi dolor! Officiis, placeat sed.",
   "Sign in": "Войти",
   "increment": "добавить",
-  "decrement": "убавить"
+  "decrement": "убавить",
+  "Login": "Войти",
+  "Username": "Введите имя",
+  "Password": "Введите пароль"
 }

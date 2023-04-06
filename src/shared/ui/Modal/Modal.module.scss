@@ -15,15 +15,21 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  animation-name: close-overlay;
+  animation-duration: 0.3s;
+  animation-iteration-count: 1;
+  animation-fill-mode: forwards;
 }
 
 .content {
   padding: 20px;
   border-radius: 12px;
   background: var(--bg-color);
-  transition: 0.3s transform;
-  transform: scale(0.5);
   max-width: 60%;
+  animation-name: close-modal;
+  animation-duration: 0.5s;
+  animation-iteration-count: 1;
+  animation-fill-mode: forwards;
 }
 
 .opened {
@@ -32,6 +38,56 @@
   z-index: var(--modal-z-index);
 
   .content {
+    animation-name: open-modal;
+    animation-duration: 0.3s;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
+  }
+
+  .overlay {
+    animation-name: open-overlay;
+    animation-duration: 0.3s;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
+  }
+}
+
+@keyframes open-overlay {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes close-overlay {
+  0% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes open-modal {
+  0% {
+    transform: scale(0);
+  }
+
+  100% {
     transform: scale(1);
+  }
+}
+
+@keyframes close-modal {
+  0% {
+    transform: scale(1);
+  }
+
+  100% {
+    transform: scale(0);
   }
 }
