@@ -17,11 +17,24 @@ export const Primary = Template.bind({})
 Primary.args = {
   children: 'Text',
 }
+export const PrimaryDisabled = Template.bind({})
+PrimaryDisabled.args = {
+  children: 'Text',
+  disabled: true,
+}
+
 export const PrimaryDark = Template.bind({})
 PrimaryDark.args = {
   children: 'Text',
 }
 PrimaryDark.decorators = [ThemeDecorator(Theme.DARK)]
+
+export const PrimaryDarkDisabled = Template.bind({})
+PrimaryDarkDisabled.args = {
+  children: 'Text',
+  disabled: true,
+}
+PrimaryDarkDisabled.decorators = [ThemeDecorator(Theme.DARK)]
 
 export const Clear = Template.bind({})
 Clear.args = {
@@ -52,17 +65,37 @@ Outline.args = {
   children: 'Text',
   theme: ButtonTheme.OUTLINE,
 }
+export const OutlineDisabled = Template.bind({})
+OutlineDisabled.args = {
+  children: 'Text',
+  theme: ButtonTheme.OUTLINE,
+  disabled: true,
+}
 export const OutlineSizeL = Template.bind({})
 OutlineSizeL.args = {
   children: 'Text',
   theme: ButtonTheme.OUTLINE,
   size: ButtonSize.L,
 }
+export const OutlineSizeLDisable = Template.bind({})
+OutlineSizeLDisable.args = {
+  children: 'Text',
+  theme: ButtonTheme.OUTLINE,
+  size: ButtonSize.L,
+  disabled: true,
+}
 export const OutlineSizeXl = Template.bind({})
 OutlineSizeXl.args = {
   children: 'Text',
   theme: ButtonTheme.OUTLINE,
   size: ButtonSize.XL,
+}
+export const OutlineSizeXlDisable = Template.bind({})
+OutlineSizeXlDisable.args = {
+  children: 'Text',
+  theme: ButtonTheme.OUTLINE,
+  size: ButtonSize.XL,
+  disabled: true,
 }
 
 export const OutlineDark = Template.bind({})
@@ -71,6 +104,13 @@ OutlineDark.args = {
   theme: ButtonTheme.OUTLINE,
 }
 OutlineDark.decorators = [ThemeDecorator(Theme.DARK)]
+export const OutlineDarkDisable = Template.bind({})
+OutlineDarkDisable.args = {
+  children: 'Text',
+  theme: ButtonTheme.OUTLINE,
+  disabled: true,
+}
+OutlineDarkDisable.decorators = [ThemeDecorator(Theme.DARK)]
 
 export const OutlineDarkSizeL = Template.bind({})
 OutlineDarkSizeL.args = {
@@ -80,6 +120,15 @@ OutlineDarkSizeL.args = {
 }
 OutlineDarkSizeL.decorators = [ThemeDecorator(Theme.DARK)]
 
+export const OutlineDarkSizeLDisable = Template.bind({})
+OutlineDarkSizeLDisable.args = {
+  children: 'Text',
+  theme: ButtonTheme.OUTLINE,
+  size: ButtonSize.L,
+  disabled: true,
+}
+OutlineDarkSizeLDisable.decorators = [ThemeDecorator(Theme.DARK)]
+
 export const OutlineDarkSizeXl = Template.bind({})
 OutlineDarkSizeXl.args = {
   children: 'Text',
@@ -87,6 +136,15 @@ OutlineDarkSizeXl.args = {
   size: ButtonSize.XL,
 }
 OutlineDarkSizeXl.decorators = [ThemeDecorator(Theme.DARK)]
+
+export const OutlineDarkSizeXlDisable = Template.bind({})
+OutlineDarkSizeXlDisable.args = {
+  children: 'Text',
+  theme: ButtonTheme.OUTLINE,
+  size: ButtonSize.XL,
+  disabled: true,
+}
+OutlineDarkSizeXlDisable.decorators = [ThemeDecorator(Theme.DARK)]
 
 export const BackgroundTheme = Template.bind({})
 BackgroundTheme.args = {

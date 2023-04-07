@@ -15,5 +15,8 @@
   "decrement": "decrement",
   "Login": "Login",
   "Username": "Username",
-  "Password": "Password"
+  "Password": "Password",
+  "Authorization form": "Authorization form",
+  "Incorrect password or username": "Incorrect password or username",
+  "Logout": "Logout"
 }
