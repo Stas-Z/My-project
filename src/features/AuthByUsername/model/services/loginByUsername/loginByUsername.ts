@@ -3,14 +3,14 @@ import axios from 'axios'
 import { User, userActions } from 'entities/User'
 import { USER_LOCALSTORAGE_KEY } from 'shared/const/localstorage'
 
-interface LoginByUserProps {
+interface LoginByUsernameProps {
   username: string
   password: string
 }
 
 export const loginByUsername = createAsyncThunk<
   User,
-  LoginByUserProps,
+  LoginByUsernameProps,
   { rejectValue: string }
 >('login/loginByUsername', async (authData, thunkAPI) => {
   try {

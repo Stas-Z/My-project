@@ -26,9 +26,7 @@ export const Modal = (props: ModalProps) => {
   const { theme } = useTheme()
 
   const ANIMATION_DELAY = 300
-
   const timerRef = useRef<ReturnType<typeof setTimeout>>()
-
   const [isMounted, setIsMounted] = useState(false) // Для монтирования модалки в дом
 
   useEffect(() => {
