@@ -2,13 +2,14 @@ import { useTranslation } from 'react-i18next'
 import { classNames } from 'shared/lib/classNames/classNames'
 import { Button, ButtonTheme } from 'shared/ui/Button/Button'
 import { Input } from 'shared/ui/Input/Input'
-import { useDispatch, useSelector } from 'react-redux'
+import { useSelector } from 'react-redux'
 import { memo, useCallback, useEffect } from 'react'
 import { Text, TextTheme } from 'shared/ui/Text/Text'
 import {
   DynamicModuleLoader,
   ReducersList,
 } from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader'
+import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch'
 import { loginByUsername } from '../../model/services/loginByUsername/loginByUsername'
 import { getLoginState } from '../../model/selectors/getLoginState/getLoginState'
 import { loginActions, loginReducer } from '../../model/slice/loginSlice'
@@ -17,15 +18,16 @@ import cls from './LoginForm.module.scss'
 export interface LoginFormProps {
   className?: string
   isOpen?: boolean
+  onSuccess?: () => void
 }
 const initialReducers: ReducersList = {
   loginForm: loginReducer,
 }
 
-const LoginForm = memo((props: LoginFormProps) => {
+const LoginForm = (props: LoginFormProps) => {
   const { t } = useTranslation()
-  const { className, isOpen } = props
-  const dispatch = useDispatch()
+  const { className, isOpen, onSuccess } = props
+  const dispatch = useAppDispatch()
 
   const {
     username, password, isLoading, error,
@@ -44,9 +46,12 @@ const LoginForm = memo((props: LoginFormProps) => {
     [dispatch],
   )
 
-  const onLoginClick = useCallback(() => {
-    dispatch(loginByUsername({ password, username }))
-  }, [dispatch, password, username])
+  const onLoginClick = useCallback(async () => {
+    const result = await dispatch(loginByUsername({ password, username }))
+    if (result.meta.requestStatus === 'fulfilled') {
+      onSuccess()
+    }
+  }, [dispatch, password, username, onSuccess])
 
   const onKeyDown = useCallback(
     (e: KeyboardEvent) => {
@@ -101,6 +106,6 @@ const LoginForm = memo((props: LoginFormProps) => {
       </div>
     </DynamicModuleLoader>
   )
-})
+}
 
-export default LoginForm
+export default memo(LoginForm)

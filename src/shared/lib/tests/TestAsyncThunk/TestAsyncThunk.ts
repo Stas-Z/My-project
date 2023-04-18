@@ -12,9 +12,9 @@ export function TestAsyncThunk<Return, Arg, RejectedValue>(
   const dispatch: jest.MockedFn<any> = jest.fn()
   const getState: () => StateSchema = jest.fn()
   const callThunk = async (arg: Arg) => {
-    const action = actionCreator(arg)
-    const result = await action(dispatch, getState, undefined)
-    return result
+    const thunkActionCreator = actionCreator(arg)
+    const action = await thunkActionCreator(dispatch, getState, undefined)
+    return action
   }
 
   return {
