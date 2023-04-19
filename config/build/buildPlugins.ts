@@ -10,6 +10,7 @@ export function buildPlugins({
   paths,
   isDev,
   analyze,
+  apiUrl,
 }: BuildOptions): webpack.WebpackPluginInstance[] {
   // Специальный тип для плагинов
 
@@ -25,12 +26,15 @@ export function buildPlugins({
     }),
     new webpack.DefinePlugin({
       __IS_DEV__: JSON.stringify(isDev),
+      __API__: JSON.stringify(apiUrl),
     }),
-    analyze && new BundleAnalyzerPlugin(),
-  ].filter(Boolean)
+  ]
 
   if (isDev) {
     plugins.push(new ReactRefreshWebpackPlugin()) // наш hmr плагин
+  }
+  if (analyze) {
+    plugins.push(new BundleAnalyzerPlugin())
   }
 
   return plugins

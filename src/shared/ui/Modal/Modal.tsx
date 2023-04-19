@@ -1,11 +1,12 @@
 import React, {
+  MutableRefObject,
   ReactNode,
   useCallback,
   useEffect,
   useRef,
   useState,
 } from 'react'
-import { classNames } from 'shared/lib/classNames/classNames'
+import { Mods, classNames } from 'shared/lib/classNames/classNames'
 import { useTheme } from 'app/providers/ThemeProvider'
 import cls from './Modal.module.scss'
 import { Portal } from '../Portal/Portal'
@@ -24,10 +25,10 @@ export const Modal = (props: ModalProps) => {
   } = props
 
   const { theme } = useTheme()
+  const [isMounted, setIsMounted] = useState(false) // Для монтирования модалки в дом
 
   const ANIMATION_DELAY = 300
-  const timerRef = useRef<ReturnType<typeof setTimeout>>()
-  const [isMounted, setIsMounted] = useState(false) // Для монтирования модалки в дом
+  const timerRef = useRef() as MutableRefObject<ReturnType<typeof setTimeout>>
 
   useEffect(() => {
     // Монтирования модалки
@@ -75,7 +76,7 @@ export const Modal = (props: ModalProps) => {
     }
   }, [isOpen, onKeyDown])
 
-  const mods: Record<string, boolean> = {
+  const mods: Mods = {
     [cls.opened]: isOpen,
   }
 

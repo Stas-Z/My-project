@@ -9,8 +9,9 @@ export default (env: BuildEnv) => {
 
   const mode = env.mode || 'development' // Пытаемся получить переменные env, если переменные не заданы, у нас есть дефолтное значение "development".
   const isDev = mode === 'development'
+  const apiUrl = env.apiUrl || 'http://localhost:8000' // адрес сервера бэкенд
 
-  const { analyze } = env
+  const { analyze } = env // переменная env для анализа бандла
 
   const paths: BuildPaths = {
     // Список путей
@@ -26,6 +27,7 @@ export default (env: BuildEnv) => {
     isDev,
     port: PORT,
     analyze,
+    apiUrl,
   })
 
   return config

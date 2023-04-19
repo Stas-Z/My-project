@@ -1,8 +1,6 @@
-import { classNames } from 'shared/lib/classNames/classNames'
-import React, {
-  InputHTMLAttributes, memo, useEffect, useState,
-} from 'react'
+import React, { InputHTMLAttributes, memo } from 'react'
 import { Omit } from 'react-redux'
+import { classNames } from 'shared/lib/classNames/classNames'
 import cls from './Input.module.scss'
 
 // Исключаем пропсы которые передаём вторым аргументом.

@@ -58,7 +58,7 @@ export default {
   testEnvironment: 'jsdom',
 
   // A set of global variables that need to be available in all test environments
-  globals: { __IS_DEV__: true },
+  globals: { __IS_DEV__: true, __API__: '' },
 
   // Indicates which provider should be used to instrument code for coverage
   // coverageProvider: "babel",
