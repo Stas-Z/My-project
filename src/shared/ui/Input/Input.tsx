@@ -1,21 +1,23 @@
 import React, { InputHTMLAttributes, memo } from 'react'
 import { Omit } from 'react-redux'
-import { classNames } from 'shared/lib/classNames/classNames'
+import { Mods, classNames } from 'shared/lib/classNames/classNames'
 import cls from './Input.module.scss'
 
 // Исключаем пропсы которые передаём вторым аргументом.
 // Omit<'то что мы забераем','то что мы исключаем'>
 type HTMLInputProps = Omit<
   InputHTMLAttributes<HTMLInputElement>,
-  'value' | 'onChange'
+  'value' | 'onChange' | 'readOnly'
 >
 
 // В InputHTMLAttributes уже есть value и onChange, поэтому их надо исключить через Omit.
 // Omit позовляет из типа забрать все пропсы и исключить те, которые нам не нужны.
 interface InputProps extends HTMLInputProps {
   className?: string
-  value?: string
+  value?: string | number
   onChange?: (value: string) => void
+  readonly?: boolean
+  editing?: boolean
 }
 
 export const Input = memo((props: InputProps) => {
@@ -25,6 +27,8 @@ export const Input = memo((props: InputProps) => {
     onChange,
     type = 'text',
     placeholder,
+    readonly,
+    editing,
     ...otherProps
   } = props
 
@@ -32,8 +36,13 @@ export const Input = memo((props: InputProps) => {
     onChange?.(e.target.value)
   }
 
+  const mods: Mods = {
+    [cls.readonly]: readonly,
+    [cls.editing]: editing,
+  }
+
   return (
-    <div className={classNames(cls.inputWrapper, {}, [className])}>
+    <div className={classNames(cls.inputWrapper, mods, [className])}>
       {placeholder && (
         <div className={cls.placeholder}>{`${placeholder}>`}</div>
       )}
@@ -43,6 +52,7 @@ export const Input = memo((props: InputProps) => {
           value={value}
           onChange={onChangeHandler}
           className={cls.input}
+          readOnly={readonly}
           {...otherProps}
         />
       </div>

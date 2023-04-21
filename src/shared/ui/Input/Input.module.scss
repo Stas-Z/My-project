@@ -16,9 +16,35 @@
   &:focus {
     outline: none;
   }
+
+  &[type="number"]::-webkit-outer-spin-button,
+  &[type="number"]::-webkit-inner-spin-button {
+    appearance: none;
+  }
+
+  &[type="number"] {
+    appearance: textfield;
+
+    &:hover,
+    &:focus {
+      appearance: number-input;
+    }
+  }
 }
 
 .inputBlock {
   flex-grow: 1;
   position: relative;
+}
+
+.readonly {
+  .input {
+    opacity: 0.7;
+  }
+}
+
+.editing {
+  .placeholder {
+    opacity: 0.7;
+  }
 }

@@ -3,5 +3,15 @@
   "Edit": "Edit",
   "Name": "Name",
   "Lastname": "Lastname",
-  "Surname": "Surname"
+  "Surname": "Surname",
+  "Something went wrong": "Something went wrong",
+  "Try refreshing the page or come back later": "Try refreshing the page or come back later.",
+  "Cancel": "Cancel",
+  "Save": "Save",
+  "Age": "Age",
+  "City": "City",
+  "Login": "Login",
+  "Photo": "Photo",
+  "Currency": "Currency",
+  "Country": "Country"
 }
