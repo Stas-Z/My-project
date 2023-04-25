@@ -100,7 +100,6 @@ export const ProfileCard = memo((props: ProfileCardProps) => {
           className={cls.input}
           onChange={onChangeAge}
           readonly={readonly}
-          type="number"
           editing={!readonly}
         />
         <Input

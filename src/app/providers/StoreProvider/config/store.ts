@@ -4,6 +4,7 @@ import { userReducer } from 'entities/User'
 import { To } from 'history'
 import { NavigateOptions } from 'react-router-dom'
 import { $api } from 'shared/api/api'
+import { authMiddleware } from 'features/AuthByUsername'
 import { StateSchema, ThunkExtraArg } from './StateSchema'
 import { createReducerManager } from './reducerManager'
 
@@ -33,7 +34,7 @@ export function createReduxStore(
       thunk: {
         extraArgument: extraArg,
       },
-    }),
+    }).concat(authMiddleware),
   })
 
   // @ts-ignore

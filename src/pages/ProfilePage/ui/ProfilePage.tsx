@@ -26,7 +26,10 @@ const ProfilePage = (props: ProfilePageProps) => {
   const dispatch = useAppDispatch()
 
   useEffect(() => {
-    dispatch(fetchProfileData())
+    if (__PROJECT__ !== 'storybook') {
+      // проверка на запрос
+      dispatch(fetchProfileData())
+    }
   }, [dispatch])
 
   return (

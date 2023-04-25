@@ -1,5 +1,6 @@
 import { Mods, classNames } from 'shared/lib/classNames/classNames'
 import { ChangeEvent, memo, useMemo } from 'react'
+import { useTranslation } from 'react-i18next'
 import cls from './Select.module.scss'
 
 export interface SelectOption {
@@ -21,7 +22,7 @@ export const Select = memo((props: SelectProps) => {
   const {
     className, label, options, onChange, value, readonly, editing,
   } = props
-
+  const { t } = useTranslation('profile')
   const onChangeHandler = (e: ChangeEvent<HTMLSelectElement>) => {
     if (onChange) {
       onChange(e.target.value)
@@ -31,10 +32,10 @@ export const Select = memo((props: SelectProps) => {
   const optionList = useMemo(
     () => options?.map((opt) => (
       <option className={cls.option} value={opt.value} key={opt.value}>
-        {opt.content}
+        {opt.content && t(opt.content)}
       </option>
     )),
-    [options],
+    [options, t],
   )
 
   const mods: Mods = {

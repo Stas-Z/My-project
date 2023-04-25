@@ -13,5 +13,16 @@
   "Login": "Login",
   "Photo": "Photo",
   "Currency": "Currency",
-  "Country": "Country"
+  "Country": "Country",
+  "Wrong age": "Wrong age",
+  "Server error": "Server error",
+  "Incorrect city": "Incorrect city",
+  "Incorrect user data": "Incorrect user data",
+  "No data": "No data",
+  "Russia": "Russia",
+  "Belarus": "Belarus",
+  "Ukraine": "Ukraine",
+  "Kazakhstan": "Kazakhstan",
+  "Armenia": "Armenia",
+  "Moldova": "Moldova"
 }
