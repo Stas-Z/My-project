@@ -76,7 +76,7 @@ DarkEdit.args = {
     avatar: AvatarImg,
   },
 }
-Dark.decorators = [ThemeDecorator(Theme.DARK)]
+DarkEdit.decorators = [ThemeDecorator(Theme.DARK)]
 
 export const isLoading = Template.bind({})
 isLoading.args = {
