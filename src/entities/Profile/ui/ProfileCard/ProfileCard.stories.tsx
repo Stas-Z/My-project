@@ -4,7 +4,6 @@ import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator/ThemeDeco
 import { Currency } from 'entities/Currency'
 import { Country } from 'entities/Country'
 import { ProfileCard } from './ProfileCard'
-import AvatarImg from '../../../../shared/assets/tests/avatar.png'
 
 export default {
   title: 'entities/ProfileCard',
@@ -17,85 +16,58 @@ export default {
 const Template: ComponentStory<typeof ProfileCard> = (args) => (
   <ProfileCard {...args} />
 )
-
+const data = {
+  first: 'Станислав',
+  lastname: 'Заболотный',
+  age: 38,
+  currency: Currency.RUB,
+  country: Country.Russia,
+  city: 'Moscow',
+  username: 'admin',
+  avatar: 'https://avatars.githubusercontent.com/u/116818633',
+}
 export const Light = Template.bind({})
 Light.args = {
-  data: {
-    first: 'Станислав',
-    lastname: 'Заболотный',
-    age: 38,
-    currency: Currency.RUB,
-    country: Country.Russia,
-    city: 'Moscow',
-    username: 'admin',
-    avatar: AvatarImg,
-  },
+  data,
   readonly: true,
 }
 
 export const EditLight = Template.bind({})
 EditLight.args = {
-  data: {
-    first: 'Станислав',
-    lastname: 'Заболотный',
-    age: 38,
-    currency: Currency.RUB,
-    country: Country.Russia,
-    city: 'Moscow',
-    username: 'admin',
-    avatar: AvatarImg,
-  },
+  data,
 }
 
 export const Dark = Template.bind({})
 Dark.args = {
-  data: {
-    first: 'Станислав',
-    lastname: 'Заболотный',
-    age: 38,
-    currency: Currency.RUB,
-    country: Country.Russia,
-    city: 'Moscow',
-    username: 'admin',
-    avatar: AvatarImg,
-  },
+  data,
   readonly: true,
 }
 Dark.decorators = [ThemeDecorator(Theme.DARK)]
 
 export const DarkEdit = Template.bind({})
 DarkEdit.args = {
-  data: {
-    first: 'Станислав',
-    lastname: 'Заболотный',
-    age: 38,
-    currency: Currency.RUB,
-    country: Country.Russia,
-    city: 'Moscow',
-    username: 'admin',
-    avatar: AvatarImg,
-  },
+  data,
 }
 DarkEdit.decorators = [ThemeDecorator(Theme.DARK)]
 
-export const isLoading = Template.bind({})
-isLoading.args = {
+export const Loading = Template.bind({})
+Loading.args = {
   isLoading: true,
 }
 
-export const isLoadingDark = Template.bind({})
-isLoadingDark.args = {
+export const LoadingDark = Template.bind({})
+LoadingDark.args = {
   isLoading: true,
 }
-isLoadingDark.decorators = [ThemeDecorator(Theme.DARK)]
+LoadingDark.decorators = [ThemeDecorator(Theme.DARK)]
 
-export const withError = Template.bind({})
-withError.args = {
+export const WithError = Template.bind({})
+WithError.args = {
   error: 'true',
 }
 
-export const withErrorDark = Template.bind({})
-withErrorDark.args = {
+export const WithErrorDark = Template.bind({})
+WithErrorDark.args = {
   error: 'true',
 }
-withErrorDark.decorators = [ThemeDecorator(Theme.DARK)]
+WithErrorDark.decorators = [ThemeDecorator(Theme.DARK)]
