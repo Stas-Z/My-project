@@ -5,7 +5,7 @@ import { ProfilePage } from 'pages/ProfilePage'
 import { RouteProps } from 'react-router-dom'
 
 // Расширяем RouteProps флагом authOnly, для проверки авторизации пользователя
-type AppRoutesProps = RouteProps & {
+export type AppRoutesProps = RouteProps & {
   authOnly?: boolean
 }
 

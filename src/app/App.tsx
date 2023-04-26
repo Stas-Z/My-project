@@ -2,8 +2,8 @@ import { classNames } from 'shared/lib/classNames/classNames'
 import { Navbar } from 'widgets/Navbar'
 import { Sidebar } from 'widgets/Sidebar'
 import { Suspense, useEffect } from 'react'
-import { useDispatch } from 'react-redux'
-import { userActions } from 'entities/User'
+import { useDispatch, useSelector } from 'react-redux'
+import { getUserInited, userActions } from 'entities/User'
 import { AppRouter } from './providers/router'
 import { useTheme } from './providers/ThemeProvider'
 import { ErrorBoundary } from './providers/ErrorBoundary'
@@ -11,6 +11,7 @@ import { ErrorBoundary } from './providers/ErrorBoundary'
 const App = () => {
   const { theme } = useTheme()
   const dispatch = useDispatch()
+  const inited = useSelector(getUserInited)
 
   useEffect(() => {
     dispatch(userActions.initAuthData())
@@ -22,9 +23,7 @@ const App = () => {
         <Navbar />
         <div id="app" className="content-page">
           <Sidebar />
-          <ErrorBoundary>
-            <AppRouter />
-          </ErrorBoundary>
+          <ErrorBoundary>{inited && <AppRouter />}</ErrorBoundary>
         </div>
       </Suspense>
     </div>
