@@ -1,9 +1,11 @@
 import webpack from 'webpack'
 import { BuildOptions } from './types/config'
 import { buildCssLoader } from './loaders/buildCssLoader'
+import { buildBabelLoader } from './loaders/buildBabelLoader'
 
 // Функция которая возвращает список лоадеров
-export function buildLoaders({ isDev }: BuildOptions): webpack.RuleSetRule[] {
+export function buildLoaders(options: BuildOptions): webpack.RuleSetRule[] {
+  const { isDev } = options
   // конфигурируем загрузчики (loaders) для файлов (*.png, *.jpg, *.svg, *.css, *.ts и т.д.)
 
   // Если не используем тайпскрипт - нужен babel-loader
@@ -22,16 +24,7 @@ export function buildLoaders({ isDev }: BuildOptions): webpack.RuleSetRule[] {
     use: ['@svgr/webpack'],
   }
 
-  const babelLoader = {
-    test: /\.(js|jsx|tsx)$/,
-    exclude: /node_modules/,
-    use: {
-      loader: 'babel-loader',
-      options: {
-        presets: ['@babel/preset-env'],
-      },
-    },
-  }
+  const babelLoader = buildBabelLoader(options)
 
   const typescriptLoader = {
     test: /\.tsx?$/,
