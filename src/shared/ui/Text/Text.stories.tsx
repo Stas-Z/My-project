@@ -18,12 +18,12 @@ Light.args = {
   title: 'Title Sample',
   text: 'Text Sample',
 }
-export const onlyTitleLight = Template.bind({})
-onlyTitleLight.args = {
+export const OnlyTitleLight = Template.bind({})
+OnlyTitleLight.args = {
   title: 'Title Sample',
 }
-export const onlyTextLight = Template.bind({})
-onlyTextLight.args = {
+export const OnlyTextLight = Template.bind({})
+OnlyTextLight.args = {
   text: 'Text Sample',
 }
 
@@ -34,17 +34,17 @@ Dark.args = {
 }
 Dark.decorators = [ThemeDecorator(Theme.DARK)]
 
-export const onlyTitleDark = Template.bind({})
-onlyTitleDark.args = {
+export const OnlyTitleDark = Template.bind({})
+OnlyTitleDark.args = {
   title: 'Title Sample',
 }
-onlyTitleDark.decorators = [ThemeDecorator(Theme.DARK)]
+OnlyTitleDark.decorators = [ThemeDecorator(Theme.DARK)]
 
-export const onlyTextDark = Template.bind({})
-onlyTextDark.args = {
+export const OnlyTextDark = Template.bind({})
+OnlyTextDark.args = {
   text: 'Text Sample',
 }
-onlyTextDark.decorators = [ThemeDecorator(Theme.DARK)]
+OnlyTextDark.decorators = [ThemeDecorator(Theme.DARK)]
 
 export const Choco = Template.bind({})
 Choco.args = {
@@ -53,17 +53,17 @@ Choco.args = {
 }
 Choco.decorators = [ThemeDecorator(Theme.CHOCOLATE)]
 
-export const onlyTitleChoco = Template.bind({})
-onlyTitleChoco.args = {
+export const OnlyTitleChoco = Template.bind({})
+OnlyTitleChoco.args = {
   title: 'Title Sample',
 }
-onlyTitleChoco.decorators = [ThemeDecorator(Theme.CHOCOLATE)]
+OnlyTitleChoco.decorators = [ThemeDecorator(Theme.CHOCOLATE)]
 
-export const onlyTextChoco = Template.bind({})
-onlyTextChoco.args = {
+export const OnlyTextChoco = Template.bind({})
+OnlyTextChoco.args = {
   text: 'Text Sample',
 }
-onlyTextChoco.decorators = [ThemeDecorator(Theme.CHOCOLATE)]
+OnlyTextChoco.decorators = [ThemeDecorator(Theme.CHOCOLATE)]
 
 export const Error = Template.bind({})
 Error.args = {

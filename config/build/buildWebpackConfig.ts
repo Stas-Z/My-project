@@ -17,6 +17,7 @@ export function buildWebpackConfig(
       filename: '[name].[contenthash].js', // [Дефолтное название] [генератор, для оновления кэша]
       path: paths.build, // Путь до сборки
       clean: true, // Для очистки от старых файлов
+      publicPath: '/', // Указывает базовый путь для всех ресурсов в нашем приложении (Исправляет запрос на вложенный путь ссылки: http://нашсайт/article/1)
     },
     devtool: isDev ? 'inline-source-map' : undefined, // 'inline-source-map' Позволяет отследить к каком месте в коде у нас ошибка
     devServer: isDev ? buildDevServer(options) : undefined, // Вызываем функцию настройки Dev сервера и передаём в неё опции

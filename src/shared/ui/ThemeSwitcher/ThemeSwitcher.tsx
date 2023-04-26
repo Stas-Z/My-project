@@ -1,4 +1,4 @@
-import { Theme, useTheme } from 'app/providers/ThemeProvider'
+import { useTheme } from 'app/providers/ThemeProvider'
 import { classNames } from 'shared/lib/classNames/classNames'
 import ThemeIcon from 'shared/assets/icons/theme-icon.svg'
 import { memo } from 'react'

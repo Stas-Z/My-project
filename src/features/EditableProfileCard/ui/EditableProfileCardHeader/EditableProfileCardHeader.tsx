@@ -1,14 +1,13 @@
-import { useTranslation } from 'react-i18next'
-import { classNames } from 'shared/lib/classNames/classNames'
-import { Text } from 'shared/ui/Text/Text'
-import { Button, ButtonTheme } from 'shared/ui/Button/Button'
-import { useSelector } from 'react-redux'
-import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch'
-import { useCallback, useEffect } from 'react'
 import { updateProfileData } from 'features/EditableProfileCard/model/services/updateProfileData/updateProfileData'
+import { useCallback, useEffect } from 'react'
+import { useTranslation } from 'react-i18next'
+import { useSelector } from 'react-redux'
+import { classNames } from 'shared/lib/classNames/classNames'
+import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch'
+import { Button, ButtonTheme } from 'shared/ui/Button/Button'
+import { getProfileReadonly } from '../../model/selectors/getProfileReadonly/getProfileReadonly'
 import { profileActions } from '../../model/slice/profileSlice'
 import cls from './EditableProfileCardHeader.module.scss'
-import { getProfileReadonly } from '../../model/selectors/getProfileReadonly/getProfileReadonly'
 
 interface EditableProfileCardHeaderProps {
   className?: string

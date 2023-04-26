@@ -23,9 +23,9 @@ Light.decorators = [
     loginForm: { username: 'admin', password: '123' },
   }),
 ]
-export const withError = Template.bind({})
-withError.args = {}
-withError.decorators = [
+export const WithError = Template.bind({})
+WithError.args = {}
+WithError.decorators = [
   StoreDecorator({
     loginForm: { error: 'ERROR' },
   }),
@@ -46,9 +46,9 @@ Dark.decorators = [
     loginForm: { username: 'admin', password: '123' },
   }),
 ]
-export const withErrorDark = Template.bind({})
-withErrorDark.args = {}
-withErrorDark.decorators = [
+export const WithErrorDark = Template.bind({})
+WithErrorDark.args = {}
+WithErrorDark.decorators = [
   ThemeDecorator(Theme.DARK),
   StoreDecorator({
     loginForm: { error: 'ERROR' },
@@ -71,9 +71,9 @@ Choco.decorators = [
     loginForm: { username: 'admin', password: '123' },
   }),
 ]
-export const withErrorChoco = Template.bind({})
-withErrorChoco.args = {}
-withErrorChoco.decorators = [
+export const WithErrorChoco = Template.bind({})
+WithErrorChoco.args = {}
+WithErrorChoco.decorators = [
   ThemeDecorator(Theme.CHOCOLATE),
   StoreDecorator({
     loginForm: { error: 'ERROR' },

@@ -4,7 +4,6 @@ import {
   profileReducer,
 } from 'features/EditableProfileCard'
 import { memo, useEffect } from 'react'
-import { useTranslation } from 'react-i18next'
 import { classNames } from 'shared/lib/classNames/classNames'
 import {
   DynamicModuleLoader,
@@ -21,7 +20,6 @@ const initialReducers: ReducersList = {
 }
 
 const ProfilePage = (props: ProfilePageProps) => {
-  const { t } = useTranslation()
   const { className } = props
   const dispatch = useAppDispatch()
 

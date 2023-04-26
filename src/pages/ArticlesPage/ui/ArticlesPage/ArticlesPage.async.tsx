@@ -1,11 +1,11 @@
 import { lazy } from 'react'
 
-// export const ProfilePageAsync = lazy(() => import('./ProfilePage'))
+// export const ArticlesPageAsync = lazy(() => import('./ArticlesPage'))
 
-export const ProfilePageAsync = lazy(
+export const ArticlesPageAsync = lazy(
   () => new Promise((resolve) => {
     // @ts-ignore
-    setTimeout(() => resolve(import('./ProfilePage')), 1500)
+    setTimeout(() => resolve(import('./ArticlesPage')), 1500)
   }),
 )
 // искуственная задержка чтобы увидеть как отрабатывает  <Suspense fallback={}>
