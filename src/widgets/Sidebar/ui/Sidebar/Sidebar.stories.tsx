@@ -32,3 +32,14 @@ Dark.decorators = [
 export const DarkNoAuth = Template.bind({})
 DarkNoAuth.args = {}
 DarkNoAuth.decorators = [ThemeDecorator(Theme.DARK), StoreDecorator({})]
+
+export const Choco = Template.bind({})
+Choco.args = {}
+Choco.decorators = [
+  ThemeDecorator(Theme.CHOCOLATE),
+  StoreDecorator({ user: { authData: {} } }),
+]
+
+export const ChocoNoAuth = Template.bind({})
+ChocoNoAuth.args = {}
+ChocoNoAuth.decorators = [ThemeDecorator(Theme.CHOCOLATE), StoreDecorator({})]

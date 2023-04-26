@@ -62,3 +62,28 @@ LoadingDark.decorators = [
     loginForm: { username: 'admin', password: '123', isLoading: true },
   }),
 ]
+
+export const Choco = Template.bind({})
+Choco.args = {}
+Choco.decorators = [
+  ThemeDecorator(Theme.CHOCOLATE),
+  StoreDecorator({
+    loginForm: { username: 'admin', password: '123' },
+  }),
+]
+export const withErrorChoco = Template.bind({})
+withErrorChoco.args = {}
+withErrorChoco.decorators = [
+  ThemeDecorator(Theme.CHOCOLATE),
+  StoreDecorator({
+    loginForm: { error: 'ERROR' },
+  }),
+]
+export const LoadingChoco = Template.bind({})
+LoadingChoco.args = {}
+LoadingChoco.decorators = [
+  ThemeDecorator(Theme.CHOCOLATE),
+  StoreDecorator({
+    loginForm: { username: 'admin', password: '123', isLoading: true },
+  }),
+]

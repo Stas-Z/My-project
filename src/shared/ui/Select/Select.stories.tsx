@@ -33,3 +33,13 @@ Dark.args = {
   ],
 }
 Dark.decorators = [ThemeDecorator(Theme.DARK)]
+export const Choco = Template.bind({})
+Choco.args = {
+  label: 'Text Sample',
+  options: [
+    { value: '1', content: '1' },
+    { value: 'a', content: 'a' },
+    { value: '+', content: '+' },
+  ],
+}
+Choco.decorators = [ThemeDecorator(Theme.CHOCOLATE)]

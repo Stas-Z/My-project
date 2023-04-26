@@ -50,6 +50,19 @@ DarkEdit.args = {
 }
 DarkEdit.decorators = [ThemeDecorator(Theme.DARK)]
 
+export const Choco = Template.bind({})
+Choco.args = {
+  data,
+  readonly: true,
+}
+Choco.decorators = [ThemeDecorator(Theme.CHOCOLATE)]
+
+export const ChocoEdit = Template.bind({})
+ChocoEdit.args = {
+  data,
+}
+ChocoEdit.decorators = [ThemeDecorator(Theme.CHOCOLATE)]
+
 export const Loading = Template.bind({})
 Loading.args = {
   isLoading: true,
@@ -61,6 +74,12 @@ LoadingDark.args = {
 }
 LoadingDark.decorators = [ThemeDecorator(Theme.DARK)]
 
+export const LoadingChoco = Template.bind({})
+LoadingChoco.args = {
+  isLoading: true,
+}
+LoadingChoco.decorators = [ThemeDecorator(Theme.CHOCOLATE)]
+
 export const WithError = Template.bind({})
 WithError.args = {
   error: 'true',
@@ -71,3 +90,9 @@ WithErrorDark.args = {
   error: 'true',
 }
 WithErrorDark.decorators = [ThemeDecorator(Theme.DARK)]
+
+export const WithErrorChoco = Template.bind({})
+WithErrorChoco.args = {
+  error: 'true',
+}
+WithErrorChoco.decorators = [ThemeDecorator(Theme.CHOCOLATE)]

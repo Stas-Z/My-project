@@ -49,3 +49,14 @@ Dark.decorators = [
     },
   }),
 ]
+
+export const Choco = Template.bind({})
+Choco.decorators = [
+  ThemeDecorator(Theme.CHOCOLATE),
+  StoreDecorator({
+    profile: {
+      readonly: true,
+      form: data,
+    },
+  }),
+]

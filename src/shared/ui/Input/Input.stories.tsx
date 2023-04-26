@@ -24,3 +24,10 @@ Dark.args = {
   value: '123123',
 }
 Dark.decorators = [ThemeDecorator(Theme.DARK)]
+
+export const Choco = Template.bind({})
+Choco.args = {
+  placeholder: 'Text Sample',
+  value: '123123',
+}
+Choco.decorators = [ThemeDecorator(Theme.CHOCOLATE)]

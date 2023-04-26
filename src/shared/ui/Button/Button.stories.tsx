@@ -36,6 +36,19 @@ PrimaryDarkDisabled.args = {
 }
 PrimaryDarkDisabled.decorators = [ThemeDecorator(Theme.DARK)]
 
+export const PrimaryChoco = Template.bind({})
+PrimaryChoco.args = {
+  children: 'Text',
+}
+PrimaryChoco.decorators = [ThemeDecorator(Theme.CHOCOLATE)]
+
+export const PrimaryChocoDisabled = Template.bind({})
+PrimaryChocoDisabled.args = {
+  children: 'Text',
+  disabled: true,
+}
+PrimaryChocoDisabled.decorators = [ThemeDecorator(Theme.CHOCOLATE)]
+
 export const Clear = Template.bind({})
 Clear.args = {
   children: 'Text',
@@ -48,6 +61,13 @@ ClearDark.args = {
 }
 ClearDark.decorators = [ThemeDecorator(Theme.DARK)]
 
+export const ClearChoco = Template.bind({})
+ClearChoco.args = {
+  children: 'Text',
+  theme: ButtonTheme.CLEAR,
+}
+ClearChoco.decorators = [ThemeDecorator(Theme.CHOCOLATE)]
+
 export const ClearInverted = Template.bind({})
 ClearInverted.args = {
   children: 'Text',
@@ -59,6 +79,13 @@ ClearInvertedDark.args = {
   theme: ButtonTheme.CLEAR_INVERTED,
 }
 ClearInvertedDark.decorators = [ThemeDecorator(Theme.DARK)]
+
+export const ClearInvertedChoco = Template.bind({})
+ClearInvertedChoco.args = {
+  children: 'Text',
+  theme: ButtonTheme.CLEAR_INVERTED,
+}
+ClearInvertedChoco.decorators = [ThemeDecorator(Theme.CHOCOLATE)]
 
 export const Outline = Template.bind({})
 Outline.args = {
@@ -145,6 +172,54 @@ OutlineDarkSizeXlDisable.args = {
   disabled: true,
 }
 OutlineDarkSizeXlDisable.decorators = [ThemeDecorator(Theme.DARK)]
+
+export const OutlineChoco = Template.bind({})
+OutlineChoco.args = {
+  children: 'Text',
+  theme: ButtonTheme.OUTLINE,
+}
+OutlineChoco.decorators = [ThemeDecorator(Theme.CHOCOLATE)]
+export const OutlineChocoDisable = Template.bind({})
+OutlineChocoDisable.args = {
+  children: 'Text',
+  theme: ButtonTheme.OUTLINE,
+  disabled: true,
+}
+OutlineChocoDisable.decorators = [ThemeDecorator(Theme.CHOCOLATE)]
+
+export const OutlineChocoSizeL = Template.bind({})
+OutlineChocoSizeL.args = {
+  children: 'Text',
+  theme: ButtonTheme.OUTLINE,
+  size: ButtonSize.L,
+}
+OutlineChocoSizeL.decorators = [ThemeDecorator(Theme.CHOCOLATE)]
+
+export const OutlineChocoSizeLDisable = Template.bind({})
+OutlineChocoSizeLDisable.args = {
+  children: 'Text',
+  theme: ButtonTheme.OUTLINE,
+  size: ButtonSize.L,
+  disabled: true,
+}
+OutlineChocoSizeLDisable.decorators = [ThemeDecorator(Theme.CHOCOLATE)]
+
+export const OutlineChocoSizeXl = Template.bind({})
+OutlineChocoSizeXl.args = {
+  children: 'Text',
+  theme: ButtonTheme.OUTLINE,
+  size: ButtonSize.XL,
+}
+OutlineChocoSizeXl.decorators = [ThemeDecorator(Theme.CHOCOLATE)]
+
+export const OutlineChocoSizeXlDisable = Template.bind({})
+OutlineChocoSizeXlDisable.args = {
+  children: 'Text',
+  theme: ButtonTheme.OUTLINE,
+  size: ButtonSize.XL,
+  disabled: true,
+}
+OutlineChocoSizeXlDisable.decorators = [ThemeDecorator(Theme.CHOCOLATE)]
 
 export const BackgroundTheme = Template.bind({})
 BackgroundTheme.args = {

@@ -73,3 +73,26 @@ DarkEdit.decorators = [
     },
   }),
 ]
+
+export const Choco = Template.bind({})
+Choco.args = {}
+Choco.decorators = [
+  ThemeDecorator(Theme.CHOCOLATE),
+  StoreDecorator({
+    profile: {
+      readonly: true,
+      form: data,
+    },
+  }),
+]
+
+export const ChocoEdit = Template.bind({})
+ChocoEdit.args = {}
+ChocoEdit.decorators = [
+  ThemeDecorator(Theme.CHOCOLATE),
+  StoreDecorator({
+    profile: {
+      form: data,
+    },
+  }),
+]

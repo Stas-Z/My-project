@@ -26,3 +26,10 @@ Dark.args = {
     'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Reprehenderit, iste ut obcaecati, esse temporibus et quasi, omnis dolorum eveniet quos eius corrupti nam magni inventore excepturi dolor! Officiis, placeat sed.',
 }
 Dark.decorators = [ThemeDecorator(Theme.DARK)]
+export const Choco = Template.bind({})
+Choco.args = {
+  isOpen: true,
+  children:
+    'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Reprehenderit, iste ut obcaecati, esse temporibus et quasi, omnis dolorum eveniet quos eius corrupti nam magni inventore excepturi dolor! Officiis, placeat sed.',
+}
+Choco.decorators = [ThemeDecorator(Theme.CHOCOLATE)]

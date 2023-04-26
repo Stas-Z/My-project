@@ -46,6 +46,25 @@ onlyTextDark.args = {
 }
 onlyTextDark.decorators = [ThemeDecorator(Theme.DARK)]
 
+export const Choco = Template.bind({})
+Choco.args = {
+  title: 'Title Sample',
+  text: 'Text Sample',
+}
+Choco.decorators = [ThemeDecorator(Theme.CHOCOLATE)]
+
+export const onlyTitleChoco = Template.bind({})
+onlyTitleChoco.args = {
+  title: 'Title Sample',
+}
+onlyTitleChoco.decorators = [ThemeDecorator(Theme.CHOCOLATE)]
+
+export const onlyTextChoco = Template.bind({})
+onlyTextChoco.args = {
+  text: 'Text Sample',
+}
+onlyTextChoco.decorators = [ThemeDecorator(Theme.CHOCOLATE)]
+
 export const Error = Template.bind({})
 Error.args = {
   title: 'Title Sample',
