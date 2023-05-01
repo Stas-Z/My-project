@@ -1,10 +1,10 @@
 import { Currency } from 'entities/Currency'
 import { Country } from 'entities/Country'
-import { ProfileSchema, ValidateProfileEror } from '../types/profile'
+import { Profile, ProfileSchema, ValidateProfileEror } from '../types/profile'
 import { profileActions, profileReducer } from './profileSlice'
 import { updateProfileData } from '../services/updateProfileData/updateProfileData'
 
-const data = {
+const data: Profile = {
   first: 'Станислав',
   lastname: 'Заболотный',
   age: 38,
