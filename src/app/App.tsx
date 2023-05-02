@@ -11,7 +11,7 @@ import { ErrorBoundary } from './providers/ErrorBoundary'
 const App = () => {
   const { theme } = useTheme()
   const dispatch = useDispatch()
-  const inited = useSelector(getUserInited)
+  const inited = useSelector(getUserInited) // Нужно для того чтобы инициализация user'а происходила до отрисовки <AppRouter />
 
   useEffect(() => {
     dispatch(userActions.initAuthData())
