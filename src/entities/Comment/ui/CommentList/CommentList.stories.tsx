@@ -5,7 +5,7 @@ import { Comment } from 'entities/Comment/model/types/comment'
 import { CommentList } from './CommentList'
 
 export default {
-  title: 'entities/CommentList',
+  title: 'entities/Comment/CommentList',
   component: CommentList,
   argTypes: {
     backgroundColor: { control: 'color' },

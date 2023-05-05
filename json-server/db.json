@@ -19,7 +19,9 @@
       "img": "https://upload.wikimedia.org/wikipedia/commons/9/99/Unofficial_JavaScript_logo_2.svg",
       "views": 1022,
       "createdAt": "26.02.2023",
-      "type": ["IT"],
+      "type": [
+        "IT"
+      ],
       "blocks": [
         {
           "id": "1",
@@ -99,7 +101,49 @@
       "id": "3",
       "text": "some comment 3",
       "articleId": "1",
-      "userId": "1"
+      "userId": "2"
+    },
+    {
+      "articleId": "1",
+      "userId": "1",
+      "text": "123",
+      "id": "cGa5LDm"
+    },
+    {
+      "articleId": "1",
+      "userId": "2",
+      "text": "Lev",
+      "id": "3RcMAFO"
+    },
+    {
+      "articleId": "1",
+      "userId": "2",
+      "text": "вававава",
+      "id": "U7gqQsR"
+    },
+    {
+      "articleId": "1",
+      "userId": "2",
+      "text": "ыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыи пмммммммммммммммммммммммммммммммыыыыыыыыы ыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыы",
+      "id": "u8xROgg"
+    },
+    {
+      "articleId": "1",
+      "userId": "2",
+      "text": "[f[f[f[f[[f",
+      "id": "ibOXJ9f"
+    },
+    {
+      "articleId": "1",
+      "userId": "1",
+      "text": "Hello World",
+      "id": "XlpAnJL"
+    },
+    {
+      "articleId": "1",
+      "userId": "1",
+      "text": "test",
+      "id": "2P950Sq"
     }
   ],
   "users": [
@@ -112,20 +156,34 @@
     },
     {
       "id": "2",
-      "username": "user",
+      "username": "userLev",
       "password": "123",
       "role": "USER",
-      "avatar": "https://avatars.githubusercontent.com/u/116818633"
+      "avatar": "https://www.gannett-cdn.com/media/2022/03/16/USATODAY/usatsports/imageForEntry5-ODq.jpg"
     }
   ],
-  "profile": {
-    "first": "Станислав",
-    "lastname": "Заболотный",
-    "age": 38,
-    "currency": "RUB",
-    "country": "Russia",
-    "city": "Moscow",
-    "username": "admin",
-    "avatar": "https://avatars.githubusercontent.com/u/116818633"
-  }
+  "profile": [
+    {
+      "id": "1",
+      "first": "Станислав",
+      "lastname": "Заболотный",
+      "age": 38,
+      "currency": "RUB",
+      "country": "Russia",
+      "city": "Moscow",
+      "username": "admin",
+      "avatar": "https://avatars.githubusercontent.com/u/116818633"
+    },
+    {
+      "id": "2",
+      "first": "Лев",
+      "lastname": "Заболотный",
+      "age": 10,
+      "currency": "RUB",
+      "country": "Russia",
+      "city": "Moscow",
+      "username": "userLev",
+      "avatar": "https://www.gannett-cdn.com/media/2022/03/16/USATODAY/usatsports/imageForEntry5-ODq.jpg"
+    }
+  ]
 }

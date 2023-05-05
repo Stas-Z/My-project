@@ -1,23 +1,24 @@
-import { ComponentStory, ComponentMeta } from '@storybook/react'
+import { ComponentMeta, ComponentStory } from '@storybook/react'
 import { Theme } from 'app/providers/ThemeProvider'
-import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator/ThemeDecorator'
-import { StoreDecorator } from 'shared/config/storybook/StoreDecorator/StoreDecorator'
 import {
   Article,
   ArticleBlockType,
   ArticleType,
 } from 'entities/Article/model/types/article'
+import { StoreDecorator } from 'shared/config/storybook/StoreDecorator/StoreDecorator'
+import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator/ThemeDecorator'
 import ArticleDetailsPage from './ArticleDetailsPage'
 
 export default {
   title: 'pages/ArticleDetailsPage',
   component: ArticleDetailsPage,
-  parameters: {
-    router: {
-      path: '/articles/:id',
-      route: '/articles/1',
-    },
-  },
+  // parameters: {
+  //   router: {
+  //     path: '/articles/:id',
+  //     route: '/articles/1',
+  //   },
+  //   loki: { async: true },
+  // },
   argTypes: {
     backgroundColor: { control: 'color' },
   },
@@ -97,11 +98,42 @@ const article: Article = {
   ],
 }
 
+const entities = {
+  1: {
+    id: '1',
+    text: 'some comment',
+    articleId: '1',
+    userId: '1',
+    user: {
+      id: '1',
+      username: 'admin',
+      password: '123',
+      role: 'ADMIN',
+      avatar: 'https://avatars.githubusercontent.com/u/116818633',
+    },
+  },
+  2: {
+    id: '2',
+    text: 'some comment 2',
+    articleId: '1',
+    userId: '1',
+    user: {
+      id: '1',
+      username: 'admin',
+      password: '123',
+      role: 'ADMIN',
+      avatar: 'https://avatars.githubusercontent.com/u/116818633',
+    },
+  },
+}
+const allIds = { allIds: [1, 2] }
+
 export const Light = Template.bind({})
 Light.args = {}
 Light.decorators = [
   StoreDecorator({
     articleDetails: { data: article },
+    articleDetailsComments: { entities, ids: allIds.allIds },
   }),
 ]
 
@@ -110,6 +142,7 @@ Loading.args = {}
 Loading.decorators = [
   StoreDecorator({
     articleDetails: { isLoading: true },
+    articleDetailsComments: { isLoading: true, entities, ids: allIds.allIds },
   }),
 ]
 
@@ -127,6 +160,7 @@ Dark.decorators = [
   ThemeDecorator(Theme.DARK),
   StoreDecorator({
     articleDetails: { data: article },
+    articleDetailsComments: { entities, ids: allIds.allIds },
   }),
 ]
 
@@ -136,6 +170,7 @@ DarkLoading.decorators = [
   ThemeDecorator(Theme.DARK),
   StoreDecorator({
     articleDetails: { isLoading: true },
+    articleDetailsComments: { isLoading: true, entities, ids: allIds.allIds },
   }),
 ]
 
@@ -154,6 +189,7 @@ Choco.decorators = [
   ThemeDecorator(Theme.CHOCOLATE),
   StoreDecorator({
     articleDetails: { data: article },
+    articleDetailsComments: { entities, ids: allIds.allIds },
   }),
 ]
 
@@ -163,6 +199,7 @@ ChocoLoading.decorators = [
   ThemeDecorator(Theme.CHOCOLATE),
   StoreDecorator({
     articleDetails: { isLoading: true },
+    articleDetailsComments: { isLoading: true, entities, ids: allIds.allIds },
   }),
 ]
 

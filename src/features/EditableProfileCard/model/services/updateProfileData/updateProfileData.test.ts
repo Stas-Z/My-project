@@ -2,9 +2,10 @@ import { Country } from 'entities/Country'
 import { Currency } from 'entities/Currency'
 import { TestAsyncThunk } from 'shared/lib/tests/TestAsyncThunk/TestAsyncThunk'
 import { updateProfileData } from './updateProfileData'
-import { ValidateProfileEror } from '../../types/profile'
+import { Profile, ValidateProfileEror } from '../../types/profile'
 
-const data = {
+const data: Profile = {
+  id: '1',
   first: 'Станислав',
   lastname: 'Заболотный',
   age: 38,
