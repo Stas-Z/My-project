@@ -6,6 +6,10 @@ const data: Article = {
   id: '1',
   createdAt: '28.04.2023',
   type: [ArticleType.IT],
+  user: {
+    id: '1',
+    username: 'Stas',
+  },
   subtitle: 'this is test',
   title: 'Test',
   img: 'image',

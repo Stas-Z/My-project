@@ -10,6 +10,10 @@ const data: Article = {
   img: 'https://upload.wikimedia.org/wikipedia/commons/9/99/Unofficial_JavaScript_logo_2.svg',
   views: 1022,
   createdAt: '26.02.2023',
+  user: {
+    id: '1',
+    username: 'Stas',
+  },
   type: [ArticleType.IT],
   blocks: [
     {

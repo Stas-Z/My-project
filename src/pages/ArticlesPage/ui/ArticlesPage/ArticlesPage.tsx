@@ -1,11 +1,13 @@
+import { ArticleList, ArticleView, articleMock } from 'entities/Article'
+import { memo } from 'react'
 import { useTranslation } from 'react-i18next'
 import { classNames } from 'shared/lib/classNames/classNames'
-import { memo } from 'react'
 import cls from './ArticlesPage.module.scss'
 
 interface ArticlesPageProps {
   className?: string
 }
+const article = articleMock
 
 const ArticlesPage = (props: ArticlesPageProps) => {
   const { className } = props
@@ -13,7 +15,13 @@ const ArticlesPage = (props: ArticlesPageProps) => {
 
   return (
     <div className={classNames(cls.articlesPage, {}, [className])}>
-      {t('Articles Page')}
+      <ArticleList
+        view={ArticleView.LIST}
+        articles={new Array(16).fill(0).map((item, index) => ({
+          ...article,
+          id: String(index),
+        }))}
+      />
     </div>
   )
 }
