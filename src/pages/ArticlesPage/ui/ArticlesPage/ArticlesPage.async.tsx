@@ -5,7 +5,7 @@ import { lazy } from 'react'
 export const ArticlesPageAsync = lazy(
   () => new Promise((resolve) => {
     // @ts-ignore
-    setTimeout(() => resolve(import('./ArticlesPage')), 1500)
+    setTimeout(() => resolve(import('./ArticlesPage')), 400)
   }),
 )
 // искуственная задержка чтобы увидеть как отрабатывает  <Suspense fallback={}>

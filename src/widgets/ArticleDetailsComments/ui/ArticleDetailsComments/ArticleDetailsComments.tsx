@@ -12,7 +12,7 @@ import {
   DynamicModuleLoader,
   ReducersList,
 } from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader'
-import { getArticleCommentsisLoading } from '../../model/selectors/comments'
+import { getArticleCommentsIsLoading } from '../../model/selectors/articleCommentsSelectors'
 import { addCommentForArticle } from '../../model/services/addCommentForArticle/addCommentForArticle'
 import { fetchCommentsByArticleId } from '../../model/services/fetchCommentsByArticleId/fetchCommentsByArticleId'
 import {
@@ -37,7 +37,7 @@ export const ArticleDetailsComments = memo(
     const { id } = useParams<{ id: string }>()
 
     const comments = useSelector(getArticleDetailsComment.selectAll)
-    const commentsIsLoading = useSelector(getArticleCommentsisLoading)
+    const commentsIsLoading = useSelector(getArticleCommentsIsLoading)
 
     const onSendComment = useCallback(
       (text: string) => {

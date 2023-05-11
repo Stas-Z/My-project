@@ -14,6 +14,7 @@ import { ProfileSchema } from 'features/EditableProfileCard'
 import { To } from 'history'
 import { ArticleDetailsCommentsSchema } from 'widgets/ArticleDetailsComments'
 import { NavigateOptions } from 'react-router-dom'
+import { ArticlesPageSchema } from 'pages/ArticlesPage'
 
 export interface StateSchema {
   counter: CounterSchema
@@ -25,6 +26,7 @@ export interface StateSchema {
   articleDetails?: ArticleDetailsSchema
   articleDetailsComments?: ArticleDetailsCommentsSchema
   addCommentForm?: AddCommentFormSchema
+  articlesPage?: ArticlesPageSchema
 }
 
 export type StateSchemaKey = keyof StateSchema

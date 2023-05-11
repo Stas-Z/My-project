@@ -1,4 +1,3 @@
-import { ProfileSchema } from 'features/EditableProfileCard'
 import { AddCommentFormSchema } from '../types/AddCommentFormSchema'
 import {
   addCommentFormActions,

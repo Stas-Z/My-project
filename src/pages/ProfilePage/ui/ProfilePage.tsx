@@ -3,7 +3,7 @@ import {
   fetchProfileData,
   profileReducer,
 } from 'features/EditableProfileCard'
-import { memo, useEffect } from 'react'
+import { memo } from 'react'
 import { useParams } from 'react-router-dom'
 import { classNames } from 'shared/lib/classNames/classNames'
 import {
