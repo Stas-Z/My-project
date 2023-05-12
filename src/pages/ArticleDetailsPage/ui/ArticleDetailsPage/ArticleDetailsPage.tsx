@@ -6,6 +6,7 @@ import { ArticleDetails } from 'entities/Article'
 import { classNames } from 'shared/lib/classNames/classNames'
 import { Button, ButtonTheme } from 'shared/ui/Button/Button'
 import { RoutPath } from 'shared/config/routeConfig/routeConfig'
+import { Page } from 'shared/ui/Page/Page'
 import cls from './ArticleDetailsPage.module.scss'
 
 interface ArticleDetailsPageProps {
@@ -24,20 +25,20 @@ const ArticleDetailsPage = (props: ArticleDetailsPageProps) => {
 
   if (!id) {
     return (
-      <div className={classNames(cls.articleDetailsPage, {}, [className])}>
+      <Page className={classNames(cls.articleDetailsPage, {}, [className])}>
         {t('Article not found')}
-      </div>
+      </Page>
     )
   }
 
   return (
-    <div className={classNames(cls.articleDetailsPage, {}, [className])}>
+    <Page className={classNames(cls.articleDetailsPage, {}, [className])}>
       <Button theme={ButtonTheme.OUTLINE} onClick={onBackToList}>
         {t('Go back')}
       </Button>
       <ArticleDetails id={id} />
       <ArticleDetailsComments />
-    </div>
+    </Page>
   )
 }
 export default memo(ArticleDetailsPage)

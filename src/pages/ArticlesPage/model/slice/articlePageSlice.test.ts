@@ -1,5 +1,5 @@
 import { ArticleView, articlesMock, entitiesMock } from 'entities/Article'
-import { fetchArticlesList } from '../services/fetchArticlesList'
+import { fetchArticlesList } from '../services/fetchArticlesList/fetchArticlesList'
 import { ArticlesPageSchema } from '../types/articlesPageSchema'
 import { articlesPageActions, articlesPageReducer } from './articlePageSlice'
 
@@ -26,19 +26,21 @@ describe('articlePageSlice.test', () => {
   })
   test('test fetch articles fulfilled', () => {
     const state: DeepPartial<ArticlesPageSchema> = {
+      entities,
+      ids,
       isLoading: true,
-      error: undefined,
+      hasMore: true,
     }
     expect(
       articlesPageReducer(
         state as ArticlesPageSchema,
-        fetchArticlesList.fulfilled(articles, ''),
+        fetchArticlesList.fulfilled(articles, '', { page: 1 }),
       ),
     ).toEqual({
       isLoading: false,
       entities,
       ids,
-      error: undefined,
+      hasMore: true,
     })
   })
 
