@@ -11,14 +11,14 @@ import { UserSchema } from 'entities/User'
 import { AddCommentFormSchema } from 'features/AddCommentForm'
 import { LoginSchema } from 'features/AuthByUsername'
 import { ProfileSchema } from 'features/EditableProfileCard'
-import { To } from 'history'
-import { ArticleDetailsCommentsSchema } from 'widgets/ArticleDetailsComments'
-import { NavigateOptions } from 'react-router-dom'
+import { ScrollSaveSchema } from 'features/ScrollSave'
 import { ArticlesPageSchema } from 'pages/ArticlesPage'
+import { ArticleDetailsCommentsSchema } from 'widgets/ArticleDetailsComments'
 
 export interface StateSchema {
   counter: CounterSchema
   user: UserSchema
+  scrollSave: ScrollSaveSchema
 
   // Асинхронные редьюсеры
   loginForm?: LoginSchema

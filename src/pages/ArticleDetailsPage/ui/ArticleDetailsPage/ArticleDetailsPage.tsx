@@ -6,7 +6,7 @@ import { ArticleDetails } from 'entities/Article'
 import { classNames } from 'shared/lib/classNames/classNames'
 import { Button, ButtonTheme } from 'shared/ui/Button/Button'
 import { RoutPath } from 'shared/config/routeConfig/routeConfig'
-import { Page } from 'shared/ui/Page/Page'
+import { Page } from 'widgets/Page/Page'
 import cls from './ArticleDetailsPage.module.scss'
 
 interface ArticleDetailsPageProps {

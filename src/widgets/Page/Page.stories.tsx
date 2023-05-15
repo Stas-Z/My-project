@@ -1,10 +1,11 @@
 import { ComponentStory, ComponentMeta } from '@storybook/react'
 import { Theme } from 'app/providers/ThemeProvider'
 import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator/ThemeDecorator'
+import { StoreDecorator } from 'shared/config/storybook/StoreDecorator/StoreDecorator'
 import { Page } from './Page'
 
 export default {
-  title: 'shared/Page',
+  title: 'widgets/Page',
   component: Page,
   argTypes: {
     backgroundColor: { control: 'color' },
@@ -17,11 +18,38 @@ export const Light = Template.bind({})
 Light.args = {
   children: 'Обертка для сраниц',
 }
+Light.decorators = [
+  StoreDecorator({
+    scrollSave: {
+      scroll: {
+        articles: 500,
+      },
+    },
+  }),
+]
 
 export const Dark = Template.bind({})
 Dark.args = { children: 'Обертка для сраниц' }
-Dark.decorators = [ThemeDecorator(Theme.DARK)]
+Dark.decorators = [
+  ThemeDecorator(Theme.DARK),
+  StoreDecorator({
+    scrollSave: {
+      scroll: {
+        articles: 500,
+      },
+    },
+  }),
+]
 
 export const Choco = Template.bind({})
 Choco.args = { children: 'Обертка для сраниц' }
-Choco.decorators = [ThemeDecorator(Theme.CHOCOLATE)]
+Choco.decorators = [
+  ThemeDecorator(Theme.CHOCOLATE),
+  StoreDecorator({
+    scrollSave: {
+      scroll: {
+        articles: 500,
+      },
+    },
+  }),
+]
