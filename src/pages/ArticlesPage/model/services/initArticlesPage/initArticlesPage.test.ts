@@ -3,6 +3,9 @@ import { fetchArticlesList } from '../fetchArticlesList/fetchArticlesList'
 import { initArticlesPage } from './initArticlesPage'
 
 jest.mock('../fetchArticlesList/fetchArticlesList')
+const searchParams = new URLSearchParams(
+  'sort=createdAt&order=asc&search=&type=All',
+)
 
 describe('initArticlesPage.test', () => {
   test('success', async () => {
@@ -17,10 +20,10 @@ describe('initArticlesPage.test', () => {
       },
     })
 
-    await thunk.callThunk()
+    await thunk.callThunk(searchParams)
 
-    expect(thunk.dispatch).toBeCalledTimes(4)
-    expect(fetchArticlesList).toHaveBeenCalledWith({ page: 1 })
+    expect(thunk.dispatch).toBeCalledTimes(7)
+    expect(fetchArticlesList).toHaveBeenCalled()
   })
 
   test('initArticlesPage not called', async () => {
@@ -36,7 +39,7 @@ describe('initArticlesPage.test', () => {
       },
     })
 
-    await thunk.callThunk()
+    await thunk.callThunk(searchParams)
 
     expect(thunk.dispatch).toBeCalledTimes(2)
     expect(fetchArticlesList).not.toHaveBeenCalled()

@@ -1,7 +1,7 @@
 import { StateSchema } from 'app/providers/StoreProvider'
 import { ArticleView, articleMock } from 'entities/Article'
 
-import { getArticles } from '../slice/articlePageSlice'
+import { getArticles } from '../slice/articlesPageSlice'
 import {
   getArticlesPageError,
   getArticlesPageIsLoading,

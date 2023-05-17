@@ -4,5 +4,18 @@
   "Article not found": "Article not found",
   "An error occurred while loading the article": "An error occurred while loading the article.",
   "Read more": "Read more...",
-  "Go back": "Go back"
+  "Go back": "Go back",
+  "Sort by": "by",
+  "Search": "Search",
+  "Low - High": "Low - High",
+  "High - Low": "High - Low",
+  "by": "Sort by",
+  "by date": "date",
+  "title": "title",
+  "views": "views",
+  "All": "All",
+  "IT": "IT",
+  "Economics": "Economics",
+  "Science": "Science",
+  "Articles not found": "Articles not found"
 }

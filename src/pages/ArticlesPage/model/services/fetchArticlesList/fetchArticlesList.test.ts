@@ -11,7 +11,7 @@ describe('fetchArticlesList.test', () => {
     })
     thunk.api.get.mockReturnValue(Promise.resolve({ data }))
 
-    const action = await thunk.callThunk({ page: 1 })
+    const action = await thunk.callThunk({})
 
     expect(thunk.api.get).toHaveBeenCalled()
 
@@ -22,7 +22,7 @@ describe('fetchArticlesList.test', () => {
   test('error', async () => {
     const thunk = TestAsyncThunk(fetchArticlesList)
     thunk.api.get.mockReturnValue(Promise.resolve({ status: 403 }))
-    const action = await thunk.callThunk({ page: 1 })
+    const action = await thunk.callThunk({})
     expect(action.meta.requestStatus).toBe('rejected')
   })
 })

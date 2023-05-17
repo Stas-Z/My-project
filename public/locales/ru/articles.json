@@ -5,5 +5,18 @@
   "An error occurred while loading the article": "Произошла ошибка при загрузки статьи.",
   "Comments": "Коментарии",
   "Read more": "Читать далее...",
-  "Go back": "Назад к списку"
+  "Go back": "Назад к списку",
+  "Sort by": "Сортировать ПО",
+  "Search": "Поиск",
+  "Low - High": "возрастанию",
+  "High - Low": "убыванию",
+  "by": "по",
+  "by date": "дате",
+  "title": "названию",
+  "views": "популярности",
+  "All": "Все статьи",
+  "IT": "Айти",
+  "Economics": "Экономика",
+  "Science": "Наука",
+  "Articles not found": "Статьи не найдены"
 }

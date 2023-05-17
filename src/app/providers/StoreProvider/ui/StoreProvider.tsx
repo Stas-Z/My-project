@@ -18,7 +18,5 @@ export const StoreProvider = (props: StoreProviderProps) => {
     asyncReducers as ReducersMapObject<StateSchema>,
   )
 
-  console.log('RENDER')
-
   return <Provider store={store}>{children}</Provider>
 }

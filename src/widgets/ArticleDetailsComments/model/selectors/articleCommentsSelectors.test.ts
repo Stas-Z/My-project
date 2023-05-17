@@ -1,11 +1,10 @@
 import { StateSchema } from 'app/providers/StoreProvider'
-import { ArticleView, articleMock } from 'entities/Article'
 import { Comment } from 'entities/Comment'
+import { getArticleDetailsComment } from '../slices/articleDetailsCommentsSlice'
 import {
   getArticleCommentsError,
   getArticleCommentsIsLoading,
 } from './articleCommentsSelectors'
-import { getArticleDetailsComment } from '../slices/articleDetailsCommentsSlice'
 
 const entities = {
   1: {
