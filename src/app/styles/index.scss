@@ -17,3 +17,19 @@ body {
 .content-page {
   display: flex;
 }
+
+// scroll bar
+*::-webkit-scrollbar {
+  width: 12px; /* ширина всей полосы прокрутки */
+  height: 8px; /* высота полосы прокрутки */
+}
+
+*::-webkit-scrollbar-track {
+  background: var(--card-bg); /* цвет зоны отслеживания */
+}
+
+*::-webkit-scrollbar-thumb {
+  background-color: var(--inverted-secondary-color); /* цвет бегунка */
+  border-radius: 20px; /* округлось бегунка */
+  border: 1px solid var(--primary-color); /* отступ вокруг бегунка */
+}

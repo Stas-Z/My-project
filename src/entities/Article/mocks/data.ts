@@ -302,9 +302,9 @@ export const articlesMock: Article[] = [
   },
   {
     id: '4',
-    title: 'Kotlin news',
+    title: 'Javascript news',
     subtitle: 'Что нового в JS за 2022 год?',
-    img: 'https://miro.medium.com/max/1200/1*FNakkrty3kjOvNU8m5iQfw.png',
+    img: 'https://upload.wikimedia.org/wikipedia/commons/9/99/Unofficial_JavaScript_logo_2.svg',
     views: 1022,
     createdAt: '26.02.2022',
 
@@ -529,9 +529,9 @@ export const entitiesMock = {
   },
   2: {
     id: '2',
-    title: 'Javascript news',
+    title: 'Python news',
     subtitle: 'Что нового в JS за 2022 год?',
-    img: 'https://teknotower.com/wp-content/uploads/2020/11/js.png',
+    img: 'https://researchweek.unc.edu/wp-content/uploads/2022/09/python-logo.jpg',
     views: 1022,
     createdAt: '26.02.2022',
     user: {
@@ -603,11 +603,12 @@ export const entitiesMock = {
   },
   3: {
     id: '3',
-    title: 'Javascript news',
+    title: 'Kotlin news',
     subtitle: 'Что нового в JS за 2022 год?',
-    img: 'https://teknotower.com/wp-content/uploads/2020/11/js.png',
+    img: 'https://miro.medium.com/max/1200/1*FNakkrty3kjOvNU8m5iQfw.png',
     views: 1022,
     createdAt: '26.02.2022',
+
     user: {
       id: '1',
       username: 'Stas',
@@ -679,9 +680,10 @@ export const entitiesMock = {
     id: '4',
     title: 'Javascript news',
     subtitle: 'Что нового в JS за 2022 год?',
-    img: 'https://teknotower.com/wp-content/uploads/2020/11/js.png',
+    img: 'https://upload.wikimedia.org/wikipedia/commons/9/99/Unofficial_JavaScript_logo_2.svg',
     views: 1022,
     createdAt: '26.02.2022',
+
     user: {
       id: '1',
       username: 'Stas',
@@ -751,11 +753,12 @@ export const entitiesMock = {
   },
   5: {
     id: '5',
-    title: 'Javascript news',
+    title: 'Kotlin news',
     subtitle: 'Что нового в JS за 2022 год?',
-    img: 'https://teknotower.com/wp-content/uploads/2020/11/js.png',
+    img: 'https://miro.medium.com/max/1200/1*FNakkrty3kjOvNU8m5iQfw.png',
     views: 1022,
     createdAt: '26.02.2022',
+
     user: {
       id: '1',
       username: 'Stas',

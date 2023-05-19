@@ -66,7 +66,7 @@ describe('articleCommentsSelectors.test', () => {
       allIds.ids,
     )
   })
-  test('should return articles', () => {
+  test('should return comments', () => {
     const state: DeepPartial<StateSchema> = {
       articleDetailsComments: { entities, ids: allIds.ids },
     }

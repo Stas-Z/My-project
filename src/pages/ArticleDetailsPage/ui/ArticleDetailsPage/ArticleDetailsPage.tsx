@@ -7,6 +7,7 @@ import { classNames } from 'shared/lib/classNames/classNames'
 import { Button, ButtonTheme } from 'shared/ui/Button/Button'
 import { RoutPath } from 'shared/config/routeConfig/routeConfig'
 import { Page } from 'widgets/Page/Page'
+import { ArticleRecommendationsList } from 'widgets/ArticleDetailsRecommendations'
 import cls from './ArticleDetailsPage.module.scss'
 
 interface ArticleDetailsPageProps {
@@ -37,6 +38,7 @@ const ArticleDetailsPage = (props: ArticleDetailsPageProps) => {
         {t('Go back')}
       </Button>
       <ArticleDetails id={id} />
+      <ArticleRecommendationsList />
       <ArticleDetailsComments />
     </Page>
   )

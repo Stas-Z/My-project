@@ -7,7 +7,7 @@ import { CommentList } from 'entities/Comment'
 import { classNames } from 'shared/lib/classNames/classNames'
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch'
 import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect/useInitialEffect'
-import { Text } from 'shared/ui/Text/Text'
+import { Text, TextSize } from 'shared/ui/Text/Text'
 import {
   DynamicModuleLoader,
   ReducersList,
@@ -55,7 +55,11 @@ export const ArticleDetailsComments = memo(
         <div
           className={classNames(cls.articleDetailsComments, {}, [className])}
         >
-          <Text className={cls.commentTitle} title={t('Comments')} />
+          <Text
+            size={TextSize.L}
+            className={cls.commentTitle}
+            title={t('Comments')}
+          />
           <AddCommentForm
             onSendComment={onSendComment}
             isLoading={commentsIsLoading}

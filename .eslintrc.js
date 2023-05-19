@@ -45,7 +45,7 @@ module.exports = {
       'error',
       {
         ignoreComments: true,
-        code: 125,
+        code: 135,
       },
     ],
     'i18next/no-literal-string': [

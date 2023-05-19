@@ -9,7 +9,7 @@ export const addCommentForArticle = createAsyncThunk<
   Comment,
   string,
   ThunkConfig<string>
->('articleDetailsPage/addCommentForArticle', async (text, thunkAPI) => {
+>('articleDetailsComments/addCommentForArticle', async (text, thunkAPI) => {
   const {
     dispatch, extra, rejectWithValue, getState,
   } = thunkAPI
