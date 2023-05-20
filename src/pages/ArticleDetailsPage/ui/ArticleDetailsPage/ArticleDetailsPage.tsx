@@ -9,6 +9,7 @@ import { RoutPath } from 'shared/config/routeConfig/routeConfig'
 import { Page } from 'widgets/Page/Page'
 import { ArticleRecommendationsList } from 'widgets/ArticleDetailsRecommendations'
 import cls from './ArticleDetailsPage.module.scss'
+import { ArticleDetailsPageHeader } from '../ArticleDetailsPageHeader/ArticleDetailsPageHeader'
 
 interface ArticleDetailsPageProps {
   className?: string
@@ -18,11 +19,6 @@ const ArticleDetailsPage = (props: ArticleDetailsPageProps) => {
   const { className } = props
   const { t } = useTranslation('articles')
   const { id } = useParams<{ id: string }>()
-  const navigate = useNavigate()
-
-  const onBackToList = useCallback(() => {
-    navigate(RoutPath.articles)
-  }, [navigate])
 
   if (!id) {
     return (
@@ -34,9 +30,7 @@ const ArticleDetailsPage = (props: ArticleDetailsPageProps) => {
 
   return (
     <Page className={classNames(cls.articleDetailsPage, {}, [className])}>
-      <Button theme={ButtonTheme.OUTLINE} onClick={onBackToList}>
-        {t('Go back')}
-      </Button>
+      <ArticleDetailsPageHeader />
       <ArticleDetails id={id} />
       <ArticleRecommendationsList />
       <ArticleDetailsComments />
