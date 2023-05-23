@@ -31,5 +31,5 @@ body {
 *::-webkit-scrollbar-thumb {
   background-color: var(--inverted-secondary-color); /* цвет бегунка */
   border-radius: 20px; /* округлось бегунка */
-  border: 1px solid var(--primary-color); /* отступ вокруг бегунка */
+  border: 2px solid var(--primary-color); /* отступ вокруг бегунка */
 }
