@@ -10,6 +10,8 @@ export default ({ config }: { config: webpack.Configuration }) => {
     html: '',
     entry: '',
     src: path.resolve(__dirname, '..', '..', 'src'), // Путь до папки с исходным кодом
+    locales: '',
+    buildLocales: '',
   }
   config.resolve?.modules?.push(paths.src) // Переопределяем путь до папки с исходным кодом
   config.resolve?.extensions?.push('.ts', '.tsx') // Переопределяем расширение для файлов
