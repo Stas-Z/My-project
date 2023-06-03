@@ -1,6 +1,9 @@
 import { ArticleList } from 'entities/Article'
-import { memo, useCallback } from 'react'
+import {
+  MutableRefObject, memo, useCallback, useRef,
+} from 'react'
 import { useSelector } from 'react-redux'
+import { useSearchParams } from 'react-router-dom'
 import { classNames } from 'shared/lib/classNames/classNames'
 import {
   DynamicModuleLoader,
@@ -9,7 +12,6 @@ import {
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch'
 import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect/useInitialEffect'
 import { Page } from 'widgets/Page/Page'
-import { useSearchParams } from 'react-router-dom'
 import {
   getArticlesPageError,
   getArticlesPageIsLoading,
@@ -35,6 +37,8 @@ const initialReducers: ReducersList = {
 const ArticlesPage = (props: ArticlesPageProps) => {
   const { className } = props
   const dispatch = useAppDispatch()
+  const parentRef = useRef() as MutableRefObject<HTMLDivElement>
+
   const articles = useSelector(getArticles.selectAll)
 
   const isLoading = useSelector(getArticlesPageIsLoading)
@@ -55,6 +59,8 @@ const ArticlesPage = (props: ArticlesPageProps) => {
       <Page
         onScrollEnd={onLoadNextPart}
         className={classNames(cls.articlesPage, {}, [className])}
+        parentRef={parentRef}
+        saveScroll
       >
         <ArticlesPageFilters />
         <ArticleList
@@ -62,6 +68,9 @@ const ArticlesPage = (props: ArticlesPageProps) => {
           view={view}
           articles={articles}
           className={cls.list}
+          onLoadNextPart={onLoadNextPart}
+          parentRef={parentRef}
+          virtualized
         />
       </Page>
     </DynamicModuleLoader>

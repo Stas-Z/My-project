@@ -1,12 +1,12 @@
-import { ComponentStory, ComponentMeta } from '@storybook/react'
+import { ComponentMeta, ComponentStory } from '@storybook/react'
 import { Theme } from 'app/providers/ThemeProvider'
-import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator/ThemeDecorator'
-import { articleMock, articlesMock, entitiesMock } from 'entities/Article'
+import { entitiesMock } from 'entities/Article'
 import { StoreDecorator } from 'shared/config/storybook/StoreDecorator/StoreDecorator'
+import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator/ThemeDecorator'
 import { ArticleRecommendationsList } from './ArticleRecommendationsList'
 
 export default {
-  title: 'widgets/ArticleDetailsRecommendations',
+  title: 'widgets/Article/ArticleDetailsRecommendations',
   component: ArticleRecommendationsList,
   argTypes: {
     backgroundColor: { control: 'color' },

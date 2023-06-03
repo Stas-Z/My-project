@@ -18,38 +18,12 @@ export const Light = Template.bind({})
 Light.args = {
   children: 'Обертка для сраниц',
 }
-Light.decorators = [
-  StoreDecorator({
-    scrollSave: {
-      scroll: {
-        articles: 500,
-      },
-    },
-  }),
-]
+Light.decorators = [StoreDecorator({})]
 
 export const Dark = Template.bind({})
 Dark.args = { children: 'Обертка для сраниц' }
-Dark.decorators = [
-  ThemeDecorator(Theme.DARK),
-  StoreDecorator({
-    scrollSave: {
-      scroll: {
-        articles: 500,
-      },
-    },
-  }),
-]
+Dark.decorators = [ThemeDecorator(Theme.DARK), StoreDecorator({})]
 
 export const Choco = Template.bind({})
 Choco.args = { children: 'Обертка для сраниц' }
-Choco.decorators = [
-  ThemeDecorator(Theme.CHOCOLATE),
-  StoreDecorator({
-    scrollSave: {
-      scroll: {
-        articles: 500,
-      },
-    },
-  }),
-]
+Choco.decorators = [ThemeDecorator(Theme.CHOCOLATE), StoreDecorator({})]

@@ -1,11 +1,25 @@
 .list {
   .card {
     margin-bottom: 30px;
+    padding-right: 20px;
   }
 }
 
-.grid {
+.skeleton {
+  padding-bottom: 30px;
+}
+
+.itemContainer {
+  width: 230px;
   display: flex;
   flex-wrap: wrap;
   gap: 30px;
+
+  @media (max-width: 1024px) {
+    width: 50%;
+  }
+
+  @media (max-width: 300px) {
+    width: 100%;
+  }
 }

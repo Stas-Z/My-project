@@ -1,15 +1,13 @@
-import { memo, useCallback } from 'react'
-import { useTranslation } from 'react-i18next'
-import { useNavigate, useParams } from 'react-router-dom'
-import { ArticleDetailsComments } from 'widgets/ArticleDetailsComments'
 import { ArticleDetails } from 'entities/Article'
+import { memo } from 'react'
+import { useTranslation } from 'react-i18next'
+import { useParams } from 'react-router-dom'
 import { classNames } from 'shared/lib/classNames/classNames'
-import { Button, ButtonTheme } from 'shared/ui/Button/Button'
-import { RoutPath } from 'shared/config/routeConfig/routeConfig'
-import { Page } from 'widgets/Page/Page'
+import { ArticleDetailsComments } from 'widgets/ArticleDetailsComments'
 import { ArticleRecommendationsList } from 'widgets/ArticleDetailsRecommendations'
-import cls from './ArticleDetailsPage.module.scss'
+import { Page } from 'widgets/Page/Page'
 import { ArticleDetailsPageHeader } from '../ArticleDetailsPageHeader/ArticleDetailsPageHeader'
+import cls from './ArticleDetailsPage.module.scss'
 
 interface ArticleDetailsPageProps {
   className?: string
@@ -29,7 +27,10 @@ const ArticleDetailsPage = (props: ArticleDetailsPageProps) => {
   }
 
   return (
-    <Page className={classNames(cls.articleDetailsPage, {}, [className])}>
+    <Page
+      className={classNames(cls.articleDetailsPage, {}, [className])}
+      saveScroll
+    >
       <ArticleDetailsPageHeader />
       <ArticleDetails id={id} />
       <ArticleRecommendationsList />

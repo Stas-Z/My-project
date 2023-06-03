@@ -7,7 +7,7 @@
     "start": "webpack serve --env port=3000",
     "start:dev:server": "node ./json-server/index.js",
     "start:dev": "concurrently \"npm start\" \"npm run start:dev:server\"",
-    "build:prod": "webpack --env mode=production apiUrl=https://production-project-server-stas-z.vercel.app",
+    "build:prod": "webpack --env mode=production apiUrl=https://server-render-t0tt.onrender.com",
     "build:dev": "webpack --env mode=development",
     "analyze:prod": "npm run build:prod --env analyze=true",
     "analyze:dev": "npm run build:dev --env analyze=true",
@@ -103,7 +103,8 @@
     "react-dom": "^17.0.2",
     "react-i18next": "^11.18.6",
     "react-redux": "^7.2.6",
-    "react-router-dom": "^6.2.1"
+    "react-router-dom": "^6.2.1",
+    "react-virtuoso": "^4.1.1"
   },
   "loki": {
     "fetchFailIgnore": ".*",

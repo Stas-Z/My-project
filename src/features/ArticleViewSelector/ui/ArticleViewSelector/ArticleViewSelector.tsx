@@ -5,6 +5,7 @@ import ListIcon from 'shared/assets/icons/list-20-20.svg'
 import GridIcon from 'shared/assets/icons/tiled-20-20.svg'
 import { Button, ButtonTheme } from 'shared/ui/Button/Button'
 import { Icon } from 'shared/ui/Icon/Icon'
+import { ARTICLE_LIST_ITEM_LOCALSTORAGE_IDX } from 'shared/const/localstorage'
 import cls from './ArticleViewSelector.module.scss'
 
 interface ArticleViewSelectorProps {
@@ -31,6 +32,8 @@ export const ArticleViewSelector = memo((props: ArticleViewSelectorProps) => {
 
   const onClick = (newView: ArticleView) => () => {
     onViewClick?.(newView)
+
+    sessionStorage.removeItem(ARTICLE_LIST_ITEM_LOCALSTORAGE_IDX)
   }
 
   return (

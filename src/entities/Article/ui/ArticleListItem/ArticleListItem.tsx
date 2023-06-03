@@ -1,16 +1,15 @@
-import { HTMLAttributeAnchorTarget, memo, useCallback } from 'react'
+import { HTMLAttributeAnchorTarget, memo } from 'react'
 import { useTranslation } from 'react-i18next'
-import { classNames } from 'shared/lib/classNames/classNames'
-import { Text } from 'shared/ui/Text/Text'
-import { Icon } from 'shared/ui/Icon/Icon'
 import EyeIcon from 'shared/assets/icons/eye-20-20.svg'
-import { Card } from 'shared/ui/Card/Card'
+import { RoutPath } from 'shared/config/routeConfig/routeConfig'
+import { ARTICLE_LIST_ITEM_LOCALSTORAGE_IDX } from 'shared/const/localstorage'
+import { classNames } from 'shared/lib/classNames/classNames'
+import { AppLink } from 'shared/ui/AppLink/AppLink'
 import { Avatar } from 'shared/ui/Avatar/Avatar'
 import { Button, ButtonTheme } from 'shared/ui/Button/Button'
-import { useNavigate } from 'react-router-dom'
-import { RoutPath } from 'shared/config/routeConfig/routeConfig'
-import { AppLink } from 'shared/ui/AppLink/AppLink'
-import cls from './ArticleListItem.module.scss'
+import { Card } from 'shared/ui/Card/Card'
+import { Icon } from 'shared/ui/Icon/Icon'
+import { Text } from 'shared/ui/Text/Text'
 import {
   Article,
   ArticleBlockType,
@@ -18,17 +17,19 @@ import {
   ArticleView,
 } from '../../model/types/article'
 import { ArticleTextBlockComponent } from '../ArticleTextBlockComponent/ArticleTextBlockComponent'
+import cls from './ArticleListItem.module.scss'
 
 interface ArticleListItemProps {
   className?: string
   article: Article
-  view: ArticleView
+  view?: ArticleView
   target?: HTMLAttributeAnchorTarget
+  index?: number
 }
 
 export const ArticleListItem = memo((props: ArticleListItemProps) => {
   const {
-    className, article, view, target,
+    className, article, view = ArticleView.LIST, target, index,
   } = props
   const { t } = useTranslation('articles')
 
@@ -41,6 +42,16 @@ export const ArticleListItem = memo((props: ArticleListItemProps) => {
       <Icon Svg={EyeIcon} />
     </>
   )
+  const onButtonClick = () => {
+    if (index) {
+      sessionStorage.setItem(
+        ARTICLE_LIST_ITEM_LOCALSTORAGE_IDX,
+        JSON.stringify(index),
+      )
+    } else {
+      sessionStorage.setItem(ARTICLE_LIST_ITEM_LOCALSTORAGE_IDX, '0')
+    }
+  }
 
   if (view === ArticleView.LIST) {
     const textBlock = article.blocks.find(
@@ -52,8 +63,11 @@ export const ArticleListItem = memo((props: ArticleListItemProps) => {
       >
         <Card className={cls.card}>
           <div className={cls.header}>
-            <Avatar size={30} src={article.user.avatar} />
-            <Text text={article.user.username} className={cls.username} />
+            <Avatar size={30} src={article.user ? article.user.avatar : ''} />
+            <Text
+              text={article.user ? article.user.username : ''}
+              className={cls.username}
+            />
             <Text text={article.createdAt} className={cls.date} />
           </div>
           {title}
@@ -67,7 +81,9 @@ export const ArticleListItem = memo((props: ArticleListItemProps) => {
           )}
           <div className={cls.footer}>
             <AppLink to={RoutPath.article_details + article.id}>
-              <Button theme={ButtonTheme.OUTLINE}>{t('Read more')}</Button>
+              <Button onClick={onButtonClick} theme={ButtonTheme.OUTLINE}>
+                {t('Read more')}
+              </Button>
             </AppLink>
             {views}
           </div>
@@ -80,7 +96,11 @@ export const ArticleListItem = memo((props: ArticleListItemProps) => {
     <AppLink
       target={target}
       to={RoutPath.article_details + article.id}
-      className={classNames(cls.articleListItem, {}, [className, cls[view]])}
+      onClick={onButtonClick}
+      className={classNames(cls.articleListItemGrid, {}, [
+        className,
+        cls[view],
+      ])}
     >
       <Card className={cls.card}>
         <div className={cls.imageWrapper}>
