@@ -5,9 +5,9 @@ import { RoutPath } from 'shared/config/routeConfig/routeConfig'
 import { Button, ButtonTheme } from 'shared/ui/Button/Button'
 import { useNavigate } from 'react-router-dom'
 import { useSelector } from 'react-redux'
-import { getCanEditArticle } from 'pages/ArticleDetailsPage/model/selectors/articleDetailsPageSelectors'
 import { getArticleDetailsData } from 'entities/Article'
 import cls from './ArticleDetailsPageHeader.module.scss'
+import { getCanEditArticle } from '../../model/selectors/articleDetailsPageSelectors'
 
 interface ArticleDetailsPageHeaderProps {
   className?: string
