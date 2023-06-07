@@ -12,7 +12,7 @@ export const getSidebarItems = createSelector(getUserAuthData, (userData) => {
     {
       path: RoutPath.main,
       Icon: MainIcon,
-      text: 'Main Page',
+      text: 'Main',
     },
     {
       path: RoutPath.about,
@@ -26,13 +26,13 @@ export const getSidebarItems = createSelector(getUserAuthData, (userData) => {
       {
         path: RoutPath.profile + userData.id,
         Icon: ProfileIcon,
-        text: 'Profile page',
+        text: 'Profile',
         authOnly: true,
       },
       {
         path: RoutPath.articles,
         Icon: ArticleIcon,
-        text: 'Articles Page',
+        text: 'Articles',
         authOnly: true,
       },
     )

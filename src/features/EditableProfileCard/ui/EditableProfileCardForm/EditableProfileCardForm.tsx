@@ -7,6 +7,7 @@ import { Currency } from 'entities/Currency'
 import { Country } from 'entities/Country'
 import { Text, TextTheme } from 'shared/ui/Text/Text'
 import { useTranslation } from 'react-i18next'
+import { VStack } from 'shared/ui/Stack'
 import { ValidateProfileEror } from '../../model/types/profile'
 import { getProfileValidateErrors } from '../../model/selectors/getProfileValidateErrors/getProfileValidateErrors'
 import { getProfileError } from '../../model/selectors/getProfileError/getProfileError'
@@ -95,7 +96,7 @@ export const EditableProfileCardForm = (
   )
 
   return (
-    <div className={classNames('', {}, [className])}>
+    <VStack max gap="16" className={classNames('', {}, [className])}>
       <EditableProfileCardHeader />
       {validateErrors?.length
         && validateErrors.map((err) => (
@@ -119,6 +120,6 @@ export const EditableProfileCardForm = (
         onChangeCurrency={onChangeCurrency}
         onChangeCountry={onChangeCountry}
       />
-    </div>
+    </VStack>
   )
 }

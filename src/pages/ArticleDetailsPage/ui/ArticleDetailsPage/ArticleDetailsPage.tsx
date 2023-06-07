@@ -6,6 +6,7 @@ import { classNames } from 'shared/lib/classNames/classNames'
 import { ArticleDetailsComments } from 'widgets/ArticleDetailsComments'
 import { ArticleRecommendationsList } from 'widgets/ArticleDetailsRecommendations'
 import { Page } from 'widgets/Page/Page'
+import { VStack } from 'shared/ui/Stack'
 import { ArticleDetailsPageHeader } from '../ArticleDetailsPageHeader/ArticleDetailsPageHeader'
 import cls from './ArticleDetailsPage.module.scss'
 
@@ -31,10 +32,12 @@ const ArticleDetailsPage = (props: ArticleDetailsPageProps) => {
       className={classNames(cls.articleDetailsPage, {}, [className])}
       saveScroll
     >
-      <ArticleDetailsPageHeader />
-      <ArticleDetails id={id} />
-      <ArticleRecommendationsList />
-      <ArticleDetailsComments />
+      <VStack gap="16" max align="unset">
+        <ArticleDetailsPageHeader />
+        <ArticleDetails id={id} />
+        <ArticleRecommendationsList />
+        <ArticleDetailsComments />
+      </VStack>
     </Page>
   )
 }

@@ -88,6 +88,7 @@ module.exports = {
       rules: {
         'react/jsx-props-no-spreading': ['error', { custom: 'ignore' }],
         'max-len': 'off',
+        'i18next/no-literal-string': 'off',
       },
     },
   ],

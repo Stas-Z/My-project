@@ -5,6 +5,7 @@ import { Text } from 'shared/ui/Text/Text'
 import { Skeleton } from 'shared/ui/Skeleton/Skeleton'
 import { AppLink } from 'shared/ui/AppLink/AppLink'
 import { RoutPath } from 'shared/config/routeConfig/routeConfig'
+import { VStack } from 'shared/ui/Stack'
 import cls from './CommentCard.module.scss'
 import { Comment } from '../../model/types/comment'
 
@@ -19,7 +20,9 @@ export const CommentCard = memo((props: CommentCardProps) => {
 
   if (isLoading) {
     return (
-      <div
+      <VStack
+        gap="8"
+        max
         className={classNames(cls.commentCard, {}, [className, cls.loading])}
       >
         <div className={cls.header}>
@@ -27,14 +30,18 @@ export const CommentCard = memo((props: CommentCardProps) => {
           <Skeleton height={16} width={100} className={cls.username} />
         </div>
         <Skeleton width="100%" height={50} className={cls.text} />
-      </div>
+      </VStack>
     )
   }
   if (!comment) {
     return null
   }
   return (
-    <div className={classNames(cls.commentCard, {}, [className])}>
+    <VStack
+      gap="8"
+      max
+      className={classNames(cls.commentCard, {}, [className])}
+    >
       <AppLink
         to={`${RoutPath.profile}${comment.user.id}`}
         className={cls.header}
@@ -45,6 +52,6 @@ export const CommentCard = memo((props: CommentCardProps) => {
         <Text className={cls.username} title={comment.user.username} />
       </AppLink>
       <Text className={cls.text} text={comment.text} />
-    </div>
+    </VStack>
   )
 })

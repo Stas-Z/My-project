@@ -5,11 +5,12 @@ import { classNames } from 'shared/lib/classNames/classNames'
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch'
 import { Button, ButtonTheme } from 'shared/ui/Button/Button'
 import { getUserAuthData } from 'entities/User'
+import { Text } from 'shared/ui/Text/Text'
+import { HStack } from 'shared/ui/Stack'
 import { updateProfileData } from '../../model/services/updateProfileData/updateProfileData'
 import { getProfileData } from '../../model/selectors/getProfileData/getProfileData'
 import { getProfileReadonly } from '../../model/selectors/getProfileReadonly/getProfileReadonly'
 import { profileActions } from '../../model/slice/profileSlice'
-import cls from './EditableProfileCardHeader.module.scss'
 
 interface EditableProfileCardHeaderProps {
   className?: string
@@ -60,37 +61,26 @@ export const EditableProfileCardHeader = (
   }, [onKeyDown, readonly])
 
   return (
-    <div className={classNames(cls.editableProfileCardHeader, {}, [className])}>
+    <HStack max justify="between" className={classNames('', {}, [className])}>
+      <Text title={t('Profile')} />
       {canEdit && (
-        <div className={cls.btnsWrapper}>
+        <div>
           {readonly ? (
-            <Button
-              className={cls.editBtn}
-              theme={ButtonTheme.OUTLINE}
-              onClick={onEdit}
-            >
+            <Button theme={ButtonTheme.OUTLINE} onClick={onEdit}>
               {t('Edit')}
             </Button>
           ) : (
-            <>
-              <Button
-                className={cls.editBtn}
-                theme={ButtonTheme.OUTLINE_RED}
-                onClick={onCancelEdit}
-              >
+            <HStack gap="8">
+              <Button theme={ButtonTheme.OUTLINE_RED} onClick={onCancelEdit}>
                 {t('Cancel')}
               </Button>
-              <Button
-                className={cls.saveBtn}
-                theme={ButtonTheme.OUTLINE}
-                onClick={onSave}
-              >
+              <Button theme={ButtonTheme.OUTLINE} onClick={onSave}>
                 {t('Save')}
               </Button>
-            </>
+            </HStack>
           )}
         </div>
       )}
-    </div>
+    </HStack>
   )
 }

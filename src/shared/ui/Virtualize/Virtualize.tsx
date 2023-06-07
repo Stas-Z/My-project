@@ -9,8 +9,9 @@ import {
 import { Virtuoso, VirtuosoGrid, VirtuosoHandle } from 'react-virtuoso'
 
 import { classNames } from 'shared/lib/classNames/classNames'
-import { ViewType } from 'shared/types/sort'
 import cls from './Virtualize.module.scss'
+
+type ViewType = 'list' | 'grid'
 
 export interface VirtualizeProps<T> {
   data: T[]

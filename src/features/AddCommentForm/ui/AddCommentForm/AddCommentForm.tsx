@@ -10,6 +10,7 @@ import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch'
 import { Button, ButtonTheme } from 'shared/ui/Button/Button'
 import { Input } from 'shared/ui/Input/Input'
 import { Skeleton } from 'shared/ui/Skeleton/Skeleton'
+import { HStack, VStack } from 'shared/ui/Stack'
 import {
   getAddCommentFormError,
   getAddCommentFormText,
@@ -51,18 +52,22 @@ const AddCommentForm = (props: AddCommentFormProps) => {
 
   if (isLoading) {
     return (
-      <div className={classNames('', {}, [className, cls.loading])}>
+      <VStack max className={classNames('', {}, [className, cls.loading])}>
         <div className={cls.header}>
           <Skeleton height={16} width={100} />
         </div>
         <Skeleton width="100%" height={50} className={cls.text} />
-      </div>
+      </VStack>
     )
   }
 
   return (
     <DynamicModuleLoader reducers={initialReducers}>
-      <div className={classNames(cls.addCommentForm, {}, [className])}>
+      <HStack
+        justify="between"
+        max
+        className={classNames(cls.addCommentForm, {}, [className])}
+      >
         <Input
           className={cls.input}
           placeholder={t('Leave comment')}
@@ -72,7 +77,7 @@ const AddCommentForm = (props: AddCommentFormProps) => {
         <Button onClick={onSendHandler} theme={ButtonTheme.OUTLINE}>
           {t('Submit')}
         </Button>
-      </div>
+      </HStack>
     </DynamicModuleLoader>
   )
 }
