@@ -1,6 +1,7 @@
+import { ComponentProps, ElementType, ReactNode } from 'react'
 import { Mods, classNames } from 'shared/lib/classNames/classNames'
-import { ReactNode } from 'react'
 import cls from './Flex.module.scss'
+import { PolymorphicComponentProp } from '../../../types/polymorphic'
 
 export type FlexJustify = 'start' | 'center' | 'end' | 'between'
 export type FlexAlign = 'start' | 'center' | 'end' | 'unset'
@@ -35,7 +36,6 @@ const gapClasses: Record<FlexGap, string> = {
 
 export interface FlexProps {
   className?: string
-  children: ReactNode
   justify?: FlexJustify
   align?: FlexAlign
   direction?: FlexDirection
@@ -43,7 +43,11 @@ export interface FlexProps {
   max?: boolean
 }
 
-export const Flex = (props: FlexProps) => {
+export const defaultFlexTag = 'div'
+
+export const Flex = <E extends ElementType = typeof defaultFlexTag>(
+  props: PolymorphicComponentProp<E, FlexProps>,
+) => {
   const {
     className,
     children,
@@ -52,6 +56,7 @@ export const Flex = (props: FlexProps) => {
     direction = 'row',
     gap,
     max,
+    as,
   } = props
 
   const classes = [
@@ -65,6 +70,7 @@ export const Flex = (props: FlexProps) => {
   const mods: Mods = {
     [cls.max]: max,
   }
+  const Tag = as ?? defaultFlexTag
 
-  return <div className={classNames(cls.flex, mods, classes)}>{children}</div>
+  return <Tag className={classNames(cls.flex, mods, classes)}>{children}</Tag>
 }
