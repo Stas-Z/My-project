@@ -1,0 +1,51 @@
+.listBox {
+  position: relative;
+}
+
+.options {
+  background: var(--listbox-bg);
+  position: absolute;
+  z-index: 1000000;
+  border-radius: 5px;
+  box-shadow: 4px 4px 8px var(--listbox-shadow);
+  min-width: 100%;
+  padding-top: 4px;
+  padding-bottom: 4px;
+
+  &.top {
+    bottom: 100%;
+  }
+}
+
+.item {
+  padding: 10px 20px 10px 30px;
+  position: relative;
+  cursor: pointer;
+}
+
+.active,
+.selected {
+  font-weight: bold;
+}
+
+.disabled {
+  opacity: 0.7;
+}
+
+.icon {
+  width: 20px;
+  height: 20px;
+  fill: var(--inverted-secondary-color);
+}
+
+.iconWrapper {
+  left: 0;
+  top: 0;
+  bottom: 0;
+  position: absolute;
+  padding-left: 5px;
+}
+
+.editing {
+  opacity: 0.7;
+}
