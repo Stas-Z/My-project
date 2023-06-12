@@ -8,6 +8,7 @@ import { Avatar } from 'shared/ui/Avatar/Avatar'
 import { Currency, CurrencySelect } from 'entities/Currency'
 import { Country, CountrySelect } from 'entities/Country'
 import { HStack, VStack } from 'shared/ui/Stack'
+import DefaultAvatar from 'shared/assets/icons/default-avatar.svg'
 import { Profile } from '../../../../features/EditableProfileCard/model/types/profile'
 import cls from './ProfileCard.module.scss'
 
@@ -83,9 +84,13 @@ export const ProfileCard = memo((props: ProfileCardProps) => {
       max
       className={classNames(cls.profileCard, mods, [className])}
     >
-      {data?.avatar && (
+      {data?.avatar ? (
         <HStack justify="center" max className={cls.avatarWrapper}>
           <Avatar src={data?.avatar} alt="avatar" />
+        </HStack>
+      ) : (
+        <HStack justify="center" max className={cls.avatarWrapper}>
+          <DefaultAvatar className={cls.avatar} />
         </HStack>
       )}
       <Input

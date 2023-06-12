@@ -2,6 +2,7 @@ import { Listbox as HListbox } from '@headlessui/react'
 import { Fragment, ReactNode, memo } from 'react'
 import CheckIcon from 'shared/assets/icons/check-20-20.svg'
 import { classNames } from 'shared/lib/classNames/classNames'
+import { DropdownDirection } from 'shared/types/ui'
 import { Button, ButtonTheme } from '../Button/Button'
 import { Icon } from '../Icon/Icon'
 import { HStack } from '../Stack'
@@ -12,8 +13,6 @@ export interface ListBoxItem {
   content: ReactNode
   disabled?: boolean
 }
-
-type DropdownDirection = 'top' | 'bottom'
 
 interface ListBoxProps {
   className?: string
@@ -35,7 +34,7 @@ export const ListBox = memo((props: ListBoxProps) => {
     defaultValue,
     value,
     readonly,
-    direction = 'bottom',
+    direction = 'bottom_right',
     label,
     editing,
   } = props

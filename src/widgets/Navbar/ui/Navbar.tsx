@@ -5,9 +5,12 @@ import { useTranslation } from 'react-i18next'
 import { useDispatch, useSelector } from 'react-redux'
 import { RoutPath } from 'shared/config/routeConfig/routeConfig'
 import { classNames } from 'shared/lib/classNames/classNames'
-import { AppLink, AppLinkTheme } from 'shared/ui/AppLink/AppLink'
+import AppLink, { AppLinkTheme } from 'shared/ui/AppLink/AppLink'
 import { Button, ButtonTheme } from 'shared/ui/Button/Button'
 import { Text, TextTheme } from 'shared/ui/Text/Text'
+import { Dropdown } from 'shared/ui/Dropdown/Dropdown'
+import { Avatar } from 'shared/ui/Avatar/Avatar'
+import DefaultAvatar from 'shared/assets/icons/default-avatar.svg'
 import cls from './Navbar.module.scss'
 
 interface NavbarProps {
@@ -46,13 +49,29 @@ export const Navbar = memo(({ className }: NavbarProps) => {
         >
           {t('Create new article')}
         </AppLink>
-        <Button
-          onClick={onLogout}
-          theme={ButtonTheme.CLEAR_INVERTED}
-          className={cls.links}
-        >
-          {t('Logout')}
-        </Button>
+        <Dropdown
+          className={cls.dropdown}
+          items={[
+            {
+              id: '1',
+              content: t('Profile'),
+              href: RoutPath.profile + authData.id,
+            },
+            {
+              id: '2',
+              content: t('Logout'),
+              onClick: onLogout,
+            },
+          ]}
+          trigger={
+            authData.avatar ? (
+              <Avatar size={30} src={authData.avatar} />
+            ) : (
+              <DefaultAvatar className={cls.avatar} />
+            )
+          }
+          direction="bottom_left"
+        />
       </header>
     )
   }

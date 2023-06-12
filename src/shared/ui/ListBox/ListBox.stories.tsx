@@ -1,6 +1,4 @@
-import { ComponentStory, ComponentMeta } from '@storybook/react'
-import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator/ThemeDecorator'
-import { Theme } from 'app/providers/ThemeProvider'
+import { ComponentMeta, ComponentStory } from '@storybook/react'
 import { ListBox } from './ListBox'
 
 export default {
@@ -9,6 +7,13 @@ export default {
   argTypes: {
     backgroundColor: { control: 'color' },
   },
+  decorators: [
+    (Story) => (
+      <div style={{ padding: 100 }}>
+        <Story />
+      </div>
+    ),
+  ],
 } as ComponentMeta<typeof ListBox>
 
 const Template: ComponentStory<typeof ListBox> = (args) => <ListBox {...args} />
@@ -21,28 +26,35 @@ const people = [
   { value: '5', content: 'Katelyn' },
 ]
 
-export const Light = Template.bind({})
-Light.args = {
+export const TopLeft = Template.bind({})
+TopLeft.args = {
   label: 'Text Sample',
   value: undefined,
-  defaultValue: 'Options list',
+  defaultValue: 'Options',
   items: people,
+  direction: 'top_left',
 }
-
-export const Dark = Template.bind({})
-Dark.args = {
+export const TopRight = Template.bind({})
+TopRight.args = {
   label: 'Text Sample',
   value: undefined,
-  defaultValue: 'Options list',
+  defaultValue: 'Options',
   items: people,
+  direction: 'top_right',
 }
-Dark.decorators = [ThemeDecorator(Theme.DARK)]
-
-export const Choco = Template.bind({})
-Choco.args = {
+export const BottomLeft = Template.bind({})
+BottomLeft.args = {
   label: 'Text Sample',
   value: undefined,
-  defaultValue: 'Options list',
+  defaultValue: 'Options',
   items: people,
+  direction: 'bottom_left',
 }
-Choco.decorators = [ThemeDecorator(Theme.CHOCOLATE)]
+export const BottomRight = Template.bind({})
+BottomRight.args = {
+  label: 'Text Sample',
+  value: undefined,
+  defaultValue: 'Options',
+  items: people,
+  direction: 'bottom_right',
+}

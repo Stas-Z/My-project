@@ -12,13 +12,29 @@
   padding-top: 4px;
   padding-bottom: 4px;
 
-  &.top {
+  &.top_right {
     bottom: 100%;
+    left: 0;
+  }
+
+  &.top_left {
+    bottom: 100%;
+    right: 0;
+  }
+
+  &.bottom_right {
+    top: 100%;
+    left: 0;
+  }
+
+  &.bottom_left {
+    top: 100%;
+    right: 0;
   }
 }
 
 .item {
-  padding: 10px 20px 10px 30px;
+  padding: 10px 25px 10px 30px;
   position: relative;
   cursor: pointer;
 }
