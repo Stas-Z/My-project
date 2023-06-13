@@ -22,5 +22,6 @@
   "You may also like": "Вас может заинтересовать",
   "Edit page": "Редактировать",
   "New article": "Создание новой статьи",
-  "Edit article whith ID": "Редактирование статьи с ID = "
+  "Edit article whith ID": "Редактирование статьи с ID = ",
+  "An error occurred while loading the recommendations": "Произошла ошибка при загрузки рекомендаций."
 }

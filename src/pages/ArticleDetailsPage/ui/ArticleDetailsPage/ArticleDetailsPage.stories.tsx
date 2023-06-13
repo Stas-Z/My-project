@@ -1,9 +1,14 @@
+import { QueryStatus } from '@reduxjs/toolkit/dist/query'
 import { ComponentMeta, ComponentStory } from '@storybook/react'
 import { Theme } from 'app/providers/ThemeProvider'
+import { articleMock, articlesMock } from 'entities/Article'
+import { rtkApi } from 'shared/api/rtkApi'
 import { StoreDecorator } from 'shared/config/storybook/StoreDecorator/StoreDecorator'
 import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator/ThemeDecorator'
-import { articleMock, entitiesMock } from 'entities/Article'
+import withMock from 'storybook-addon-mock'
 import ArticleDetailsPage from './ArticleDetailsPage'
+
+const articles = articlesMock
 
 export default {
   title: 'pages/Article/ArticleDetailsPage',
@@ -13,6 +18,14 @@ export default {
       path: '/articles/:id',
       route: '/articles/1',
     },
+    mockData: [
+      {
+        url: `${__API__}/articles?_limit=4`,
+        method: 'GET',
+        status: 200,
+        response: articles,
+      },
+    ],
   },
   argTypes: {
     backgroundColor: { control: 'color' },
@@ -55,17 +68,14 @@ const entitiesComments = {
 }
 const idsComments = ['1', '2']
 
-const entities = entitiesMock
-const ids = ['1', '2', '3', '4', '5']
-
 export const Light = Template.bind({})
 Light.args = {}
 Light.decorators = [
   StoreDecorator({
     articleDetails: { data: article },
     articleDetailsComments: { entities: entitiesComments, ids: idsComments },
-    articleRecommendationsList: { entities, ids },
   }),
+  withMock,
 ]
 
 export const Loading = Template.bind({})
@@ -78,8 +88,15 @@ Loading.decorators = [
       entities: entitiesComments,
       ids: idsComments,
     },
-    articleRecommendationsList: { isLoading: true, entities, ids },
+    [rtkApi.reducerPath]: {
+      queries: {
+        'getArticleRecommendationsList(4)': {
+          status: 'pending' as QueryStatus,
+        },
+      },
+    },
   }),
+  withMock,
 ]
 
 export const Error = Template.bind({})
@@ -87,6 +104,13 @@ Error.args = {}
 Error.decorators = [
   StoreDecorator({
     articleDetails: { error: 'error' },
+    [rtkApi.reducerPath]: {
+      queries: {
+        'getArticleRecommendationsList(4)': {
+          data: [],
+        },
+      },
+    },
   }),
 ]
 
@@ -97,8 +121,11 @@ Dark.decorators = [
   StoreDecorator({
     articleDetails: { data: article },
     articleDetailsComments: { entities: entitiesComments, ids: idsComments },
-    articleRecommendationsList: { entities, ids },
+    [rtkApi.reducerPath]: {
+      queries: { 'getArticleRecommendationsList(4)': { data: articles } },
+    },
   }),
+  withMock,
 ]
 
 export const DarkLoading = Template.bind({})
@@ -112,8 +139,15 @@ DarkLoading.decorators = [
       entities: entitiesComments,
       ids: idsComments,
     },
-    articleRecommendationsList: { isLoading: true, entities, ids },
+    [rtkApi.reducerPath]: {
+      queries: {
+        'getArticleRecommendationsList(4)': {
+          status: 'pending' as QueryStatus,
+        },
+      },
+    },
   }),
+  withMock,
 ]
 
 export const DarkError = Template.bind({})
@@ -122,6 +156,13 @@ DarkError.decorators = [
   ThemeDecorator(Theme.DARK),
   StoreDecorator({
     articleDetails: { error: 'error' },
+    [rtkApi.reducerPath]: {
+      queries: {
+        'getArticleRecommendationsList(4)': {
+          data: [],
+        },
+      },
+    },
   }),
 ]
 
@@ -132,8 +173,11 @@ Choco.decorators = [
   StoreDecorator({
     articleDetails: { data: article },
     articleDetailsComments: { entities: entitiesComments, ids: idsComments },
-    articleRecommendationsList: { entities, ids },
+    [rtkApi.reducerPath]: {
+      queries: { 'getArticleRecommendationsList(4)': { data: articles } },
+    },
   }),
+  withMock,
 ]
 
 export const ChocoLoading = Template.bind({})
@@ -147,8 +191,15 @@ ChocoLoading.decorators = [
       entities: entitiesComments,
       ids: idsComments,
     },
-    articleRecommendationsList: { isLoading: true, entities, ids },
+    [rtkApi.reducerPath]: {
+      queries: {
+        'getArticleRecommendationsList(4)': {
+          status: 'pending' as QueryStatus,
+        },
+      },
+    },
   }),
+  withMock,
 ]
 
 export const ChocoError = Template.bind({})
@@ -157,5 +208,12 @@ ChocoError.decorators = [
   ThemeDecorator(Theme.CHOCOLATE),
   StoreDecorator({
     articleDetails: { error: 'error' },
+    [rtkApi.reducerPath]: {
+      queries: {
+        'getArticleRecommendationsList(4)': {
+          data: [],
+        },
+      },
+    },
   }),
 ]

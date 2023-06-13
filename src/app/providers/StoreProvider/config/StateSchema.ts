@@ -13,20 +13,20 @@ import { LoginSchema } from 'features/AuthByUsername'
 import { ProfileSchema } from 'features/EditableProfileCard'
 import { ScrollSaveSchema } from 'features/ScrollSave'
 import { ArticlesPageSchema } from 'pages/ArticlesPage'
+import { rtkApi } from 'shared/api/rtkApi'
 import { ArticleDetailsCommentsSchema } from 'widgets/ArticleDetailsComments'
-import { ArticleRecommendationsListSchema } from 'widgets/ArticleDetailsRecommendations'
 
 export interface StateSchema {
   counter: CounterSchema
   user: UserSchema
   scrollSave: ScrollSaveSchema
+  [rtkApi.reducerPath]: ReturnType<typeof rtkApi.reducer>
 
   // Асинхронные редьюсеры
   loginForm?: LoginSchema
   profile?: ProfileSchema
   articleDetails?: ArticleDetailsSchema
   articleDetailsComments?: ArticleDetailsCommentsSchema
-  articleRecommendationsList?: ArticleRecommendationsListSchema
   addCommentForm?: AddCommentFormSchema
   articlesPage?: ArticlesPageSchema
 }

@@ -1,9 +1,12 @@
 import { ComponentMeta, ComponentStory } from '@storybook/react'
 import { Theme } from 'app/providers/ThemeProvider'
-import { entitiesMock } from 'entities/Article'
+import { articlesMock } from 'entities/Article'
 import { StoreDecorator } from 'shared/config/storybook/StoreDecorator/StoreDecorator'
 import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator/ThemeDecorator'
+import withMock from 'storybook-addon-mock'
 import { ArticleRecommendationsList } from './ArticleRecommendationsList'
+
+const articles = articlesMock
 
 export default {
   title: 'widgets/Article/ArticleDetailsRecommendations',
@@ -11,37 +14,31 @@ export default {
   argTypes: {
     backgroundColor: { control: 'color' },
   },
+  decorators: [withMock],
+  parameters: {
+    mockData: [
+      {
+        url: `${__API__}/articles?_limit=4`,
+        method: 'GET',
+        status: 200,
+        response: articles,
+      },
+    ],
+  },
 } as ComponentMeta<typeof ArticleRecommendationsList>
 
 const Template: ComponentStory<typeof ArticleRecommendationsList> = (args) => (
   <ArticleRecommendationsList {...args} />
 )
 
-const entities = entitiesMock
-const ids = ['1', '2', '3', '4', '5']
-
 export const Light = Template.bind({})
 Light.args = {}
-Light.decorators = [
-  StoreDecorator({
-    articleRecommendationsList: { entities, ids },
-  }),
-]
+Light.decorators = [StoreDecorator({})]
 
 export const Dark = Template.bind({})
 Dark.args = {}
-Dark.decorators = [
-  ThemeDecorator(Theme.DARK),
-  StoreDecorator({
-    articleRecommendationsList: { entities, ids },
-  }),
-]
+Dark.decorators = [ThemeDecorator(Theme.DARK), StoreDecorator({})]
 
 export const Choco = Template.bind({})
 Choco.args = {}
-Choco.decorators = [
-  ThemeDecorator(Theme.CHOCOLATE),
-  StoreDecorator({
-    articleRecommendationsList: { entities, ids },
-  }),
-]
+Choco.decorators = [ThemeDecorator(Theme.CHOCOLATE), StoreDecorator({})]

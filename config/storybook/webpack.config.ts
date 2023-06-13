@@ -12,6 +12,8 @@ export default ({ config }: { config: webpack.Configuration }) => {
     src: path.resolve(__dirname, '..', '..', 'src'), // Путь до папки с исходным кодом
     locales: '',
     buildLocales: '',
+    img: '',
+    buildImg: '',
   }
   config.resolve?.modules?.push(paths.src) // Переопределяем путь до папки с исходным кодом
   config.resolve?.extensions?.push('.ts', '.tsx') // Переопределяем расширение для файлов
@@ -38,7 +40,7 @@ export default ({ config }: { config: webpack.Configuration }) => {
   config.plugins?.push(
     new webpack.DefinePlugin({
       __IS_DEV__: JSON.stringify(true),
-      __API__: JSON.stringify(''),
+      __API__: JSON.stringify('https://testapi.ru'),
       __PROJECT__: JSON.stringify('storybook'),
     }),
   )
