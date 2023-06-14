@@ -6,7 +6,7 @@ import { articleMock } from 'entities/Article'
 import { ArticleDetailsPageHeader } from './ArticleDetailsPageHeader'
 
 export default {
-  title: 'pages/Article/ArticleDetailsPageHeader',
+  title: 'pages/ArticleDetailsPage/ArticleDetailsPageHeader',
   component: ArticleDetailsPageHeader,
   argTypes: {
     backgroundColor: { control: 'color' },

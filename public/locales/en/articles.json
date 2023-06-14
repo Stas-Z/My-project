@@ -23,5 +23,6 @@
   "on.New article": "New article",
   "New article": "New article",
   "Edit article whith ID": "Edit article whith ID = ",
-  "An error occurred while loading the recommendations": "An error occurred while loading the recommendations"
+  "An error occurred while loading the recommendations": "An error occurred while loading the recommendations",
+  "An error occurred while loading the articles": "An error occurred while loading the articles"
 }

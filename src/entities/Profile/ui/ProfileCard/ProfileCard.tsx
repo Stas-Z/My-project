@@ -9,7 +9,7 @@ import { Currency, CurrencySelect } from 'entities/Currency'
 import { Country, CountrySelect } from 'entities/Country'
 import { HStack, VStack } from 'shared/ui/Stack'
 import DefaultAvatar from 'shared/assets/icons/default-avatar.svg'
-import { Profile } from '../../../../features/EditableProfileCard/model/types/profile'
+import { Profile } from '../../model/profile'
 import cls from './ProfileCard.module.scss'
 
 interface ProfileCardProps {

@@ -7,7 +7,7 @@ import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator/ThemeDeco
 import { EditableProfileCardForm } from './EditableProfileCardForm'
 
 export default {
-  title: 'features/EditableProfileCardForm',
+  title: 'features/Profile/EditableProfileCardForm',
   component: EditableProfileCardForm,
   argTypes: {
     backgroundColor: { control: 'color' },

@@ -11,7 +11,7 @@ import ArticleDetailsPage from './ArticleDetailsPage'
 const articles = articlesMock
 
 export default {
-  title: 'pages/Article/ArticleDetailsPage',
+  title: 'pages/ArticleDetailsPage/ArticleDetailsPage',
   component: ArticleDetailsPage,
   parameters: {
     router: {
@@ -73,7 +73,7 @@ Light.args = {}
 Light.decorators = [
   StoreDecorator({
     articleDetails: { data: article },
-    articleDetailsComments: { entities: entitiesComments, ids: idsComments },
+    articleComments: { entities: entitiesComments, ids: idsComments },
   }),
   withMock,
 ]
@@ -83,7 +83,7 @@ Loading.args = {}
 Loading.decorators = [
   StoreDecorator({
     articleDetails: { isLoading: true },
-    articleDetailsComments: {
+    articleComments: {
       isLoading: true,
       entities: entitiesComments,
       ids: idsComments,
@@ -120,7 +120,7 @@ Dark.decorators = [
   ThemeDecorator(Theme.DARK),
   StoreDecorator({
     articleDetails: { data: article },
-    articleDetailsComments: { entities: entitiesComments, ids: idsComments },
+    articleComments: { entities: entitiesComments, ids: idsComments },
     [rtkApi.reducerPath]: {
       queries: { 'getArticleRecommendationsList(4)': { data: articles } },
     },
@@ -134,7 +134,7 @@ DarkLoading.decorators = [
   ThemeDecorator(Theme.DARK),
   StoreDecorator({
     articleDetails: { isLoading: true },
-    articleDetailsComments: {
+    articleComments: {
       isLoading: true,
       entities: entitiesComments,
       ids: idsComments,
@@ -172,7 +172,7 @@ Choco.decorators = [
   ThemeDecorator(Theme.CHOCOLATE),
   StoreDecorator({
     articleDetails: { data: article },
-    articleDetailsComments: { entities: entitiesComments, ids: idsComments },
+    articleComments: { entities: entitiesComments, ids: idsComments },
     [rtkApi.reducerPath]: {
       queries: { 'getArticleRecommendationsList(4)': { data: articles } },
     },
@@ -186,7 +186,7 @@ ChocoLoading.decorators = [
   ThemeDecorator(Theme.CHOCOLATE),
   StoreDecorator({
     articleDetails: { isLoading: true },
-    articleDetailsComments: {
+    articleComments: {
       isLoading: true,
       entities: entitiesComments,
       ids: idsComments,

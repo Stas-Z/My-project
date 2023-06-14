@@ -1,30 +1,40 @@
+import { Country } from 'entities/Country'
+import { Currency } from 'entities/Currency'
 import { ProfileCard } from 'entities/Profile'
 import { useCallback } from 'react'
+import { useTranslation } from 'react-i18next'
 import { useSelector } from 'react-redux'
 import { classNames } from 'shared/lib/classNames/classNames'
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch'
-import { Currency } from 'entities/Currency'
-import { Country } from 'entities/Country'
 import { Text, TextTheme } from 'shared/ui/Text/Text'
-import { useTranslation } from 'react-i18next'
+import {
+  DynamicModuleLoader,
+  ReducersList,
+} from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader'
 import { VStack } from 'shared/ui/Stack'
-import { ValidateProfileEror } from '../../model/types/profile'
-import { getProfileValidateErrors } from '../../model/selectors/getProfileValidateErrors/getProfileValidateErrors'
+import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect/useInitialEffect'
+import { fetchProfileData } from '../../model/services/fetchProfileData/fetchProfileData'
 import { getProfileError } from '../../model/selectors/getProfileError/getProfileError'
 import { getProfileForm } from '../../model/selectors/getProfileForm/getProfileForm'
 import { getProfileIsLoading } from '../../model/selectors/getProfileIsLoading/getProfileIsLoading'
 import { getProfileReadonly } from '../../model/selectors/getProfileReadonly/getProfileReadonly'
-import { EditableProfileCardHeader } from '../EditableProfileCardHeader/EditableProfileCardHeader'
-import { profileActions } from '../../model/slice/profileSlice'
+import { getProfileValidateErrors } from '../../model/selectors/getProfileValidateErrors/getProfileValidateErrors'
+import { profileActions, profileReducer } from '../../model/slice/profileSlice'
+import { ValidateProfileEror } from '../../model/types/editableProfileCardSchema'
 
 interface EditableProfileCardFormProps {
   className?: string
+  id: string
+}
+
+const initialReducers: ReducersList = {
+  profile: profileReducer,
 }
 
 export const EditableProfileCardForm = (
   props: EditableProfileCardFormProps,
 ) => {
-  const { className } = props
+  const { className, id } = props
 
   const dispatch = useAppDispatch()
   const { t } = useTranslation('profile')
@@ -42,6 +52,12 @@ export const EditableProfileCardForm = (
     [ValidateProfileEror.INCORRECT_USER_DATA]: t('Incorrect user data'),
     [ValidateProfileEror.NO_DATA]: t('No data'),
   }
+
+  useInitialEffect(() => {
+    if (id) {
+      dispatch(fetchProfileData(id))
+    }
+  })
 
   const onChangeFirstname = useCallback(
     (value?: string) => {
@@ -96,30 +112,31 @@ export const EditableProfileCardForm = (
   )
 
   return (
-    <VStack max gap="16" className={classNames('', {}, [className])}>
-      <EditableProfileCardHeader />
-      {validateErrors?.length
-        && validateErrors.map((err) => (
-          <Text
-            theme={TextTheme.ERROR}
-            text={ValidateErrorTranslates[err]}
-            key={err}
-          />
-        ))}
-      <ProfileCard
-        data={formData}
-        isLoading={isLoading}
-        error={error}
-        readonly={readonly}
-        onChangeFirstname={onChangeFirstname}
-        onChangeLastname={onChangeLastname}
-        onChangeAge={onChangeAge}
-        onChangeCity={onChangeCity}
-        onChangeAvatar={onChangeAvatar}
-        onChangeUsername={onChangeUsername}
-        onChangeCurrency={onChangeCurrency}
-        onChangeCountry={onChangeCountry}
-      />
-    </VStack>
+    <DynamicModuleLoader reducers={initialReducers} removeAfterUnmount>
+      <VStack max className={classNames('', {}, [className])}>
+        {validateErrors?.length
+          && validateErrors.map((err) => (
+            <Text
+              theme={TextTheme.ERROR}
+              text={ValidateErrorTranslates[err]}
+              key={err}
+            />
+          ))}
+        <ProfileCard
+          data={formData}
+          isLoading={isLoading}
+          error={error}
+          readonly={readonly}
+          onChangeFirstname={onChangeFirstname}
+          onChangeLastname={onChangeLastname}
+          onChangeAge={onChangeAge}
+          onChangeCity={onChangeCity}
+          onChangeAvatar={onChangeAvatar}
+          onChangeUsername={onChangeUsername}
+          onChangeCurrency={onChangeCurrency}
+          onChangeCountry={onChangeCountry}
+        />
+      </VStack>
+    </DynamicModuleLoader>
   )
 }

@@ -1,45 +1,37 @@
 import {
   EditableProfileCardForm,
-  fetchProfileData,
-  profileReducer,
+  EditableProfileCardHeader,
 } from 'features/EditableProfileCard'
 import { memo } from 'react'
+import { useTranslation } from 'react-i18next'
 import { useParams } from 'react-router-dom'
 import { classNames } from 'shared/lib/classNames/classNames'
-import {
-  DynamicModuleLoader,
-  ReducersList,
-} from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader'
-import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch'
-import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect/useInitialEffect'
-import { VStack } from 'shared/ui/Stack/VStack/VStack'
+import { VStack } from 'shared/ui/Stack'
+import { Text } from 'shared/ui/Text/Text'
 import { Page } from 'widgets/Page/Page'
+import cls from './ProfilePage.module.scss'
 
 interface ProfilePageProps {
   className?: string
 }
 
-const initialReducers: ReducersList = {
-  profile: profileReducer,
-}
-
 const ProfilePage = (props: ProfilePageProps) => {
   const { className } = props
-  const dispatch = useAppDispatch()
+  const { t } = useTranslation('profile')
+
   const { id } = useParams<{ id: string }>()
 
-  useInitialEffect(() => {
-    if (id) {
-      dispatch(fetchProfileData(id))
-    }
-  })
+  if (!id) {
+    return <Text title={t('Profile not found')} className={cls.error} />
+  }
 
   return (
-    <DynamicModuleLoader reducers={initialReducers} removeAfterUnmount>
-      <Page className={classNames('', {}, [className])}>
-        <EditableProfileCardForm />
-      </Page>
-    </DynamicModuleLoader>
+    <Page className={classNames('', {}, [className])}>
+      <VStack max gap="16">
+        <EditableProfileCardHeader />
+        <EditableProfileCardForm id={id} />
+      </VStack>
+    </Page>
   )
 }
 export default memo(ProfilePage)

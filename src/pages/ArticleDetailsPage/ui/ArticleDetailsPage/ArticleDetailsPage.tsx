@@ -3,10 +3,10 @@ import { memo } from 'react'
 import { useTranslation } from 'react-i18next'
 import { useParams } from 'react-router-dom'
 import { classNames } from 'shared/lib/classNames/classNames'
-import { ArticleDetailsComments } from 'widgets/ArticleDetailsComments'
-import { ArticleRecommendationsList } from 'widgets/ArticleDetailsRecommendations'
+import { ArticleComments } from 'features/ArticleComments'
 import { Page } from 'widgets/Page/Page'
 import { VStack } from 'shared/ui/Stack'
+import { ArticleRecommendationsList } from 'features/ArticleDetailsRecommendations'
 import { ArticleDetailsPageHeader } from '../ArticleDetailsPageHeader/ArticleDetailsPageHeader'
 import cls from './ArticleDetailsPage.module.scss'
 
@@ -36,7 +36,7 @@ const ArticleDetailsPage = (props: ArticleDetailsPageProps) => {
         <ArticleDetailsPageHeader />
         <ArticleDetails id={id} />
         <ArticleRecommendationsList />
-        <ArticleDetailsComments />
+        <ArticleComments id={id} />
       </VStack>
     </Page>
   )

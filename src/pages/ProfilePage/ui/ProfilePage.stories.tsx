@@ -9,6 +9,12 @@ import ProfilePage from './ProfilePage'
 export default {
   title: 'pages/ProfilePage',
   component: ProfilePage,
+  parameters: {
+    router: {
+      path: '/profile/:id',
+      route: '/profile/1',
+    },
+  },
   argTypes: {
     backgroundColor: { control: 'color' },
   },
@@ -59,3 +65,12 @@ Choco.decorators = [
     },
   }),
 ]
+
+export const Error = Template.bind({})
+Error.decorators = [StoreDecorator({})]
+Error.parameters = {
+  router: {
+    path: '',
+    route: '',
+  },
+}
