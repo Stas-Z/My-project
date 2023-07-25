@@ -36,6 +36,10 @@ export const ArticleRecommendationsList = memo(
       )
     }
 
+    if (!recommends) {
+      return null
+    }
+
     return (
       <div
         className={classNames(cls.articleRecommendationsList, {}, [className])}
