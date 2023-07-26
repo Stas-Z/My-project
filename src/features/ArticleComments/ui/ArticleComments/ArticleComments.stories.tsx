@@ -59,7 +59,6 @@ Light.decorators = [
     articleComments: { entities, ids: allIds.allIds },
   }),
 ]
-Light.loaders = [async () => ({ Component: await import('./ArticleComments') })]
 
 export const Loading = Template.bind({})
 Loading.args = {}
@@ -68,16 +67,10 @@ Loading.decorators = [
     articleComments: { isLoading: true, entities, ids: allIds.allIds },
   }),
 ]
-Loading.loaders = [
-  async () => ({ Component: await import('./ArticleComments') }),
-]
 
 export const NoComments = Template.bind({})
 NoComments.args = {}
 NoComments.decorators = [StoreDecorator({})]
-NoComments.loaders = [
-  async () => ({ Component: await import('./ArticleComments') }),
-]
 
 export const Dark = Template.bind({})
 Dark.args = {}
@@ -87,7 +80,6 @@ Dark.decorators = [
     articleComments: { entities, ids: allIds.allIds },
   }),
 ]
-Dark.loaders = [async () => ({ Component: await import('./ArticleComments') })]
 
 export const DarkLoading = Template.bind({})
 DarkLoading.args = {}
@@ -97,16 +89,10 @@ DarkLoading.decorators = [
     articleComments: { isLoading: true, entities, ids: allIds.allIds },
   }),
 ]
-DarkLoading.loaders = [
-  async () => ({ Component: await import('./ArticleComments') }),
-]
 
 export const DarkNoComments = Template.bind({})
 DarkNoComments.args = {}
 DarkNoComments.decorators = [ThemeDecorator(Theme.DARK), StoreDecorator({})]
-DarkNoComments.loaders = [
-  async () => ({ Component: await import('./ArticleComments') }),
-]
 
 export const Choco = Template.bind({})
 Choco.args = {}
@@ -116,7 +102,6 @@ Choco.decorators = [
     articleComments: { entities, ids: allIds.allIds },
   }),
 ]
-Choco.loaders = [async () => ({ Component: await import('./ArticleComments') })]
 
 export const ChocoLoading = Template.bind({})
 ChocoLoading.args = {}
@@ -126,16 +111,10 @@ ChocoLoading.decorators = [
     articleComments: { isLoading: true, entities, ids: allIds.allIds },
   }),
 ]
-ChocoLoading.loaders = [
-  async () => ({ Component: await import('./ArticleComments') }),
-]
 
 export const ChocoNoComments = Template.bind({})
 ChocoNoComments.args = {}
 ChocoNoComments.decorators = [
   ThemeDecorator(Theme.CHOCOLATE),
   StoreDecorator({}),
-]
-ChocoNoComments.loaders = [
-  async () => ({ Component: await import('./ArticleComments') }),
 ]
