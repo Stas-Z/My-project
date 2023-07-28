@@ -5,4 +5,4 @@ export {
 
 export { getScrollSaveByPath } from './model/selectors/scrollSaveSelectors'
 
-export { ScrollSaveSchema } from './model/types/scrollSaveSchema'
+export type { ScrollSaveSchema } from './model/types/scrollSaveSchema'

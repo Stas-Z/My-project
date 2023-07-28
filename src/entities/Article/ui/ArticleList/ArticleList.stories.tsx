@@ -1,9 +1,9 @@
 import { ComponentStory, ComponentMeta } from '@storybook/react'
 import { Theme } from 'app/providers/ThemeProvider'
 import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator/ThemeDecorator'
-import { ArticleView } from '../../model/types/article'
 import { ArticleList } from './ArticleList'
 import { articleMock } from '../../mocks/data'
+import { ArticleView } from '../../model/consts/articleConsts'
 
 export default {
   title: 'entities/Article/ArticleList',

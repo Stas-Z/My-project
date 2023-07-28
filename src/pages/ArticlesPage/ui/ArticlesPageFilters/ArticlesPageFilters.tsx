@@ -1,5 +1,5 @@
 import { ArticleSortFiled, ArticleView } from 'entities/Article'
-import { ArticleType } from 'entities/Article/model/types/article'
+import { ArticleType } from 'entities/Article/model/consts/articleConsts'
 import { ArticleSortSelector } from 'features/ArticleSortSelector'
 import {
   ArticleTypeTabs,

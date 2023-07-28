@@ -13,6 +13,7 @@ import {
 } from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader'
 import { VStack } from 'shared/ui/Stack'
 import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect/useInitialEffect'
+import { ValidateProfileEror } from '../../model/consts/editableProfileCardConsts'
 import { fetchProfileData } from '../../model/services/fetchProfileData/fetchProfileData'
 import { getProfileError } from '../../model/selectors/getProfileError/getProfileError'
 import { getProfileForm } from '../../model/selectors/getProfileForm/getProfileForm'
@@ -20,7 +21,6 @@ import { getProfileIsLoading } from '../../model/selectors/getProfileIsLoading/g
 import { getProfileReadonly } from '../../model/selectors/getProfileReadonly/getProfileReadonly'
 import { getProfileValidateErrors } from '../../model/selectors/getProfileValidateErrors/getProfileValidateErrors'
 import { profileActions, profileReducer } from '../../model/slice/profileSlice'
-import { ValidateProfileEror } from '../../model/types/editableProfileCardSchema'
 import { EditableProfileCardHeader } from '../EditableProfileCardHeader/EditableProfileCardHeader'
 
 interface EditableProfileCardFormProps {

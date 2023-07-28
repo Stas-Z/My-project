@@ -129,7 +129,8 @@
       },
       "chrome.iphone7": {
         "target": "chrome.docker",
-        "preset": "iPhone 7"
+        "preset": "iPhone 7",
+        "disableAutomaticViewportHeight": true
       }
     }
   }

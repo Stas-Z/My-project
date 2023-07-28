@@ -1,3 +1,3 @@
 export { CountrySelect } from './ui/CountrySelect'
 
-export { Country } from '../Country/model/types/country'
+export { Country } from './model/consts/countryConsts'

@@ -6,4 +6,4 @@ export { profileActions, profileReducer } from './model/slice/profileSlice'
 
 export { EditableProfileCardForm } from './ui/EditableProfileCardForm/EditableProfileCardForm'
 
-export { ProfileSchema } from './model/types/editableProfileCardSchema'
+export type { ProfileSchema } from './model/types/editableProfileCardSchema'

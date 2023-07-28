@@ -12,9 +12,10 @@
     "paths": { "*": ["./src/*"] }, // Все абсолютные импорты будут из папки src
     "esModuleInterop": true, // esModuleInterop позволяет работать с пакетами, которые используют common js
     // как с обычными пакетами с помощью import requier() module.export = common.js
-    "allowSyntheticDefaultImports": true // Если какая-либо библиотека не имеет default import,
+    "allowSyntheticDefaultImports": true, // Если какая-либо библиотека не имеет default import,
     // лоадеры вроде ts-loader или babel-loader автоматически создают их.
     // Вместо такого импорта "import * as React from 'react';" можно писать "import React from 'react';"
+    "isolatedModules": true
   },
   "ts-node": {
     // нужно для работы tsconfig'а с "module": "ESNext"
