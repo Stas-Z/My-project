@@ -5,18 +5,22 @@ import {
 } from 'react-router-dom'
 
 export const RouterDecorator = (
-  story: () => Story,
+  StoryComponent: Story,
   { parameters: { router } }: StoryContext,
 ) => {
   if (!router) {
-    return <BrowserRouter>{story()}</BrowserRouter>
+    return (
+      <BrowserRouter>
+        <StoryComponent />
+      </BrowserRouter>
+    )
   }
   const { path, route } = router
   return (
     <Suspense fallback="">
       <MemoryRouter initialEntries={[encodeURI(route)]}>
         <Routes>
-          <Route path={path} element={story()} />
+          <Route path={path} element={<StoryComponent />} />
         </Routes>
       </MemoryRouter>
     </Suspense>
