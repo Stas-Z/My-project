@@ -4,6 +4,7 @@ import MiniCssExtractPlugin from 'mini-css-extract-plugin'
 import ReactRefreshWebpackPlugin from '@pmmmwh/react-refresh-webpack-plugin'
 import { BundleAnalyzerPlugin } from 'webpack-bundle-analyzer'
 import CopyPlugin from 'copy-webpack-plugin'
+import CircularDependencyPlugin from 'circular-dependency-plugin'
 import { BuildOptions } from './types/config'
 
 // Функция которая возвращает список плагинов
@@ -44,6 +45,14 @@ export function buildPlugins({
   }
   if (analyze) {
     plugins.push(new BundleAnalyzerPlugin())
+  }
+  if (isDev) {
+    plugins.push(
+      new CircularDependencyPlugin({
+        exclude: /node_modules/,
+        failOnError: true,
+      }),
+    )
   }
 
   return plugins
