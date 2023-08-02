@@ -1,0 +1,46 @@
+.popup {
+  position: relative;
+}
+
+.trigger {
+  background: none;
+  outline-color: transparent;
+  margin: 0;
+  padding: 0;
+  border: none;
+  cursor: pointer;
+}
+
+.active {
+  background: var(--bg-color);
+  border-radius: 8px;
+}
+
+.disabled {
+  opacity: 0.7;
+}
+
+.active,
+.selected {
+  font-weight: bold;
+}
+
+.top_right {
+  bottom: 100%;
+  left: 0;
+}
+
+.top_left {
+  bottom: 100%;
+  right: 0;
+}
+
+.bottom_right {
+  top: 100%;
+  left: 0;
+}
+
+.bottom_left {
+  top: 100%;
+  right: 0;
+}

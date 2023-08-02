@@ -27,7 +27,7 @@ export const Code = memo((props: CodeProps) => {
         theme={ButtonTheme.CLEAR}
         title={t('Copy')}
       >
-        <Icon Svg={CopyIcon} />
+        <Icon Svg={CopyIcon} height={22} width={22} />
       </Button>
       <code>{text}</code>
     </pre>

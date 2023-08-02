@@ -8,7 +8,7 @@
 }
 
 .links,
-.dropdown {
+.actions {
   margin-left: auto;
 }
 
@@ -19,14 +19,4 @@
 .appName {
   width: var(--sidebar-width);
   margin-left: 15px;
-}
-
-.avatar {
-  border-radius: 50%;
-  height: 30px;
-  width: 30px;
-  object-fit: cover;
-  line-height: 50px;
-  text-align: center;
-  background: white;
 }

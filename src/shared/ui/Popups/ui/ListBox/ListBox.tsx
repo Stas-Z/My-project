@@ -3,10 +3,11 @@ import { Fragment, ReactNode, memo } from 'react'
 import CheckIcon from 'shared/assets/icons/check-20-20.svg'
 import { classNames } from 'shared/lib/classNames/classNames'
 import { DropdownDirection } from 'shared/types/ui'
-import { Button, ButtonTheme } from '../Button/Button'
-import { Icon } from '../Icon/Icon'
-import { HStack } from '../Stack'
+import { Button, ButtonTheme } from '../../../Button/Button'
+import { Icon } from '../../../Icon/Icon'
+import { HStack } from '../../../Stack'
 import cls from './ListBox.module.scss'
+import popupCls from '../../styles/popup.module.scss'
 
 export interface ListBoxItem {
   value: string
@@ -40,7 +41,7 @@ export const ListBox = memo((props: ListBoxProps) => {
   } = props
 
   return (
-    <HStack gap="8">
+    <HStack gap="8" className={classNames('', {}, [popupCls.popup])}>
       {label && (
         <span className={classNames('', { [cls.editing]: editing })}>
           {`${label}>`}
@@ -59,7 +60,7 @@ export const ListBox = memo((props: ListBoxProps) => {
           </Button>
         </HListbox.Button>
         <HListbox.Options
-          className={classNames(cls.options, {}, [cls[direction]])}
+          className={classNames(cls.options, {}, [popupCls[direction]])}
         >
           {items?.map((item) => (
             <HListbox.Option
@@ -71,9 +72,9 @@ export const ListBox = memo((props: ListBoxProps) => {
               {({ active, selected }) => (
                 <li
                   className={classNames(cls.item, {
-                    [cls.active]: active,
-                    [cls.selected]: selected,
-                    [cls.disabled]: item.disabled,
+                    [popupCls.active]: active,
+                    [popupCls.selected]: selected,
+                    [popupCls.disabled]: item.disabled,
                   })}
                 >
                   <span>{item.content}</span>
