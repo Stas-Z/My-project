@@ -11,11 +11,6 @@
   cursor: pointer;
 }
 
-.active {
-  background: var(--bg-color);
-  border-radius: 8px;
-}
-
 .disabled {
   opacity: 0.7;
 }
@@ -43,4 +38,9 @@
 .bottom_left {
   top: 100%;
   right: 0;
+}
+
+.active {
+  background: var(--bg-color) !important;
+  border-radius: 8px;
 }

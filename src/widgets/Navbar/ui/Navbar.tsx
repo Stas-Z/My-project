@@ -1,24 +1,17 @@
-import {
-  getUserAuthData,
-  isUserAdmin,
-  isUserManager,
-  userActions,
-} from 'entities/User'
+import { getUserAuthData } from 'entities/User'
 import { LoginModal } from 'features/AuthByUsername'
 import { memo, useCallback, useState } from 'react'
 import { useTranslation } from 'react-i18next'
-import { useDispatch, useSelector } from 'react-redux'
+import { useSelector } from 'react-redux'
 
+import { AvatarDropdown } from 'features/AvatarDropdown'
+import { NotificatioButton } from 'features/NotificatioButton'
 import { RoutPath } from 'shared/config/routeConfig/routeConfig'
 import { classNames } from 'shared/lib/classNames/classNames'
 import AppLink, { AppLinkTheme } from 'shared/ui/AppLink/AppLink'
-import { Avatar } from 'shared/ui/Avatar/Avatar'
 import { Button, ButtonTheme } from 'shared/ui/Button/Button'
 import { HStack } from 'shared/ui/Stack'
 import { Text, TextTheme } from 'shared/ui/Text/Text'
-import { NotificatioButton } from 'features/NotificatioButton'
-import { Dropdown } from 'shared/ui/Popups'
-import { AvatarDropdown } from 'features/AvatarDropdown'
 import cls from './Navbar.module.scss'
 
 interface NavbarProps {
