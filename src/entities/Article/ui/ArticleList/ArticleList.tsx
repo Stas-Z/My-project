@@ -38,10 +38,11 @@ const ItemContainerComp: FC<{ index: number }> = ({ index }) => (
   </div>
 )
 
-const getArticleSkeletons = (view: ArticleView) => new Array(view === ArticleView.GRID ? 4 : 3).fill(0).map((item, index) => (
-  // eslint-disable-next-line
+const getArticleSkeletons = (view: ArticleView) =>
+  new Array(view === ArticleView.GRID ? 4 : 3).fill(0).map((item, index) => (
+    // eslint-disable-next-line
     <ArticleListItemSkeleton className={cls.card} key={index} view={view} />
-))
+  ))
 
 export const ArticleList = memo((props: ArticleListProps) => {
   const {
@@ -62,7 +63,8 @@ export const ArticleList = memo((props: ArticleListProps) => {
   )
 
   useEffect(() => {
-    const paged = sessionStorage.getItem(ARTICLE_LIST_ITEM_LOCALSTORAGE_IDX) || 0
+    const paged =
+      sessionStorage.getItem(ARTICLE_LIST_ITEM_LOCALSTORAGE_IDX) || 0
     setSelectedArticleId(+paged)
   }, [isLoading, view])
 

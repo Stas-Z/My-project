@@ -21,9 +21,8 @@ interface SelectProps<T extends string> {
 const typedMemo: <T>(Component: T) => T = memo
 
 export const Select = typedMemo(<T extends string>(props: SelectProps<T>) => {
-  const {
-    className, label, options, onChange, value, readonly, editing,
-  } = props
+  const { className, label, options, onChange, value, readonly, editing } =
+    props
   const { t } = useTranslation('profile')
   const onChangeHandler = (e: ChangeEvent<HTMLSelectElement>) => {
     if (onChange) {
@@ -32,11 +31,12 @@ export const Select = typedMemo(<T extends string>(props: SelectProps<T>) => {
   }
 
   const optionList = useMemo(
-    () => options?.map((opt) => (
-      <option className={cls.option} value={opt.value} key={opt.value}>
-        {opt.content && t(opt.content)}
-      </option>
-    )),
+    () =>
+      options?.map((opt) => (
+        <option className={cls.option} value={opt.value} key={opt.value}>
+          {opt.content && t(opt.content)}
+        </option>
+      )),
     [options, t],
   )
 

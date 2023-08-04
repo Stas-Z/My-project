@@ -14,13 +14,17 @@ export type AsProp<E extends ElementType> = {
 export type PropsToOmit<E extends ElementType, P> = keyof (AsProp<E> & P)
 
 // Type for Component props without Ref
-export type PolymorphicComponentProp<E extends ElementType, Props = {}> =
-  PropsWithChildren<Props & AsProp<E>> &
-    Omit<ComponentPropsWithoutRef<E>, PropsToOmit<E, Props>>
+export type PolymorphicComponentProp<
+  E extends ElementType,
+  Props = {},
+> = PropsWithChildren<Props & AsProp<E>> &
+  Omit<ComponentPropsWithoutRef<E>, PropsToOmit<E, Props>>
 
 // Type for Component props with available Ref
 export type PolymorphicRef<E extends ElementType> =
   ComponentPropsWithoutRef<E>['ref']
 
-export type PolymorphicComponentPropWithRef<E extends ElementType, Props = {}> =
-  PolymorphicComponentProp<E, Props> & { ref?: PolymorphicRef<E> }
+export type PolymorphicComponentPropWithRef<
+  E extends ElementType,
+  Props = {},
+> = PolymorphicComponentProp<E, Props> & { ref?: PolymorphicRef<E> }

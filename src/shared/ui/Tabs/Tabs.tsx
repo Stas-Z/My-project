@@ -16,9 +16,7 @@ interface TabsProps {
 }
 
 export const Tabs = memo((props: TabsProps) => {
-  const {
-    className, onTabClick, tabs, value,
-  } = props
+  const { className, onTabClick, tabs, value } = props
 
   const clickHandle = useCallback(
     (tab: TabItem) => () => {

@@ -1,6 +1,4 @@
-import {
-  MutableRefObject, ReactNode, useEffect, useRef,
-} from 'react'
+import { MutableRefObject, ReactNode, useEffect, useRef } from 'react'
 import { classNames } from 'shared/lib/classNames/classNames'
 import { useInfiniteScroll } from 'shared/lib/hooks/useInfiniteScroll/useInfiniteScroll'
 import { ARTICLE_LIST_ITEM_LOCALSTORAGE_IDX } from 'shared/const/localstorage'

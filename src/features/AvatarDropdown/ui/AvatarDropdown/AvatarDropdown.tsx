@@ -42,12 +42,12 @@ export const AvatarDropdown = memo((props: AvatarDropdownProps) => {
       items={[
         ...(isAdminPanelAvailable
           ? [
-            {
-              id: '1',
-              content: t('Admin'),
-              href: RoutPath.admin_panel,
-            },
-          ]
+              {
+                id: '1',
+                content: t('Admin'),
+                href: RoutPath.admin_panel,
+              },
+            ]
           : []),
         {
           id: '2',

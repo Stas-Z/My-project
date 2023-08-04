@@ -26,7 +26,7 @@ export interface VirtualizeProps<T> {
   placeholder?: FC<{ index: number }>
 }
 
-export const Virtualize = <T, >(props: VirtualizeProps<T>) => {
+export const Virtualize = <T,>(props: VirtualizeProps<T>) => {
   const {
     className,
     data,
@@ -43,13 +43,14 @@ export const Virtualize = <T, >(props: VirtualizeProps<T>) => {
   const ref = useRef<VirtuosoHandle>(null)
 
   const timeoutScroll = useCallback(
-    () => setTimeout(() => {
-      ref.current?.scrollToIndex({
-        index: lastIndex,
-        align: 'center',
-        behavior: 'auto',
-      })
-    }, 100),
+    () =>
+      setTimeout(() => {
+        ref.current?.scrollToIndex({
+          index: lastIndex,
+          align: 'center',
+          behavior: 'auto',
+        })
+      }, 100),
     [lastIndex],
   )
 
@@ -65,7 +66,9 @@ export const Virtualize = <T, >(props: VirtualizeProps<T>) => {
     <Virtuoso
       className={classNames(cls.virtualize, {}, [className])}
       data={data}
-      itemContent={(index, item) => (isLoading ? renderSkeleton?.(index) : renderNode(index, item))}
+      itemContent={(index, item) =>
+        isLoading ? renderSkeleton?.(index) : renderNode(index, item)
+      }
       endReached={onScrollEnd}
       initialTopMostItemIndex={lastIndex}
       customScrollParent={parentRef?.current}
@@ -76,7 +79,9 @@ export const Virtualize = <T, >(props: VirtualizeProps<T>) => {
       className={classNames(cls.virtualize, {}, [className])}
       ref={ref}
       data={data}
-      itemContent={(index, item) => (isLoading ? renderSkeleton?.(index) : renderNode(index, item))}
+      itemContent={(index, item) =>
+        isLoading ? renderSkeleton?.(index) : renderNode(index, item)
+      }
       components={{ ScrollSeekPlaceholder: placeholder }}
       scrollSeekConfiguration={{
         enter: (velocity) => Math.abs(velocity) > 200,

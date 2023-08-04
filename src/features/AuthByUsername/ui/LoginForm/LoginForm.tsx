@@ -29,9 +29,7 @@ const LoginForm = (props: LoginFormProps) => {
   const { className, isOpen, onSuccess } = props
   const dispatch = useAppDispatch()
 
-  const {
-    username, password, isLoading, error,
-  } = useSelector(getLoginState)
+  const { username, password, isLoading, error } = useSelector(getLoginState)
 
   const onChangeUsername = useCallback(
     (value: string) => {

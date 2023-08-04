@@ -116,8 +116,8 @@ export const EditableProfileCardForm = (
     <DynamicModuleLoader reducers={initialReducers} removeAfterUnmount>
       <VStack max gap="16" className={classNames('', {}, [className])}>
         <EditableProfileCardHeader />
-        {validateErrors?.length
-          && validateErrors.map((err) => (
+        {validateErrors?.length &&
+          validateErrors.map((err) => (
             <Text
               theme={TextTheme.ERROR}
               text={ValidateErrorTranslates[err]}

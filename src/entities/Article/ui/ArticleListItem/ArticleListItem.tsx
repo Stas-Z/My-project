@@ -24,9 +24,7 @@ interface ArticleListItemProps {
 }
 
 export const ArticleListItem = memo((props: ArticleListItemProps) => {
-  const {
-    className, article, view = ArticleView.LIST, target, index,
-  } = props
+  const { className, article, view = ArticleView.LIST, target, index } = props
   const { t } = useTranslation('articles')
 
   const title = <Text text={article.title} className={cls.title} />

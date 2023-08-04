@@ -1,6 +1,4 @@
-import {
-  MutableRefObject, memo, useCallback, useRef,
-} from 'react'
+import { MutableRefObject, memo, useCallback, useRef } from 'react'
 import { useSearchParams } from 'react-router-dom'
 import { classNames } from 'shared/lib/classNames/classNames'
 import {

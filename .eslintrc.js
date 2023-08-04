@@ -9,6 +9,7 @@ module.exports = {
     'airbnb',
     'plugin:i18next/recommended',
     'plugin:storybook/recommended',
+    'prettier',
   ],
   parser: '@typescript-eslint/parser',
   parserOptions: {
@@ -26,9 +27,7 @@ module.exports = {
     'fsd-pathcheker',
   ],
   rules: {
-    'react/jsx-indent': [2, 2],
-    'react/jsx-indent-props': [2, 2],
-    indent: [2, 2],
+    'react/jsx-max-props-per-line': ['error', { maximum: 4 }],
     'react/jsx-filename-extension': [
       2,
       {
@@ -51,7 +50,7 @@ module.exports = {
       'error',
       {
         ignoreComments: true,
-        code: 135,
+        code: 125,
       },
     ],
     'i18next/no-literal-string': [

@@ -13,9 +13,7 @@ interface CountrySelectProps {
 
 export const CountrySelect = memo((props: CountrySelectProps) => {
   const { t } = useTranslation('profile')
-  const {
-    className, onChange, value, readonly,
-  } = props
+  const { className, onChange, value, readonly } = props
 
   const onChangeHandler = useCallback(
     (value: string) => {
@@ -25,10 +23,11 @@ export const CountrySelect = memo((props: CountrySelectProps) => {
   )
 
   const countryOptions = useMemo(
-    () => Object.entries(Country).map((val) => ({
-      value: val[0],
-      content: val[1],
-    })),
+    () =>
+      Object.entries(Country).map((val) => ({
+        value: val[0],
+        content: val[1],
+      })),
     [],
   )
 

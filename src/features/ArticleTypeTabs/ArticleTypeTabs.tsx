@@ -16,16 +16,17 @@ export const ArticleTypeTabs = memo((props: ArticleTypeTabsProps) => {
 
   // Список типов статей (IT, Economics и т.д.)
   const typeTabs = useMemo(
-    () => Object.values(ArticleType).reduce(
-      (accumulator: TabItem[], currentValue) => [
-        ...accumulator,
-        {
-          value: currentValue,
-          content: t(currentValue),
-        },
-      ],
-      [],
-    ),
+    () =>
+      Object.values(ArticleType).reduce(
+        (accumulator: TabItem[], currentValue) => [
+          ...accumulator,
+          {
+            value: currentValue,
+            content: t(currentValue),
+          },
+        ],
+        [],
+      ),
     [t],
   )
 
