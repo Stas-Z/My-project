@@ -9,7 +9,7 @@
     "strict": true,
     "moduleResolution": "node", // Определяет какие импорты будут (node или classic), 99% случаях используется node
     "baseUrl": ".",
-    "paths": { "*": ["./src/*"] }, // Все абсолютные импорты будут из папки src
+    "paths": { "@/*": ["./src/*"] }, // Все абсолютные импорты будут из папки src
     "esModuleInterop": true, // esModuleInterop позволяет работать с пакетами, которые используют common js
     // как с обычными пакетами с помощью import requier() module.export = common.js
     "allowSyntheticDefaultImports": true, // Если какая-либо библиотека не имеет default import,

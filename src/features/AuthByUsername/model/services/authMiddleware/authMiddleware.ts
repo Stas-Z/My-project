@@ -1,7 +1,7 @@
 import { Action, Dispatch, isAnyOf, isFulfilled } from '@reduxjs/toolkit'
-import { userActions } from 'entities/User'
-import { USER_LOCALSTORAGE_KEY } from 'shared/const/localstorage'
-import { StateSchema } from 'app/providers/StoreProvider'
+import { userActions } from '@/entities/User'
+import { USER_LOCALSTORAGE_KEY } from '@/shared/const/localstorage'
+import { StateSchema } from '@/app/providers/StoreProvider'
 import { loginByUsername } from '../loginByUsername/loginByUsername'
 
 interface Store {

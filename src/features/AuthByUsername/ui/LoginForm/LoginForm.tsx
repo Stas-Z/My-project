@@ -1,15 +1,15 @@
 import { useTranslation } from 'react-i18next'
-import { classNames } from 'shared/lib/classNames/classNames'
-import { Button, ButtonTheme } from 'shared/ui/Button/Button'
-import { Input } from 'shared/ui/Input/Input'
 import { useSelector } from 'react-redux'
 import { memo, useCallback, useEffect } from 'react'
-import { Text, TextTheme } from 'shared/ui/Text/Text'
+import { classNames } from '@/shared/lib/classNames/classNames'
+import { Button, ButtonTheme } from '@/shared/ui/Button/Button'
+import { Input } from '@/shared/ui/Input/Input'
+import { Text, TextTheme } from '@/shared/ui/Text/Text'
 import {
   DynamicModuleLoader,
   ReducersList,
-} from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader'
-import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch'
+} from '@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader'
+import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch'
 import { loginByUsername } from '../../model/services/loginByUsername/loginByUsername'
 import { getLoginState } from '../../model/selectors/getLoginState/getLoginState'
 import { loginActions, loginReducer } from '../../model/slice/loginSlice'

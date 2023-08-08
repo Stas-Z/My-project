@@ -1,16 +1,16 @@
-import { CommentForm, CommentList } from 'entities/Comment'
 import { memo, useCallback } from 'react'
 import { useTranslation } from 'react-i18next'
 import { useSelector } from 'react-redux'
-import { classNames } from 'shared/lib/classNames/classNames'
+import { CommentForm, CommentList } from '@/entities/Comment'
+import { classNames } from '@/shared/lib/classNames/classNames'
 import {
   DynamicModuleLoader,
   ReducersList,
-} from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader'
-import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch'
-import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect/useInitialEffect'
-import { VStack } from 'shared/ui/Stack'
-import { Text, TextSize } from 'shared/ui/Text/Text'
+} from '@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader'
+import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch'
+import { useInitialEffect } from '@/shared/lib/hooks/useInitialEffect/useInitialEffect'
+import { VStack } from '@/shared/ui/Stack'
+import { Text, TextSize } from '@/shared/ui/Text/Text'
 import { getArticleCommentsIsLoading } from '../../model/selectors/articleCommentsSelectors'
 import { addCommentForArticle } from '../../model/services/addCommentForArticle/addCommentForArticle'
 import { fetchCommentsByArticleId } from '../../model/services/fetchCommentsByArticleId/fetchCommentsByArticleId'

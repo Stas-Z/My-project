@@ -1,5 +1,5 @@
-import { articlesMock } from 'entities/Article'
-import { TestAsyncThunk } from 'shared/lib/tests/TestAsyncThunk/TestAsyncThunk'
+import { articlesMock } from '@/entities/Article'
+import { TestAsyncThunk } from '@/shared/lib/tests/TestAsyncThunk/TestAsyncThunk'
 import { fetchArticlesList } from './fetchArticlesList'
 
 const data = articlesMock

@@ -1,6 +1,6 @@
 import React, { InputHTMLAttributes, memo } from 'react'
 import { Omit } from 'react-redux'
-import { Mods, classNames } from 'shared/lib/classNames/classNames'
+import { Mods, classNames } from '@/shared/lib/classNames/classNames'
 import cls from './Input.module.scss'
 
 // Исключаем пропсы которые передаём вторым аргументом.

@@ -1,11 +1,11 @@
 import { QueryStatus } from '@reduxjs/toolkit/dist/query'
 import { ComponentMeta, ComponentStory } from '@storybook/react'
-import { Theme } from 'app/providers/ThemeProvider'
-import { articleMock, articlesMock } from 'entities/Article'
-import { rtkApi } from 'shared/api/rtkApi'
-import { StoreDecorator } from 'shared/config/storybook/StoreDecorator/StoreDecorator'
-import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator/ThemeDecorator'
 import withMock from 'storybook-addon-mock'
+import { Theme } from '@/app/providers/ThemeProvider'
+import { articleMock, articlesMock } from '@/entities/Article'
+import { rtkApi } from '@/shared/api/rtkApi'
+import { StoreDecorator } from '@/shared/config/storybook/StoreDecorator/StoreDecorator'
+import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator/ThemeDecorator'
 import ArticleDetailsPage from './ArticleDetailsPage'
 
 const articles = articlesMock
