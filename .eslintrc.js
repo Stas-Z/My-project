@@ -27,6 +27,7 @@ module.exports = {
     'fsd-pathcheker',
   ],
   rules: {
+    'arrow-body-style': 'off',
     'react/jsx-max-props-per-line': ['error', { maximum: 4 }],
     'react/jsx-filename-extension': [
       2,

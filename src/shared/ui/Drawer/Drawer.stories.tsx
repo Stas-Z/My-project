@@ -1,6 +1,7 @@
 import { ComponentStory, ComponentMeta } from '@storybook/react'
 import { Theme } from 'app/providers/ThemeProvider'
 import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator/ThemeDecorator'
+import { AnimationDecorator } from 'shared/config/storybook/AnimationDecorator/AnimationDecorator'
 import { Drawer } from './Drawer'
 
 const data =
@@ -12,6 +13,7 @@ export default {
   argTypes: {
     backgroundColor: { control: 'color' },
   },
+  decorators: [AnimationDecorator()],
 } as ComponentMeta<typeof Drawer>
 
 const Template: ComponentStory<typeof Drawer> = (args) => <Drawer {...args} />
@@ -21,13 +23,14 @@ Light.args = {
   isOpen: true,
   children: data,
 }
-export const Dark = Template.bind({})
 
+export const Dark = Template.bind({})
 Dark.args = {
   isOpen: true,
   children: <div style={{ color: '#04ff04' }}>{data}</div>,
 }
 Dark.decorators = [ThemeDecorator(Theme.DARK)]
+
 export const Choco = Template.bind({})
 Choco.args = {
   isOpen: true,

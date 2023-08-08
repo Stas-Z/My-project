@@ -4,34 +4,29 @@
   bottom: 0;
   right: 0;
   left: 0;
-  pointer-events: none;
   z-index: -1;
   display: flex;
   align-items: flex-end;
-  transition: all 0.3s ease-out;
-}
-
-.content {
-  height: 70%;
-  background: var(--bg-color);
-  bottom: 0;
-  border-top-left-radius: 12px;
-  border-top-right-radius: 12px;
-  position: relative;
-  width: 100%;
-  min-height: 100px;
-  padding: 20px;
-  transition: all 0.3s ease-out;
-  transform: translateY(100%);
-  overflow-y: auto;
-  overflow-x: hidden;
 }
 
 .opened {
   pointer-events: auto;
+  opacity: 1;
   z-index: var(--modal-z-index);
 
   .content {
     transform: translateY(0%);
   }
+}
+
+.sheet {
+  z-index: 100;
+  position: fixed;
+  left: 2vw;
+  height: calc(100vh + 100px);
+  width: 96vw;
+  border-radius: 12px 12px 0;
+  background: var(--bg-color);
+  touch-action: none;
+  padding: 15px;
 }
