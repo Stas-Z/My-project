@@ -1,4 +1,3 @@
-import { QueryStatus } from '@reduxjs/toolkit/dist/query'
 import { ComponentMeta, ComponentStory } from '@storybook/react'
 import withMock from 'storybook-addon-mock'
 import { Theme } from '@/app/providers/ThemeProvider'

@@ -818,6 +818,28 @@
       "city": "Moscow",
       "username": "newUser",
       "avatar": ""
+    },
+    {
+      "id": "4",
+      "first": "New",
+      "lastname": "User",
+      "age": 30,
+      "currency": "RUB",
+      "country": "Russia",
+      "city": "Moscow",
+      "username": "newUser",
+      "avatar": ""
+    },
+    {
+      "id": "5",
+      "first": "New",
+      "lastname": "User",
+      "age": 30,
+      "currency": "RUB",
+      "country": "Russia",
+      "city": "Moscow",
+      "username": "newUser",
+      "avatar": ""
     }
   ],
   "article-ratings": [
@@ -834,59 +856,6 @@
       "feedback": "Хорошая статья",
       "userId": "1",
       "articleId": "2"
-    },
-    {
-      "articleId": "3",
-      "rate": 3,
-      "userId": "1",
-      "feedback": "",
-      "id": "UV7BSal"
-    },
-    {
-      "articleId": "4",
-      "rate": 5,
-      "userId": "1",
-      "feedback": "Клёва!!!",
-      "id": "ZMlOIeV"
-    },
-    {
-      "articleId": "5",
-      "rate": 1,
-      "userId": "1",
-      "feedback": "",
-      "id": "8xXDU6j"
-    },
-    {
-      "articleId": "6",
-      "rate": 5,
-      "userId": "1",
-      "id": "yg_ZljU"
-    },
-    {
-      "articleId": "7",
-      "rate": 4,
-      "userId": "1",
-      "feedback": "Супер!",
-      "id": "XCtvC44"
-    },
-    {
-      "articleId": "14",
-      "rate": 3,
-      "userId": "1",
-      "id": "AIu5TXj"
-    },
-    {
-      "articleId": "15",
-      "rate": 3,
-      "userId": "1",
-      "feedback": "cfff",
-      "id": "kJR7sSM"
-    },
-    {
-      "articleId": "16",
-      "rate": 5,
-      "userId": "1",
-      "id": "De3zWhb"
     }
   ],
   "profile-ratings": [
@@ -898,11 +867,18 @@
       "profileId": "1"
     },
     {
-      "id": "2",
+      "profileId": "3",
+      "rate": 5,
+      "userId": "3",
+      "feedback": "Красавчик!",
+      "id": "uNRqW_5"
+    },
+    {
+      "profileId": "3",
       "rate": 3,
-      "feedback": "Так себе человек",
       "userId": "1",
-      "profileId": "2"
+      "feedback": "",
+      "id": "OW-kqaa"
     }
   ]
 }

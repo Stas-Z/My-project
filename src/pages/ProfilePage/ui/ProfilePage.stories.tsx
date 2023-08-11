@@ -1,4 +1,5 @@
 import { ComponentMeta, ComponentStory } from '@storybook/react'
+import withMock from 'storybook-addon-mock'
 import { Theme } from '@/app/providers/ThemeProvider'
 import { Country } from '@/entities/Country'
 import { Currency } from '@/entities/Currency'
@@ -14,6 +15,14 @@ export default {
       path: '/profile/:id',
       route: '/profile/1',
     },
+    mockData: [
+      {
+        url: `${__API__}/profile-ratings?userId=1&profileId=1`,
+        method: 'GET',
+        status: 200,
+        response: [],
+      },
+    ],
   },
   argTypes: {
     backgroundColor: { control: 'color' },
@@ -43,6 +52,7 @@ Light.decorators = [
       form: data,
     },
   }),
+  withMock,
 ]
 export const Dark = Template.bind({})
 Dark.decorators = [
@@ -53,6 +63,7 @@ Dark.decorators = [
       form: data,
     },
   }),
+  withMock,
 ]
 
 export const Choco = Template.bind({})
@@ -64,13 +75,30 @@ Choco.decorators = [
       form: data,
     },
   }),
+  withMock,
 ]
 
 export const Error = Template.bind({})
-Error.decorators = [StoreDecorator({})]
+Error.decorators = [
+  StoreDecorator({
+    profile: {
+      readonly: true,
+      error: 'true',
+    },
+  }),
+  withMock,
+]
 Error.parameters = {
   router: {
-    path: '',
-    route: '',
+    path: '/profile/:id',
+    route: '/profile/15',
   },
+  mockData: [
+    {
+      url: `${__API__}/profile-ratings?userId=1&profileId=15`,
+      method: 'GET',
+      status: 404,
+      response: [],
+    },
+  ],
 }
