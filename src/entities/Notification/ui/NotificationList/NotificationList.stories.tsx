@@ -37,7 +37,7 @@ const items: Notification[] = [
 ]
 
 export default {
-  title: 'entities/NotificationList',
+  title: 'entities/Notification/NotificationList',
   component: NotificationList,
   decorators: [withMock],
   parameters: {

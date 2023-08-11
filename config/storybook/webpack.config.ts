@@ -17,7 +17,10 @@ export default ({ config }: { config: webpack.Configuration }) => {
   }
   config.resolve?.modules?.push(paths.src) // Переопределяем путь до папки с исходным кодом
   config.resolve?.extensions?.push('.ts', '.tsx') // Переопределяем расширение для файлов
-  config.resolve!.alias = { '@': paths.src }
+  config.resolve!.alias = {
+    ...config.resolve?.alias,
+    '@': paths.src,
+  }
 
   if (config.module?.rules) {
     // Исключаем дефолтный svg loader

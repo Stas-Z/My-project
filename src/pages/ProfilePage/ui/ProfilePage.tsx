@@ -1,16 +1,13 @@
 import { memo } from 'react'
 import { useTranslation } from 'react-i18next'
 import { useParams } from 'react-router-dom'
-import {
-  EditableProfileCardForm,
-  EditableProfileCardHeader,
-} from '@/features/EditableProfileCard'
+import { EditableProfileCardForm } from '@/features/EditableProfileCard'
+import { ProfileRating } from '@/features/ProfileRating'
 import { classNames } from '@/shared/lib/classNames/classNames'
 import { VStack } from '@/shared/ui/Stack'
 import { Text } from '@/shared/ui/Text/Text'
 import { Page } from '@/widgets/Page/Page'
 import cls from './ProfilePage.module.scss'
-import { ProfileRating } from '@/features/ProfileRating'
 
 interface ProfilePageProps {
   className?: string
