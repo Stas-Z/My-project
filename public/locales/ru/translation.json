@@ -30,6 +30,8 @@
   "Admin": "Админка",
   "You do not have permission to this page": "У вас нет доступа к этой странице",
   "Your feedback": "Ваш отзыв",
-  "like the article": "Как вам статья?",
-  "Cancel": "Закрыть"
+  "Cancel": "Закрыть",
+  "Do you like the article": "Как вам статья?",
+  "Please leave your feedback": "Пожалуйста, оставьте свой отзыв",
+  "Thank you for your rating": "Спасибо за вашу оценку!"
 }

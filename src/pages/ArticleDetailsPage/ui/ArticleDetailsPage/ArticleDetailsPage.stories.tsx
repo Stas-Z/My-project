@@ -25,6 +25,17 @@ export default {
         status: 200,
         response: articles,
       },
+      {
+        url: `${__API__}/article-ratings?userId=1&articleId=1`,
+        method: 'GET',
+        status: 200,
+        response: [
+          {
+            rate: 3,
+            feedback: '',
+          },
+        ],
+      },
     ],
   },
   argTypes: {
@@ -74,12 +85,31 @@ Light.decorators = [
   StoreDecorator({
     articleDetails: { data: article },
     articleComments: { entities: entitiesComments, ids: idsComments },
+    user: { authData: { id: '1' } },
   }),
   withMock,
 ]
 
 export const Loading = Template.bind({})
 Loading.args = {}
+Loading.parameters = {
+  mockData: [
+    {
+      url: `${__API__}/articles?_limit=4`,
+      method: 'GET',
+      status: 200,
+      response: articles,
+      delay: 100000,
+    },
+    {
+      url: `${__API__}/article-ratings?userId=1&articleId=1`,
+      method: 'GET',
+      status: 400,
+      response: [],
+      delay: 100000,
+    },
+  ],
+}
 Loading.decorators = [
   StoreDecorator({
     articleDetails: { isLoading: true },
@@ -87,13 +117,6 @@ Loading.decorators = [
       isLoading: true,
       entities: entitiesComments,
       ids: idsComments,
-    },
-    [rtkApi.reducerPath]: {
-      queries: {
-        'getArticleRecommendationsList(4)': {
-          status: 'pending' as QueryStatus,
-        },
-      },
     },
   }),
   withMock,
@@ -104,15 +127,25 @@ Error.args = {}
 Error.decorators = [
   StoreDecorator({
     articleDetails: { error: 'error' },
-    [rtkApi.reducerPath]: {
-      queries: {
-        'getArticleRecommendationsList(4)': {
-          data: [],
-        },
-      },
-    },
   }),
+  withMock,
 ]
+Error.parameters = {
+  mockData: [
+    {
+      url: `${__API__}/articles?_limit=4`,
+      method: 'GET',
+      status: 404,
+      response: [],
+    },
+    {
+      url: `${__API__}/article-ratings?userId=1&articleId=1`,
+      method: 'GET',
+      status: 400,
+      response: [],
+    },
+  ],
+}
 
 export const Dark = Template.bind({})
 Dark.args = {}
@@ -128,44 +161,6 @@ Dark.decorators = [
   withMock,
 ]
 
-export const DarkLoading = Template.bind({})
-DarkLoading.args = {}
-DarkLoading.decorators = [
-  ThemeDecorator(Theme.DARK),
-  StoreDecorator({
-    articleDetails: { isLoading: true },
-    articleComments: {
-      isLoading: true,
-      entities: entitiesComments,
-      ids: idsComments,
-    },
-    [rtkApi.reducerPath]: {
-      queries: {
-        'getArticleRecommendationsList(4)': {
-          status: 'pending' as QueryStatus,
-        },
-      },
-    },
-  }),
-  withMock,
-]
-
-export const DarkError = Template.bind({})
-DarkError.args = {}
-DarkError.decorators = [
-  ThemeDecorator(Theme.DARK),
-  StoreDecorator({
-    articleDetails: { error: 'error' },
-    [rtkApi.reducerPath]: {
-      queries: {
-        'getArticleRecommendationsList(4)': {
-          data: [],
-        },
-      },
-    },
-  }),
-]
-
 export const Choco = Template.bind({})
 Choco.args = {}
 Choco.decorators = [
@@ -178,42 +173,4 @@ Choco.decorators = [
     },
   }),
   withMock,
-]
-
-export const ChocoLoading = Template.bind({})
-ChocoLoading.args = {}
-ChocoLoading.decorators = [
-  ThemeDecorator(Theme.CHOCOLATE),
-  StoreDecorator({
-    articleDetails: { isLoading: true },
-    articleComments: {
-      isLoading: true,
-      entities: entitiesComments,
-      ids: idsComments,
-    },
-    [rtkApi.reducerPath]: {
-      queries: {
-        'getArticleRecommendationsList(4)': {
-          status: 'pending' as QueryStatus,
-        },
-      },
-    },
-  }),
-  withMock,
-]
-
-export const ChocoError = Template.bind({})
-ChocoError.args = {}
-ChocoError.decorators = [
-  ThemeDecorator(Theme.CHOCOLATE),
-  StoreDecorator({
-    articleDetails: { error: 'error' },
-    [rtkApi.reducerPath]: {
-      queries: {
-        'getArticleRecommendationsList(4)': {
-          data: [],
-        },
-      },
-    },
-  }),
 ]

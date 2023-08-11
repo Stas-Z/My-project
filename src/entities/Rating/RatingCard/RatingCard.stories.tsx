@@ -15,6 +15,12 @@ const Template: ComponentStory<typeof RatingCard> = (args) => (
   <RatingCard {...args} />
 )
 
+export const WithRating = Template.bind({})
+WithRating.args = {
+  hasFeedback: true,
+  title: 'title',
+  rate: 4,
+}
 export const Light = Template.bind({})
 Light.args = {
   feedbackTitle: 'feedbackTitle',

@@ -86,6 +86,7 @@ export const ArticleList = memo((props: ArticleListProps) => {
       </div>
     )
   }
+
   if (virtualized) {
     return (
       <div className={classNames(cls.articleList, {}, [className, cls[view]])}>
