@@ -1,6 +1,6 @@
 import { ComponentMeta, ComponentStory } from '@storybook/react'
 import { Theme } from '@/app/providers/ThemeProvider'
-import { Notification } from '@/entities/Notification/model/types/notifications'
+import { Notification } from '@/entities/Notification'
 import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator/ThemeDecorator'
 import { Text } from '../../../Text/Text'
 import { Button } from '../../../Button/Button'

@@ -68,6 +68,7 @@ module.exports = {
     'no-param-reassign': 'off',
     'no-undef': 'off',
     'fsd-pathcheker/path-checker': ['error', { alias: '@' }],
+    'fsd-pathcheker/public-api-imports': ['error', { alias: '@' }],
   },
   globals: {
     __IS_DEV__: true,
