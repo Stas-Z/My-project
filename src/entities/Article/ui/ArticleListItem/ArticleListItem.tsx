@@ -1,7 +1,7 @@
 import { HTMLAttributeAnchorTarget, memo } from 'react'
 import { useTranslation } from 'react-i18next'
 import EyeIcon from '@/shared/assets/icons/eye-20-20.svg'
-import { RoutPath } from '@/shared/config/routeConfig/routeConfig'
+import { RoutPath } from '@/shared/const/router'
 import { ARTICLE_LIST_ITEM_LOCALSTORAGE_IDX } from '@/shared/const/localstorage'
 import { classNames } from '@/shared/lib/classNames/classNames'
 import AppLink from '@/shared/ui/AppLink/AppLink'
