@@ -1,5 +1,5 @@
 import { StateSchema } from '@/app/providers/StoreProvider'
-import { Comment } from '@/entities/Comment'
+import { Comment } from '@/entities/Comment/testing'
 import { getArticleComment } from '../slices/articleCommentsSlice'
 import {
   getArticleCommentsError,

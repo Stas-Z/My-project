@@ -1,5 +1,5 @@
 import { StateSchema } from '@/app/providers/StoreProvider'
-import { ArticleView, articleMock } from '@/entities/Article'
+import { ArticleView, articleMock } from '@/entities/Article/testing'
 
 import { getArticles } from '../slice/articlesPageSlice'
 import {

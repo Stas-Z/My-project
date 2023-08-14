@@ -1,17 +1,11 @@
-// TODO
 import { Story } from '@storybook/react'
 import { StateSchema, StoreProvider } from '@/app/providers/StoreProvider'
-// eslint-disable-next-line fsd-pathcheker/public-api-imports
-import { articleDetailsReducer } from '@/entities/Article/model/slice/articleDetailsSlice'
-// eslint-disable-next-line fsd-pathcheker/public-api-imports
-import { commentFormReducer } from '@/entities/Comment/model/slice/commentFormSlice'
-// eslint-disable-next-line fsd-pathcheker/public-api-imports
-import { articleCommentsReducer } from '@/features/ArticleComments/model/slices/articleCommentsSlice'
-// eslint-disable-next-line fsd-pathcheker/public-api-imports
-import { loginReducer } from '@/features/AuthByUsername/model/slice/loginSlice'
-import { profileReducer } from '@/features/EditableProfileCard'
-// eslint-disable-next-line fsd-pathcheker/public-api-imports
-import { articlesPageReducer } from '@/pages/ArticlesPage/model/slice/articlesPageSlice'
+import { articleDetailsReducer } from '@/entities/Article/testing'
+import { commentFormReducer } from '@/entities/Comment/testing'
+import { articleCommentsReducer } from '@/features/ArticleComments/testing'
+import { loginReducer } from '@/features/AuthByUsername/testing'
+import { profileReducer } from '@/features/EditableProfileCard/testing'
+import { articlesPageReducer } from '@/pages/ArticlesPage/testing'
 import { rtkApi } from '@/shared/api/rtkApi'
 import { ReducersList } from '@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader'
 
