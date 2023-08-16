@@ -3,10 +3,10 @@ import { useTranslation } from 'react-i18next'
 import { useSelector } from 'react-redux'
 import { RatingCard } from '@/entities/Rating'
 import { getUserAuthData } from '@/entities/User'
-import { Skeleton } from '@/shared/ui/Skeleton/Skeleton'
+import { Skeleton } from '@/shared/ui/Skeleton'
 import { useGetArticleRating, useRateArticle } from '../../api/articleRatingApi'
-import { Card } from '@/shared/ui/Card/Card'
-import { Text, TextAlign } from '@/shared/ui/Text/Text'
+import { Card } from '@/shared/ui/Card'
+import { Text, TextAlign } from '@/shared/ui/Text'
 
 export interface ArticleRatingProps {
   className?: string

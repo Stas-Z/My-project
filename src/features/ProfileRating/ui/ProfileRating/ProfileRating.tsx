@@ -3,9 +3,9 @@ import { useTranslation } from 'react-i18next'
 import { useSelector } from 'react-redux'
 import { RatingCard } from '@/entities/Rating'
 import { getUserAuthData } from '@/entities/User'
-import { Card } from '@/shared/ui/Card/Card'
-import { Skeleton } from '@/shared/ui/Skeleton/Skeleton'
-import { Text, TextAlign } from '@/shared/ui/Text/Text'
+import { Card } from '@/shared/ui/Card'
+import { Skeleton } from '@/shared/ui/Skeleton'
+import { Text, TextAlign } from '@/shared/ui/Text'
 import { useGetProfileRating, useRateProfile } from '../../api/profileRatingApi'
 
 interface ProfileRatingProps {
