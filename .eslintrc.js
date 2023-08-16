@@ -79,6 +79,13 @@ module.exports = {
         ],
       },
     ],
+    'fsd-pathcheker/layer-imports': [
+      'error',
+      {
+        alias: '@',
+        ignoreImportPatterns: ['**/StoreProvider', '**/testing'],
+      },
+    ],
   },
   globals: {
     __IS_DEV__: true,

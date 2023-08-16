@@ -1,5 +1,5 @@
 import { ComponentMeta, ComponentStory } from '@storybook/react'
-import { Theme } from '@/app/providers/ThemeProvider'
+import { Theme } from '@/shared/const/theme'
 import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator/ThemeDecorator'
 import { Currency } from '@/entities/Currency/testing'
 import { Country } from '@/entities/Country/testing'

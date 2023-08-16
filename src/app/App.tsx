@@ -4,9 +4,9 @@ import { classNames } from '@/shared/lib/classNames/classNames'
 import { Navbar } from '@/widgets/Navbar'
 import { Sidebar } from '@/widgets/Sidebar'
 import { getUserInited, userActions } from '@/entities/User'
-import { AppRouter } from '@/app/providers/router'
-import { useTheme } from '@/app/providers/ThemeProvider'
-import { ErrorBoundary } from '@/app/providers/ErrorBoundary'
+import { AppRouter } from './providers/router'
+import { useTheme } from '@/shared/lib/hooks/UseTheme/UseTheme'
+import { ErrorBoundary } from './providers/ErrorBoundary'
 
 const App = () => {
   const { theme } = useTheme()

@@ -1,5 +1,5 @@
 import { ReactNode, memo, useCallback, useEffect } from 'react'
-import { useTheme } from '@/app/providers/ThemeProvider'
+import { useTheme } from '@/shared/lib/hooks/UseTheme/UseTheme'
 import { Mods, classNames } from '@/shared/lib/classNames/classNames'
 import {
   AnimationProvider,
