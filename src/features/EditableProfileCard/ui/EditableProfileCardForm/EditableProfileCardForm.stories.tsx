@@ -1,9 +1,11 @@
 import { ComponentMeta, ComponentStory } from '@storybook/react'
-import { Theme } from '@/shared/const/theme'
+
 import { Country } from '@/entities/Country/testing'
 import { Currency } from '@/entities/Currency/testing'
 import { StoreDecorator } from '@/shared/config/storybook/StoreDecorator/StoreDecorator'
 import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator/ThemeDecorator'
+import { Theme } from '@/shared/const/theme'
+
 import { EditableProfileCardForm } from './EditableProfileCardForm'
 
 export default {

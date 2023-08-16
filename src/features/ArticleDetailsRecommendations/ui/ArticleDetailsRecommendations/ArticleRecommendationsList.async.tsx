@@ -1,6 +1,8 @@
 import { Suspense, lazy } from 'react'
-import { ArticleRecommendationsListProps } from './ArticleRecommendationsList'
+
 import { Skeleton } from '@/shared/ui/Skeleton'
+
+import { ArticleRecommendationsListProps } from './ArticleRecommendationsList'
 
 const ArticleRecommendationsListLazy = lazy(
   () => import('./ArticleRecommendationsList'),

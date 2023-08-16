@@ -1,15 +1,18 @@
 import { MutableRefObject, memo } from 'react'
-import { useSelector } from 'react-redux'
+
 import { useTranslation } from 'react-i18next'
+import { useSelector } from 'react-redux'
+
 import { ArticleList } from '@/entities/Article'
 import { Text } from '@/shared/ui/Text'
+
+import cls from './ArticleInfiniteList.module.scss'
 import {
   getArticlesPageError,
   getArticlesPageIsLoading,
   getArticlesPageView,
 } from '../../model/selectors/articlePageSelectors'
 import { getArticles } from '../../model/slice/articlesPageSlice'
-import cls from './ArticleInfiniteList.module.scss'
 
 interface ArticleInfiniteListProps {
   className?: string

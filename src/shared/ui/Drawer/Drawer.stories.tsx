@@ -1,7 +1,9 @@
 import { ComponentStory, ComponentMeta } from '@storybook/react'
-import { Theme } from '@/shared/const/theme'
-import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator/ThemeDecorator'
+
 import { AnimationDecorator } from '@/shared/config/storybook/AnimationDecorator/AnimationDecorator'
+import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator/ThemeDecorator'
+import { Theme } from '@/shared/const/theme'
+
 import { Drawer } from './Drawer'
 
 const data =

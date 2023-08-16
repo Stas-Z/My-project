@@ -1,10 +1,11 @@
-import { Currency } from '@/entities/Currency/testing'
 import { Country } from '@/entities/Country/testing'
+import { Currency } from '@/entities/Currency/testing'
 import { Profile } from '@/entities/Profile/testing'
-import { ProfileSchema } from '../types/editableProfileCardSchema'
-import { ValidateProfileEror } from '../consts/editableProfileCardConsts'
+
 import { profileActions, profileReducer } from './profileSlice'
+import { ValidateProfileEror } from '../consts/editableProfileCardConsts'
 import { updateProfileData } from '../services/updateProfileData/updateProfileData'
+import { ProfileSchema } from '../types/editableProfileCardSchema'
 
 const data: Profile = {
   first: 'Станислав',

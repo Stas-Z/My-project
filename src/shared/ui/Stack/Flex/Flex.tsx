@@ -1,5 +1,7 @@
-import { ComponentProps, ElementType, ReactNode } from 'react'
+import { ElementType } from 'react'
+
 import { Mods, classNames } from '@/shared/lib/classNames/classNames'
+
 import cls from './Flex.module.scss'
 import { PolymorphicComponentProp } from '../../../types/polymorphic'
 

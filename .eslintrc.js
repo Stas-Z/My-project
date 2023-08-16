@@ -25,6 +25,7 @@ module.exports = {
     'i18next',
     'react-hooks',
     'fsd-pathcheker',
+    'unused-imports',
   ],
   rules: {
     'arrow-body-style': 'off',
@@ -38,6 +39,7 @@ module.exports = {
     'import/no-unresolved': 'off',
     'import/prefer-default-export': 'off',
     'no-unused-vars': 'warn',
+    'unused-imports/no-unused-imports': 'error',
     'react/require-default-props': 'off',
     'react/react-in-jsx-scope': 'off',
     'react/jsx-props-no-spreading': 'warn',
@@ -84,6 +86,30 @@ module.exports = {
       {
         alias: '@',
         ignoreImportPatterns: ['**/StoreProvider', '**/testing'],
+      },
+    ],
+    'import/order': [
+      'error',
+      {
+        groups: ['builtin', 'external', 'internal'],
+        pathGroups: [
+          {
+            pattern: 'react',
+            group: 'external',
+            position: 'before',
+          },
+          {
+            pattern: '@/**',
+            group: 'external',
+            position: 'after',
+          },
+        ],
+        pathGroupsExcludedImportTypes: ['react'],
+        'newlines-between': 'always',
+        alphabetize: {
+          order: 'asc',
+          caseInsensitive: true,
+        },
       },
     ],
   },

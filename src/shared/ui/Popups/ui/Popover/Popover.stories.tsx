@@ -1,10 +1,12 @@
 import { ComponentMeta, ComponentStory } from '@storybook/react'
-import { Theme } from '@/shared/const/theme'
+
 import { Notification } from '@/entities/Notification/testing'
 import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator/ThemeDecorator'
-import { Text } from '../../../Text/Text'
-import { Button } from '../../../Button/Button'
+import { Theme } from '@/shared/const/theme'
+
 import { Popover } from './Popover'
+import { Button } from '../../../Button/Button'
+import { Text } from '../../../Text/Text'
 
 const items: Notification[] = [
   {

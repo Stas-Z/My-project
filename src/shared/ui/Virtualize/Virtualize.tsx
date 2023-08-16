@@ -6,9 +6,11 @@ import {
   useEffect,
   useRef,
 } from 'react'
+
 import { Virtuoso, VirtuosoGrid, VirtuosoHandle } from 'react-virtuoso'
 
 import { classNames } from '@/shared/lib/classNames/classNames'
+
 import cls from './Virtualize.module.scss'
 
 type ViewType = 'list' | 'grid'

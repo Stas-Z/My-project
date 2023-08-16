@@ -1,5 +1,6 @@
 import { articlesMock } from '@/entities/Article/testing'
 import { TestAsyncThunk } from '@/shared/lib/tests/TestAsyncThunk/TestAsyncThunk'
+
 import { fetchArticlesList } from './fetchArticlesList'
 
 const data = articlesMock

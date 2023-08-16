@@ -1,6 +1,7 @@
 import { ElementType } from 'react'
-import { Flex, FlexProps, defaultFlexTag } from '../Flex/Flex'
+
 import { PolymorphicComponentProp } from '../../../types/polymorphic'
+import { Flex, FlexProps, defaultFlexTag } from '../Flex/Flex'
 
 type HStackProps = Omit<FlexProps, 'direction'>
 

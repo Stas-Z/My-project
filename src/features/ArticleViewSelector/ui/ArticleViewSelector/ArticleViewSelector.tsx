@@ -1,11 +1,13 @@
 import { memo } from 'react'
-import { classNames } from '@/shared/lib/classNames/classNames'
+
 import { ArticleView } from '@/entities/Article'
 import ListIcon from '@/shared/assets/icons/list-20-20.svg'
 import GridIcon from '@/shared/assets/icons/tiled-20-20.svg'
+import { ARTICLE_LIST_ITEM_LOCALSTORAGE_IDX } from '@/shared/const/localstorage'
+import { classNames } from '@/shared/lib/classNames/classNames'
 import { Button, ButtonTheme } from '@/shared/ui/Button'
 import { Icon } from '@/shared/ui/Icon'
-import { ARTICLE_LIST_ITEM_LOCALSTORAGE_IDX } from '@/shared/const/localstorage'
+
 import cls from './ArticleViewSelector.module.scss'
 
 interface ArticleViewSelectorProps {

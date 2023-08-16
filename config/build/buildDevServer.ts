@@ -1,4 +1,5 @@
 import { Configuration as DevServerConfiguration } from 'webpack-dev-server'
+
 // Чтобы не было пересечения с Configuration с webpack'а, переименовываем тип в DevServerConfiguration
 import { BuildOptions } from './types/config'
 

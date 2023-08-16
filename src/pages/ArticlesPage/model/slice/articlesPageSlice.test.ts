@@ -5,9 +5,10 @@ import {
   articlesMock,
   entitiesMock,
 } from '@/entities/Article/testing'
+
+import { articlesPageActions, articlesPageReducer } from './articlesPageSlice'
 import { fetchArticlesList } from '../services/fetchArticlesList/fetchArticlesList'
 import { ArticlesPageSchema } from '../types/articlesPageSchema'
-import { articlesPageActions, articlesPageReducer } from './articlesPageSlice'
 
 const articles = articlesMock
 const entities = entitiesMock

@@ -1,12 +1,12 @@
 import { StateSchema } from '@/app/providers/StoreProvider'
 import { ArticleView, articleMock } from '@/entities/Article/testing'
 
-import { getArticles } from '../slice/articlesPageSlice'
 import {
   getArticlesPageError,
   getArticlesPageIsLoading,
   getArticlesPageView,
 } from './articlePageSelectors'
+import { getArticles } from '../slice/articlesPageSlice'
 
 const article = articleMock
 const entities = {

@@ -1,10 +1,12 @@
 import { ComponentMeta, ComponentStory } from '@storybook/react'
 import withMock from 'storybook-addon-mock'
-import { Theme } from '@/shared/const/theme'
+
 import { articleMock, articlesMock } from '@/entities/Article/testing'
 import { rtkApi } from '@/shared/api/rtkApi'
 import { StoreDecorator } from '@/shared/config/storybook/StoreDecorator/StoreDecorator'
 import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator/ThemeDecorator'
+import { Theme } from '@/shared/const/theme'
+
 import ArticleDetailsPage from './ArticleDetailsPage'
 
 const articles = articlesMock

@@ -1,8 +1,10 @@
 import { ComponentStory, ComponentMeta } from '@storybook/react'
-import { Theme } from '@/shared/const/theme'
-import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator/ThemeDecorator'
-import { StoreDecorator } from '@/shared/config/storybook/StoreDecorator/StoreDecorator'
+
 import { articleMock } from '@/entities/Article/testing'
+import { StoreDecorator } from '@/shared/config/storybook/StoreDecorator/StoreDecorator'
+import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator/ThemeDecorator'
+import { Theme } from '@/shared/const/theme'
+
 import { ArticleDetailsPageHeader } from './ArticleDetailsPageHeader'
 
 export default {

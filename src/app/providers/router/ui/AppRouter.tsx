@@ -1,9 +1,12 @@
 import { Suspense, memo } from 'react'
+
 import { Route, Routes } from 'react-router-dom'
-import { routeConfig } from '../config/routeConfig'
+
 import { AppRoutesProps } from '@/shared/types/router'
 import { PageLoader } from '@/widgets/PageLoader'
+
 import { RequireAuth } from './RequireAuth'
+import { routeConfig } from '../config/routeConfig'
 
 const renderWithWrapper = (route: AppRoutesProps) => {
   const element = <Suspense fallback="">{route.element}</Suspense>

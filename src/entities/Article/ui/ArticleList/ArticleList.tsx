@@ -6,16 +6,19 @@ import {
   useEffect,
   useState,
 } from 'react'
+
 import { useTranslation } from 'react-i18next'
+
 import { ARTICLE_LIST_ITEM_LOCALSTORAGE_IDX } from '@/shared/const/localstorage'
 import { classNames } from '@/shared/lib/classNames/classNames'
 import { Text, TextSize } from '@/shared/ui/Text'
 import { Virtualize } from '@/shared/ui/Virtualize'
+
+import cls from './ArticleList.module.scss'
 import { ArticleView } from '../../model/consts/articleConsts'
 import { Article } from '../../model/types/article'
 import { ArticleListItem } from '../ArticleListItem/ArticleListItem'
 import { ArticleListItemSkeleton } from '../ArticleListItem/ArticleListItemSkeleton'
-import cls from './ArticleList.module.scss'
 
 interface ArticleListProps {
   className?: string

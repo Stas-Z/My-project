@@ -1,10 +1,12 @@
 import { ComponentMeta, ComponentStory } from '@storybook/react'
 import withMock from 'storybook-addon-mock'
-import { Theme } from '@/shared/const/theme'
+
 import { StoreDecorator } from '@/shared/config/storybook/StoreDecorator/StoreDecorator'
 import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator/ThemeDecorator'
-import { Notification } from '../../model/types/notifications'
+import { Theme } from '@/shared/const/theme'
+
 import { NotificationList } from './NotificationList'
+import { Notification } from '../../model/types/notifications'
 
 const items: Notification[] = [
   {

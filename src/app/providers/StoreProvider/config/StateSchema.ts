@@ -5,6 +5,7 @@ import {
   ReducersMapObject,
 } from '@reduxjs/toolkit'
 import { AxiosInstance } from 'axios'
+
 import { ArticleDetailsSchema } from '@/entities/Article'
 import { CommentFormSchema } from '@/entities/Comment'
 import { CounterSchema } from '@/entities/Counter'

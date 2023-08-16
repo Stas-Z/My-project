@@ -1,7 +1,8 @@
 import webpack from 'webpack'
-import { BuildOptions } from './types/config'
-import { buildCssLoader } from './loaders/buildCssLoader'
+
 import { buildBabelLoader } from './loaders/buildBabelLoader'
+import { buildCssLoader } from './loaders/buildCssLoader'
+import { BuildOptions } from './types/config'
 
 // Функция которая возвращает список лоадеров
 export function buildLoaders(options: BuildOptions): webpack.RuleSetRule[] {

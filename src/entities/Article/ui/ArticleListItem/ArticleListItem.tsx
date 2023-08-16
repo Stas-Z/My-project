@@ -1,8 +1,10 @@
 import { HTMLAttributeAnchorTarget, memo } from 'react'
+
 import { useTranslation } from 'react-i18next'
+
 import EyeIcon from '@/shared/assets/icons/eye-20-20.svg'
-import { RoutPath } from '@/shared/const/router'
 import { ARTICLE_LIST_ITEM_LOCALSTORAGE_IDX } from '@/shared/const/localstorage'
+import { RoutPath } from '@/shared/const/router'
 import { classNames } from '@/shared/lib/classNames/classNames'
 import { AppLink } from '@/shared/ui/AppLink'
 import { Avatar } from '@/shared/ui/Avatar'
@@ -10,10 +12,11 @@ import { Button, ButtonTheme } from '@/shared/ui/Button'
 import { Card } from '@/shared/ui/Card'
 import { Icon } from '@/shared/ui/Icon'
 import { Text } from '@/shared/ui/Text'
+
+import cls from './ArticleListItem.module.scss'
 import { ArticleBlockType, ArticleView } from '../../model/consts/articleConsts'
 import { Article, ArticleTextBlock } from '../../model/types/article'
 import { ArticleTextBlockComponent } from '../ArticleTextBlockComponent/ArticleTextBlockComponent'
-import cls from './ArticleListItem.module.scss'
 
 interface ArticleListItemProps {
   className?: string

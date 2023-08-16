@@ -1,7 +1,8 @@
 import { Comment } from '@/entities/Comment/testing'
+
+import { articleCommentsReducer } from './articleCommentsSlice'
 import { fetchCommentsByArticleId } from '../services/fetchCommentsByArticleId/fetchCommentsByArticleId'
 import { ArticleCommentsSchema } from '../types/ArticleCommentsSchema'
-import { articleCommentsReducer } from './articleCommentsSlice'
 
 const entities = {
   1: {
