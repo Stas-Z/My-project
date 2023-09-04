@@ -9,9 +9,22 @@ import cls from './Popover.module.scss'
 import popupCls from '../../styles/popup.module.scss'
 
 interface PopoverProps {
+  /**
+   * @description additional class.
+   */
   className?: string
+  /**
+   * @description Children of trigger Button component
+   */
   trigger: ReactNode
+  /**
+   * @description Direction of dropdown
+   * @default 'bottom_right'
+   */
   direction?: DropdownDirection
+  /**
+   * Popover content
+   */
   children: ReactNode
 }
 

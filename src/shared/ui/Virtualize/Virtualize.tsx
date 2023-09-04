@@ -16,15 +16,46 @@ import cls from './Virtualize.module.scss'
 type ViewType = 'list' | 'grid'
 
 export interface VirtualizeProps<T> {
-  data: T[]
+  /**
+   * @description additional class.
+   */
   className?: string
+  /**
+   * @description List of items to render in Virtualize
+   */
+  data: T[]
+  /**
+   * @description Display type
+   * @default 'list'
+   */
   view?: ViewType
+  /**
+   * @description The flag to render a skeleton
+   */
   isLoading?: boolean
+  /**
+   * @description Index of clicked element, it helps to scroll back to his position
+   */
   lastIndex?: number
+  /**
+   * @description Function that render elements
+   */
   renderNode: (index: number, item: T) => ReactNode
+  /**
+   * @description Called when reach the bottom of the page
+   */
   onScrollEnd?: () => void
+  /**
+   * @description Function that render skeletons
+   */
   renderSkeleton?: (index: number) => ReactNode
+  /**
+   * @description A reference to a scrollable parent element
+   */
   parentRef?: MutableRefObject<HTMLDivElement>
+  /**
+   * @description It renders instead of element, if the user scrolls too fast.
+   */
   placeholder?: FC<{ index: number }>
 }
 
@@ -49,8 +80,8 @@ export const Virtualize = <T,>(props: VirtualizeProps<T>) => {
       setTimeout(() => {
         ref.current?.scrollToIndex({
           index: lastIndex,
-          align: 'center',
-          behavior: 'auto',
+          align: 'end',
+          behavior: 'smooth',
         })
       }, 100),
     [lastIndex],

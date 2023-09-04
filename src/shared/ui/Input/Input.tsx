@@ -16,10 +16,25 @@ type HTMLInputProps = Omit<
 // В InputHTMLAttributes уже есть value и onChange, поэтому их надо исключить через Omit.
 // Omit позовляет из типа забрать все пропсы и исключить те, которые нам не нужны.
 interface InputProps extends HTMLInputProps {
+  /**
+   * @description additional class.
+   */
   className?: string
+  /**
+   * @description The value in Input
+   */
   value?: string | number
+  /**
+   * @description Callback to change value in input
+   */
   onChange?: (value: string) => void
+  /**
+   * @description Flag to disable Input and to add readonly class
+   */
   readonly?: boolean
+  /**
+   * @description Flag to add additional editing class.
+   */
   editing?: boolean
 }
 

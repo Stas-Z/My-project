@@ -18,9 +18,22 @@ export interface DropdownItem {
 }
 
 interface DropdownProps {
+  /**
+   * @description additional class.
+   */
   className?: string
+  /**
+   * @description List of items to render in dropdown
+   */
   items: DropdownItem[]
+  /**
+   * @description Children of trigger Button component
+   */
   trigger: ReactNode
+  /**
+   * @description Direction of dropdown
+   * @default 'bottom_right'
+   */
   direction?: DropdownDirection
 }
 

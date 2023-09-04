@@ -11,9 +11,22 @@ export interface TabItem {
 }
 
 interface TabsProps {
+  /**
+   * @description additional class.
+   */
   className?: string
+  /**
+   * @description The tabs items to display
+   */
   tabs: TabItem[]
+  /**
+   * @description The value of Tab
+   */
   value: string
+  /**
+   * @description Called when a tab is clicked
+   * @param {TabItem} tab
+   */
   onTabClick: (tab: TabItem) => void
 }
 

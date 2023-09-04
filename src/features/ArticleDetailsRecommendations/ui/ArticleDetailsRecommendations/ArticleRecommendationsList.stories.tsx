@@ -2,6 +2,7 @@ import { ComponentMeta, ComponentStory } from '@storybook/react'
 import withMock from 'storybook-addon-mock'
 
 import { articlesMock } from '@/entities/Article/testing'
+import { LokiDelayDecorator } from '@/shared/config/storybook/LokiDelayDecorator/LokiDelayDecorator'
 import { StoreDecorator } from '@/shared/config/storybook/StoreDecorator/StoreDecorator'
 import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator/ThemeDecorator'
 import { Theme } from '@/shared/const/theme'
@@ -35,12 +36,20 @@ const Template: ComponentStory<typeof ArticleRecommendationsList> = (args) => (
 
 export const Light = Template.bind({})
 Light.args = {}
-Light.decorators = [StoreDecorator({})]
+Light.decorators = [StoreDecorator({}), LokiDelayDecorator()]
 
 export const Dark = Template.bind({})
 Dark.args = {}
-Dark.decorators = [ThemeDecorator(Theme.DARK), StoreDecorator({})]
+Dark.decorators = [
+  ThemeDecorator(Theme.DARK),
+  StoreDecorator({}),
+  LokiDelayDecorator(),
+]
 
 export const Choco = Template.bind({})
 Choco.args = {}
-Choco.decorators = [ThemeDecorator(Theme.CHOCOLATE), StoreDecorator({})]
+Choco.decorators = [
+  ThemeDecorator(Theme.CHOCOLATE),
+  StoreDecorator({}),
+  LokiDelayDecorator(),
+]

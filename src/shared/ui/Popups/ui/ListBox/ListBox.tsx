@@ -19,14 +19,42 @@ export interface ListBoxItem {
 }
 
 interface ListBoxProps {
+  /**
+   * @description additional class.
+   */
   className?: string
+  /**
+   * @description List of items to render in ListBox
+   */
   items?: ListBoxItem[]
+  /**
+   * @description The value of items in ListBox
+   */
   value?: string
+  /**
+   * @description The selected value in listbox
+   */
   defaultValue?: string
+  /**
+   * @description Callback to change value
+   */
   onChange: <T extends string>(value: T) => void
+  /**
+   * @description Flag to disable listbox.
+   */
   readonly?: boolean
+  /**
+   * @description Direction of dropdown
+   * @default 'bottom_right'
+   */
   direction?: DropdownDirection
+  /**
+   * @description Label for the ListBox
+   */
   label?: string
+  /**
+   * @description Flag to add additional editing class.
+   */
   editing?: boolean
 }
 

@@ -34,7 +34,6 @@ export function useInfiniteScroll({
 
     return () => {
       if (observer && triggerElement) {
-        // eslint-disable-next-line
         observer.unobserve(triggerElement)
       }
     }

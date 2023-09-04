@@ -24,11 +24,31 @@ export enum TextSize {
 }
 
 interface TextProps {
+  /**
+   * @description additional class.
+   */
   className?: string
+  /**
+   * @description The text of the title
+   */
   title?: string
+  /**
+   * @description The text to display
+   */
   text?: string
+  /**
+   * @description The theme of the text. Changes the color
+   * @default TextTheme.PRIMARY
+   */
   theme?: TextTheme
+  /**
+   * @description The text alignment
+   */
   align?: TextAlign
+  /**
+   * @description The size of the text
+   * @default TextSize.M
+   */
   size?: TextSize
 
   'data-testid'?: string

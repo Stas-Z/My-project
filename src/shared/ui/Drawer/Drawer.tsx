@@ -12,10 +12,25 @@ import { Overlay } from '../Overlay/Overlay'
 import { Portal } from '../Portal/Portal'
 
 interface DrawerProps {
+  /**
+   * @description additional class.
+   */
   className?: string
+  /**
+   * @description Drawer content
+   */
   children: ReactNode
+  /**
+   * @description Flag to open/close drawer
+   */
   isOpen?: boolean
+  /**
+   * @description Callback to close drawer
+   */
   onClose?: () => void
+  /**
+   * @description Flag to render drawer only when it is open
+   */
   lazy?: boolean
 }
 

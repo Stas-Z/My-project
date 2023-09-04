@@ -1,22 +1,23 @@
 import { ComponentMeta, ComponentStory } from '@storybook/react'
 
-import { ArticleView, entitiesMock } from '@/entities/Article'
+import { ArticleView, entitiesMock } from '@/entities/Article/testing'
+import { LokiDelayDecorator } from '@/shared/config/storybook/LokiDelayDecorator/LokiDelayDecorator'
 import { StoreDecorator } from '@/shared/config/storybook/StoreDecorator/StoreDecorator'
 import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator/ThemeDecorator'
 import { Theme } from '@/shared/const/theme'
 
-import { ArticleInfiniteList } from './ArticleInfiniteList'
+import ArticlesPage from './ArticlesPage'
 
 export default {
-  title: 'pages/Article/ArticleInfiniteList',
-  component: ArticleInfiniteList,
+  title: 'pages/Article/ArticlesPage',
+  component: ArticlesPage,
   argTypes: {
     backgroundColor: { control: 'color' },
   },
-} as ComponentMeta<typeof ArticleInfiniteList>
+} as ComponentMeta<typeof ArticlesPage>
 
-const Template: ComponentStory<typeof ArticleInfiniteList> = (args) => (
-  <ArticleInfiniteList {...args} />
+const Template: ComponentStory<typeof ArticlesPage> = (args) => (
+  <ArticlesPage {...args} />
 )
 
 const entities = entitiesMock
@@ -24,12 +25,16 @@ const ids = ['1', '2', '3', '4', '5']
 
 export const Grid = Template.bind({})
 Grid.args = {}
-Grid.decorators = [StoreDecorator({ articlesPage: { entities, ids } })]
+Grid.decorators = [
+  StoreDecorator({ articlesPage: { entities, ids } }),
+  LokiDelayDecorator(),
+]
 
 export const GridLoading = Template.bind({})
 GridLoading.args = {}
 GridLoading.decorators = [
   StoreDecorator({ articlesPage: { entities, ids, isLoading: true } }),
+  LokiDelayDecorator(),
 ]
 
 export const GridDark = Template.bind({})
@@ -37,6 +42,7 @@ GridDark.args = {}
 GridDark.decorators = [
   ThemeDecorator(Theme.DARK),
   StoreDecorator({ articlesPage: { entities, ids } }),
+  LokiDelayDecorator(),
 ]
 
 export const GridDarkLoading = Template.bind({})
@@ -44,12 +50,14 @@ GridDarkLoading.args = {}
 GridDarkLoading.decorators = [
   ThemeDecorator(Theme.DARK),
   StoreDecorator({ articlesPage: { entities, ids, isLoading: true } }),
+  LokiDelayDecorator(),
 ]
 
 export const GridChoco = Template.bind({})
 GridChoco.decorators = [
   ThemeDecorator(Theme.CHOCOLATE),
   StoreDecorator({ articlesPage: { entities, ids } }),
+  LokiDelayDecorator(),
 ]
 
 export const GridChocoLoading = Template.bind({})
@@ -57,12 +65,14 @@ GridChocoLoading.args = {}
 GridChocoLoading.decorators = [
   ThemeDecorator(Theme.CHOCOLATE),
   StoreDecorator({ articlesPage: { entities, ids, isLoading: true } }),
+  LokiDelayDecorator(),
 ]
 
 export const List = Template.bind({})
 List.args = {}
 List.decorators = [
   StoreDecorator({ articlesPage: { entities, ids, view: ArticleView.LIST } }),
+  LokiDelayDecorator(),
 ]
 
 export const ListLoading = Template.bind({})
@@ -76,6 +86,7 @@ ListLoading.decorators = [
       view: ArticleView.LIST,
     },
   }),
+  LokiDelayDecorator(),
 ]
 
 export const ListDark = Template.bind({})
@@ -83,6 +94,7 @@ ListDark.args = {}
 ListDark.decorators = [
   ThemeDecorator(Theme.DARK),
   StoreDecorator({ articlesPage: { entities, ids, view: ArticleView.LIST } }),
+  LokiDelayDecorator(),
 ]
 
 export const ListDarkLoading = Template.bind({})
@@ -97,6 +109,7 @@ ListDarkLoading.decorators = [
       view: ArticleView.LIST,
     },
   }),
+  LokiDelayDecorator(),
 ]
 
 export const ListChoco = Template.bind({})
@@ -104,6 +117,7 @@ ListChoco.args = {}
 ListChoco.decorators = [
   ThemeDecorator(Theme.CHOCOLATE),
   StoreDecorator({ articlesPage: { entities, ids, view: ArticleView.LIST } }),
+  LokiDelayDecorator(),
 ]
 
 export const ListChocoLoading = Template.bind({})
@@ -118,10 +132,5 @@ ListChocoLoading.decorators = [
       view: ArticleView.LIST,
     },
   }),
-]
-
-export const Error = Template.bind({})
-Error.args = {}
-Error.decorators = [
-  StoreDecorator({ articlesPage: { entities, ids, error: 'true' } }),
+  LokiDelayDecorator(),
 ]

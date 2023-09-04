@@ -7,6 +7,7 @@ import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator/ThemeDe
 import { Theme } from '@/shared/const/theme'
 
 import { EditableProfileCardForm } from './EditableProfileCardForm'
+import { ValidateProfileEror } from '../../model/consts/editableProfileCardConsts'
 
 export default {
   title: 'features/Profile/EditableProfileCardForm',
@@ -48,6 +49,22 @@ LightEdit.decorators = [
   StoreDecorator({
     profile: {
       form: data,
+    },
+  }),
+]
+
+export const LightError = Template.bind({})
+LightError.args = {}
+LightError.decorators = [
+  StoreDecorator({
+    profile: {
+      validateErrors: [
+        ValidateProfileEror.NO_DATA,
+        ValidateProfileEror.INCORRECT_USER_DATA,
+        ValidateProfileEror.INCORRECT_AGE,
+        ValidateProfileEror.INCORRECT_CITY,
+        ValidateProfileEror.SERVER_ERROR,
+      ],
     },
   }),
 ]

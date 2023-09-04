@@ -34,9 +34,15 @@
     "generate:slice": "node ./scripts/createSlice/index.js"
   },
   "lint-staged": {
-    "**/*.{ts,tsx}": [
-      "prettier --list-different",
-      "eslint"
+    "*.{ts,tsx}": [
+      "eslint --fix",
+      "prettier --write"
+    ],
+    "*.json": [
+      "prettier --write"
+    ],
+    "*.scss": [
+      "stylelint --fix"
     ]
   },
   "keywords": [],
@@ -49,6 +55,8 @@
     "@babel/preset-env": "^7.16.11",
     "@babel/preset-react": "^7.16.7",
     "@babel/preset-typescript": "^7.16.7",
+    "@loki/create-async-callback": "^0.32.0",
+    "@loki/is-loki-running": "^0.32.0",
     "@pmmmwh/react-refresh-webpack-plugin": "^0.5.5",
     "@storybook/addon-actions": "^6.5.16",
     "@storybook/addon-essentials": "^6.5.16",
@@ -99,6 +107,7 @@
     "jest": "^27.5.1",
     "jest-html-reporters": "^3.1.4",
     "json-server": "^0.17.3",
+    "lint-staged": "^14.0.1",
     "loki": "^0.32.0",
     "mini-css-extract-plugin": "^2.5.3",
     "prettier": "3.0.1",

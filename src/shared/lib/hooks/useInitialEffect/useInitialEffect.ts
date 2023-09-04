@@ -5,6 +5,7 @@ export function useInitialEffect(callback: () => void) {
     if (__PROJECT__ !== 'storybook') {
       callback()
     }
+    // useEffect should be called only once when component is mounted
     // eslint-disable-next-line
   }, [])
 }

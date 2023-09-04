@@ -9,6 +9,7 @@ export function getQueryParams(params: OptionalRecord<string, string>) {
 }
 
 /**
+ * Add query params to the current URL
  * Функция добавления параметров строки запроса в URL
  * @param params
  */

@@ -7,9 +7,24 @@ import cls from './StarRating.module.scss'
 import { Icon } from '../Icon/Icon'
 
 interface StarRatingProps {
+  /**
+   * @description additional class.
+   */
   className?: string
+  /**
+   * @description Called when a star is selected
+   * @param {number} starsCount
+   */
   onSelect?: (starsCount: number) => void
+  /**
+   * @description Height and width of the star
+   * @default 30
+   */
   size?: number
+  /**
+   * @description 0 means no stars are selected
+   * @default 0
+   */
   selectedStars?: number
 }
 

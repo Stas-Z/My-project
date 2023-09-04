@@ -5,8 +5,17 @@ import { classNames } from '@/shared/lib/classNames/classNames'
 import cls from './Icon.module.scss'
 
 interface IconProps extends React.SVGProps<SVGSVGElement> {
+  /**
+   * @description additional class.
+   */
   className?: string
+  /**
+   * @description Icon component
+   */
   Svg: React.VFC<React.SVGProps<SVGSVGElement>>
+  /**
+   * @description Icon color
+   */
   inverted?: boolean
 }
 

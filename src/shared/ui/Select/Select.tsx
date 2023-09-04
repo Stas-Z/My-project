@@ -12,12 +12,33 @@ export interface SelectOption<T extends string> {
 }
 
 interface SelectProps<T extends string> {
+  /**
+   * @description additional class.
+   */
   className?: string
+  /**
+   * @description Label for the Select
+   */
   label?: string
+  /**
+   * @description List of items to render in Select
+   */
   options?: SelectOption<T>[]
+  /**
+   * @description The value of items in Select
+   */
   value?: T
+  /**
+   * @description Callback to change value
+   */
   onChange?: (value: T) => void
+  /**
+   * @description Flag to disable Select and to add readonly class
+   */
   readonly?: boolean
+  /**
+   * @description Flag to add additional editing class.
+   */
   editing?: boolean
 }
 

@@ -10,9 +10,22 @@ export enum CardTheme {
 }
 
 interface CardProps extends HTMLAttributes<HTMLDivElement> {
+  /**
+   * @description additional class.
+   */
   className?: string
+  /**
+   * @description Card content
+   */
   children: ReactNode
+  /**
+   * @description Card theme. Responsible for card's color and border.
+   * @default CardTheme.NORMAL
+   */
   theme?: CardTheme
+  /**
+   * @description Flag to make card width 100%.
+   */
   max?: boolean
 }
 

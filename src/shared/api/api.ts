@@ -6,6 +6,7 @@ export const $api = axios.create({
   baseURL: __API__,
 })
 
+// set authorization header on each request
 $api.interceptors.request.use((config) => {
   if (config.headers) {
     config.headers.Authorization =

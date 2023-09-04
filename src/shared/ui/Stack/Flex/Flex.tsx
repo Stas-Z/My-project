@@ -37,11 +37,29 @@ const gapClasses: Record<FlexGap, string> = {
 }
 
 export interface FlexProps {
+  /**
+   * @description additional class.
+   */
   className?: string
+  /**
+   * @description Justify content css property
+   */
   justify?: FlexJustify
+  /**
+   * @description Align items css property
+   */
   align?: FlexAlign
+  /**
+   * @description Flex direction css property
+   */
   direction?: FlexDirection
+  /**
+   * @description Gap between flex items
+   */
   gap?: FlexGap
+  /**
+   * @description Flag to set width: 100%
+   */
   max?: boolean
 }
 

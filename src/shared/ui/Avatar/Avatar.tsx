@@ -5,9 +5,21 @@ import { classNames } from '@/shared/lib/classNames/classNames'
 import cls from './Avatar.module.scss'
 
 interface AvatarProps {
+  /**
+   * @description additional class.
+   */
   className?: string
+  /**
+   * @description Avatar image source.
+   */
   src?: string
+  /**
+   * @description Avatar width and height.
+   */
   size?: number
+  /**
+   * @description An alternative text description of the image.
+   */
   alt?: string
 }
 

@@ -1,4 +1,4 @@
-import { memo, useCallback, useMemo } from 'react'
+import { ReactNode, memo, useCallback, useMemo } from 'react'
 
 import { useTranslation } from 'react-i18next'
 
@@ -23,8 +23,8 @@ export const ArticleTypeTabs = memo((props: ArticleTypeTabsProps) => {
         (accumulator: TabItem[], currentValue) => [
           ...accumulator,
           {
-            value: currentValue,
-            content: t(currentValue),
+            value: currentValue as string,
+            content: t(currentValue) as ReactNode,
           },
         ],
         [],
