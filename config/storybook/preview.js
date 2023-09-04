@@ -14,6 +14,14 @@ export const parameters = {
     },
   },
   layout: 'fullscreen',
+  themes: {
+    default: 'light',
+    list: [
+      { name: 'light', class: ['app', Theme.LIGHT], color: '#e8e8ea' },
+      { name: 'dark', class: ['app', Theme.DARK], color: '#090949' },
+      { name: 'choco', class: ['app', Theme.CHOCOLATE], color: '#372c2e' },
+    ],
+  },
 }
 
 addDecorator(StyleDecorator) // Декоратор подключает глобальные стили
