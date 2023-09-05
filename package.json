@@ -31,7 +31,8 @@
     "storybook:build": "build-storybook -c ./config/storybook",
     "open:ui:html": ".loki\\report.html",
     "prepare": "husky install",
-    "generate:slice": "node ./scripts/createSlice/index.js"
+    "generate:slice": "node ./scripts/createSlice/index.js",
+    "postinstall": "node ./scripts/clearCache/clearCache.js"
   },
   "lint-staged": {
     "*.{ts,tsx}": [

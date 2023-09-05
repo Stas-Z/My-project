@@ -20,7 +20,7 @@ export function buildWebpackConfig(
       clean: true, // Для очистки от старых файлов
       publicPath: '/', // Указывает базовый путь для всех ресурсов в нашем приложении (Исправляет запрос на вложенный путь ссылки: http://нашсайт/article/1)
     },
-    devtool: isDev ? 'inline-source-map' : undefined, // 'inline-source-map' Позволяет отследить к каком месте в коде у нас ошибка
+    devtool: isDev ? 'eval-cheap-module-source-map' : undefined, // 'inline-source-map' Позволяет отследить к каком месте в коде у нас ошибка
     devServer: isDev ? buildDevServer(options) : undefined, // Вызываем функцию настройки Dev сервера и передаём в неё опции
     plugins: buildPlugins(options), // Вызываем функцию которая возвращает список плагинов и передаём в неё опции
     module: {
