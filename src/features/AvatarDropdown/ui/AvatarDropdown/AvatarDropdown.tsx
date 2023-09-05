@@ -10,7 +10,7 @@ import {
   userActions,
 } from '@/entities/User'
 import DefaultAvatar from '@/shared/assets/icons/default-avatar.svg'
-import { RoutPath } from '@/shared/const/router'
+import { getRouteAdmin, getRouteProfile } from '@/shared/const/router'
 import { classNames } from '@/shared/lib/classNames/classNames'
 import { Avatar } from '@/shared/ui/Avatar'
 import { Dropdown } from '@/shared/ui/Popups'
@@ -48,14 +48,14 @@ export const AvatarDropdown = memo((props: AvatarDropdownProps) => {
               {
                 id: '1',
                 content: t('Admin'),
-                href: RoutPath.admin_panel,
+                href: getRouteAdmin(),
               },
             ]
           : []),
         {
           id: '2',
           content: t('Profile'),
-          href: RoutPath.profile + authData.id,
+          href: getRouteProfile(authData.id),
         },
         {
           id: '3',

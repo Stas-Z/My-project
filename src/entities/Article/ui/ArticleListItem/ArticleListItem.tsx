@@ -4,7 +4,7 @@ import { useTranslation } from 'react-i18next'
 
 import EyeIcon from '@/shared/assets/icons/eye-20-20.svg'
 import { ARTICLE_LIST_ITEM_LOCALSTORAGE_IDX } from '@/shared/const/localstorage'
-import { RoutPath } from '@/shared/const/router'
+import { getRouteArticlesDetails } from '@/shared/const/router'
 import { classNames } from '@/shared/lib/classNames/classNames'
 import { AppLink } from '@/shared/ui/AppLink'
 import { Avatar } from '@/shared/ui/Avatar'
@@ -77,7 +77,7 @@ export const ArticleListItem = memo((props: ArticleListItemProps) => {
             />
           )}
           <div className={cls.footer}>
-            <AppLink to={RoutPath.article_details + article.id}>
+            <AppLink to={getRouteArticlesDetails(article.id)}>
               <Button onClick={onButtonClick} theme={ButtonTheme.OUTLINE}>
                 {t('Read more')}
               </Button>
@@ -92,7 +92,7 @@ export const ArticleListItem = memo((props: ArticleListItemProps) => {
   return (
     <AppLink
       target={target}
-      to={RoutPath.article_details + article.id}
+      to={getRouteArticlesDetails(article.id)}
       onClick={onButtonClick}
       className={classNames(cls.articleListItemGrid, {}, [
         className,
