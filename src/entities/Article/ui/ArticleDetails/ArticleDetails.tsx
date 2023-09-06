@@ -3,6 +3,7 @@ import { memo, useEffect } from 'react'
 import { useTranslation } from 'react-i18next'
 import { useSelector } from 'react-redux'
 
+import NoImage from '@/shared/assets/icons/blank-picture.svg'
 import CalendarIcon from '@/shared/assets/icons/calendar-20-20.svg'
 import EyeIcon from '@/shared/assets/icons/eye-20-20.svg'
 import { classNames } from '@/shared/lib/classNames/classNames'
@@ -11,7 +12,7 @@ import {
   ReducersList,
 } from '@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader'
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch'
-import { Avatar } from '@/shared/ui/Avatar'
+import { AppImage } from '@/shared/ui/AppImage'
 import { Icon } from '@/shared/ui/Icon'
 import { Skeleton } from '@/shared/ui/Skeleton'
 import { HStack, VStack } from '@/shared/ui/Stack'
@@ -77,6 +78,10 @@ export const ArticleDetails = memo((props: ArticleDetailsProps) => {
   const isLoading = useSelector(getArticleDetailsIsLoading)
   const error = useSelector(getArticleDetailsError)
 
+  const errorFallback = (
+    <Icon className={cls.articleLogo} width={200} height={200} Svg={NoImage} />
+  )
+
   useEffect(() => {
     if (__PROJECT__ !== 'storybook') {
       // проверка на запрос
@@ -90,7 +95,7 @@ export const ArticleDetails = memo((props: ArticleDetailsProps) => {
     content = (
       <>
         <Skeleton
-          className={cls.avatar}
+          className={cls.articleLogo}
           width={200}
           height={200}
           border="50%"
@@ -112,7 +117,13 @@ export const ArticleDetails = memo((props: ArticleDetailsProps) => {
     content = (
       <>
         <HStack justify="center" max className={cls.avatarWrapper}>
-          <Avatar size={200} src={article?.img} className={cls.avatar} />
+          <AppImage
+            errorFallback={errorFallback}
+            src={article?.img}
+            className={cls.articleLogo}
+            width={200}
+            height={200}
+          />
         </HStack>
         <VStack gap="4" max>
           <Text

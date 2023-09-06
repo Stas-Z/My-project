@@ -296,10 +296,10 @@
       "id": "10",
       "title": "Python news",
       "subtitle": "Что нового в JS за 2022 год?",
-      "img": "https://researchweek.unc.edu/wp-content/uploads/2022/09/python-logo.jpg",
+      "img": "https://researchweek.unc.edu/wscsap-content/uploads/2022/09/python-logo.jpg",
       "views": 1022,
       "createdAt": "26.02.2022",
-      "userId": "1",
+      "userId": "3",
       "type": ["IT"],
       "blocks": [
         {
@@ -725,7 +725,7 @@
       "username": "user",
       "password": "123",
       "roles": ["USER"],
-      "avatar": "https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_640.png"
+      "avatar": "https://cdn.pixabay.com/photo/2015/10/05/22/3/blank-profile-picture-973460_640.png"
     },
     {
       "id": "4",
@@ -767,7 +767,7 @@
       "country": "Russia",
       "city": "Moscow",
       "username": "newUser",
-      "avatar": ""
+      "avatar": "https://avatars.githubusercontent.com/u/11681863311111111"
     },
     {
       "id": "4",

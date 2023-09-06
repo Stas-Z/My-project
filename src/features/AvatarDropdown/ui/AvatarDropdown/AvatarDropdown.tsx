@@ -9,7 +9,6 @@ import {
   isUserManager,
   userActions,
 } from '@/entities/User'
-import DefaultAvatar from '@/shared/assets/icons/default-avatar.svg'
 import { getRouteAdmin, getRouteProfile } from '@/shared/const/router'
 import { classNames } from '@/shared/lib/classNames/classNames'
 import { Avatar } from '@/shared/ui/Avatar'
@@ -63,13 +62,7 @@ export const AvatarDropdown = memo((props: AvatarDropdownProps) => {
           onClick: onLogout,
         },
       ]}
-      trigger={
-        authData.avatar ? (
-          <Avatar size={30} src={authData.avatar} />
-        ) : (
-          <DefaultAvatar className={cls.avatar} />
-        )
-      }
+      trigger={<Avatar size={30} src={authData.avatar} fallbackInverted />}
       direction="bottom_left"
     />
   )
