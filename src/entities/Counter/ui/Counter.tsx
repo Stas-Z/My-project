@@ -1,21 +1,26 @@
 import { useTranslation } from 'react-i18next'
-import { useDispatch, useSelector } from 'react-redux'
+import { useDispatch } from 'react-redux'
 
 import { Button, ButtonTheme } from '@/shared/ui/Button'
 
-import { getCounterValue } from '../model/selectors/getCounterValue/getCounterValue'
-import { counterActions } from '../model/slice/counterSlice'
+import { useCounterValue } from '../model/selectors/getCounterValue/getCounterValue'
+import { useCounterActions } from '../model/slice/counterSlice'
 
 export const Counter = () => {
   const { t } = useTranslation()
   const dispatch = useDispatch()
-  const counterValue = useSelector(getCounterValue)
-  const incerement = () => {
-    dispatch(counterActions.increment())
+  const counterValue = useCounterValue()
+  const { decrement, increment, incrementByAmount } = useCounterActions()
+
+  const handleInc = () => {
+    increment()
   }
 
-  const decerement = () => {
-    dispatch(counterActions.decrement())
+  const handleDec = () => {
+    decrement()
+  }
+  const handleAddFive = () => {
+    incrementByAmount(5)
   }
   return (
     <div>
@@ -23,16 +28,23 @@ export const Counter = () => {
       <Button
         data-testid="increment-btn"
         theme={ButtonTheme.BACKGROUND_INVERTED}
-        onClick={incerement}
+        onClick={handleInc}
       >
         {t('increment')}
       </Button>
       <Button
         data-testid="decrement-btn"
         theme={ButtonTheme.BACKGROUND_INVERTED}
-        onClick={decerement}
+        onClick={handleDec}
       >
         {t('decrement')}
+      </Button>
+      <Button
+        data-testid="decrement-btn"
+        theme={ButtonTheme.BACKGROUND_INVERTED}
+        onClick={handleAddFive}
+      >
+        {t('add 5')}
       </Button>
     </div>
   )
