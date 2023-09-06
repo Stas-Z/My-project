@@ -40,7 +40,7 @@ export const Counter = () => {
         {t('decrement')}
       </Button>
       <Button
-        data-testid="decrement-btn"
+        data-testid="incByAmount-btn"
         theme={ButtonTheme.BACKGROUND_INVERTED}
         onClick={handleAddFive}
       >
