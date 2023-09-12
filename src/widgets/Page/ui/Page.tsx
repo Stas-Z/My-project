@@ -3,10 +3,11 @@ import { MutableRefObject, ReactNode, useEffect, useRef } from 'react'
 import { ARTICLE_LIST_ITEM_LOCALSTORAGE_IDX } from '@/shared/const/localstorage'
 import { classNames } from '@/shared/lib/classNames/classNames'
 import { useInfiniteScroll } from '@/shared/lib/hooks/useInfiniteScroll/useInfiniteScroll'
+import { TestProps } from '@/shared/types/tests'
 
 import cls from './Page.module.scss'
 
-interface PageProps {
+interface PageProps extends TestProps {
   className?: string
   children: ReactNode
   onScrollEnd?: () => void
@@ -21,7 +22,9 @@ export const Page = (props: PageProps) => {
     onScrollEnd,
     parentRef,
     saveScroll = false,
+    'data-testid': dataTestId,
   } = props
+
   const triggerRef = useRef() as MutableRefObject<HTMLDivElement>
   const wrapperRef = useRef() as MutableRefObject<HTMLDivElement>
 
@@ -38,7 +41,11 @@ export const Page = (props: PageProps) => {
   }, [saveScroll])
 
   return (
-    <main ref={parentRef} className={classNames(cls.page, {}, [className])}>
+    <main
+      ref={parentRef}
+      className={classNames(cls.page, {}, [className])}
+      data-testid={dataTestId ?? 'Page'}
+    >
       {children}
       {onScrollEnd ? <div className={cls.trigger} ref={triggerRef} /> : null}
     </main>

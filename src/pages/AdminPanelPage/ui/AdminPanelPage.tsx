@@ -6,6 +6,6 @@ import { Page } from '@/widgets/Page'
 
 const AdminPanelPage = () => {
   const { t } = useTranslation()
-  return <Page>{t('Admin Panel')}</Page>
+  return <Page data-testid="AdminPanelPage">{t('Admin Panel')}</Page>
 }
 export default memo(AdminPanelPage)
