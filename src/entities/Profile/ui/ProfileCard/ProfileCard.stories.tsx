@@ -26,7 +26,7 @@ const data = {
   country: Country.Russia,
   city: 'Moscow',
   username: 'admin',
-  avatar: 'https://avatars.githubusercontent.com/u/116818633',
+  avatar: 'assets/avatar.png',
 }
 export const Light = Template.bind({})
 Light.args = {
