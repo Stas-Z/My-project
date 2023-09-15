@@ -25,22 +25,43 @@ export default ({ config }: { config: webpack.Configuration }) => {
   }
 
   if (config.module?.rules) {
-    // Исключаем дефолтный svg loader
+    // Исключаем дефолтный png jpg svg loader
     // eslint-disable-next-line no-param-reassign
     config.module.rules = config.module?.rules?.map(
       (rule: webpack.RuleSetRule | '...') => {
-        if (rule !== '...' && /svg/.test(rule.test as string)) {
-          return { ...rule, exclude: /\.svg$/i }
+        if (
+          rule !== '...' &&
+          /svg/.test(rule.test as string) &&
+          /png/.test(rule.test as string) &&
+          /jpg/.test(rule.test as string)
+        ) {
+          return { ...rule, exclude: /\.(png|jpe?g|svg)$/i }
         }
         return rule
       },
     )
   }
-  config.module?.rules?.push({
-    // Добавляем svgr loader
-    test: /\.svg$/,
-    use: ['@svgr/webpack'],
-  })
+
+  config.module?.rules?.push(
+    {
+      // Добавляем png jpg loader
+      test: /\.(png|jpe?g)$/i,
+      use: [
+        {
+          loader: 'file-loader',
+          options: {
+            name: '[name].[ext]',
+            outputPath: 'static/assets/',
+          },
+        },
+      ],
+    },
+    {
+      // Добавляем svgr loader
+      test: /\.svg$/,
+      use: ['@svgr/webpack'],
+    },
+  )
   config.module?.rules?.push(buildCssLoader(true)) // Загрузчик стилей css
 
   config.plugins?.push(

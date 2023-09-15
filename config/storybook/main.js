@@ -12,7 +12,6 @@ module.exports = {
     'storybook-addon-mock/register',
     'storybook-addon-themes',
   ],
-  staticDirs: ['./static'],
   framework: '@storybook/react',
   core: {
     builder: '@storybook/builder-webpack5',

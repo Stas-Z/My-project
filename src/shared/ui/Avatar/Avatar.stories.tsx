@@ -1,5 +1,7 @@
 import { ComponentMeta, ComponentStory } from '@storybook/react'
 
+import AvatarImg from '@/shared/assets/tests/avatar.png'
+
 import { Avatar } from './Avatar'
 
 export default {
@@ -15,11 +17,11 @@ const Template: ComponentStory<typeof Avatar> = (args) => <Avatar {...args} />
 export const Normal = Template.bind({})
 Normal.args = {
   size: 150,
-  src: 'assets/avatar.png',
+  src: AvatarImg,
 }
 
 export const Small = Template.bind({})
 Small.args = {
   size: 50,
-  src: 'assets/avatar.png',
+  src: AvatarImg,
 }

@@ -2,6 +2,7 @@ import { ComponentMeta, ComponentStory } from '@storybook/react'
 
 import { Country } from '@/entities/Country/testing'
 import { Currency } from '@/entities/Currency/testing'
+import avatar from '@/shared/assets/tests/profilePic.jpg'
 import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator/ThemeDecorator'
 import { Theme } from '@/shared/const/theme'
 
@@ -26,7 +27,7 @@ const data = {
   country: Country.Russia,
   city: 'Moscow',
   username: 'admin',
-  avatar: 'assets/avatar.png',
+  avatar,
 }
 export const Light = Template.bind({})
 Light.args = {
