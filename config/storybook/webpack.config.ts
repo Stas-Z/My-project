@@ -51,7 +51,7 @@ export default ({ config }: { config: webpack.Configuration }) => {
           loader: 'file-loader',
           options: {
             name: '[name].[ext]',
-            outputPath: 'static/assets/',
+            outputPath: 'static/assets/', // Путь где будут лежать файлы
           },
         },
       ],
