@@ -1,4 +1,4 @@
-import { ComponentMeta, ComponentStory } from '@storybook/react'
+import { Meta, StoryObj } from '@storybook/react'
 
 import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator/ThemeDecorator'
 import { Theme } from '@/shared/const/theme'
@@ -11,54 +11,71 @@ export default {
   argTypes: {
     backgroundColor: { control: 'color' },
   },
-} as ComponentMeta<typeof Text>
+} as Meta<typeof Text>
 
-const Template: ComponentStory<typeof Text> = (args) => <Text {...args} />
+type Template = StoryObj<typeof Text>
 
-export const SizeS = Template.bind({})
-SizeS.args = {
-  size: TextSize.S,
-  title: 'Title Sample',
-  text: 'Text Sample',
-}
-export const SizeM = Template.bind({})
-SizeM.args = {
-  title: 'Title Sample',
-  text: 'Text Sample',
-}
-export const SizeL = Template.bind({})
-SizeL.args = {
-  title: 'Title Sample',
-  text: 'Text Sample',
-  size: TextSize.L,
+export const SizeS: Template = {
+  args: {
+    size: TextSize.S,
+    title: 'Title Sample',
+    text: 'Text Sample',
+  },
+  decorators: [ThemeDecorator(Theme.LIGHT)],
 }
 
-export const OnlyTitle = Template.bind({})
-OnlyTitle.args = {
-  title: 'Title Sample',
-}
-export const OnlyText = Template.bind({})
-OnlyText.args = {
-  text: 'Text Sample',
+export const SizeM: Template = {
+  args: {
+    title: 'Title Sample',
+    text: 'Text Sample',
+  },
+  decorators: [ThemeDecorator(Theme.LIGHT)],
 }
 
-export const Dark = Template.bind({})
-Dark.args = {
-  title: 'Title Sample',
-  text: 'Text Sample',
+export const SizeL: Template = {
+  args: {
+    title: 'Title Sample',
+    text: 'Text Sample',
+    size: TextSize.L,
+  },
+  decorators: [ThemeDecorator(Theme.LIGHT)],
 }
-Dark.decorators = [ThemeDecorator(Theme.DARK)]
 
-export const Choco = Template.bind({})
-Choco.args = {
-  title: 'Title Sample',
-  text: 'Text Sample',
+export const OnlyTitle: Template = {
+  args: {
+    title: 'Title Sample',
+  },
+  decorators: [ThemeDecorator(Theme.LIGHT)],
 }
-Choco.decorators = [ThemeDecorator(Theme.CHOCOLATE)]
 
-export const Error = Template.bind({})
-Error.args = {
-  title: 'Title Sample',
-  text: 'Text Sample',
-  theme: TextTheme.ERROR,
+export const OnlyText: Template = {
+  args: {
+    text: 'Text Sample',
+  },
+  decorators: [ThemeDecorator(Theme.LIGHT)],
+}
+
+export const Dark: Template = {
+  args: {
+    title: 'Title Sample',
+    text: 'Text Sample',
+  },
+  decorators: [ThemeDecorator(Theme.DARK)],
+}
+
+export const Choco: Template = {
+  args: {
+    title: 'Title Sample',
+    text: 'Text Sample',
+  },
+  decorators: [ThemeDecorator(Theme.CHOCOLATE)],
+}
+
+export const Error: Template = {
+  args: {
+    title: 'Title Sample',
+    text: 'Text Sample',
+    theme: TextTheme.ERROR,
+  },
+  decorators: [ThemeDecorator(Theme.LIGHT)],
 }

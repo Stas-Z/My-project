@@ -1,4 +1,4 @@
-import { ComponentStory, ComponentMeta } from '@storybook/react'
+import { StoryObj, Meta } from '@storybook/react'
 
 import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator/ThemeDecorator'
 import { Theme } from '@/shared/const/theme'
@@ -15,55 +15,61 @@ export default {
   },
   decorators: [
     (Story) => (
-      <div style={{ display: 'flex' }}>
+      <div style={{ display: 'flex', width: '100%' }}>
         <Story />
       </div>
     ),
   ],
-} as ComponentMeta<typeof ArticleListItem>
+} as Meta<typeof ArticleListItem>
 
-const Template: ComponentStory<typeof ArticleListItem> = (args) => (
-  <ArticleListItem {...args} />
-)
+type Template = StoryObj<typeof ArticleListItem>
 
 const article = articleMock
 
-export const Grid = Template.bind({})
-Grid.args = {
-  article,
-  view: ArticleView.GRID,
+export const Grid: Template = {
+  args: {
+    article,
+    view: ArticleView.GRID,
+  },
+  decorators: [ThemeDecorator(Theme.LIGHT)],
 }
 
-export const GridDark = Template.bind({})
-GridDark.args = {
-  article,
-  view: ArticleView.GRID,
-}
-GridDark.decorators = [ThemeDecorator(Theme.DARK)]
-
-export const GridChoco = Template.bind({})
-GridChoco.args = {
-  article,
-  view: ArticleView.GRID,
-}
-GridChoco.decorators = [ThemeDecorator(Theme.CHOCOLATE)]
-
-export const List = Template.bind({})
-List.args = {
-  article,
-  view: ArticleView.LIST,
+export const GridDark: Template = {
+  args: {
+    article,
+    view: ArticleView.GRID,
+  },
+  decorators: [ThemeDecorator(Theme.DARK)],
 }
 
-export const ListDark = Template.bind({})
-ListDark.args = {
-  article,
-  view: ArticleView.LIST,
+export const GridChoco: Template = {
+  args: {
+    article,
+    view: ArticleView.GRID,
+  },
+  decorators: [ThemeDecorator(Theme.CHOCOLATE)],
 }
-ListDark.decorators = [ThemeDecorator(Theme.DARK)]
 
-export const ListChoco = Template.bind({})
-ListChoco.args = {
-  article,
-  view: ArticleView.LIST,
+export const List: Template = {
+  args: {
+    article,
+    view: ArticleView.LIST,
+  },
+  decorators: [ThemeDecorator(Theme.LIGHT)],
 }
-ListChoco.decorators = [ThemeDecorator(Theme.CHOCOLATE)]
+
+export const ListDark: Template = {
+  args: {
+    article,
+    view: ArticleView.LIST,
+  },
+  decorators: [ThemeDecorator(Theme.DARK)],
+}
+
+export const ListChoco: Template = {
+  args: {
+    article,
+    view: ArticleView.LIST,
+  },
+  decorators: [ThemeDecorator(Theme.CHOCOLATE)],
+}

@@ -3,6 +3,7 @@ import { Fragment, ReactNode, memo } from 'react'
 import { Menu } from '@headlessui/react'
 
 import { classNames } from '@/shared/lib/classNames/classNames'
+import { TestProps } from '@/shared/types/tests'
 import { DropdownDirection } from '@/shared/types/ui'
 
 import cls from './Dropdown.module.scss'
@@ -17,7 +18,7 @@ export interface DropdownItem {
   id?: string
 }
 
-interface DropdownProps {
+interface DropdownProps extends TestProps {
   /**
    * @description additional class.
    */
@@ -38,14 +39,26 @@ interface DropdownProps {
 }
 
 export const Dropdown = memo((props: DropdownProps) => {
-  const { className, items, trigger, direction = 'bottom_right' } = props
+  const {
+    className,
+    items,
+    trigger,
+    direction = 'bottom_right',
+    'data-testid': dataTestId = 'Dropdown',
+  } = props
 
   return (
     <Menu
       as="div"
       className={classNames(cls.dropdown, {}, [className, popupCls.popup])}
     >
-      <Menu.Button className={popupCls.trigger}>{trigger}</Menu.Button>
+      <Menu.Button
+        data-testid={`${dataTestId}.Trigger`}
+        className={popupCls.trigger}
+        as="div"
+      >
+        {trigger}
+      </Menu.Button>
       <Menu.Items className={classNames(cls.menu, {}, [popupCls[direction]])}>
         {items.map((item, index) => {
           const content = ({ active }: { active: boolean }) => (

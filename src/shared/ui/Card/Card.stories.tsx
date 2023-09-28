@@ -1,4 +1,4 @@
-import { ComponentStory, ComponentMeta } from '@storybook/react'
+import { StoryObj, Meta } from '@storybook/react'
 
 import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator/ThemeDecorator'
 import { Theme } from '@/shared/const/theme'
@@ -12,23 +12,27 @@ export default {
   argTypes: {
     backgroundColor: { control: 'color' },
   },
-} as ComponentMeta<typeof Card>
+} as Meta<typeof Card>
 
-const Template: ComponentStory<typeof Card> = (args) => <Card {...args} />
+type Template = StoryObj<typeof Card>
 
-export const Light = Template.bind({})
-Light.args = {
-  children: <Text title="title" text="text - text" />,
+export const Light: Template = {
+  args: {
+    children: <Text title="title" text="text - text" />,
+  },
+  decorators: [ThemeDecorator(Theme.LIGHT)],
 }
 
-export const Dark = Template.bind({})
-Dark.args = {
-  children: <Text title="title" text="text - text" />,
+export const Dark: Template = {
+  args: {
+    children: <Text title="title" text="text - text" />,
+  },
+  decorators: [ThemeDecorator(Theme.DARK)],
 }
-Dark.decorators = [ThemeDecorator(Theme.DARK)]
 
-export const Choco = Template.bind({})
-Choco.args = {
-  children: <Text title="title" text="text - text" />,
+export const Choco: Template = {
+  args: {
+    children: <Text title="title" text="text - text" />,
+  },
+  decorators: [ThemeDecorator(Theme.CHOCOLATE)],
 }
-Choco.decorators = [ThemeDecorator(Theme.CHOCOLATE)]

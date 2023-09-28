@@ -1,4 +1,4 @@
-import { ComponentStory, ComponentMeta } from '@storybook/react'
+import { StoryObj, Meta } from '@storybook/react'
 
 import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator/ThemeDecorator'
 import { Theme } from '@/shared/const/theme'
@@ -12,11 +12,9 @@ export default {
   argTypes: {
     backgroundColor: { control: 'color' },
   },
-} as ComponentMeta<typeof CommentList>
+} as Meta<typeof CommentList>
 
-const Template: ComponentStory<typeof CommentList> = (args) => (
-  <CommentList {...args} />
-)
+type Template = StoryObj<typeof CommentList>
 
 const comments: Comment[] = [
   {
@@ -48,29 +46,47 @@ const comments: Comment[] = [
   },
 ]
 
-export const Light = Template.bind({})
-Light.args = { comments }
-export const Loading = Template.bind({})
-Loading.args = { comments, isLoading: true }
-export const NoComments = Template.bind({})
-NoComments.args = {}
+export const Light: Template = {
+  args: { comments },
+  decorators: [ThemeDecorator(Theme.LIGHT)],
+}
 
-export const Dark = Template.bind({})
-Dark.args = { comments }
-Dark.decorators = [ThemeDecorator(Theme.DARK)]
-export const DarkLoading = Template.bind({})
-DarkLoading.args = { comments, isLoading: true }
-DarkLoading.decorators = [ThemeDecorator(Theme.DARK)]
-export const DarkNoComments = Template.bind({})
-DarkNoComments.args = {}
-DarkNoComments.decorators = [ThemeDecorator(Theme.DARK)]
+export const Loading: Template = {
+  args: { comments, isLoading: true },
+  decorators: [ThemeDecorator(Theme.LIGHT)],
+}
 
-export const Choco = Template.bind({})
-Choco.args = { comments }
-Choco.decorators = [ThemeDecorator(Theme.CHOCOLATE)]
-export const ChocoLoading = Template.bind({})
-ChocoLoading.args = { comments, isLoading: true }
-ChocoLoading.decorators = [ThemeDecorator(Theme.CHOCOLATE)]
-export const ChocoNoComments = Template.bind({})
-ChocoNoComments.args = {}
-ChocoNoComments.decorators = [ThemeDecorator(Theme.CHOCOLATE)]
+export const NoComments: Template = {
+  args: {},
+  decorators: [ThemeDecorator(Theme.LIGHT)],
+}
+
+export const Dark: Template = {
+  args: { comments },
+  decorators: [ThemeDecorator(Theme.DARK)],
+}
+
+export const DarkLoading: Template = {
+  args: { comments, isLoading: true },
+  decorators: [ThemeDecorator(Theme.DARK)],
+}
+
+export const DarkNoComments: Template = {
+  args: {},
+  decorators: [ThemeDecorator(Theme.DARK)],
+}
+
+export const Choco: Template = {
+  args: { comments },
+  decorators: [ThemeDecorator(Theme.CHOCOLATE)],
+}
+
+export const ChocoLoading: Template = {
+  args: { comments, isLoading: true },
+  decorators: [ThemeDecorator(Theme.CHOCOLATE)],
+}
+
+export const ChocoNoComments: Template = {
+  args: {},
+  decorators: [ThemeDecorator(Theme.CHOCOLATE)],
+}

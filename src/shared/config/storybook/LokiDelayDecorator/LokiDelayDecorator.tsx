@@ -2,7 +2,7 @@
 import createAsyncCallback from '@loki/create-async-callback'
 // @ts-expect-error - no types
 import isLokiRunning from '@loki/is-loki-running'
-import type { Story } from '@storybook/react'
+import type { StoryFn } from '@storybook/react'
 
 const DEFAULT_DELAY = 6000
 /**
@@ -12,7 +12,7 @@ const DEFAULT_DELAY = 6000
  * @default 6000 - 6 seconds.
  */
 export const LokiDelayDecorator = (delay = DEFAULT_DELAY) =>
-  function Decorator(StoryComponent: Story) {
+  function Decorator(StoryComponent: StoryFn) {
     if (isLokiRunning()) {
       const onDone = createAsyncCallback()
       // Here! This is where the delay is set and Loki wil not fire until onDone

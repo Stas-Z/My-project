@@ -1,4 +1,4 @@
-import { ComponentStory, ComponentMeta } from '@storybook/react'
+import { StoryObj, Meta } from '@storybook/react'
 
 import { ArticleView } from '@/entities/Article/testing'
 import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator/ThemeDecorator'
@@ -12,30 +12,36 @@ export default {
   argTypes: {
     backgroundColor: { control: 'color' },
   },
-} as ComponentMeta<typeof ArticleViewSelector>
+} as Meta<typeof ArticleViewSelector>
 
-const Template: ComponentStory<typeof ArticleViewSelector> = (args) => (
-  <ArticleViewSelector {...args} />
-)
+type Template = StoryObj<typeof ArticleViewSelector>
 
-export const Grid = Template.bind({})
-Grid.args = { view: ArticleView.GRID }
+export const Grid: Template = {
+  args: { view: ArticleView.GRID },
+  decorators: [ThemeDecorator(Theme.LIGHT)],
+}
 
-export const DarkGrid = Template.bind({})
-DarkGrid.args = { view: ArticleView.GRID }
-DarkGrid.decorators = [ThemeDecorator(Theme.DARK)]
+export const DarkGrid: Template = {
+  args: { view: ArticleView.GRID },
+  decorators: [ThemeDecorator(Theme.DARK)],
+}
 
-export const ChocoGrid = Template.bind({})
-ChocoGrid.args = { view: ArticleView.GRID }
-ChocoGrid.decorators = [ThemeDecorator(Theme.CHOCOLATE)]
+export const ChocoGrid: Template = {
+  args: { view: ArticleView.GRID },
+  decorators: [ThemeDecorator(Theme.CHOCOLATE)],
+}
 
-export const List = Template.bind({})
-List.args = { view: ArticleView.LIST }
+export const List: Template = {
+  args: { view: ArticleView.LIST },
+  decorators: [ThemeDecorator(Theme.LIGHT)],
+}
 
-export const DarkList = Template.bind({})
-DarkList.args = { view: ArticleView.LIST }
-DarkList.decorators = [ThemeDecorator(Theme.DARK)]
+export const DarkList: Template = {
+  args: { view: ArticleView.LIST },
+  decorators: [ThemeDecorator(Theme.DARK)],
+}
 
-export const ChocoList = Template.bind({})
-ChocoList.args = { view: ArticleView.LIST }
-ChocoList.decorators = [ThemeDecorator(Theme.CHOCOLATE)]
+export const ChocoList: Template = {
+  args: { view: ArticleView.LIST },
+  decorators: [ThemeDecorator(Theme.CHOCOLATE)],
+}

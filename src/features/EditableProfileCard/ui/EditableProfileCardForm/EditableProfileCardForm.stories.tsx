@@ -1,4 +1,4 @@
-import { ComponentMeta, ComponentStory } from '@storybook/react'
+import { Meta, StoryObj } from '@storybook/react'
 
 import { Country } from '@/entities/Country/testing'
 import { Currency } from '@/entities/Currency/testing'
@@ -15,11 +15,9 @@ export default {
   argTypes: {
     backgroundColor: { control: 'color' },
   },
-} as ComponentMeta<typeof EditableProfileCardForm>
+} as Meta<typeof EditableProfileCardForm>
 
-const Template: ComponentStory<typeof EditableProfileCardForm> = (args) => (
-  <EditableProfileCardForm {...args} />
-)
+type Template = StoryObj<typeof EditableProfileCardForm>
 
 const data = {
   first: 'Станислав',
@@ -32,85 +30,95 @@ const data = {
   avatar: 'https://avatars.githubusercontent.com/u/116818633',
 }
 
-export const Light = Template.bind({})
-Light.args = {}
-Light.decorators = [
-  StoreDecorator({
-    profile: {
-      readonly: true,
-      form: data,
-    },
-  }),
-]
+export const Light: Template = {
+  args: {},
+  decorators: [
+    ThemeDecorator(Theme.LIGHT),
+    StoreDecorator({
+      profile: {
+        readonly: true,
+        form: data,
+      },
+    }),
+  ],
+}
 
-export const LightEdit = Template.bind({})
-LightEdit.args = {}
-LightEdit.decorators = [
-  StoreDecorator({
-    profile: {
-      form: data,
-    },
-  }),
-]
+export const LightEdit: Template = {
+  args: {},
+  decorators: [
+    ThemeDecorator(Theme.LIGHT),
+    StoreDecorator({
+      profile: {
+        form: data,
+      },
+    }),
+  ],
+}
 
-export const LightError = Template.bind({})
-LightError.args = {}
-LightError.decorators = [
-  StoreDecorator({
-    profile: {
-      validateErrors: [
-        ValidateProfileEror.NO_DATA,
-        ValidateProfileEror.INCORRECT_USER_DATA,
-        ValidateProfileEror.INCORRECT_AGE,
-        ValidateProfileEror.INCORRECT_CITY,
-        ValidateProfileEror.SERVER_ERROR,
-      ],
-    },
-  }),
-]
+export const LightError: Template = {
+  args: {},
+  decorators: [
+    ThemeDecorator(Theme.LIGHT),
+    StoreDecorator({
+      profile: {
+        validateErrors: [
+          ValidateProfileEror.NO_DATA,
+          ValidateProfileEror.INCORRECT_USER_DATA,
+          ValidateProfileEror.INCORRECT_AGE,
+          ValidateProfileEror.INCORRECT_CITY,
+          ValidateProfileEror.SERVER_ERROR,
+        ],
+      },
+    }),
+  ],
+}
 
-export const Dark = Template.bind({})
-Dark.args = {}
-Dark.decorators = [
-  ThemeDecorator(Theme.DARK),
-  StoreDecorator({
-    profile: {
-      readonly: true,
-      form: data,
-    },
-  }),
-]
+export const Dark: Template = {
+  args: {},
+  decorators: [
+    ThemeDecorator(Theme.DARK),
+    StoreDecorator({
+      profile: {
+        readonly: true,
+        form: data,
+      },
+    }),
+  ],
+}
 
-export const DarkEdit = Template.bind({})
-DarkEdit.args = {}
-DarkEdit.decorators = [
-  ThemeDecorator(Theme.DARK),
-  StoreDecorator({
-    profile: {
-      form: data,
-    },
-  }),
-]
+export const DarkEdit: Template = {
+  args: {},
+  decorators: [
+    ThemeDecorator(Theme.DARK),
+    StoreDecorator({
+      profile: {
+        form: data,
+      },
+    }),
+  ],
+}
 
-export const Choco = Template.bind({})
-Choco.args = {}
-Choco.decorators = [
-  ThemeDecorator(Theme.CHOCOLATE),
-  StoreDecorator({
-    profile: {
-      readonly: true,
-      form: data,
-    },
-  }),
-]
+export const Choco: Template = {
+  args: {},
+  decorators: [
+    ThemeDecorator(Theme.CHOCOLATE),
+    StoreDecorator({
+      profile: {
+        readonly: true,
+        form: data,
+      },
+    }),
+  ],
+}
 
-export const ChocoEdit = Template.bind({})
-ChocoEdit.args = {}
-ChocoEdit.decorators = [
-  ThemeDecorator(Theme.CHOCOLATE),
-  StoreDecorator({
-    profile: {
-      form: data,
-    },
-  }),
-]
+export const ChocoEdit: Template = {
+  args: {},
+  decorators: [
+    ThemeDecorator(Theme.CHOCOLATE),
+    StoreDecorator({
+      profile: {
+        form: data,
+      },
+    }),
+  ],
+}

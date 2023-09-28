@@ -1,4 +1,4 @@
-import { ComponentMeta, ComponentStory } from '@storybook/react'
+import { Meta, StoryObj } from '@storybook/react'
 
 import { Country } from '@/entities/Country/testing'
 import { Currency } from '@/entities/Currency/testing'
@@ -14,11 +14,10 @@ export default {
   argTypes: {
     backgroundColor: { control: 'color' },
   },
-} as ComponentMeta<typeof ProfileCard>
+} as Meta<typeof ProfileCard>
 
-const Template: ComponentStory<typeof ProfileCard> = (args) => (
-  <ProfileCard {...args} />
-)
+type Template = StoryObj<typeof ProfileCard>
+
 const data = {
   first: 'Станислав',
   lastname: 'Заболотный',
@@ -29,73 +28,89 @@ const data = {
   username: 'admin',
   avatar,
 }
-export const Light = Template.bind({})
-Light.args = {
-  data,
-  readonly: true,
+export const Light: Template = {
+  args: {
+    data,
+    readonly: true,
+  },
+  decorators: [ThemeDecorator(Theme.LIGHT)],
 }
 
-export const EditLight = Template.bind({})
-EditLight.args = {
-  data,
+export const EditLight: Template = {
+  args: {
+    data,
+  },
+  decorators: [ThemeDecorator(Theme.LIGHT)],
 }
 
-export const Dark = Template.bind({})
-Dark.args = {
-  data,
-  readonly: true,
-}
-Dark.decorators = [ThemeDecorator(Theme.DARK)]
-
-export const DarkEdit = Template.bind({})
-DarkEdit.args = {
-  data,
-}
-DarkEdit.decorators = [ThemeDecorator(Theme.DARK)]
-
-export const Choco = Template.bind({})
-Choco.args = {
-  data,
-  readonly: true,
-}
-Choco.decorators = [ThemeDecorator(Theme.CHOCOLATE)]
-
-export const ChocoEdit = Template.bind({})
-ChocoEdit.args = {
-  data,
-}
-ChocoEdit.decorators = [ThemeDecorator(Theme.CHOCOLATE)]
-
-export const Loading = Template.bind({})
-Loading.args = {
-  isLoading: true,
+export const Dark: Template = {
+  args: {
+    data,
+    readonly: true,
+  },
+  decorators: [ThemeDecorator(Theme.DARK)],
 }
 
-export const LoadingDark = Template.bind({})
-LoadingDark.args = {
-  isLoading: true,
-}
-LoadingDark.decorators = [ThemeDecorator(Theme.DARK)]
-
-export const LoadingChoco = Template.bind({})
-LoadingChoco.args = {
-  isLoading: true,
-}
-LoadingChoco.decorators = [ThemeDecorator(Theme.CHOCOLATE)]
-
-export const WithError = Template.bind({})
-WithError.args = {
-  error: 'true',
+export const DarkEdit: Template = {
+  args: {
+    data,
+  },
+  decorators: [ThemeDecorator(Theme.DARK)],
 }
 
-export const WithErrorDark = Template.bind({})
-WithErrorDark.args = {
-  error: 'true',
+export const Choco: Template = {
+  args: {
+    data,
+    readonly: true,
+  },
+  decorators: [ThemeDecorator(Theme.CHOCOLATE)],
 }
-WithErrorDark.decorators = [ThemeDecorator(Theme.DARK)]
 
-export const WithErrorChoco = Template.bind({})
-WithErrorChoco.args = {
-  error: 'true',
+export const ChocoEdit: Template = {
+  args: {
+    data,
+  },
+  decorators: [ThemeDecorator(Theme.CHOCOLATE)],
 }
-WithErrorChoco.decorators = [ThemeDecorator(Theme.CHOCOLATE)]
+
+export const Loading: Template = {
+  args: {
+    isLoading: true,
+  },
+  decorators: [ThemeDecorator(Theme.LIGHT)],
+}
+
+export const LoadingDark: Template = {
+  args: {
+    isLoading: true,
+  },
+  decorators: [ThemeDecorator(Theme.DARK)],
+}
+
+export const LoadingChoco: Template = {
+  args: {
+    isLoading: true,
+  },
+  decorators: [ThemeDecorator(Theme.CHOCOLATE)],
+}
+
+export const WithError: Template = {
+  args: {
+    error: 'true',
+  },
+  decorators: [ThemeDecorator(Theme.LIGHT)],
+}
+
+export const WithErrorDark: Template = {
+  args: {
+    error: 'true',
+  },
+  decorators: [ThemeDecorator(Theme.DARK)],
+}
+
+export const WithErrorChoco: Template = {
+  args: {
+    error: 'true',
+  },
+  decorators: [ThemeDecorator(Theme.CHOCOLATE)],
+}

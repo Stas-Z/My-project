@@ -1,4 +1,4 @@
-import { ComponentMeta, ComponentStory } from '@storybook/react'
+import { Meta, StoryObj } from '@storybook/react'
 
 import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator/ThemeDecorator'
 import { Theme } from '@/shared/const/theme'
@@ -11,25 +11,30 @@ export default {
   argTypes: {
     backgroundColor: { control: 'color' },
   },
-} as ComponentMeta<typeof Input>
+} as Meta<typeof Input>
 
-const Template: ComponentStory<typeof Input> = (args) => <Input {...args} />
+type Template = StoryObj<typeof Input>
 
-export const Light = Template.bind({})
-Light.args = {
-  placeholder: 'Text Sample',
-  value: '123123',
+export const Light: Template = {
+  args: {
+    placeholder: 'Text Sample',
+    value: '123123',
+  },
+  decorators: [ThemeDecorator(Theme.LIGHT)],
 }
-export const Dark = Template.bind({})
-Dark.args = {
-  placeholder: 'Text Sample',
-  value: '123123',
-}
-Dark.decorators = [ThemeDecorator(Theme.DARK)]
 
-export const Choco = Template.bind({})
-Choco.args = {
-  placeholder: 'Text Sample',
-  value: '123123',
+export const Dark: Template = {
+  args: {
+    placeholder: 'Text Sample',
+    value: '123123',
+  },
+  decorators: [ThemeDecorator(Theme.DARK)],
 }
-Choco.decorators = [ThemeDecorator(Theme.CHOCOLATE)]
+
+export const Choco: Template = {
+  args: {
+    placeholder: 'Text Sample',
+    value: '123123',
+  },
+  decorators: [ThemeDecorator(Theme.CHOCOLATE)],
+}

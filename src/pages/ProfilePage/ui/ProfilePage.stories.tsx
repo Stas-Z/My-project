@@ -1,5 +1,4 @@
-import { ComponentMeta, ComponentStory } from '@storybook/react'
-import withMock from 'storybook-addon-mock'
+import { Meta, StoryObj } from '@storybook/react'
 
 import { Country } from '@/entities/Country/testing'
 import { Currency } from '@/entities/Currency/testing'
@@ -29,11 +28,9 @@ export default {
   argTypes: {
     backgroundColor: { control: 'color' },
   },
-} as ComponentMeta<typeof ProfilePage>
+} as Meta<typeof ProfilePage>
 
-const Template: ComponentStory<typeof ProfilePage> = (args) => (
-  <ProfilePage {...args} />
-)
+type Template = StoryObj<typeof ProfilePage>
 
 const data = {
   first: 'Станислав',
@@ -46,61 +43,65 @@ const data = {
   avatar: 'https://avatars.githubusercontent.com/u/116818633',
 }
 
-export const Light = Template.bind({})
-Light.decorators = [
-  StoreDecorator({
-    profile: {
-      readonly: true,
-      form: data,
-    },
-  }),
-  withMock,
-]
-export const Dark = Template.bind({})
-Dark.decorators = [
-  ThemeDecorator(Theme.DARK),
-  StoreDecorator({
-    profile: {
-      readonly: true,
-      form: data,
-    },
-  }),
-  withMock,
-]
-
-export const Choco = Template.bind({})
-Choco.decorators = [
-  ThemeDecorator(Theme.CHOCOLATE),
-  StoreDecorator({
-    profile: {
-      readonly: true,
-      form: data,
-    },
-  }),
-  withMock,
-]
-
-export const Error = Template.bind({})
-Error.decorators = [
-  StoreDecorator({
-    profile: {
-      readonly: true,
-      error: 'true',
-    },
-  }),
-  withMock,
-]
-Error.parameters = {
-  router: {
-    path: '/profile/:id',
-    route: '/profile/15',
-  },
-  mockData: [
-    {
-      url: `${__API__}/profile-ratings?userId=1&profileId=15`,
-      method: 'GET',
-      status: 404,
-      response: [],
-    },
+export const Light: Template = {
+  args: {},
+  decorators: [
+    ThemeDecorator(Theme.LIGHT),
+    StoreDecorator({
+      profile: {
+        readonly: true,
+        form: data,
+      },
+    }),
   ],
+}
+
+export const Dark: Template = {
+  decorators: [
+    ThemeDecorator(Theme.DARK),
+    StoreDecorator({
+      profile: {
+        readonly: true,
+        form: data,
+      },
+    }),
+  ],
+}
+
+export const Choco: Template = {
+  decorators: [
+    ThemeDecorator(Theme.CHOCOLATE),
+    StoreDecorator({
+      profile: {
+        readonly: true,
+        form: data,
+      },
+    }),
+  ],
+}
+
+export const Error: Template = {
+  decorators: [
+    ThemeDecorator(Theme.LIGHT),
+    StoreDecorator({
+      profile: {
+        readonly: true,
+        error: 'true',
+      },
+    }),
+  ],
+  parameters: {
+    router: {
+      path: '/profile/:id',
+      route: '/profile/15',
+    },
+    mockData: [
+      {
+        url: `${__API__}/profile-ratings?userId=1&profileId=15`,
+        method: 'GET',
+        status: 404,
+        response: [],
+      },
+    ],
+  },
 }

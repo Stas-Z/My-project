@@ -1,4 +1,4 @@
-import { ComponentStory, ComponentMeta } from '@storybook/react'
+import { StoryObj, Meta } from '@storybook/react'
 
 import { StoreDecorator } from '@/shared/config/storybook/StoreDecorator/StoreDecorator'
 import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator/ThemeDecorator'
@@ -12,39 +12,43 @@ export default {
   argTypes: {
     backgroundColor: { control: 'color' },
   },
-} as ComponentMeta<typeof ForbiddenPage>
+} as Meta<typeof ForbiddenPage>
 
-const Template: ComponentStory<typeof ForbiddenPage> = () => <ForbiddenPage />
+type Template = StoryObj<typeof ForbiddenPage>
 
-export const Light = Template.bind({})
-Light.decorators = [
-  StoreDecorator({
-    scrollSave: {
-      scroll: {
-        articles: 500,
+export const Light: Template = {
+  decorators: [
+    ThemeDecorator(Theme.LIGHT),
+    StoreDecorator({
+      scrollSave: {
+        scroll: {
+          articles: 500,
+        },
       },
-    },
-  }),
-]
-export const Dark = Template.bind({})
-Dark.decorators = [
-  ThemeDecorator(Theme.DARK),
-  StoreDecorator({
-    scrollSave: {
-      scroll: {
-        articles: 500,
+    }),
+  ],
+}
+export const Dark: Template = {
+  decorators: [
+    ThemeDecorator(Theme.DARK),
+    StoreDecorator({
+      scrollSave: {
+        scroll: {
+          articles: 500,
+        },
       },
-    },
-  }),
-]
-export const Choco = Template.bind({})
-Choco.decorators = [
-  ThemeDecorator(Theme.CHOCOLATE),
-  StoreDecorator({
-    scrollSave: {
-      scroll: {
-        articles: 500,
+    }),
+  ],
+}
+export const Choco: Template = {
+  decorators: [
+    ThemeDecorator(Theme.CHOCOLATE),
+    StoreDecorator({
+      scrollSave: {
+        scroll: {
+          articles: 500,
+        },
       },
-    },
-  }),
-]
+    }),
+  ],
+}

@@ -1,5 +1,4 @@
-import { ComponentStory, ComponentMeta } from '@storybook/react'
-import withMock from 'storybook-addon-mock'
+import { StoryObj, Meta } from '@storybook/react'
 
 import { Notification } from '@/entities/Notification/testing'
 import { StoreDecorator } from '@/shared/config/storybook/StoreDecorator/StoreDecorator'
@@ -41,7 +40,6 @@ const items: Notification[] = [
 export default {
   title: 'widgets/Navbar',
   component: Navbar,
-  decorators: [withMock],
   parameters: {
     mockData: [
       {
@@ -55,44 +53,51 @@ export default {
   argTypes: {
     backgroundColor: { control: 'color' },
   },
-} as ComponentMeta<typeof Navbar>
+} as Meta<typeof Navbar>
 
-const Template: ComponentStory<typeof Navbar> = (args) => <Navbar {...args} />
+type Template = StoryObj<typeof Navbar>
 
-export const Light = Template.bind({})
-Light.args = {}
-Light.decorators = [StoreDecorator({})]
+export const Light: Template = {
+  args: {},
+  decorators: [ThemeDecorator(Theme.LIGHT), StoreDecorator({})],
+}
 
-export const AuthLight = Template.bind({})
-AuthLight.args = {}
-AuthLight.decorators = [
-  StoreDecorator({
-    user: { authData: {} },
-  }),
-]
+export const AuthLight: Template = {
+  args: {},
+  decorators: [
+    ThemeDecorator(Theme.LIGHT),
+    StoreDecorator({
+      user: { authData: {} },
+    }),
+  ],
+}
 
-export const Dark = Template.bind({})
-Dark.args = {}
-Dark.decorators = [ThemeDecorator(Theme.DARK), StoreDecorator({})]
+export const Dark: Template = {
+  args: {},
+  decorators: [ThemeDecorator(Theme.DARK), StoreDecorator({})],
+}
 
-export const AuthDark = Template.bind({})
-AuthDark.args = {}
-AuthDark.decorators = [
-  ThemeDecorator(Theme.DARK),
-  StoreDecorator({
-    user: { authData: {} },
-  }),
-]
+export const AuthDark: Template = {
+  args: {},
+  decorators: [
+    ThemeDecorator(Theme.DARK),
+    StoreDecorator({
+      user: { authData: {} },
+    }),
+  ],
+}
 
-export const Choco = Template.bind({})
-Choco.args = {}
-Choco.decorators = [ThemeDecorator(Theme.CHOCOLATE), StoreDecorator({})]
+export const Choco: Template = {
+  args: {},
+  decorators: [ThemeDecorator(Theme.CHOCOLATE), StoreDecorator({})],
+}
 
-export const AuthChoco = Template.bind({})
-AuthChoco.args = {}
-AuthChoco.decorators = [
-  ThemeDecorator(Theme.CHOCOLATE),
-  StoreDecorator({
-    user: { authData: {} },
-  }),
-]
+export const AuthChoco: Template = {
+  args: {},
+  decorators: [
+    ThemeDecorator(Theme.CHOCOLATE),
+    StoreDecorator({
+      user: { authData: {} },
+    }),
+  ],
+}

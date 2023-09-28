@@ -1,4 +1,4 @@
-import { ComponentStory, ComponentMeta } from '@storybook/react'
+import { StoryObj, Meta } from '@storybook/react'
 
 import { AnimationDecorator } from '@/shared/config/storybook/AnimationDecorator/AnimationDecorator'
 import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator/ThemeDecorator'
@@ -16,26 +16,30 @@ export default {
     backgroundColor: { control: 'color' },
   },
   decorators: [AnimationDecorator()],
-} as ComponentMeta<typeof Drawer>
+} as Meta<typeof Drawer>
 
-const Template: ComponentStory<typeof Drawer> = (args) => <Drawer {...args} />
+type Template = StoryObj<typeof Drawer>
 
-export const Light = Template.bind({})
-Light.args = {
-  isOpen: true,
-  children: data,
+export const Light: Template = {
+  args: {
+    isOpen: true,
+    children: data,
+  },
+  decorators: [ThemeDecorator(Theme.LIGHT)],
 }
 
-export const Dark = Template.bind({})
-Dark.args = {
-  isOpen: true,
-  children: <div style={{ color: '#04ff04' }}>{data}</div>,
+export const Dark: Template = {
+  args: {
+    isOpen: true,
+    children: <div style={{ color: '#04ff04' }}>{data}</div>,
+  },
+  decorators: [ThemeDecorator(Theme.DARK)],
 }
-Dark.decorators = [ThemeDecorator(Theme.DARK)]
 
-export const Choco = Template.bind({})
-Choco.args = {
-  isOpen: true,
-  children: data,
+export const Choco: Template = {
+  args: {
+    isOpen: true,
+    children: data,
+  },
+  decorators: [ThemeDecorator(Theme.CHOCOLATE)],
 }
-Choco.decorators = [ThemeDecorator(Theme.CHOCOLATE)]

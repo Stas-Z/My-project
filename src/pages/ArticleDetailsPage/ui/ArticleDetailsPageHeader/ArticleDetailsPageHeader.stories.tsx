@@ -1,4 +1,4 @@
-import { ComponentStory, ComponentMeta } from '@storybook/react'
+import { StoryObj, Meta } from '@storybook/react'
 
 import { articleMock } from '@/entities/Article/testing'
 import { StoreDecorator } from '@/shared/config/storybook/StoreDecorator/StoreDecorator'
@@ -13,39 +13,41 @@ export default {
   argTypes: {
     backgroundColor: { control: 'color' },
   },
-} as ComponentMeta<typeof ArticleDetailsPageHeader>
+} as Meta<typeof ArticleDetailsPageHeader>
 
-const Template: ComponentStory<typeof ArticleDetailsPageHeader> = (args) => (
-  <ArticleDetailsPageHeader {...args} />
-)
+type Template = StoryObj<typeof ArticleDetailsPageHeader>
 
 const data = articleMock
 
-export const Light = Template.bind({})
-Light.args = {}
-Light.decorators = [
-  StoreDecorator({
-    user: { authData: { id: '1', username: 'Stas' } },
-    articleDetails: { data },
-  }),
-]
+export const Light: Template = {
+  args: {},
+  decorators: [
+    ThemeDecorator(Theme.LIGHT),
+    StoreDecorator({
+      user: { authData: { id: '1', username: 'Stas' } },
+      articleDetails: { data },
+    }),
+  ],
+}
 
-export const Dark = Template.bind({})
-Dark.args = {}
-Dark.decorators = [
-  ThemeDecorator(Theme.DARK),
-  StoreDecorator({
-    user: { authData: { id: '1', username: 'Stas' } },
-    articleDetails: { data },
-  }),
-]
+export const Dark: Template = {
+  args: {},
+  decorators: [
+    ThemeDecorator(Theme.DARK),
+    StoreDecorator({
+      user: { authData: { id: '1', username: 'Stas' } },
+      articleDetails: { data },
+    }),
+  ],
+}
 
-export const Choco = Template.bind({})
-Choco.args = {}
-Choco.decorators = [
-  ThemeDecorator(Theme.CHOCOLATE),
-  StoreDecorator({
-    user: { authData: { id: '1', username: 'Stas' } },
-    articleDetails: { data },
-  }),
-]
+export const Choco: Template = {
+  args: {},
+  decorators: [
+    ThemeDecorator(Theme.CHOCOLATE),
+    StoreDecorator({
+      user: { authData: { id: '1', username: 'Stas' } },
+      articleDetails: { data },
+    }),
+  ],
+}

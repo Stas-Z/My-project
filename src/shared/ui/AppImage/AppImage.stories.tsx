@@ -1,4 +1,4 @@
-import { ComponentStory, ComponentMeta } from '@storybook/react'
+import { StoryObj, Meta } from '@storybook/react'
 
 import { LokiDelayDecorator } from '@/shared/config/storybook/LokiDelayDecorator/LokiDelayDecorator'
 import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator/ThemeDecorator'
@@ -17,37 +17,48 @@ export default {
   argTypes: {
     backgroundColor: { control: 'color' },
   },
-} as ComponentMeta<typeof AppImage>
+} as Meta<typeof AppImage>
 
-const Template: ComponentStory<typeof AppImage> = (args) => (
-  <AppImage {...args} />
-)
+type Template = StoryObj<typeof AppImage>
 
-export const ArticleBlank = Template.bind({})
-ArticleBlank.args = {
-  errorFallback: <Icon width={200} height={200} Svg={NoImage} />,
-}
-export const ArticleLoading = Template.bind({})
-ArticleLoading.args = {
-  errorFallback: <Skeleton width={200} height={200} />,
-}
-export const AvatarBlank = Template.bind({})
-AvatarBlank.args = {
-  errorFallback: <Icon width={200} height={200} Svg={UserIcon} />,
-}
-export const AvatarLoading = Template.bind({})
-AvatarLoading.args = {
-  errorFallback: <Skeleton width={200} height={200} border="50%" />,
+export const ArticleBlank: Template = {
+  args: {
+    errorFallback: <Icon width={200} height={200} Svg={NoImage} />,
+  },
+  decorators: [ThemeDecorator(Theme.LIGHT)],
 }
 
-export const AvatarDark = Template.bind({})
-AvatarDark.args = {
-  errorFallback: <Icon width={200} height={200} Svg={UserIcon} />,
+export const ArticleLoading: Template = {
+  args: {
+    errorFallback: <Skeleton width={200} height={200} />,
+  },
+  decorators: [ThemeDecorator(Theme.LIGHT)],
 }
-AvatarDark.decorators = [ThemeDecorator(Theme.DARK)]
 
-export const AvatarChoco = Template.bind({})
-AvatarChoco.args = {
-  errorFallback: <Icon width={200} height={200} Svg={UserIcon} />,
+export const AvatarBlank: Template = {
+  args: {
+    errorFallback: <Icon width={200} height={200} Svg={UserIcon} />,
+  },
+  decorators: [ThemeDecorator(Theme.LIGHT)],
 }
-AvatarChoco.decorators = [ThemeDecorator(Theme.CHOCOLATE)]
+
+export const AvatarLoading: Template = {
+  args: {
+    errorFallback: <Skeleton width={200} height={200} border="50%" />,
+  },
+  decorators: [ThemeDecorator(Theme.LIGHT)],
+}
+
+export const AvatarDark: Template = {
+  args: {
+    errorFallback: <Icon width={200} height={200} Svg={UserIcon} />,
+  },
+  decorators: [ThemeDecorator(Theme.DARK)],
+}
+
+export const AvatarChoco: Template = {
+  args: {
+    errorFallback: <Icon width={200} height={200} Svg={UserIcon} />,
+  },
+  decorators: [ThemeDecorator(Theme.CHOCOLATE)],
+}

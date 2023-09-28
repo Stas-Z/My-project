@@ -1,4 +1,4 @@
-import { ComponentMeta, ComponentStory } from '@storybook/react'
+import { Meta, StoryObj } from '@storybook/react'
 
 import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator/ThemeDecorator'
 import { Theme } from '@/shared/const/theme'
@@ -12,11 +12,9 @@ export default {
   argTypes: {
     backgroundColor: { control: 'color' },
   },
-} as ComponentMeta<typeof NotificationItem>
+} as Meta<typeof NotificationItem>
 
-const Template: ComponentStory<typeof NotificationItem> = (args) => (
-  <NotificationItem {...args} />
-)
+type Template = StoryObj<typeof NotificationItem>
 
 const item: Notification = {
   id: '1',
@@ -24,13 +22,17 @@ const item: Notification = {
   description: 'Произошло какое-то событие',
 }
 
-export const Light = Template.bind({})
-Light.args = { item }
+export const Light: Template = {
+  args: { item },
+  decorators: [ThemeDecorator(Theme.LIGHT)],
+}
 
-export const Dark = Template.bind({})
-Dark.args = { item }
-Dark.decorators = [ThemeDecorator(Theme.DARK)]
+export const Dark: Template = {
+  args: { item },
+  decorators: [ThemeDecorator(Theme.DARK)],
+}
 
-export const Choco = Template.bind({})
-Choco.args = { item }
-Choco.decorators = [ThemeDecorator(Theme.CHOCOLATE)]
+export const Choco: Template = {
+  args: { item },
+  decorators: [ThemeDecorator(Theme.CHOCOLATE)],
+}

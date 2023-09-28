@@ -1,4 +1,4 @@
-import { ComponentStory, ComponentMeta } from '@storybook/react'
+import { StoryObj, Meta } from '@storybook/react'
 
 import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator/ThemeDecorator'
 import { Theme } from '@/shared/const/theme'
@@ -11,27 +11,33 @@ export default {
   argTypes: {
     backgroundColor: { control: 'color' },
   },
-} as ComponentMeta<typeof Modal>
+} as Meta<typeof Modal>
 
-const Template: ComponentStory<typeof Modal> = (args) => <Modal {...args} />
+type Template = StoryObj<typeof Modal>
 
-export const Light = Template.bind({})
-Light.args = {
-  isOpen: true,
-  children:
-    'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Reprehenderit, iste ut obcaecati, esse temporibus et quasi, omnis dolorum eveniet quos eius corrupti nam magni inventore excepturi dolor! Officiis, placeat sed.',
+export const Light: Template = {
+  args: {
+    isOpen: true,
+    children:
+      'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Reprehenderit, iste ut obcaecati, esse temporibus et quasi, omnis dolorum eveniet quos eius corrupti nam magni inventore excepturi dolor! Officiis, placeat sed.',
+  },
+  decorators: [ThemeDecorator(Theme.LIGHT)],
 }
-export const Dark = Template.bind({})
-Dark.args = {
-  isOpen: true,
-  children:
-    'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Reprehenderit, iste ut obcaecati, esse temporibus et quasi, omnis dolorum eveniet quos eius corrupti nam magni inventore excepturi dolor! Officiis, placeat sed.',
+
+export const Dark: Template = {
+  args: {
+    isOpen: true,
+    children:
+      'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Reprehenderit, iste ut obcaecati, esse temporibus et quasi, omnis dolorum eveniet quos eius corrupti nam magni inventore excepturi dolor! Officiis, placeat sed.',
+  },
+  decorators: [ThemeDecorator(Theme.DARK)],
 }
-Dark.decorators = [ThemeDecorator(Theme.DARK)]
-export const Choco = Template.bind({})
-Choco.args = {
-  isOpen: true,
-  children:
-    'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Reprehenderit, iste ut obcaecati, esse temporibus et quasi, omnis dolorum eveniet quos eius corrupti nam magni inventore excepturi dolor! Officiis, placeat sed.',
+
+export const Choco: Template = {
+  args: {
+    isOpen: true,
+    children:
+      'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Reprehenderit, iste ut obcaecati, esse temporibus et quasi, omnis dolorum eveniet quos eius corrupti nam magni inventore excepturi dolor! Officiis, placeat sed.',
+  },
+  decorators: [ThemeDecorator(Theme.CHOCOLATE)],
 }
-Choco.decorators = [ThemeDecorator(Theme.CHOCOLATE)]

@@ -1,7 +1,8 @@
-import { ComponentStory, ComponentMeta } from '@storybook/react'
-import withMock from 'storybook-addon-mock'
+import { StoryObj, Meta } from '@storybook/react'
+import { within, fireEvent } from '@storybook/testing-library'
 
 import { Notification } from '@/entities/Notification/testing'
+import { LokiDelayDecorator } from '@/shared/config/storybook/LokiDelayDecorator/LokiDelayDecorator'
 import { StoreDecorator } from '@/shared/config/storybook/StoreDecorator/StoreDecorator'
 import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator/ThemeDecorator'
 import { Theme } from '@/shared/const/theme'
@@ -41,14 +42,11 @@ const items: Notification[] = [
 export default {
   title: 'features/NotificatioButton',
   component: NotificatioButton,
-  decorators: [
-    withMock,
-    (Story) => (
-      <div style={{ float: 'right' }}>
-        <Story />
-      </div>
-    ),
-  ],
+  decorators: [LokiDelayDecorator()],
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement)
+    await fireEvent.click(canvas.getByTestId('NotificatioButton.Trigger'))
+  },
   parameters: {
     mockData: [
       {
@@ -62,20 +60,45 @@ export default {
   argTypes: {
     backgroundColor: { control: 'color' },
   },
-} as ComponentMeta<typeof NotificatioButton>
+} as Meta<typeof NotificatioButton>
 
-const Template: ComponentStory<typeof NotificatioButton> = (args) => (
-  <NotificatioButton {...args} />
-)
+type Template = StoryObj<typeof NotificatioButton>
 
-export const Light = Template.bind({})
-Light.args = {}
-Light.decorators = [StoreDecorator({})]
+export const Light: Template = {
+  args: {},
+  decorators: [
+    (StoryComponent) => (
+      <div style={{ float: 'right' }}>
+        <StoryComponent />
+      </div>
+    ),
+    ThemeDecorator(Theme.LIGHT),
+    StoreDecorator({}),
+  ],
+}
 
-export const Dark = Template.bind({})
-Dark.args = {}
-Dark.decorators = [ThemeDecorator(Theme.DARK), StoreDecorator({})]
+export const Dark: Template = {
+  args: {},
+  decorators: [
+    (StoryComponent) => (
+      <div style={{ float: 'right' }}>
+        <StoryComponent />
+      </div>
+    ),
+    ThemeDecorator(Theme.DARK),
+    StoreDecorator({}),
+  ],
+}
 
-export const Choco = Template.bind({})
-Choco.args = {}
-Choco.decorators = [ThemeDecorator(Theme.CHOCOLATE), StoreDecorator({})]
+export const Choco: Template = {
+  args: {},
+  decorators: [
+    (StoryComponent) => (
+      <div style={{ float: 'right' }}>
+        <StoryComponent />
+      </div>
+    ),
+    ThemeDecorator(Theme.CHOCOLATE),
+    StoreDecorator({}),
+  ],
+}

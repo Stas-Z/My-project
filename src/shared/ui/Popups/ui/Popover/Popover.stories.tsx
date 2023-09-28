@@ -1,6 +1,9 @@
-import { ComponentMeta, ComponentStory } from '@storybook/react'
+import { Meta, StoryObj } from '@storybook/react'
+import { within, fireEvent } from '@storybook/testing-library'
 
 import { Notification } from '@/entities/Notification/testing'
+import { LokiDelayDecorator } from '@/shared/config/storybook/LokiDelayDecorator/LokiDelayDecorator'
+import { PaddingDecorator } from '@/shared/config/storybook/PaddingDecorator/PaddingDecorator'
 import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator/ThemeDecorator'
 import { Theme } from '@/shared/const/theme'
 
@@ -29,15 +32,10 @@ const items: Notification[] = [
     title: 'Уведомление 4',
     description: 'Произошло какое-то событие',
   },
-  {
-    id: '5',
-    title: 'Уведомление 1',
-    description: 'Произошло какое-то событие',
-  },
 ]
 
 const Data = () => (
-  <div>
+  <div style={{ width: '230px' }}>
     {items?.map((item) => (
       <Text key={item.id} title={item.title} text={item.description} />
     ))}
@@ -50,20 +48,56 @@ export default {
   argTypes: {
     backgroundColor: { control: 'color' },
   },
-} as ComponentMeta<typeof Popover>
+  decorators: [LokiDelayDecorator()],
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement)
+    await fireEvent.click(canvas.getByTestId('Popover.Trigger'))
+  },
+} as Meta<typeof Popover>
 
-const Template: ComponentStory<typeof Popover> = (args) => <Popover {...args} />
+type Template = StoryObj<typeof Popover>
 
-export const Light = Template.bind({})
-Light.args = {
-  trigger: <Button>Open</Button>,
-  children: <Data />,
+export const TopLeft: Template = {
+  args: {
+    trigger: <Button>Open</Button>,
+    children: <Data />,
+    direction: 'top_left',
+  },
+  decorators: [PaddingDecorator(260, 200), ThemeDecorator(Theme.LIGHT)],
 }
 
-export const Dark = Template.bind({})
-Dark.args = { trigger: <Button>Open</Button>, children: <Data /> }
-Dark.decorators = [ThemeDecorator(Theme.DARK)]
+export const TopRight: Template = {
+  args: {
+    trigger: <Button>Open</Button>,
+    children: <Data />,
+    direction: 'top_right',
+  },
+  decorators: [PaddingDecorator(260, 200), ThemeDecorator(Theme.LIGHT)],
+}
 
-export const Choco = Template.bind({})
-Choco.args = { trigger: <Button>Open</Button>, children: <Data /> }
-Choco.decorators = [ThemeDecorator(Theme.CHOCOLATE)]
+export const BottomLeft: Template = {
+  args: {
+    trigger: <Button>Open</Button>,
+    children: <Data />,
+    direction: 'bottom_left',
+  },
+  decorators: [PaddingDecorator(260, 200), ThemeDecorator(Theme.LIGHT)],
+}
+
+export const BottomRight: Template = {
+  args: {
+    trigger: <Button>Open</Button>,
+    children: <Data />,
+  },
+  decorators: [PaddingDecorator(260, 200), ThemeDecorator(Theme.LIGHT)],
+}
+
+export const Dark: Template = {
+  args: { trigger: <Button>Open</Button>, children: <Data /> },
+  decorators: [PaddingDecorator(260, 200), ThemeDecorator(Theme.DARK)],
+}
+
+export const Choco: Template = {
+  args: { trigger: <Button>Open</Button>, children: <Data /> },
+  decorators: [PaddingDecorator(260, 200), ThemeDecorator(Theme.CHOCOLATE)],
+}

@@ -1,5 +1,7 @@
-import { ComponentStory, ComponentMeta } from '@storybook/react'
+import { StoryObj, Meta } from '@storybook/react'
+import { within, fireEvent } from '@storybook/testing-library'
 
+import { LokiDelayDecorator } from '@/shared/config/storybook/LokiDelayDecorator/LokiDelayDecorator'
 import { StoreDecorator } from '@/shared/config/storybook/StoreDecorator/StoreDecorator'
 import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator/ThemeDecorator'
 import { Theme } from '@/shared/const/theme'
@@ -12,36 +14,58 @@ export default {
   argTypes: {
     backgroundColor: { control: 'color' },
   },
-} as ComponentMeta<typeof Sidebar>
+} as Meta<typeof Sidebar>
 
-const Template: ComponentStory<typeof Sidebar> = (args) => <Sidebar {...args} />
+type Template = StoryObj<typeof Sidebar>
 
-export const Light = Template.bind({})
-Light.args = {}
-Light.decorators = [StoreDecorator({ user: { authData: {} } })]
+export const Light: Template = {
+  args: {},
+  decorators: [
+    ThemeDecorator(Theme.LIGHT),
+    StoreDecorator({ user: { authData: {} } }),
+  ],
+}
 
-export const LightNoAuth = Template.bind({})
-LightNoAuth.args = {}
-LightNoAuth.decorators = [StoreDecorator({})]
+export const LightCollpsed: Template = {
+  args: {},
+  decorators: [
+    LokiDelayDecorator(),
+    ThemeDecorator(Theme.LIGHT),
+    StoreDecorator({ user: { authData: {} } }),
+  ],
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement)
+    await fireEvent.click(canvas.getByTestId('sidebar-toggle'))
+  },
+}
 
-export const Dark = Template.bind({})
-Dark.args = {}
-Dark.decorators = [
-  ThemeDecorator(Theme.DARK),
-  StoreDecorator({ user: { authData: {} } }),
-]
+export const LightNoAuth: Template = {
+  args: {},
+  decorators: [ThemeDecorator(Theme.LIGHT), StoreDecorator({})],
+}
 
-export const DarkNoAuth = Template.bind({})
-DarkNoAuth.args = {}
-DarkNoAuth.decorators = [ThemeDecorator(Theme.DARK), StoreDecorator({})]
+export const Dark: Template = {
+  args: {},
+  decorators: [
+    ThemeDecorator(Theme.DARK),
+    StoreDecorator({ user: { authData: {} } }),
+  ],
+}
 
-export const Choco = Template.bind({})
-Choco.args = {}
-Choco.decorators = [
-  ThemeDecorator(Theme.CHOCOLATE),
-  StoreDecorator({ user: { authData: {} } }),
-]
+export const DarkNoAuth: Template = {
+  args: {},
+  decorators: [ThemeDecorator(Theme.DARK), StoreDecorator({})],
+}
 
-export const ChocoNoAuth = Template.bind({})
-ChocoNoAuth.args = {}
-ChocoNoAuth.decorators = [ThemeDecorator(Theme.CHOCOLATE), StoreDecorator({})]
+export const Choco: Template = {
+  args: {},
+  decorators: [
+    ThemeDecorator(Theme.CHOCOLATE),
+    StoreDecorator({ user: { authData: {} } }),
+  ],
+}
+
+export const ChocoNoAuth: Template = {
+  args: {},
+  decorators: [ThemeDecorator(Theme.CHOCOLATE), StoreDecorator({})],
+}

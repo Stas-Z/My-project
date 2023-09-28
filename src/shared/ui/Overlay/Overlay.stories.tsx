@@ -1,4 +1,7 @@
-import { ComponentStory, ComponentMeta } from '@storybook/react'
+import { StoryObj, Meta } from '@storybook/react'
+
+import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator/ThemeDecorator'
+import { Theme } from '@/shared/const/theme'
 
 import { Overlay } from './Overlay'
 
@@ -8,9 +11,11 @@ export default {
   argTypes: {
     backgroundColor: { control: 'color' },
   },
-} as ComponentMeta<typeof Overlay>
+} as Meta<typeof Overlay>
 
-const Template: ComponentStory<typeof Overlay> = (args) => <Overlay {...args} />
+type Template = StoryObj<typeof Overlay>
 
-export const Light = Template.bind({})
-Light.args = {}
+export const Light: Template = {
+  args: {},
+  decorators: [ThemeDecorator(Theme.LIGHT)],
+}

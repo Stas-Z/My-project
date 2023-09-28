@@ -1,4 +1,4 @@
-import { ComponentStory, ComponentMeta } from '@storybook/react'
+import { StoryObj, Meta } from '@storybook/react'
 
 import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator/ThemeDecorator'
 import { Theme } from '@/shared/const/theme'
@@ -11,30 +11,42 @@ export default {
   argTypes: {
     backgroundColor: { control: 'color' },
   },
-} as ComponentMeta<typeof StarRating>
+} as Meta<typeof StarRating>
 
-const Template: ComponentStory<typeof StarRating> = (args) => (
-  <StarRating {...args} />
-)
+type Template = StoryObj<typeof StarRating>
 
-export const Star1 = Template.bind({})
-Star1.args = { size: 50, selectedStars: 1 }
-export const Star2 = Template.bind({})
-Star2.args = { size: 50, selectedStars: 2 }
-export const Star3 = Template.bind({})
-Star3.args = { size: 50, selectedStars: 3 }
-export const Star4 = Template.bind({})
-Star4.args = { size: 50, selectedStars: 4 }
-export const Star5 = Template.bind({})
-Star5.args = { size: 50, selectedStars: 5 }
+export const Star1: Template = {
+  args: { size: 50, selectedStars: 1 },
+  decorators: [ThemeDecorator(Theme.LIGHT)],
+}
+export const Star2: Template = {
+  args: { size: 50, selectedStars: 2 },
+  decorators: [ThemeDecorator(Theme.LIGHT)],
+}
+export const Star3: Template = {
+  args: { size: 50, selectedStars: 3 },
+  decorators: [ThemeDecorator(Theme.LIGHT)],
+}
+export const Star4: Template = {
+  args: { size: 50, selectedStars: 4 },
+  decorators: [ThemeDecorator(Theme.LIGHT)],
+}
+export const Star5: Template = {
+  args: { size: 50, selectedStars: 5 },
+  decorators: [ThemeDecorator(Theme.LIGHT)],
+}
 
-export const Light = Template.bind({})
-Light.args = { size: 50 }
+export const Light: Template = {
+  args: { size: 50 },
+  decorators: [ThemeDecorator(Theme.LIGHT)],
+}
 
-export const Dark = Template.bind({})
-Dark.args = { size: 50 }
-Dark.decorators = [ThemeDecorator(Theme.DARK)]
+export const Dark: Template = {
+  args: { size: 50 },
+  decorators: [ThemeDecorator(Theme.DARK)],
+}
 
-export const Choco = Template.bind({})
-Choco.args = { size: 50 }
-Choco.decorators = [ThemeDecorator(Theme.CHOCOLATE)]
+export const Choco: Template = {
+  args: { size: 50 },
+  decorators: [ThemeDecorator(Theme.CHOCOLATE)],
+}

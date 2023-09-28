@@ -1,4 +1,4 @@
-import { ComponentStory, ComponentMeta } from '@storybook/react'
+import { StoryObj, Meta } from '@storybook/react'
 
 import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator/ThemeDecorator'
 import { Theme } from '@/shared/const/theme'
@@ -6,19 +6,20 @@ import { Theme } from '@/shared/const/theme'
 import { ThemeSwitcher } from './ThemeSwitcher'
 
 export default {
-  title: 'shared/ThemeSwitcher',
+  title: 'features/ThemeSwitcher',
   component: ThemeSwitcher,
   argTypes: {
     backgroundColor: { control: 'color' },
   },
-} as ComponentMeta<typeof ThemeSwitcher>
+} as Meta<typeof ThemeSwitcher>
 
-const Template: ComponentStory<typeof ThemeSwitcher> = (args) => (
-  <ThemeSwitcher {...args} />
-)
+type Template = StoryObj<typeof ThemeSwitcher>
 
-export const Light = Template.bind({})
-Light.args = {}
-export const Dark = Template.bind({})
-Dark.args = {}
-Dark.decorators = [ThemeDecorator(Theme.DARK)]
+export const Light: Template = {
+  args: {},
+  decorators: [ThemeDecorator(Theme.LIGHT)],
+}
+export const Dark: Template = {
+  args: {},
+  decorators: [ThemeDecorator(Theme.DARK)],
+}

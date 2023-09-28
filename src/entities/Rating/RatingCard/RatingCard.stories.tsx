@@ -1,4 +1,4 @@
-import { ComponentStory, ComponentMeta } from '@storybook/react'
+import { StoryObj, Meta } from '@storybook/react'
 
 import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator/ThemeDecorator'
 import { Theme } from '@/shared/const/theme'
@@ -11,37 +11,43 @@ export default {
   argTypes: {
     backgroundColor: { control: 'color' },
   },
-} as ComponentMeta<typeof RatingCard>
+} as Meta<typeof RatingCard>
 
-const Template: ComponentStory<typeof RatingCard> = (args) => (
-  <RatingCard {...args} />
-)
+type Template = StoryObj<typeof RatingCard>
 
-export const WithRating = Template.bind({})
-WithRating.args = {
-  hasFeedback: true,
-  title: 'title',
-  rate: 4,
-}
-export const Light = Template.bind({})
-Light.args = {
-  feedbackTitle: 'feedbackTitle',
-  hasFeedback: true,
-  title: 'title',
+export const WithRating: Template = {
+  args: {
+    hasFeedback: true,
+    title: 'title',
+    rate: 4,
+  },
+  decorators: [ThemeDecorator(Theme.LIGHT)],
 }
 
-export const Dark = Template.bind({})
-Dark.args = {
-  feedbackTitle: 'feedbackTitle',
-  hasFeedback: true,
-  title: 'title',
+export const Light: Template = {
+  args: {
+    feedbackTitle: 'feedbackTitle',
+    hasFeedback: true,
+    title: 'title',
+    rate: 0,
+  },
+  decorators: [ThemeDecorator(Theme.LIGHT)],
 }
-Dark.decorators = [ThemeDecorator(Theme.DARK)]
 
-export const Choco = Template.bind({})
-Choco.args = {
-  feedbackTitle: 'feedbackTitle',
-  hasFeedback: true,
-  title: 'title',
+export const Dark: Template = {
+  args: {
+    feedbackTitle: 'feedbackTitle',
+    hasFeedback: true,
+    title: 'title',
+  },
+  decorators: [ThemeDecorator(Theme.DARK)],
 }
-Choco.decorators = [ThemeDecorator(Theme.CHOCOLATE)]
+
+export const Choco: Template = {
+  args: {
+    feedbackTitle: 'feedbackTitle',
+    hasFeedback: true,
+    title: 'title',
+  },
+  decorators: [ThemeDecorator(Theme.CHOCOLATE)],
+}

@@ -1,4 +1,4 @@
-import { ComponentStory, ComponentMeta } from '@storybook/react'
+import { StoryObj, Meta } from '@storybook/react'
 
 import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator/ThemeDecorator'
 import { Theme } from '@/shared/const/theme'
@@ -11,19 +11,21 @@ export default {
   argTypes: {
     backgroundColor: { control: 'color' },
   },
-} as ComponentMeta<typeof PageError>
+} as Meta<typeof PageError>
 
-const Template: ComponentStory<typeof PageError> = (args) => (
-  <PageError {...args} />
-)
+type Template = StoryObj<typeof PageError>
 
-export const Light = Template.bind({})
-Light.args = {}
+export const Light: Template = {
+  args: {},
+  decorators: [ThemeDecorator(Theme.LIGHT)],
+}
 
-export const Dark = Template.bind({})
-Dark.args = {}
-Dark.decorators = [ThemeDecorator(Theme.DARK)]
+export const Dark: Template = {
+  args: {},
+  decorators: [ThemeDecorator(Theme.DARK)],
+}
 
-export const Choco = Template.bind({})
-Choco.args = {}
-Choco.decorators = [ThemeDecorator(Theme.CHOCOLATE)]
+export const Choco: Template = {
+  args: {},
+  decorators: [ThemeDecorator(Theme.CHOCOLATE)],
+}

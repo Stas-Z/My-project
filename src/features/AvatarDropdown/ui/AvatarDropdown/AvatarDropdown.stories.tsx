@@ -1,6 +1,8 @@
-import { ComponentStory, ComponentMeta } from '@storybook/react'
+import { StoryObj, Meta } from '@storybook/react'
+import { within, fireEvent } from '@storybook/testing-library'
 
 import { UserRole } from '@/entities/User/testing'
+import { LokiDelayDecorator } from '@/shared/config/storybook/LokiDelayDecorator/LokiDelayDecorator'
 import { StoreDecorator } from '@/shared/config/storybook/StoreDecorator/StoreDecorator'
 import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator/ThemeDecorator'
 import { Theme } from '@/shared/const/theme'
@@ -10,38 +12,59 @@ import { AvatarDropdown } from './AvatarDropdown'
 export default {
   title: 'features/AvatarDropdown',
   component: AvatarDropdown,
-  decorators: [
-    (Story) => (
-      <div style={{ float: 'right' }}>
-        <Story />
-      </div>
-    ),
-  ],
+  decorators: [LokiDelayDecorator()],
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement)
+    await fireEvent.click(canvas.getByTestId('AvatarDropdown.Trigger'))
+  },
   argTypes: {
     backgroundColor: { control: 'color' },
   },
-} as ComponentMeta<typeof AvatarDropdown>
+} as Meta<typeof AvatarDropdown>
 
-const Template: ComponentStory<typeof AvatarDropdown> = (args) => (
-  <AvatarDropdown {...args} />
-)
+type Template = StoryObj<typeof AvatarDropdown>
 
-export const Light = Template.bind({})
-Light.args = {}
-Light.decorators = [
-  StoreDecorator({ user: { authData: { id: '1', roles: [UserRole.ADMIN] } } }),
-]
+export const Light: Template = {
+  args: {},
+  decorators: [
+    (StoryComponent) => (
+      <div style={{ float: 'right' }}>
+        <StoryComponent />
+      </div>
+    ),
+    ThemeDecorator(Theme.LIGHT),
+    StoreDecorator({
+      user: { authData: { id: '1', roles: [UserRole.ADMIN] } },
+    }),
+  ],
+}
 
-export const Dark = Template.bind({})
-Dark.args = {}
-Dark.decorators = [
-  ThemeDecorator(Theme.DARK),
-  StoreDecorator({ user: { authData: { id: '1', roles: [UserRole.ADMIN] } } }),
-]
+export const Dark: Template = {
+  args: {},
+  decorators: [
+    (StoryComponent) => (
+      <div style={{ float: 'right' }}>
+        <StoryComponent />
+      </div>
+    ),
+    ThemeDecorator(Theme.DARK),
+    StoreDecorator({
+      user: { authData: { id: '1', roles: [UserRole.ADMIN] } },
+    }),
+  ],
+}
 
-export const Choco = Template.bind({})
-Choco.args = {}
-Choco.decorators = [
-  ThemeDecorator(Theme.CHOCOLATE),
-  StoreDecorator({ user: { authData: { id: '1', roles: [UserRole.ADMIN] } } }),
-]
+export const Choco: Template = {
+  args: {},
+  decorators: [
+    (StoryComponent) => (
+      <div style={{ float: 'right' }}>
+        <StoryComponent />
+      </div>
+    ),
+    ThemeDecorator(Theme.CHOCOLATE),
+    StoreDecorator({
+      user: { authData: { id: '1', roles: [UserRole.ADMIN] } },
+    }),
+  ],
+}

@@ -1,5 +1,5 @@
 import { action } from '@storybook/addon-actions'
-import { ComponentStory, ComponentMeta } from '@storybook/react'
+import { StoryObj, Meta } from '@storybook/react'
 
 import { StoreDecorator } from '@/shared/config/storybook/StoreDecorator/StoreDecorator'
 import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator/ThemeDecorator'
@@ -13,20 +13,21 @@ export default {
   argTypes: {
     backgroundColor: { control: 'color' },
   },
-} as ComponentMeta<typeof CommentForm>
+} as Meta<typeof CommentForm>
 
-const Template: ComponentStory<typeof CommentForm> = (args) => (
-  <CommentForm {...args} />
-)
+type Template = StoryObj<typeof CommentForm>
 
-export const Light = Template.bind({})
-Light.args = { onSendComment: action('onSendComment') }
-Light.decorators = [StoreDecorator({})]
+export const Light: Template = {
+  args: { onSendComment: action('onSendComment') },
+  decorators: [ThemeDecorator(Theme.LIGHT), StoreDecorator({})],
+}
 
-export const Dark = Template.bind({})
-Dark.args = { onSendComment: action('onSendComment') }
-Dark.decorators = [ThemeDecorator(Theme.DARK), StoreDecorator({})]
+export const Dark: Template = {
+  args: { onSendComment: action('onSendComment') },
+  decorators: [ThemeDecorator(Theme.DARK), StoreDecorator({})],
+}
 
-export const Choco = Template.bind({})
-Choco.args = { onSendComment: action('onSendComment') }
-Choco.decorators = [ThemeDecorator(Theme.CHOCOLATE), StoreDecorator({})]
+export const Choco: Template = {
+  args: { onSendComment: action('onSendComment') },
+  decorators: [ThemeDecorator(Theme.CHOCOLATE), StoreDecorator({})],
+}

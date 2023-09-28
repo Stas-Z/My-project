@@ -1,6 +1,8 @@
-import { ComponentMeta, ComponentStory } from '@storybook/react'
+import { Meta, StoryObj } from '@storybook/react'
 
 import AvatarImg from '@/shared/assets/tests/avatar.png'
+import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator/ThemeDecorator'
+import { Theme } from '@/shared/const/theme'
 
 import { Avatar } from './Avatar'
 
@@ -10,18 +12,30 @@ export default {
   argTypes: {
     backgroundColor: { control: 'color' },
   },
-} as ComponentMeta<typeof Avatar>
+} as Meta<typeof Avatar>
 
-const Template: ComponentStory<typeof Avatar> = (args) => <Avatar {...args} />
+type Template = StoryObj<typeof Avatar>
 
-export const Normal = Template.bind({})
-Normal.args = {
-  size: 150,
-  src: AvatarImg,
+export const Normal: Template = {
+  args: {
+    size: 150,
+    src: AvatarImg,
+  },
+  decorators: [ThemeDecorator(Theme.LIGHT)],
 }
 
-export const Small = Template.bind({})
-Small.args = {
-  size: 50,
-  src: AvatarImg,
+export const Small: Template = {
+  args: {
+    size: 50,
+    src: AvatarImg,
+  },
+  decorators: [ThemeDecorator(Theme.LIGHT)],
+}
+
+export const Default: Template = {
+  args: {
+    size: 150,
+    src: '',
+  },
+  decorators: [ThemeDecorator(Theme.LIGHT)],
 }

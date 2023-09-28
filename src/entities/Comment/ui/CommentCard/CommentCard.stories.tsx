@@ -1,4 +1,4 @@
-import { ComponentStory, ComponentMeta } from '@storybook/react'
+import { StoryObj, Meta } from '@storybook/react'
 
 import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator/ThemeDecorator'
 import { Theme } from '@/shared/const/theme'
@@ -12,11 +12,9 @@ export default {
   argTypes: {
     backgroundColor: { control: 'color' },
   },
-} as ComponentMeta<typeof CommentCard>
+} as Meta<typeof CommentCard>
 
-const Template: ComponentStory<typeof CommentCard> = (args) => (
-  <CommentCard {...args} />
-)
+type Template = StoryObj<typeof CommentCard>
 
 const comment: Comment = {
   id: '1',
@@ -28,21 +26,32 @@ const comment: Comment = {
   },
 }
 
-export const Light = Template.bind({})
-Light.args = { comment }
-export const Loading = Template.bind({})
-Loading.args = { isLoading: true }
+export const Light: Template = {
+  args: { comment },
+  decorators: [ThemeDecorator(Theme.LIGHT)],
+}
 
-export const Dark = Template.bind({})
-Dark.args = { comment }
-Dark.decorators = [ThemeDecorator(Theme.DARK)]
-export const DarkLoading = Template.bind({})
-DarkLoading.args = { isLoading: true }
-DarkLoading.decorators = [ThemeDecorator(Theme.DARK)]
+export const Loading: Template = {
+  args: { isLoading: true },
+  decorators: [ThemeDecorator(Theme.LIGHT)],
+}
 
-export const Choco = Template.bind({})
-Choco.args = { comment }
-Choco.decorators = [ThemeDecorator(Theme.CHOCOLATE)]
-export const ChocoLoading = Template.bind({})
-ChocoLoading.args = { isLoading: true }
-ChocoLoading.decorators = [ThemeDecorator(Theme.CHOCOLATE)]
+export const Dark: Template = {
+  args: { comment },
+  decorators: [ThemeDecorator(Theme.DARK)],
+}
+
+export const DarkLoading: Template = {
+  args: { isLoading: true },
+  decorators: [ThemeDecorator(Theme.DARK)],
+}
+
+export const Choco: Template = {
+  args: { comment },
+  decorators: [ThemeDecorator(Theme.CHOCOLATE)],
+}
+
+export const ChocoLoading: Template = {
+  args: { isLoading: true },
+  decorators: [ThemeDecorator(Theme.CHOCOLATE)],
+}

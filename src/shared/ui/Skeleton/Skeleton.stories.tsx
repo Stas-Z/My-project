@@ -1,4 +1,4 @@
-import { ComponentStory, ComponentMeta } from '@storybook/react'
+import { StoryObj, Meta } from '@storybook/react'
 
 import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator/ThemeDecorator'
 import { Theme } from '@/shared/const/theme'
@@ -11,51 +11,57 @@ export default {
   argTypes: {
     backgroundColor: { control: 'color' },
   },
-} as ComponentMeta<typeof Skeleton>
+} as Meta<typeof Skeleton>
 
-const Template: ComponentStory<typeof Skeleton> = (args) => (
-  <Skeleton {...args} />
-)
+type Template = StoryObj<typeof Skeleton>
 
-export const Circle = Template.bind({})
-Circle.args = {
-  border: '50%',
-  width: 100,
-  height: 100,
+export const Circle: Template = {
+  args: {
+    border: '50%',
+    width: 100,
+    height: 100,
+  },
+  decorators: [ThemeDecorator(Theme.LIGHT)],
 }
 
-export const DarkCircle = Template.bind({})
-DarkCircle.args = {
-  border: '50%',
-  width: 100,
-  height: 100,
-}
-DarkCircle.decorators = [ThemeDecorator(Theme.DARK)]
-
-export const ChocoCircle = Template.bind({})
-ChocoCircle.args = {
-  border: '50%',
-  width: 100,
-  height: 100,
-}
-ChocoCircle.decorators = [ThemeDecorator(Theme.CHOCOLATE)]
-
-export const Light = Template.bind({})
-Light.args = {
-  width: '100%',
-  height: 200,
+export const DarkCircle: Template = {
+  args: {
+    border: '50%',
+    width: 100,
+    height: 100,
+  },
+  decorators: [ThemeDecorator(Theme.DARK)],
 }
 
-export const Dark = Template.bind({})
-Dark.args = {
-  width: '100%',
-  height: 200,
+export const ChocoCircle: Template = {
+  args: {
+    border: '50%',
+    width: 100,
+    height: 100,
+  },
+  decorators: [ThemeDecorator(Theme.CHOCOLATE)],
 }
-Dark.decorators = [ThemeDecorator(Theme.DARK)]
 
-export const Choco = Template.bind({})
-Choco.args = {
-  width: '100%',
-  height: 200,
+export const Light: Template = {
+  args: {
+    width: '100%',
+    height: 200,
+  },
+  decorators: [ThemeDecorator(Theme.LIGHT)],
 }
-Choco.decorators = [ThemeDecorator(Theme.CHOCOLATE)]
+
+export const Dark: Template = {
+  args: {
+    width: '100%',
+    height: 200,
+  },
+  decorators: [ThemeDecorator(Theme.DARK)],
+}
+
+export const Choco: Template = {
+  args: {
+    width: '100%',
+    height: 200,
+  },
+  decorators: [ThemeDecorator(Theme.CHOCOLATE)],
+}

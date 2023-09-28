@@ -30,7 +30,11 @@ export const NotificatioButton = memo((props: NotificatioButtonProps) => {
   }, [])
 
   const trigger = (
-    <Button onClick={onOpenDrawer} theme={ButtonTheme.CLEAR}>
+    <Button
+      onClick={onOpenDrawer}
+      theme={ButtonTheme.CLEAR}
+      data-testid="NotificatioButton.Trigger"
+    >
       <Icon
         Svg={NotificationIcon}
         className={cls.icon}

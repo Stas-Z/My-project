@@ -1,4 +1,4 @@
-import { ComponentMeta, ComponentStory } from '@storybook/react'
+import { Meta, StoryObj } from '@storybook/react'
 
 import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator/ThemeDecorator'
 import { Theme } from '@/shared/const/theme'
@@ -11,37 +11,42 @@ export default {
   argTypes: {
     backgroundColor: { control: 'color' },
   },
-} as ComponentMeta<typeof Select>
+} as Meta<typeof Select>
 
-const Template: ComponentStory<typeof Select> = (args) => <Select {...args} />
+type Template = StoryObj<typeof Select>
 
-export const Light = Template.bind({})
-Light.args = {
-  label: 'Text Sample',
-  options: [
-    { value: '1', content: '1' },
-    { value: 'a', content: 'a' },
-    { value: '+', content: '+' },
-  ],
+export const Light: Template = {
+  args: {
+    label: 'Text Sample',
+    options: [
+      { value: '1', content: '1' },
+      { value: 'a', content: 'a' },
+      { value: '+', content: '+' },
+    ],
+  },
+  decorators: [ThemeDecorator(Theme.LIGHT)],
 }
 
-export const Dark = Template.bind({})
-Dark.args = {
-  label: 'Text Sample',
-  options: [
-    { value: '1', content: '1' },
-    { value: 'a', content: 'a' },
-    { value: '+', content: '+' },
-  ],
+export const Dark: Template = {
+  args: {
+    label: 'Text Sample',
+    options: [
+      { value: '1', content: '1' },
+      { value: 'a', content: 'a' },
+      { value: '+', content: '+' },
+    ],
+  },
+  decorators: [ThemeDecorator(Theme.DARK)],
 }
-Dark.decorators = [ThemeDecorator(Theme.DARK)]
-export const Choco = Template.bind({})
-Choco.args = {
-  label: 'Text Sample',
-  options: [
-    { value: '1', content: '1' },
-    { value: 'a', content: 'a' },
-    { value: '+', content: '+' },
-  ],
+
+export const Choco: Template = {
+  args: {
+    label: 'Text Sample',
+    options: [
+      { value: '1', content: '1' },
+      { value: 'a', content: 'a' },
+      { value: '+', content: '+' },
+    ],
+  },
+  decorators: [ThemeDecorator(Theme.CHOCOLATE)],
 }
-Choco.decorators = [ThemeDecorator(Theme.CHOCOLATE)]

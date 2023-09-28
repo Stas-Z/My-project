@@ -1,9 +1,11 @@
 module.exports = (
   layer,
   componentName,
-) => `import { ComponentStory, ComponentMeta } from '@storybook/react'
-import { Theme } from 'app/providers/ThemeProvider'
-import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator/ThemeDecorator'
+) => `import { StoryObj, Meta } from '@storybook/react'
+
+import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator/ThemeDecorator'
+import { Theme } from '@/shared/const/theme'
+
 import { ${componentName} } from './${componentName}'
 
 export default {
@@ -12,18 +14,21 @@ export default {
   argTypes: {
     backgroundColor: { control: 'color' },
   },
-} as ComponentMeta<typeof ${componentName}>
+} as Meta<typeof ${componentName}>
 
-const Template: ComponentStory<typeof ${componentName}> = (args) => <${componentName} {...args} />
+type Template = StoryObj<typeof ${componentName}>
 
-export const Light = Template.bind({})
-Light.args = {}
+export const Light: Template = {
+  args: {}
+}
 
-export const Dark = Template.bind({})
-Dark.args = {}
-Dark.decorators = [ThemeDecorator(Theme.DARK)]
+export const Dark: Template = {
+  args: {},
+  decorators: [ThemeDecorator(Theme.DARK)]
+}
 
-export const Choco = Template.bind({})
-Choco.args = {}
-Choco.decorators = [ThemeDecorator(Theme.CHOCOLATE)]
+export const Choco: Template = {
+  args: {},
+  decorators: [ThemeDecorator(Theme.CHOCOLATE)]
+}
 `

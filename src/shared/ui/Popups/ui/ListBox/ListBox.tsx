@@ -4,6 +4,7 @@ import { Listbox as HListbox } from '@headlessui/react'
 
 import CheckIcon from '@/shared/assets/icons/check-20-20.svg'
 import { classNames } from '@/shared/lib/classNames/classNames'
+import { TestProps } from '@/shared/types/tests'
 import { DropdownDirection } from '@/shared/types/ui'
 
 import cls from './ListBox.module.scss'
@@ -18,7 +19,7 @@ export interface ListBoxItem {
   disabled?: boolean
 }
 
-interface ListBoxProps {
+interface ListBoxProps extends TestProps {
   /**
    * @description additional class.
    */
@@ -69,6 +70,7 @@ export const ListBox = memo((props: ListBoxProps) => {
     direction = 'bottom_right',
     label,
     editing,
+    'data-testid': dataTestId = 'ListBox',
   } = props
 
   return (
@@ -86,7 +88,11 @@ export const ListBox = memo((props: ListBoxProps) => {
         onChange={onChange}
       >
         <HListbox.Button as="div">
-          <Button disabled={readonly} theme={ButtonTheme.CLEAR}>
+          <Button
+            disabled={readonly}
+            theme={ButtonTheme.CLEAR}
+            data-testid={`${dataTestId}.Button`}
+          >
             {value ?? defaultValue}
           </Button>
         </HListbox.Button>
@@ -111,7 +117,12 @@ export const ListBox = memo((props: ListBoxProps) => {
                   <span>{item.content}</span>
                   {selected && (
                     <HStack as="span" className={cls.iconWrapper}>
-                      <Icon Svg={CheckIcon} className={cls.icon} />
+                      <Icon
+                        Svg={CheckIcon}
+                        className={cls.icon}
+                        height={20}
+                        width={20}
+                      />
                     </HStack>
                   )}
                 </li>

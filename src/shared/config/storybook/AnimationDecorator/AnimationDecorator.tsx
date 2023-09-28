@@ -1,8 +1,8 @@
-import { Story } from '@storybook/react'
+import { StoryFn } from '@storybook/react'
 
 import { AnimationProvider } from '@/shared/lib/components/AnimationProvider'
 
-export const AnimationDecorator = () => (StoryComponent: Story) => (
+export const AnimationDecorator = () => (StoryComponent: StoryFn) => (
   <AnimationProvider>
     <StoryComponent />
   </AnimationProvider>

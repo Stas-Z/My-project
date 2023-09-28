@@ -1,4 +1,10 @@
-import { ComponentMeta, ComponentStory } from '@storybook/react'
+import { Meta, StoryObj } from '@storybook/react'
+import { within, fireEvent } from '@storybook/testing-library'
+
+import { LokiDelayDecorator } from '@/shared/config/storybook/LokiDelayDecorator/LokiDelayDecorator'
+import { PaddingDecorator } from '@/shared/config/storybook/PaddingDecorator/PaddingDecorator'
+import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator/ThemeDecorator'
+import { Theme } from '@/shared/const/theme'
 
 import { ListBox } from './ListBox'
 
@@ -8,16 +14,14 @@ export default {
   argTypes: {
     backgroundColor: { control: 'color' },
   },
-  decorators: [
-    (Story) => (
-      <div style={{ padding: 100 }}>
-        <Story />
-      </div>
-    ),
-  ],
-} as ComponentMeta<typeof ListBox>
+  decorators: [LokiDelayDecorator()],
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement)
+    await fireEvent.click(canvas.getByTestId('ListBox.Button'))
+  },
+} as Meta<typeof ListBox>
 
-const Template: ComponentStory<typeof ListBox> = (args) => <ListBox {...args} />
+type Template = StoryObj<typeof ListBox>
 
 const people = [
   { value: '1', content: 'Durward' },
@@ -27,35 +31,68 @@ const people = [
   { value: '5', content: 'Katelyn' },
 ]
 
-export const TopLeft = Template.bind({})
-TopLeft.args = {
-  label: 'Text Sample',
-  value: undefined,
-  defaultValue: 'Options',
-  items: people,
-  direction: 'top_left',
+export const TopLeft: Template = {
+  args: {
+    label: 'Text Sample',
+    value: undefined,
+    defaultValue: 'Options',
+    items: people,
+    direction: 'top_left',
+  },
+  decorators: [PaddingDecorator(250), ThemeDecorator(Theme.LIGHT)],
 }
-export const TopRight = Template.bind({})
-TopRight.args = {
-  label: 'Text Sample',
-  value: undefined,
-  defaultValue: 'Options',
-  items: people,
-  direction: 'top_right',
+
+export const TopRight: Template = {
+  args: {
+    label: 'Text Sample',
+    value: undefined,
+    defaultValue: 'Options',
+    items: people,
+    direction: 'top_right',
+  },
+  decorators: [PaddingDecorator(250), ThemeDecorator(Theme.LIGHT)],
 }
-export const BottomLeft = Template.bind({})
-BottomLeft.args = {
-  label: 'Text Sample',
-  value: undefined,
-  defaultValue: 'Options',
-  items: people,
-  direction: 'bottom_left',
+
+export const BottomLeft: Template = {
+  args: {
+    label: 'Text Sample',
+    value: undefined,
+    defaultValue: 'Options',
+    items: people,
+    direction: 'bottom_left',
+  },
+  decorators: [PaddingDecorator(250), ThemeDecorator(Theme.LIGHT)],
 }
-export const BottomRight = Template.bind({})
-BottomRight.args = {
-  label: 'Text Sample',
-  value: undefined,
-  defaultValue: 'Options',
-  items: people,
-  direction: 'bottom_right',
+
+export const BottomRight: Template = {
+  args: {
+    label: 'Text Sample',
+    value: undefined,
+    defaultValue: 'Options',
+    items: people,
+    direction: 'bottom_right',
+  },
+  decorators: [PaddingDecorator(250), ThemeDecorator(Theme.LIGHT)],
+}
+
+export const Dark: Template = {
+  args: {
+    label: 'Text Sample',
+    value: undefined,
+    defaultValue: 'Options',
+    items: people,
+    direction: 'bottom_right',
+  },
+  decorators: [PaddingDecorator(250), ThemeDecorator(Theme.DARK)],
+}
+
+export const Choco: Template = {
+  args: {
+    label: 'Text Sample',
+    value: undefined,
+    defaultValue: 'Options',
+    items: people,
+    direction: 'bottom_right',
+  },
+  decorators: [PaddingDecorator(250), ThemeDecorator(Theme.CHOCOLATE)],
 }

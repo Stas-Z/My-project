@@ -1,4 +1,4 @@
-import { ComponentStory, ComponentMeta } from '@storybook/react'
+import { StoryObj, Meta } from '@storybook/react'
 
 import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator/ThemeDecorator'
 import { Theme } from '@/shared/const/theme'
@@ -13,106 +13,122 @@ export default {
   argTypes: {
     backgroundColor: { control: 'color' },
   },
-} as ComponentMeta<typeof ArticleList>
+} as Meta<typeof ArticleList>
 
-const Template: ComponentStory<typeof ArticleList> = (args) => (
-  <ArticleList {...args} />
-)
+type Template = StoryObj<typeof ArticleList>
 
 const article = articleMock
 
-export const Grid = Template.bind({})
-Grid.args = {
-  virtualized: true,
-  articles: [article, article, article],
-  view: ArticleView.GRID,
-}
-export const GridLoading = Template.bind({})
-GridLoading.args = {
-  virtualized: true,
-  articles: [article, article, article],
-  view: ArticleView.GRID,
-  isLoading: true,
+export const Grid: Template = {
+  args: {
+    virtualized: true,
+    articles: [article, article, article],
+    view: ArticleView.GRID,
+  },
+  decorators: [ThemeDecorator(Theme.LIGHT)],
 }
 
-export const GridDark = Template.bind({})
-GridDark.args = {
-  virtualized: true,
-  articles: [article, article, article],
-  view: ArticleView.GRID,
-}
-GridDark.decorators = [ThemeDecorator(Theme.DARK)]
-
-export const GridDarkLoading = Template.bind({})
-GridDarkLoading.args = {
-  virtualized: true,
-  articles: [article, article, article],
-  view: ArticleView.GRID,
-  isLoading: true,
-}
-GridDarkLoading.decorators = [ThemeDecorator(Theme.DARK)]
-
-export const GridChoco = Template.bind({})
-GridChoco.args = {
-  virtualized: true,
-  articles: [article, article, article],
-  view: ArticleView.GRID,
-}
-GridChoco.decorators = [ThemeDecorator(Theme.CHOCOLATE)]
-
-export const GridChocoLoading = Template.bind({})
-GridChocoLoading.args = {
-  virtualized: true,
-  articles: [article, article, article],
-  view: ArticleView.GRID,
-  isLoading: true,
-}
-GridChocoLoading.decorators = [ThemeDecorator(Theme.CHOCOLATE)]
-
-export const List = Template.bind({})
-List.args = {
-  virtualized: true,
-  articles: [article, article, article],
-  view: ArticleView.LIST,
-}
-export const ListLoading = Template.bind({})
-ListLoading.args = {
-  virtualized: true,
-  articles: [article, article, article],
-  view: ArticleView.LIST,
-  isLoading: true,
+export const GridLoading: Template = {
+  args: {
+    virtualized: true,
+    articles: [article, article, article],
+    view: ArticleView.GRID,
+    isLoading: true,
+  },
+  decorators: [ThemeDecorator(Theme.LIGHT)],
 }
 
-export const ListDark = Template.bind({})
-ListDark.args = {
-  virtualized: true,
-  articles: [article, article, article],
-  view: ArticleView.LIST,
+export const GridDark: Template = {
+  args: {
+    virtualized: true,
+    articles: [article, article, article],
+    view: ArticleView.GRID,
+  },
+  decorators: [ThemeDecorator(Theme.DARK)],
 }
-ListDark.decorators = [ThemeDecorator(Theme.DARK)]
 
-export const ListDarkLoading = Template.bind({})
-ListDarkLoading.args = {
-  virtualized: true,
-  articles: [article, article, article],
-  view: ArticleView.LIST,
-  isLoading: true,
+export const GridDarkLoading: Template = {
+  args: {
+    virtualized: true,
+    articles: [article, article, article],
+    view: ArticleView.GRID,
+    isLoading: true,
+  },
+  decorators: [ThemeDecorator(Theme.DARK)],
 }
-ListDarkLoading.decorators = [ThemeDecorator(Theme.DARK)]
 
-export const ListChoco = Template.bind({})
-ListChoco.args = {
-  virtualized: true,
-  articles: [article, article, article],
-  view: ArticleView.LIST,
+export const GridChoco: Template = {
+  args: {
+    virtualized: true,
+    articles: [article, article, article],
+    view: ArticleView.GRID,
+  },
+  decorators: [ThemeDecorator(Theme.CHOCOLATE)],
 }
-ListChoco.decorators = [ThemeDecorator(Theme.CHOCOLATE)]
 
-export const ListChocoLoading = Template.bind({})
-ListChocoLoading.args = {
-  virtualized: true,
-  articles: [article, article, article],
-  view: ArticleView.LIST,
-  isLoading: true,
+export const GridChocoLoading: Template = {
+  args: {
+    virtualized: true,
+    articles: [article, article, article],
+    view: ArticleView.GRID,
+    isLoading: true,
+  },
+  decorators: [ThemeDecorator(Theme.CHOCOLATE)],
 }
-ListChocoLoading.decorators = [ThemeDecorator(Theme.CHOCOLATE)]
+
+export const List: Template = {
+  args: {
+    virtualized: true,
+    articles: [article, article, article],
+    view: ArticleView.LIST,
+  },
+  decorators: [ThemeDecorator(Theme.LIGHT)],
+}
+
+export const ListLoading: Template = {
+  args: {
+    virtualized: true,
+    articles: [article, article, article],
+    view: ArticleView.LIST,
+    isLoading: true,
+  },
+  decorators: [ThemeDecorator(Theme.LIGHT)],
+}
+
+export const ListDark: Template = {
+  args: {
+    virtualized: true,
+    articles: [article, article, article],
+    view: ArticleView.LIST,
+  },
+  decorators: [ThemeDecorator(Theme.DARK)],
+}
+
+export const ListDarkLoading: Template = {
+  args: {
+    virtualized: true,
+    articles: [article, article, article],
+    view: ArticleView.LIST,
+    isLoading: true,
+  },
+  decorators: [ThemeDecorator(Theme.DARK)],
+}
+
+export const ListChoco: Template = {
+  args: {
+    virtualized: true,
+    articles: [article, article, article],
+    view: ArticleView.LIST,
+  },
+  decorators: [ThemeDecorator(Theme.CHOCOLATE)],
+}
+
+export const ListChocoLoading: Template = {
+  args: {
+    virtualized: true,
+    articles: [article, article, article],
+    view: ArticleView.LIST,
+    isLoading: true,
+  },
+  decorators: [ThemeDecorator(Theme.CHOCOLATE)],
+}

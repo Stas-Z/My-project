@@ -1,10 +1,10 @@
 import { Suspense } from 'react'
 
-import { Story, StoryContext } from '@storybook/react'
+import { StoryContext, StoryFn } from '@storybook/react'
 import { BrowserRouter, MemoryRouter, Route, Routes } from 'react-router-dom'
 
 export const RouterDecorator = (
-  StoryComponent: Story,
+  StoryComponent: StoryFn,
   { parameters: { router } }: StoryContext,
 ) => {
   if (!router) {

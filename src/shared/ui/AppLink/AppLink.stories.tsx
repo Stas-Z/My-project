@@ -1,4 +1,4 @@
-import { ComponentStory, ComponentMeta } from '@storybook/react'
+import { StoryObj, Meta } from '@storybook/react'
 
 import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator/ThemeDecorator'
 import { Theme } from '@/shared/const/theme'
@@ -12,56 +12,70 @@ export default {
     backgroundColor: { control: 'color' },
   },
   args: { to: '/' },
-} as ComponentMeta<typeof AppLink>
+} as Meta<typeof AppLink>
 
-const Template: ComponentStory<typeof AppLink> = (args) => <AppLink {...args} />
+type Template = StoryObj<typeof AppLink>
 
-export const Primary = Template.bind({})
-Primary.args = {
-  children: 'Text',
-  theme: AppLinkTheme.PRIMARY,
+export const Primary: Template = {
+  args: {
+    children: 'Text',
+    theme: AppLinkTheme.PRIMARY,
+  },
+  decorators: [ThemeDecorator(Theme.LIGHT)],
 }
-export const Dark = Template.bind({})
-Dark.args = {
-  children: 'Text',
-  theme: AppLinkTheme.PRIMARY,
-}
-Dark.decorators = [ThemeDecorator(Theme.DARK)]
 
-export const Choco = Template.bind({})
-Choco.args = {
-  children: 'Text',
-  theme: AppLinkTheme.PRIMARY,
+export const Dark: Template = {
+  args: {
+    children: 'Text',
+    theme: AppLinkTheme.PRIMARY,
+  },
+  decorators: [ThemeDecorator(Theme.DARK)],
 }
-Choco.decorators = [ThemeDecorator(Theme.CHOCOLATE)]
 
-export const Inverted = Template.bind({})
-Inverted.args = {
-  children: 'Text',
-  theme: AppLinkTheme.INVERTED,
+export const Choco: Template = {
+  args: {
+    children: 'Text',
+    theme: AppLinkTheme.PRIMARY,
+  },
+  decorators: [ThemeDecorator(Theme.CHOCOLATE)],
 }
-export const InvertedDark = Template.bind({})
-InvertedDark.args = {
-  children: 'Text',
-  theme: AppLinkTheme.INVERTED,
-}
-InvertedDark.decorators = [ThemeDecorator(Theme.DARK)]
 
-export const InvertedChoco = Template.bind({})
-InvertedChoco.args = {
-  children: 'Text',
-  theme: AppLinkTheme.INVERTED,
+export const Inverted: Template = {
+  args: {
+    children: 'Text',
+    theme: AppLinkTheme.INVERTED,
+  },
+  decorators: [ThemeDecorator(Theme.LIGHT)],
 }
-InvertedChoco.decorators = [ThemeDecorator(Theme.CHOCOLATE)]
 
-export const Red = Template.bind({})
-Red.args = {
-  children: 'Text',
-  theme: AppLinkTheme.RED,
+export const InvertedDark: Template = {
+  args: {
+    children: 'Text',
+    theme: AppLinkTheme.INVERTED,
+  },
+  decorators: [ThemeDecorator(Theme.DARK)],
 }
-export const RedDark = Template.bind({})
-RedDark.args = {
-  children: 'Text',
-  theme: AppLinkTheme.RED,
+
+export const InvertedChoco: Template = {
+  args: {
+    children: 'Text',
+    theme: AppLinkTheme.INVERTED,
+  },
+  decorators: [ThemeDecorator(Theme.CHOCOLATE)],
 }
-RedDark.decorators = [ThemeDecorator(Theme.DARK)]
+
+export const Red: Template = {
+  args: {
+    children: 'Text',
+    theme: AppLinkTheme.RED,
+  },
+  decorators: [ThemeDecorator(Theme.LIGHT)],
+}
+
+export const RedDark: Template = {
+  args: {
+    children: 'Text',
+    theme: AppLinkTheme.RED,
+  },
+  decorators: [ThemeDecorator(Theme.DARK)],
+}

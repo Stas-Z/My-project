@@ -1,4 +1,4 @@
-import { ComponentStory, ComponentMeta } from '@storybook/react'
+import { StoryObj, Meta } from '@storybook/react'
 
 import { StoreDecorator } from '@/shared/config/storybook/StoreDecorator/StoreDecorator'
 import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator/ThemeDecorator'
@@ -12,20 +12,23 @@ export default {
   argTypes: {
     backgroundColor: { control: 'color' },
   },
-} as ComponentMeta<typeof Page>
+} as Meta<typeof Page>
 
-const Template: ComponentStory<typeof Page> = (args) => <Page {...args} />
+type Template = StoryObj<typeof Page>
 
-export const Light = Template.bind({})
-Light.args = {
-  children: 'Обертка для сраниц',
+export const Light: Template = {
+  args: {
+    children: 'Обертка для сраниц',
+  },
+  decorators: [ThemeDecorator(Theme.LIGHT), StoreDecorator({})],
 }
-Light.decorators = [StoreDecorator({})]
 
-export const Dark = Template.bind({})
-Dark.args = { children: 'Обертка для сраниц' }
-Dark.decorators = [ThemeDecorator(Theme.DARK), StoreDecorator({})]
+export const Dark: Template = {
+  args: { children: 'Обертка для сраниц' },
+  decorators: [ThemeDecorator(Theme.DARK), StoreDecorator({})],
+}
 
-export const Choco = Template.bind({})
-Choco.args = { children: 'Обертка для сраниц' }
-Choco.decorators = [ThemeDecorator(Theme.CHOCOLATE), StoreDecorator({})]
+export const Choco: Template = {
+  args: { children: 'Обертка для сраниц' },
+  decorators: [ThemeDecorator(Theme.CHOCOLATE), StoreDecorator({})],
+}

@@ -1,7 +1,8 @@
-import { ComponentMeta, ComponentStory } from '@storybook/react'
-import withMock from 'storybook-addon-mock'
+import { Meta, StoryObj } from '@storybook/react'
 
 import { StoreDecorator } from '@/shared/config/storybook/StoreDecorator/StoreDecorator'
+import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator/ThemeDecorator'
+import { Theme } from '@/shared/const/theme'
 
 import ArticleRating from './ArticleRating'
 
@@ -21,36 +22,36 @@ export default {
   argTypes: {
     backgroundColor: { control: 'color' },
   },
-} as ComponentMeta<typeof ArticleRating>
+} as Meta<typeof ArticleRating>
 
-const Template: ComponentStory<typeof ArticleRating> = (args) => (
-  <ArticleRating {...args} />
-)
+type Template = StoryObj<typeof ArticleRating>
 
-export const WithoutRate = Template.bind({})
-WithoutRate.args = { articleId: '1' }
-WithoutRate.parameters = {
-  mockData: [
-    {
-      url: `${__API__}/article-ratings?userId=1&articleId=1`,
-      method: 'GET',
-      status: 200,
-      response: [{}],
-    },
+export const WithoutRate: Template = {
+  args: { articleId: '1' },
+  parameters: {
+    mockData: [
+      {
+        url: `${__API__}/article-ratings?userId=1&articleId=1`,
+        method: 'GET',
+        status: 200,
+        response: [{}],
+      },
+    ],
+  },
+  decorators: [
+    ThemeDecorator(Theme.LIGHT),
+    StoreDecorator({
+      user: { authData: { id: '1' } },
+    }),
   ],
 }
-WithoutRate.decorators = [
-  StoreDecorator({
-    user: { authData: { id: '1' } },
-  }),
-  withMock,
-]
 
-export const Light = Template.bind({})
-Light.args = { articleId: '1' }
-Light.decorators = [
-  StoreDecorator({
-    user: { authData: { id: '1' } },
-  }),
-  withMock,
-]
+export const Light: Template = {
+  args: { articleId: '1' },
+  decorators: [
+    ThemeDecorator(Theme.LIGHT),
+    StoreDecorator({
+      user: { authData: { id: '1' } },
+    }),
+  ],
+}

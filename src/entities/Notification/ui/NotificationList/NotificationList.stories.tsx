@@ -1,5 +1,4 @@
-import { ComponentMeta, ComponentStory } from '@storybook/react'
-import withMock from 'storybook-addon-mock'
+import { Meta, StoryObj } from '@storybook/react'
 
 import { StoreDecorator } from '@/shared/config/storybook/StoreDecorator/StoreDecorator'
 import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator/ThemeDecorator'
@@ -41,7 +40,6 @@ const items: Notification[] = [
 export default {
   title: 'entities/Notification/NotificationList',
   component: NotificationList,
-  decorators: [withMock],
   parameters: {
     mockData: [
       {
@@ -55,20 +53,21 @@ export default {
   argTypes: {
     backgroundColor: { control: 'color' },
   },
-} as ComponentMeta<typeof NotificationList>
+} as Meta<typeof NotificationList>
 
-const Template: ComponentStory<typeof NotificationList> = (args) => (
-  <NotificationList {...args} />
-)
+type Template = StoryObj<typeof NotificationList>
 
-export const Light = Template.bind({})
-Light.args = {}
-Light.decorators = [StoreDecorator({})]
+export const Light: Template = {
+  args: {},
+  decorators: [ThemeDecorator(Theme.LIGHT), StoreDecorator({})],
+}
 
-export const Dark = Template.bind({})
-Dark.args = {}
-Dark.decorators = [ThemeDecorator(Theme.DARK), StoreDecorator({})]
+export const Dark: Template = {
+  args: {},
+  decorators: [ThemeDecorator(Theme.DARK), StoreDecorator({})],
+}
 
-export const Choco = Template.bind({})
-Choco.args = {}
-Choco.decorators = [ThemeDecorator(Theme.CHOCOLATE), StoreDecorator({})]
+export const Choco: Template = {
+  args: {},
+  decorators: [ThemeDecorator(Theme.CHOCOLATE), StoreDecorator({})],
+}
