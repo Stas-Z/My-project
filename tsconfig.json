@@ -23,5 +23,6 @@
       "module": "CommonJS"
     }
   },
-  "strictBindCallApply": true
+  "strictBindCallApply": true,
+  "exclude": ["./cypress.config.ts", "node_modules", "cypress"]
 }
