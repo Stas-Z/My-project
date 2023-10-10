@@ -26,7 +26,6 @@ export default ({ config }: { config: webpack.Configuration }) => {
 
   if (config.module?.rules) {
     // Исключаем дефолтный png jpg svg loader
-    // eslint-disable-next-line no-param-reassign
     config.module.rules = config.module?.rules?.map(
       (rule: webpack.RuleSetRule | '...') => {
         if (

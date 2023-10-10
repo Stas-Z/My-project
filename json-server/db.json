@@ -581,6 +581,61 @@
           ]
         }
       ]
+    },
+    {
+      "title": "Javascript news СВЕЖАЯ",
+      "subtitle": "Что нового в JS за 2022 год?",
+      "img": "https://upload.wikimedia.org/wikipedia/commons/9/99/Unofficial_JavaScript_logo_2.svg",
+      "views": 1022,
+      "createdAt": "26.04.2022",
+      "userId": "1",
+      "type": ["IT"],
+      "blocks": [{}],
+      "id": "imS3ooR"
+    },
+    {
+      "title": "Javascript news СВЕЖАЯ",
+      "subtitle": "Что нового в JS за 2022 год?",
+      "img": "https://upload.wikimedia.org/wikipedia/commons/9/99/Unofficial_JavaScript_logo_2.svg",
+      "views": 1022,
+      "createdAt": "26.04.2022",
+      "userId": "1",
+      "type": ["IT"],
+      "blocks": [{}],
+      "id": "Y6aX2gz"
+    },
+    {
+      "title": "Javascript news СВЕЖАЯ",
+      "subtitle": "Что нового в JS за 2022 год?",
+      "img": "https://upload.wikimedia.org/wikipedia/commons/9/99/Unofficial_JavaScript_logo_2.svg",
+      "views": 1022,
+      "createdAt": "26.04.2022",
+      "userId": "1",
+      "type": ["IT"],
+      "blocks": [{}],
+      "id": "8K_dVeL"
+    },
+    {
+      "title": "Javascript news СВЕЖАЯ",
+      "subtitle": "Что нового в JS за 2022 год?",
+      "img": "https://upload.wikimedia.org/wikipedia/commons/9/99/Unofficial_JavaScript_logo_2.svg",
+      "views": 1022,
+      "createdAt": "26.04.2022",
+      "userId": "1",
+      "type": ["IT"],
+      "blocks": [{}],
+      "id": "nLZHF1L"
+    },
+    {
+      "title": "Javascript news СВЕЖАЯ",
+      "subtitle": "Что нового в JS за 2022 год?",
+      "img": "https://upload.wikimedia.org/wikipedia/commons/9/99/Unofficial_JavaScript_logo_2.svg",
+      "views": 1022,
+      "createdAt": "26.04.2022",
+      "userId": "1",
+      "type": ["IT"],
+      "blocks": [{}],
+      "id": "XgFLcGm"
     }
   ],
   "comments": [
@@ -789,14 +844,14 @@
     },
     {
       "id": "5",
-      "first": "New",
-      "lastname": "User",
+      "first": "test",
+      "lastname": "user",
       "age": 30,
       "currency": "RUB",
       "country": "Russia",
       "city": "Moscow",
-      "username": "newUser",
-      "avatar": ""
+      "username": "testuser",
+      "avatar": "https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_640.png"
     }
   ],
   "article-ratings": [

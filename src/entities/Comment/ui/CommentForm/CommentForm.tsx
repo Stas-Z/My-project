@@ -67,17 +67,23 @@ export const CommentForm = (props: CommentFormProps) => {
   return (
     <DynamicModuleLoader reducers={initialReducers}>
       <HStack
+        data-testid="CommentForm"
         justify="between"
         max
         className={classNames(cls.commentForm, {}, [className])}
       >
         <Input
+          data-testid="CommentForm.Input"
           className={cls.input}
           placeholder={t('Leave comment')}
           value={text}
           onChange={onCommentTextChange}
         />
-        <Button onClick={onSendHandler} theme={ButtonTheme.OUTLINE}>
+        <Button
+          onClick={onSendHandler}
+          theme={ButtonTheme.OUTLINE}
+          data-testid="CommentForm.Button"
+        >
           {t('Submit')}
         </Button>
       </HStack>

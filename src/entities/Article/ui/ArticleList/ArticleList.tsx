@@ -92,7 +92,10 @@ export const ArticleList = memo((props: ArticleListProps) => {
 
   if (virtualized) {
     return (
-      <div className={classNames(cls.articleList, {}, [className, cls[view]])}>
+      <div
+        className={classNames(cls.articleList, {}, [className, cls[view]])}
+        data-testid="ArticleList"
+      >
         <Virtualize
           data={articles}
           renderNode={renderArticle}
@@ -115,6 +118,7 @@ export const ArticleList = memo((props: ArticleListProps) => {
         cls[view],
         cls.recommended,
       ])}
+      data-testid="ArticleList"
     >
       {!isLoading && articles.length > 0
         ? articles.map((item, index) => renderArticle(index, item))

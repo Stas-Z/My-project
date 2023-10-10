@@ -77,6 +77,7 @@ export const Flex = <E extends ElementType = typeof defaultFlexTag>(
     gap,
     max,
     as,
+    ...otherProps
   } = props
 
   const classes = [
@@ -92,5 +93,9 @@ export const Flex = <E extends ElementType = typeof defaultFlexTag>(
   }
   const Tag = as ?? defaultFlexTag
 
-  return <Tag className={classNames(cls.flex, mods, classes)}>{children}</Tag>
+  return (
+    <Tag className={classNames(cls.flex, mods, classes)} {...otherProps}>
+      {children}
+    </Tag>
+  )
 }

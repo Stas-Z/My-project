@@ -38,6 +38,7 @@ const ArticleRecommendationsList = (props: ArticleRecommendationsListProps) => {
 
   return (
     <div
+      data-testid="ArticleRecommendationsList"
       className={classNames(cls.articleRecommendationsList, {}, [className])}
     >
       <Text
