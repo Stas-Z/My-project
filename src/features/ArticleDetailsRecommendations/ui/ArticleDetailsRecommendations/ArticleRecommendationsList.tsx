@@ -15,7 +15,7 @@ export interface ArticleRecommendationsListProps {
 
 const ArticleRecommendationsList = (props: ArticleRecommendationsListProps) => {
   const { className } = props
-  const { t } = useTranslation('articles')
+  const { t } = useTranslation('translation-articles')
 
   const {
     isLoading,

@@ -31,7 +31,7 @@ interface ArticlesPageFiltersProps {
 
 export const ArticlesPageFilters = memo((props: ArticlesPageFiltersProps) => {
   const { className } = props
-  const { t } = useTranslation('articles')
+  const { t } = useTranslation('translation-articles')
   const dispatch = useAppDispatch()
   const view = useSelector(getArticlesPageView)
   const order = useSelector(getArticlesPageOrder)
@@ -97,6 +97,7 @@ export const ArticlesPageFilters = memo((props: ArticlesPageFiltersProps) => {
       </div>
       <Card className={cls.search}>
         <Input
+          data-testid="ArticlesPageFilters.Input"
           onChange={onChangeSearch}
           value={search}
           placeholder={t('Search')}

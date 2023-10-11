@@ -14,7 +14,7 @@ interface ArticleTypeTabsProps {
 
 export const ArticleTypeTabs = memo((props: ArticleTypeTabsProps) => {
   const { className, value, onChangeType } = props
-  const { t } = useTranslation('articles')
+  const { t } = useTranslation('translation-articles')
 
   // Список типов статей (IT, Economics и т.д.)
   const typeTabs = useMemo(

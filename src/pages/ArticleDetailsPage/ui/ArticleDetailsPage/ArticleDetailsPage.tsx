@@ -14,14 +14,13 @@ import { Page } from '@/widgets/Page'
 import cls from './ArticleDetailsPage.module.scss'
 import { ArticleDetailsPageHeader } from '../ArticleDetailsPageHeader/ArticleDetailsPageHeader'
 
-
 interface ArticleDetailsPageProps {
   className?: string
 }
 
 const ArticleDetailsPage = (props: ArticleDetailsPageProps) => {
   const { className } = props
-  const { t } = useTranslation('articles')
+  const { t } = useTranslation('translation-articles')
   const { id } = useParams<{ id: string }>()
 
   if (!id) {

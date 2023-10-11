@@ -22,7 +22,7 @@ interface ArticleInfiniteListProps {
 
 export const ArticleInfiniteList = memo((props: ArticleInfiniteListProps) => {
   const { className, onLoadNextPart, parentRef } = props
-  const { t } = useTranslation('articles')
+  const { t } = useTranslation('translation-articles')
 
   const articles = useSelector(getArticles.selectAll)
 

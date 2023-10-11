@@ -34,7 +34,7 @@ const initialReducers: ReducersList = {
 
 export const ArticleComments = memo((props: ArticleCommentsProps) => {
   const { className, id } = props
-  const { t } = useTranslation('articles')
+  const { t } = useTranslation('translation-articles')
   const dispatch = useAppDispatch()
 
   const comments = useSelector(getArticleComment.selectAll)

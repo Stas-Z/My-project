@@ -1,8 +1,8 @@
 import { Article } from '../../../src/entities/Article'
 
 const defaultArticle = {
-  title: 'Tesitng Article',
-  subtitle: 'Что нового в JS за 2022 год?',
+  title: 'Testing Article',
+  subtitle: 'Testing Article',
   img: 'https://upload.wikimedia.org/wikipedia/commons/9/99/Unofficial_JavaScript_logo_2.svg',
   views: 1022,
   createdAt: '26.04.2022',

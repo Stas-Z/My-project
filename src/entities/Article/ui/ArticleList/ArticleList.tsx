@@ -58,7 +58,7 @@ export const ArticleList = memo((props: ArticleListProps) => {
     virtualized,
     parentRef,
   } = props
-  const { t } = useTranslation('articles')
+  const { t } = useTranslation('translation-articles')
   const [selectedArticleId, setSelectedArticleId] = useState(-1)
 
   const getSkeletons = () => (

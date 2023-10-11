@@ -72,7 +72,7 @@ const renderBlock = (block: ArticleBlock) => {
 
 export const ArticleDetails = memo((props: ArticleDetailsProps) => {
   const { className, id } = props
-  const { t } = useTranslation('articles')
+  const { t } = useTranslation('translation-articles')
   const dispatch = useAppDispatch()
   const article = useSelector(getArticleDetailsData)
   const isLoading = useSelector(getArticleDetailsIsLoading)

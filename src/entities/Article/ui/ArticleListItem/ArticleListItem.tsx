@@ -31,9 +31,11 @@ interface ArticleListItemProps {
 
 export const ArticleListItem = memo((props: ArticleListItemProps) => {
   const { className, article, view = ArticleView.LIST, target, index } = props
-  const { t } = useTranslation('articles')
+  const { t } = useTranslation('translation-articles')
 
-  const title = <Text text={article.title} className={cls.title} />
+  const title = (
+    <Text text={article.title} className={cls.title} data-testid="Article" />
+  )
   const types = <Text text={article.type.join(', ')} className={cls.types} />
   const views = (
     <>
