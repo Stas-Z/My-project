@@ -1,7 +1,20 @@
 const fs = require('fs')
+const https = require('https')
 const path = require('path')
 
 const jsonServer = require('json-server')
+
+const options = {
+  key: fs.readFileSync(
+    path.resolve(__dirname, '/etc/letsencrypt/live/openblogapp.ru/privkey.pem'),
+  ),
+  cert: fs.readFileSync(
+    path.resolve(
+      __dirname,
+      '/etc/letsencrypt/live/openblogapp.ru/fullchain.pem',
+    ),
+  ),
+}
 
 const server = jsonServer.create()
 
@@ -55,6 +68,9 @@ server.use((req, res, next) => {
 server.use(router)
 
 // запуск сервера
-server.listen(8000, () => {
-  console.log('server is running on 8000 port')
+
+const httpsServer = https.createServer(options, server)
+const PORT = 8443
+httpsServer.listen(PORT, () => {
+  console.log(`server is running on ${PORT} port`)
 })
