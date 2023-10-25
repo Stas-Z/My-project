@@ -5,17 +5,34 @@ const path = require('path')
 
 const jsonServer = require('json-server')
 
-const options = {
-  key: fs.readFileSync(
-    path.resolve(__dirname, '/etc/letsencrypt/live/openblogapp.ru/privkey.pem'),
-  ),
-  cert: fs.readFileSync(
-    path.resolve(
-      __dirname,
-      '/etc/letsencrypt/live/openblogapp.ru/fullchain.pem',
-    ),
-  ),
+function getOptions() {
+  if (
+    fs.existsSync(
+      path.resolve(
+        __dirname,
+        '/etc/letsencrypt/live/openblogapp.ru/privkey.pem',
+      ),
+    )
+  ) {
+    return {
+      key: fs.readFileSync(
+        path.resolve(
+          __dirname,
+          '/etc/letsencrypt/live/openblogapp.ru/privkey.pem',
+        ),
+      ),
+      cert: fs.readFileSync(
+        path.resolve(
+          __dirname,
+          '/etc/letsencrypt/live/openblogapp.ru/fullchain.pem',
+        ),
+      ),
+    }
+  }
+  return {}
 }
+
+const options = getOptions()
 
 const server = jsonServer.create()
 
