@@ -1,6 +1,6 @@
 PROJECT_NAME=$1 # parameter
 BUILD_FOLDER="build"
-DEST_PATH="/var/www/html"
+DEST_PATH="/var/www/my-project/html"
 
 if [[ -z $PROJECT_NAME ]]
 	then
