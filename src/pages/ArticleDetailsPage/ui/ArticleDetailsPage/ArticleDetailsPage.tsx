@@ -4,13 +4,12 @@ import { useTranslation } from 'react-i18next'
 import { useParams } from 'react-router-dom'
 
 import { ArticleDetails } from '@/entities/Article'
-import { Counter } from '@/entities/Counter'
 import { ArticleComments } from '@/features/ArticleComments'
 import { ArticleRecommendationsList } from '@/features/ArticleDetailsRecommendations'
 import { ArticleRating } from '@/features/ArticleRating'
 import { classNames } from '@/shared/lib/classNames/classNames'
-import { getFeatureFlag } from '@/shared/lib/features'
-import { storybookCheker } from '@/shared/lib/helpers/storybookCheker'
+import { toggleFeatures } from '@/shared/lib/features'
+import { Card } from '@/shared/ui/Card'
 import { VStack } from '@/shared/ui/Stack'
 import { Page } from '@/widgets/Page'
 
@@ -26,11 +25,6 @@ const ArticleDetailsPage = (props: ArticleDetailsPageProps) => {
   const { t } = useTranslation('translation-articles')
   const { id } = useParams<{ id: string }>()
 
-  const isArticleRatingEnabled = storybookCheker(
-    getFeatureFlag('isArticleRatingEnabled'),
-  )
-  const isCounterEnabled = getFeatureFlag('isCounterEnabled')
-
   if (!id) {
     return (
       <Page className={classNames(cls.articleDetailsPage, {}, [className])}>
@@ -38,6 +32,12 @@ const ArticleDetailsPage = (props: ArticleDetailsPageProps) => {
       </Page>
     )
   }
+
+  const articleRatingCard = toggleFeatures({
+    name: 'isArticleRatingEnabled',
+    on: () => <ArticleRating articleId={id} />,
+    off: () => <Card>{t('Article rating coming soon')}</Card>,
+  })
 
   return (
     <Page
@@ -47,8 +47,7 @@ const ArticleDetailsPage = (props: ArticleDetailsPageProps) => {
       <VStack gap="16" max align="unset">
         <ArticleDetailsPageHeader />
         <ArticleDetails id={id} />
-        {isCounterEnabled && <Counter />}
-        {isArticleRatingEnabled && <ArticleRating articleId={id} />}
+        {articleRatingCard}
         <ArticleRecommendationsList />
         <ArticleComments id={id} />
       </VStack>
