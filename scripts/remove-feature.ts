@@ -1,4 +1,5 @@
-import { Node, Project, SyntaxKind } from 'ts-morph'
+import type { Node } from 'ts-morph'
+import { Project, SyntaxKind } from 'ts-morph'
 
 const removedFeatureName = process.argv[2] // example isArticleEnabled
 const featureState = process.argv[3] // example on\off

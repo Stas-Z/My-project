@@ -5,6 +5,7 @@ import { useSelector } from 'react-redux'
 
 import { ArticleList } from '@/entities/Article'
 import { Text } from '@/shared/ui/Text'
+import { PageLoader } from '@/widgets/PageLoader'
 
 import cls from './ArticleInfiniteList.module.scss'
 import {
@@ -37,6 +38,10 @@ export const ArticleInfiniteList = memo((props: ArticleInfiniteListProps) => {
         className={cls.error}
       />
     )
+  }
+
+  if (isLoading) {
+    return <PageLoader />
   }
 
   return (
