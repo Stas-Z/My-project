@@ -19,10 +19,7 @@ export const authMiddleware =
   (next: (action: Action) => void) =>
   (action: Action): void => {
     if (isLoggedIn(action)) {
-      localStorage.setItem(
-        USER_LOCALSTORAGE_KEY,
-        JSON.stringify(action.payload),
-      )
+      localStorage.setItem(USER_LOCALSTORAGE_KEY, action.payload.id)
     }
 
     if (isLoggedOut(action)) {

@@ -1,5 +1,6 @@
 import { StoryObj, Meta } from '@storybook/react'
 
+import { LokiDelayDecorator } from '@/shared/config/storybook/LokiDelayDecorator/LokiDelayDecorator'
 import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator/ThemeDecorator'
 import { Theme } from '@/shared/const/theme'
 
@@ -82,7 +83,7 @@ export const List: Template = {
     articles: [article, article, article],
     view: ArticleView.LIST,
   },
-  decorators: [ThemeDecorator(Theme.LIGHT)],
+  decorators: [ThemeDecorator(Theme.LIGHT), LokiDelayDecorator()],
 }
 
 export const ListLoading: Template = {
@@ -101,7 +102,7 @@ export const ListDark: Template = {
     articles: [article, article, article],
     view: ArticleView.LIST,
   },
-  decorators: [ThemeDecorator(Theme.DARK)],
+  decorators: [ThemeDecorator(Theme.DARK), LokiDelayDecorator()],
 }
 
 export const ListDarkLoading: Template = {
@@ -120,7 +121,7 @@ export const ListChoco: Template = {
     articles: [article, article, article],
     view: ArticleView.LIST,
   },
-  decorators: [ThemeDecorator(Theme.CHOCOLATE)],
+  decorators: [ThemeDecorator(Theme.CHOCOLATE), LokiDelayDecorator()],
 }
 
 export const ListChocoLoading: Template = {
