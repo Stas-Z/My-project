@@ -2,6 +2,7 @@ import { MutableRefObject, memo, useCallback, useRef } from 'react'
 
 import { useSearchParams } from 'react-router-dom'
 
+import { ArticlePageGreeting } from '@/features/ArticlePageGreeting'
 import { classNames } from '@/shared/lib/classNames/classNames'
 import {
   DynamicModuleLoader,
@@ -55,6 +56,7 @@ const ArticlesPage = (props: ArticlesPageProps) => {
           onLoadNextPart={onLoadNextPart}
           parentRef={parentRef}
         />
+        <ArticlePageGreeting />
       </Page>
     </DynamicModuleLoader>
   )
