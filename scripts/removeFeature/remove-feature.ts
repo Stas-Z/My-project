@@ -1,8 +1,14 @@
 import type { Node } from 'ts-morph'
 import { Project, SyntaxKind } from 'ts-morph'
 
+import { replaceComponent } from './replaceComponent'
+import { replaceToggleFunction } from './replaceFunction'
+
 const removedFeatureName = process.argv[2] // example isArticleEnabled
 const featureState = process.argv[3] // example on\off
+
+const toggleFunctionName = 'toggleFeatures' // Название функции
+const toggleComponentName = 'ToggleFeatures' // Название компонента
 
 if (!removedFeatureName) {
   throw new Error('!----- Please enter the name of the feature-flag -----!')
@@ -31,7 +37,7 @@ function isToggleFunction(node: Node) {
   node.forEachChild((child) => {
     if (
       child.isKind(SyntaxKind.Identifier) &&
-      child.getText() === 'toggleFeatures'
+      child.getText() === toggleFunctionName
     ) {
       isToggleFeatures = true
     }
@@ -39,39 +45,23 @@ function isToggleFunction(node: Node) {
   return isToggleFeatures
 }
 
+function isToggleComponent(node: Node) {
+  const identifier = node.getFirstDescendantByKind(SyntaxKind.Identifier) // находим названия компонентов
+
+  return identifier?.getText() === toggleComponentName // Проверяем если название компонента совподает с искомым
+}
+
 files.forEach((sourceFile) => {
+  // eslint-disable-next-line
   sourceFile.forEachDescendant((node) => {
     if (node.isKind(SyntaxKind.CallExpression) && isToggleFunction(node)) {
-      const objectOptions = node.getFirstDescendantByKind(
-        SyntaxKind.ObjectLiteralExpression,
-      )
-
-      if (!objectOptions) return
-
-      const onFunctionProperty = objectOptions.getProperty('on')
-      const offFunctionProperty = objectOptions.getProperty('off')
-
-      const featureNameProperty = objectOptions.getProperty('name')
-
-      const onFunction = onFunctionProperty?.getFirstDescendantByKind(
-        SyntaxKind.ArrowFunction,
-      )
-      const offFunction = offFunctionProperty?.getFirstDescendantByKind(
-        SyntaxKind.ArrowFunction,
-      )
-      const featureName = featureNameProperty
-        ?.getFirstDescendantByKind(SyntaxKind.StringLiteral)
-        ?.getText()
-        .slice(1, -1)
-
-      if (featureName !== removedFeatureName) return
-
-      if (featureState === 'on') {
-        node.replaceWithText(onFunction?.getBodyText() ?? '')
-      }
-      if (featureState === 'off') {
-        node.replaceWithText(offFunction?.getBodyText() ?? '')
-      }
+      return replaceToggleFunction(node, removedFeatureName, featureState)
+    }
+    if (
+      node.isKind(SyntaxKind.JsxSelfClosingElement) &&
+      isToggleComponent(node)
+    ) {
+      return replaceComponent(node, removedFeatureName, featureState)
     }
   })
 })

@@ -8,7 +8,7 @@ import { ArticleComments } from '@/features/ArticleComments'
 import { ArticleRecommendationsList } from '@/features/ArticleDetailsRecommendations'
 import { ArticleRating } from '@/features/ArticleRating'
 import { classNames } from '@/shared/lib/classNames/classNames'
-import { toggleFeatures } from '@/shared/lib/features'
+import { ToggleFeatures } from '@/shared/lib/features'
 import { Card } from '@/shared/ui/Card'
 import { VStack } from '@/shared/ui/Stack'
 import { Page } from '@/widgets/Page'
@@ -33,11 +33,14 @@ const ArticleDetailsPage = (props: ArticleDetailsPageProps) => {
     )
   }
 
-  const articleRatingCard = toggleFeatures({
-    name: 'isArticleRatingEnabled',
-    on: () => <ArticleRating articleId={id} />,
-    off: () => <Card>{t('Article rating coming soon')}</Card>,
-  })
+  /**
+   * @description toggle feature function
+   */
+  // const articleRatingCard = toggleFeatures({
+  //   name: 'isArticleRatingEnabled',
+  //   on: () => <ArticleRating articleId={id} />,
+  //   off: () => <Card>{t('Article rating coming soon')}</Card>,
+  // })
 
   return (
     <Page
@@ -47,7 +50,11 @@ const ArticleDetailsPage = (props: ArticleDetailsPageProps) => {
       <VStack gap="16" max align="unset">
         <ArticleDetailsPageHeader />
         <ArticleDetails id={id} />
-        {articleRatingCard}
+        <ToggleFeatures
+          feature="isArticleRatingEnabled"
+          on={<ArticleRating articleId={id} />}
+          off={<Card>{t('Article rating coming soon')}</Card>}
+        />
         <ArticleRecommendationsList />
         <ArticleComments id={id} />
       </VStack>
