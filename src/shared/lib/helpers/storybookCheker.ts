@@ -1,3 +1,6 @@
-export const storybookCheker = (action: boolean | undefined) => {
-  return __PROJECT__ !== 'storybook' ? action : true
+export const storybookCheker = () => {
+  if (__PROJECT__ === 'storybook') {
+    return true
+  }
+  return false
 }
