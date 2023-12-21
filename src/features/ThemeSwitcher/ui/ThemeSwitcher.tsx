@@ -6,6 +6,7 @@ import { classNames } from '@/shared/lib/classNames/classNames'
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch'
 import { useTheme } from '@/shared/lib/hooks/UseTheme/UseTheme'
 import { Button, ButtonTheme } from '@/shared/ui/Button'
+import { Icon } from '@/shared/ui/Icon'
 
 import cls from './ThemeSwitcher.module.scss'
 
@@ -29,7 +30,7 @@ export const ThemeSwitcher = memo(({ className }: ThemeSwitcherProps) => {
       className={classNames('', {}, [className, theme])}
       onClick={onToggleHandler}
     >
-      <ThemeIcon className={cls.iconColor} />
+      <Icon Svg={ThemeIcon} width={40} height={40} className={cls.iconColor} />
     </Button>
   )
 })

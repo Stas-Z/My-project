@@ -703,6 +703,12 @@
       "userId": "1",
       "text": "aaa",
       "id": "FJHBbyM"
+    },
+    {
+      "articleId": "1",
+      "userId": "3",
+      "text": "mjkjj",
+      "id": "y_N6jGE"
     }
   ],
   "users": [
@@ -736,7 +742,8 @@
       "jsonSettings": {
         "theme": "app_light_theme",
         "isFirstVisit": true,
-        "settingsPageHasBeenOpen": false
+        "settingsPageHasBeenOpen": false,
+        "isArticlesPageWasOpend": true
       },
       "avatar": "https://www.gannett-cdn.com/media/2022/03/16/USATODAY/usatsports/imageForEntry5-ODq.jpg"
     },
