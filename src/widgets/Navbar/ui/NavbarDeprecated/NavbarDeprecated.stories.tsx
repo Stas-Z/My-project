@@ -5,7 +5,7 @@ import { StoreDecorator } from '@/shared/config/storybook/StoreDecorator/StoreDe
 import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator/ThemeDecorator'
 import { Theme } from '@/shared/const/theme'
 
-import { Navbar } from './Navbar'
+import { NavbarDeprecated } from './NavbarDeprecated'
 
 const items: Notification[] = [
   {
@@ -38,8 +38,8 @@ const items: Notification[] = [
 ]
 
 export default {
-  title: 'widgets/Navbar',
-  component: Navbar,
+  title: 'widgets/Navbar/NavbarDeprecated',
+  component: NavbarDeprecated,
   parameters: {
     mockData: [
       {
@@ -53,9 +53,9 @@ export default {
   argTypes: {
     backgroundColor: { control: 'color' },
   },
-} as Meta<typeof Navbar>
+} as Meta<typeof NavbarDeprecated>
 
-type Template = StoryObj<typeof Navbar>
+type Template = StoryObj<typeof NavbarDeprecated>
 
 export const Light: Template = {
   args: {},

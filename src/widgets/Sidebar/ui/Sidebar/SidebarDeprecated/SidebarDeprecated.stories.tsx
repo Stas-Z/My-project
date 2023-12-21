@@ -6,17 +6,17 @@ import { StoreDecorator } from '@/shared/config/storybook/StoreDecorator/StoreDe
 import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator/ThemeDecorator'
 import { Theme } from '@/shared/const/theme'
 
-import { Sidebar } from './Sidebar'
+import { SidebarDeprecated } from './SidebarDeprecated'
 
 export default {
-  title: 'widgets/Sidebar',
-  component: Sidebar,
+  title: 'widgets/Sidebar/SidebarDeprecated',
+  component: SidebarDeprecated,
   argTypes: {
     backgroundColor: { control: 'color' },
   },
-} as Meta<typeof Sidebar>
+} as Meta<typeof SidebarDeprecated>
 
-type Template = StoryObj<typeof Sidebar>
+type Template = StoryObj<typeof SidebarDeprecated>
 
 export const Light: Template = {
   args: {},

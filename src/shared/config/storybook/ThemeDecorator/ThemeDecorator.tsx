@@ -4,10 +4,11 @@ import { StoryFn } from '@storybook/react'
 import { ThemeProvider } from '@/app/providers/ThemeProvider'
 import { Theme } from '@/shared/const/theme'
 
-export const ThemeDecorator = (theme: Theme) => (StoryComponent: StoryFn) => (
-  <ThemeProvider initialTheme={theme}>
-    <div className={`app ${theme}`}>
-      <StoryComponent />
-    </div>
-  </ThemeProvider>
-)
+export const ThemeDecorator =
+  (theme: Theme, newDesign?: boolean) => (StoryComponent: StoryFn) => (
+    <ThemeProvider initialTheme={theme}>
+      <div className={newDesign ? `app_redesigned ${theme}` : `app ${theme}`}>
+        <StoryComponent />
+      </div>
+    </ThemeProvider>
+  )

@@ -8,8 +8,6 @@ import { ArticleComments } from '@/features/ArticleComments'
 import { ArticleRecommendationsList } from '@/features/ArticleDetailsRecommendations'
 import { ArticleRating } from '@/features/ArticleRating'
 import { classNames } from '@/shared/lib/classNames/classNames'
-import { ToggleFeatures } from '@/shared/lib/features'
-import { Card } from '@/shared/ui/Card'
 import { VStack } from '@/shared/ui/Stack'
 import { Page } from '@/widgets/Page'
 
@@ -33,15 +31,6 @@ const ArticleDetailsPage = (props: ArticleDetailsPageProps) => {
     )
   }
 
-  /**
-   * @description toggle feature function
-   */
-  // const articleRatingCard = toggleFeatures({
-  //   name: 'isArticleRatingEnabled',
-  //   on: () => <ArticleRating articleId={id} />,
-  //   off: () => <Card>{t('Article rating coming soon')}</Card>,
-  // })
-
   return (
     <Page
       className={classNames(cls.articleDetailsPage, {}, [className])}
@@ -50,11 +39,7 @@ const ArticleDetailsPage = (props: ArticleDetailsPageProps) => {
       <VStack gap="16" max align="unset">
         <ArticleDetailsPageHeader />
         <ArticleDetails id={id} />
-        <ToggleFeatures
-          feature="isArticleRatingEnabled"
-          on={<ArticleRating articleId={id} />}
-          off={<Card>{t('Article rating coming soon')}</Card>}
-        />
+        <ArticleRating articleId={id} />
         <ArticleRecommendationsList />
         <ArticleComments id={id} />
       </VStack>

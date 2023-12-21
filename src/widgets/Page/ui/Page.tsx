@@ -2,6 +2,7 @@ import { MutableRefObject, ReactNode, useEffect, useRef } from 'react'
 
 import { ARTICLE_LIST_ITEM_LOCALSTORAGE_IDX } from '@/shared/const/localstorage'
 import { classNames } from '@/shared/lib/classNames/classNames'
+import { toggleFeatures } from '@/shared/lib/features'
 import { useInfiniteScroll } from '@/shared/lib/hooks/useInfiniteScroll/useInfiniteScroll'
 import { TestProps } from '@/shared/types/tests'
 
@@ -40,10 +41,16 @@ export const Page = (props: PageProps) => {
     }
   }, [saveScroll])
 
+  const pageClass = toggleFeatures({
+    name: 'isAppRedesigned',
+    on: () => cls.pageRedesigned,
+    off: () => cls.page,
+  })
+
   return (
     <main
       ref={parentRef}
-      className={classNames(cls.page, {}, [className])}
+      className={classNames(pageClass, {}, [className])}
       data-testid={dataTestId ?? 'Page'}
     >
       {children}

@@ -13,9 +13,6 @@ interface ToggleFeaturesProps {
 export const ToggleFeatures = (props: ToggleFeaturesProps) => {
   const { feature, off, on } = props
 
-  if (__PROJECT__ === 'storybook') {
-    return on
-  }
   if (getFeatureFlag(feature)) {
     return on
   }

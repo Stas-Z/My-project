@@ -13,9 +13,6 @@ export function toggleFeatures<T>({
   off,
   on,
 }: ToggleFeaturesOptions<T>): T {
-  if (__PROJECT__ === 'storybook') {
-    return on()
-  }
   if (getFeatureFlag(name)) {
     return on()
   }

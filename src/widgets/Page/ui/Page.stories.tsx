@@ -20,7 +20,12 @@ export const Light: Template = {
   args: {
     children: 'Обертка для сраниц',
   },
-  decorators: [ThemeDecorator(Theme.LIGHT), StoreDecorator({})],
+  decorators: [
+    ThemeDecorator(Theme.LIGHT),
+    StoreDecorator({
+      user: { authData: { features: { isAppRedesigned: false } } },
+    }),
+  ],
 }
 
 export const Dark: Template = {
