@@ -11,8 +11,8 @@ import { useTranslation } from 'react-i18next'
 
 import { ARTICLE_LIST_ITEM_LOCALSTORAGE_IDX } from '@/shared/const/localstorage'
 import { classNames } from '@/shared/lib/classNames/classNames'
-import { Text, TextSize } from '@/shared/ui/Text'
-import { Virtualize } from '@/shared/ui/Virtualize'
+import { Text, TextSize } from '@/shared/ui/deprecated/Text'
+import { Virtualize } from '@/shared/ui/deprecated/Virtualize'
 
 import cls from './ArticleList.module.scss'
 import { ArticleView } from '../../model/consts/articleConsts'

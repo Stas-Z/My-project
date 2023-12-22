@@ -9,10 +9,10 @@ import {
   ReducersList,
 } from '@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader'
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch'
-import { Button, ButtonTheme } from '@/shared/ui/Button'
-import { Input } from '@/shared/ui/Input'
-import { Skeleton } from '@/shared/ui/Skeleton'
-import { HStack, VStack } from '@/shared/ui/Stack'
+import { Button, ButtonTheme } from '@/shared/ui/deprecated/Button'
+import { Input } from '@/shared/ui/deprecated/Input'
+import { Skeleton } from '@/shared/ui/deprecated/Skeleton'
+import { HStack, VStack } from '@/shared/ui/deprecated/Stack'
 
 import cls from './CommentForm.module.scss'
 import {

@@ -3,7 +3,7 @@ import { memo, useState } from 'react'
 import { useSelector } from 'react-redux'
 
 import { classNames } from '@/shared/lib/classNames/classNames'
-import { AppLogo } from '@/shared/ui/AppLogo'
+import { AppLogo } from '@/shared/ui/deprecated/AppLogo'
 
 import cls from './SidebarRedesigned.module.scss'
 import { getSidebarItems } from '../../../model/selectors/getSidebarItems'
