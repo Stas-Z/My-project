@@ -133,11 +133,16 @@ export const ArticleDetails = memo((props: ArticleDetailsProps) => {
             size={TextSize.L}
           />
           <HStack gap="8" className={cls.articleInfo}>
-            <Icon Svg={EyeIcon} className={cls.icon} />
+            <Icon width={20} height={20} Svg={EyeIcon} className={cls.icon} />
             <Text text={String(article?.views)} />
           </HStack>
           <HStack gap="8" className={cls.articleInfo}>
-            <Icon Svg={CalendarIcon} className={cls.icon} />
+            <Icon
+              width={20}
+              height={20}
+              Svg={CalendarIcon}
+              className={cls.icon}
+            />
             <Text text={article?.createdAt} />
           </HStack>
         </VStack>

@@ -28,10 +28,6 @@ interface AppLinkProps extends LinkProps {
   children?: ReactNode
 }
 
-/**
- * Use components from "redesigned" folder
- * @deprecated
- */
 const AppLink = forwardRef(
   (props: AppLinkProps, ref: Ref<HTMLAnchorElement>) => {
     const {
@@ -54,4 +50,8 @@ const AppLink = forwardRef(
     )
   },
 )
+/**
+ * Use components from "redesigned" folder
+ * @deprecated
+ */
 export default memo(AppLink)

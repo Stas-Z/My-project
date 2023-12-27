@@ -10,7 +10,7 @@ import { Dropdown } from './Dropdown'
 import { Button } from '../../../Button'
 
 export default {
-  title: 'shared/Popups/Dropdown',
+  title: 'shared/deprecated/Popups/Dropdown',
   component: Dropdown,
   tags: ['autodocs'],
   parameters: {

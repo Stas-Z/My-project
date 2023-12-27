@@ -1,5 +1,5 @@
 {
-  "Language": "Русский",
+  "Language": "English",
   "Main": "Main",
   "About us": "About us",
   "toggle": "toggle",
@@ -8,7 +8,7 @@
   "An error occurred": "An error occurred",
   "Reload": "Reload",
   "throw error": "throw error",
-  "lng": "Ru",
+  "lng": "EN",
   "Lorem": "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Reprehenderit, iste ut obcaecati, esse temporibus et quasi, omnis dolorum eveniet quos eius corrupti nam magni inventore excepturi dolor! Officiis, placeat sed.",
   "Sign in": "Sign in",
   "increment": "increment",

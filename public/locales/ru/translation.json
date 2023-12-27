@@ -1,5 +1,5 @@
 {
-  "Language": "English",
+  "Language": "Русский",
   "Main": "Главная",
   "About us": "О сайте",
   "toggle": "переключить",
@@ -8,7 +8,7 @@
   "An error occurred": "Произошла непредвиденная ошибка",
   "Reload": "Обновить страницу",
   "throw error": "Вызвать ошибку",
-  "lng": "En",
+  "lng": "RU",
   "Lorem": "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Reprehenderit, iste ut obcaecati, esse temporibus et quasi, omnis dolorum eveniet quos eius corrupti nam magni inventore excepturi dolor! Officiis, placeat sed.",
   "Sign in": "Войти",
   "increment": "добавить",

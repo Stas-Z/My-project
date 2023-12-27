@@ -6,7 +6,7 @@ import { Theme } from '@/shared/const/theme'
 import { Button, ButtonSize, ButtonTheme } from './Button'
 
 export default {
-  title: 'shared/Button',
+  title: 'shared/deprecated/Button',
   component: Button,
   tags: ['autodocs'],
   parameters: {

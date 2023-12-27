@@ -40,7 +40,7 @@ export const ArticleListItem = memo((props: ArticleListItemProps) => {
   const views = (
     <>
       <Text text={String(article.views)} className={cls.views} />
-      <Icon Svg={EyeIcon} />
+      <Icon width={20} height={20} Svg={EyeIcon} />
     </>
   )
   const errorFallbackList = <Icon width="100%" height={250} Svg={NoImage} />

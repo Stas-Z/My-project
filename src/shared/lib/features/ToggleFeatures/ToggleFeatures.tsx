@@ -12,6 +12,12 @@ interface ToggleFeaturesProps {
 
 export const ToggleFeatures = (props: ToggleFeaturesProps) => {
   const { feature, off, on } = props
+  if (__PROJECT__ === 'storybook') {
+    const test = localStorage.getItem('isArticleRatingEnabled')
+    if (test) {
+      return on
+    }
+  }
 
   if (getFeatureFlag(feature)) {
     return on

@@ -43,7 +43,7 @@ const Data = () => (
 )
 
 export default {
-  title: 'shared/Popups/Popover',
+  title: 'shared/deprecated/Popups/Popover',
   component: Popover,
   argTypes: {
     backgroundColor: { control: 'color' },

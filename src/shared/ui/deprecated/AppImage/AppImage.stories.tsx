@@ -11,7 +11,7 @@ import { Icon } from '../Icon'
 import { Skeleton } from '../Skeleton'
 
 export default {
-  title: 'shared/AppImage',
+  title: 'shared/deprecated/AppImage',
   component: AppImage,
   decorators: [LokiDelayDecorator()],
   argTypes: {
