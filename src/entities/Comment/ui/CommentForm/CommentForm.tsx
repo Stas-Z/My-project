@@ -12,7 +12,7 @@ import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch
 import { Button, ButtonTheme } from '@/shared/ui/deprecated/Button'
 import { Input } from '@/shared/ui/deprecated/Input'
 import { Skeleton } from '@/shared/ui/deprecated/Skeleton'
-import { HStack, VStack } from '@/shared/ui/deprecated/Stack'
+import { HStack, VStack } from '@/shared/ui/redesigned/Stack'
 
 import cls from './CommentForm.module.scss'
 import {

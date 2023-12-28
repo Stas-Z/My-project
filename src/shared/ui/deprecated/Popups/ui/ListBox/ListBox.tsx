@@ -8,9 +8,9 @@ import { TestProps } from '@/shared/types/tests'
 import { DropdownDirection } from '@/shared/types/ui'
 
 import cls from './ListBox.module.scss'
+import { HStack } from '../../../../redesigned/Stack'
 import { Button, ButtonTheme } from '../../../Button/Button'
 import { Icon } from '../../../Icon/Icon'
-import { HStack } from '../../../Stack'
 import popupCls from '../../styles/popup.module.scss'
 
 export interface ListBoxItem {

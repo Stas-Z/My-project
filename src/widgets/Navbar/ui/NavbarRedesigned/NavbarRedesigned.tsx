@@ -8,9 +8,9 @@ import { LoginModal } from '@/features/AuthByUsername'
 import { AvatarDropdown } from '@/features/AvatarDropdown'
 import { NotificatioButton } from '@/features/NotificatioButton'
 import { classNames } from '@/shared/lib/classNames/classNames'
-import { Button, ButtonTheme } from '@/shared/ui/deprecated/Button'
-import { HStack } from '@/shared/ui/deprecated/Stack'
-import { Text, TextTheme } from '@/shared/ui/deprecated/Text'
+import { Button } from '@/shared/ui/redesigned/Button'
+import { HStack } from '@/shared/ui/redesigned/Stack'
+import { Text } from '@/shared/ui/redesigned/Text'
 
 import cls from './NavbarRedesigned.module.scss'
 
@@ -46,13 +46,9 @@ export const NavbarRedesigned = memo(({ className }: NavbarRedesignedProps) => {
       <Text
         className={cls.appName}
         title={t('OpenBlog App')}
-        theme={TextTheme.INVERTED}
+        variant="primary"
       />
-      <Button
-        onClick={onShowModal}
-        theme={ButtonTheme.CLEAR_INVERTED}
-        className={cls.links}
-      >
+      <Button onClick={onShowModal} variant="clear" className={cls.links}>
         {t('Sign in')}
       </Button>
       <LoginModal isOpen={isAuthModal} onClose={onCloseModal} />

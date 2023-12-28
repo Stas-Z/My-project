@@ -8,7 +8,7 @@ import { ArticleComments } from '@/features/ArticleComments'
 import { ArticleRecommendationsList } from '@/features/ArticleDetailsRecommendations'
 import { ArticleRating } from '@/features/ArticleRating'
 import { classNames } from '@/shared/lib/classNames/classNames'
-import { VStack } from '@/shared/ui/deprecated/Stack'
+import { VStack } from '@/shared/ui/redesigned/Stack'
 import { Page } from '@/widgets/Page'
 
 import cls from './ArticleDetailsPage.module.scss'

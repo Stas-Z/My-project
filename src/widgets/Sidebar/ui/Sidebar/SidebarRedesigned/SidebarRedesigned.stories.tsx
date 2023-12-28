@@ -2,7 +2,6 @@ import { Meta, StoryObj } from '@storybook/react'
 import { fireEvent, within } from '@storybook/testing-library'
 
 import { LokiDelayDecorator } from '@/shared/config/storybook/LokiDelayDecorator/LokiDelayDecorator'
-import { RedesignedDecorator } from '@/shared/config/storybook/RedesignedDecorator/RedesignedDecorator'
 import { StoreDecorator } from '@/shared/config/storybook/StoreDecorator/StoreDecorator'
 import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator/ThemeDecorator'
 import { Theme } from '@/shared/const/theme'
@@ -12,7 +11,6 @@ import { SidebarRedesigned } from './SidebarRedesigned'
 export default {
   title: 'widgets/Sidebar/SidebarRedesigned',
   component: SidebarRedesigned,
-  decorators: [RedesignedDecorator(true)],
   argTypes: {
     backgroundColor: { control: 'color' },
   },
@@ -46,7 +44,7 @@ export const LightCollpsed: Template = {
       </div>
     ),
     LokiDelayDecorator(),
-    ThemeDecorator(Theme.LIGHT),
+    ThemeDecorator(Theme.LIGHT, true),
     StoreDecorator({ user: { authData: {} } }),
   ],
   play: async ({ canvasElement }) => {

@@ -15,6 +15,7 @@ interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   className?: string
   /**
    * @description Button variant. Responsible for button's color and border.
+   * @default 'outline'
    */
   variant?: ButtonVariant
   /**
@@ -23,6 +24,7 @@ interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   square?: boolean
   /**
    * @description Button size. Responsible for button's text size.
+   * @default 'm'
    */
   size?: ButtonSize
   /**

@@ -19,6 +19,7 @@
   border-radius: 50%;
   opacity: 0.6;
   pointer-events: none;
+  flex-shrink: 0;
 }
 
 .gradientSmall {
@@ -37,6 +38,7 @@
   border-radius: 50%;
   opacity: 0.6;
   pointer-events: none;
+  flex-shrink: 0;
 }
 
 .appLogo {

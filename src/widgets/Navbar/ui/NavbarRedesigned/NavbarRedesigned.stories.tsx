@@ -1,7 +1,6 @@
 import { StoryObj, Meta } from '@storybook/react'
 
 import { Notification } from '@/entities/Notification/testing'
-import { RedesignedDecorator } from '@/shared/config/storybook/RedesignedDecorator/RedesignedDecorator'
 import { StoreDecorator } from '@/shared/config/storybook/StoreDecorator/StoreDecorator'
 import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator/ThemeDecorator'
 import { Theme } from '@/shared/const/theme'
@@ -54,14 +53,13 @@ export default {
   argTypes: {
     backgroundColor: { control: 'color' },
   },
-  decorators: [RedesignedDecorator(true)],
 } as Meta<typeof NavbarRedesigned>
 
 type Template = StoryObj<typeof NavbarRedesigned>
 
 export const Light: Template = {
   args: {},
-  decorators: [ThemeDecorator(Theme.LIGHT), StoreDecorator({})],
+  decorators: [ThemeDecorator(Theme.LIGHT, true), StoreDecorator({})],
 }
 
 export const AuthLight: Template = {

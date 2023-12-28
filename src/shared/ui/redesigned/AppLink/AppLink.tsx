@@ -15,12 +15,16 @@ interface AppLinkProps extends LinkProps {
   className?: string
   /**
    * @description AppLink variant. Responsible for AppLink's color.
+   * @default 'primary'
    */
   variant?: AppLinkVariant
   /**
    * @description AppLink content
    */
   children?: ReactNode
+  /**
+   * ClassName for active link
+   */
   activeClassName?: string
 }
 
