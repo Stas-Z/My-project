@@ -4,8 +4,9 @@ import { classNames } from '@/shared/lib/classNames/classNames'
 
 import cls from './Card.module.scss'
 
-export type CardVariant = 'normal' | 'outlined'
+export type CardVariant = 'normal' | 'outlined' | 'light'
 export type CardPadding = '0' | '8' | '16' | '24'
+export type CardBorder = 'round' | 'default'
 
 interface CardProps extends HTMLAttributes<HTMLDivElement> {
   /**
@@ -30,6 +31,11 @@ interface CardProps extends HTMLAttributes<HTMLDivElement> {
    * @default '8'
    */
   padding?: CardPadding
+  /**
+   * @description Sets border-radius.
+   * @default 'default'
+   */
+  border?: CardBorder
 }
 const mapPaddingToClass: Record<CardPadding, string> = {
   '0': 'gap_0',
@@ -45,6 +51,7 @@ export const Card = (props: CardProps) => {
     variant = 'normal',
     max,
     padding = '8',
+    border = 'default',
     ...otherProps
   } = props
 
@@ -54,7 +61,8 @@ export const Card = (props: CardProps) => {
       className={classNames(cls.card, { [cls.max]: max }, [
         className,
         cls[variant],
-        paddingClass,
+        cls[paddingClass],
+        cls[border],
       ])}
       {...otherProps}
     >

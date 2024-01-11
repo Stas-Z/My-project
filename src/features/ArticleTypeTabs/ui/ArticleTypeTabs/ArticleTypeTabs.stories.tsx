@@ -17,15 +17,30 @@ type Template = StoryObj<typeof ArticleTypeTabs>
 
 export const Light: Template = {
   args: {},
-  decorators: [ThemeDecorator(Theme.LIGHT)],
+  decorators: [ThemeDecorator(Theme.LIGHT, true)],
 }
 
 export const Dark: Template = {
   args: {},
-  decorators: [ThemeDecorator(Theme.DARK)],
+  decorators: [ThemeDecorator(Theme.DARK, true)],
 }
 
 export const Choco: Template = {
+  args: {},
+  decorators: [ThemeDecorator(Theme.CHOCOLATE, true)],
+}
+
+export const LightDeprecated: Template = {
+  args: {},
+  decorators: [ThemeDecorator(Theme.LIGHT)],
+}
+
+export const DarkDeprecated: Template = {
+  args: {},
+  decorators: [ThemeDecorator(Theme.DARK)],
+}
+
+export const ChocoDeprecated: Template = {
   args: {},
   decorators: [ThemeDecorator(Theme.CHOCOLATE)],
 }

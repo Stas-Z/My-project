@@ -4,17 +4,17 @@ import { ArticleView } from '@/entities/Article/testing'
 import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator/ThemeDecorator'
 import { Theme } from '@/shared/const/theme'
 
-import { ArticleViewSelector } from './ArticleViewSelector'
+import { ArticleViewSelectorDeprecated } from './ArticleViewSelectorDeprecated'
 
 export default {
-  title: 'features/Article/ArticleViewSelector',
-  component: ArticleViewSelector,
+  title: 'features/Article/ArticleViewSelector/ArticleViewSelectorDeprecated',
+  component: ArticleViewSelectorDeprecated,
   argTypes: {
     backgroundColor: { control: 'color' },
   },
-} as Meta<typeof ArticleViewSelector>
+} as Meta<typeof ArticleViewSelectorDeprecated>
 
-type Template = StoryObj<typeof ArticleViewSelector>
+type Template = StoryObj<typeof ArticleViewSelectorDeprecated>
 
 export const Grid: Template = {
   args: { view: ArticleView.GRID },

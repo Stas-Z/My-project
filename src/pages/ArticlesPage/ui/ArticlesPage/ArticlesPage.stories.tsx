@@ -194,3 +194,26 @@ export const ListChocoLoading: Template = {
     LokiDelayDecorator(),
   ],
 }
+
+export const GridRedesigned: Template = {
+  args: {},
+  decorators: [
+    ThemeDecorator(Theme.LIGHT, true),
+    StoreDecorator({
+      articlesPage: { entities, ids },
+      user: { authData: { jsonSettings: { isArticlesPageWasOpend: true } } },
+    }),
+    LokiDelayDecorator(),
+  ],
+}
+export const ListRedesigned: Template = {
+  args: {},
+  decorators: [
+    ThemeDecorator(Theme.LIGHT, true),
+    StoreDecorator({
+      articlesPage: { entities, ids, view: ArticleView.LIST },
+      user: { authData: { jsonSettings: { isArticlesPageWasOpend: true } } },
+    }),
+    LokiDelayDecorator(),
+  ],
+}

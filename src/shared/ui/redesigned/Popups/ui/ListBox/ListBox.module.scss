@@ -2,26 +2,18 @@
   background: var(--dark-bg-redesigned);
   position: absolute;
   z-index: 1000000;
+  border-radius: 12px;
 }
 
 .item {
-  padding: 10px 25px 10px 30px;
-  position: relative;
+  padding: 10px 20px;
   cursor: pointer;
-}
-
-.icon {
-  fill: var(--inverted-secondary-color);
-}
-
-.iconWrapper {
-  left: 0;
-  top: 0;
-  bottom: 0;
-  position: absolute;
-  padding-left: 5px;
 }
 
 .editing {
   opacity: 0.7;
+}
+
+.selected {
+  background: var(--light-bg-redesigned);
 }

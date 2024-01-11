@@ -3,17 +3,17 @@ import { StoryObj, Meta } from '@storybook/react'
 import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator/ThemeDecorator'
 import { Theme } from '@/shared/const/theme'
 
-import { ArticleSortSelector } from './ArticleSortSelector'
+import { ArticleSortSelectorDeprecated } from './ArticleSortSelectorDeprecated'
 
 export default {
-  title: 'features/Article/ArticleSortSelector',
-  component: ArticleSortSelector,
+  title: 'features/Article/ArticleSortSelector/ArticleSortSelectorDeprecated',
+  component: ArticleSortSelectorDeprecated,
   argTypes: {
     backgroundColor: { control: 'color' },
   },
-} as Meta<typeof ArticleSortSelector>
+} as Meta<typeof ArticleSortSelectorDeprecated>
 
-type Template = StoryObj<typeof ArticleSortSelector>
+type Template = StoryObj<typeof ArticleSortSelectorDeprecated>
 
 export const Light: Template = {
   args: {},

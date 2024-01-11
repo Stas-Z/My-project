@@ -3,11 +3,13 @@ import { MutableRefObject, memo, useCallback, useRef } from 'react'
 import { useSearchParams } from 'react-router-dom'
 
 import { ArticlePageGreeting } from '@/features/ArticlePageGreeting'
+import { StickyContentLayout } from '@/shared/layouts/StickyContentLayout'
 import { classNames } from '@/shared/lib/classNames/classNames'
 import {
   DynamicModuleLoader,
   ReducersList,
 } from '@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader'
+import { ToggleFeatures } from '@/shared/lib/features'
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch'
 import { useInitialEffect } from '@/shared/lib/hooks/useInitialEffect/useInitialEffect'
 import { Page } from '@/widgets/Page'
@@ -18,6 +20,8 @@ import { initArticlesPage } from '../../model/services/initArticlesPage/initArti
 import { articlesPageReducer } from '../../model/slice/articlesPageSlice'
 import { ArticleInfiniteList } from '../ArticleInfiniteList/ArticleInfiniteList'
 import { ArticlesPageFilters } from '../ArticlesPageFilters/ArticlesPageFilters'
+import { FiltersContainer } from '../FiltersContainer/FiltersContainer'
+import { ViewSelectorContainer } from '../ViewSelectorContainer/ViewSelectorContainer'
 
 interface ArticlesPageProps {
   className?: string
@@ -42,22 +46,54 @@ const ArticlesPage = (props: ArticlesPageProps) => {
     dispatch(initArticlesPage(serachParams))
   })
 
+  const content = (
+    <ToggleFeatures
+      feature="isAppRedesigned"
+      on={
+        <StickyContentLayout
+          left={<ViewSelectorContainer />}
+          right={<FiltersContainer />}
+          content={
+            <Page
+              data-testid="ArticlesPage"
+              onScrollEnd={onLoadNextPart}
+              className={classNames(cls.articlesPageRedesigned, {}, [
+                className,
+              ])}
+              parentRef={parentRef}
+              saveScroll
+            >
+              <ArticleInfiniteList
+                onLoadNextPart={onLoadNextPart}
+                parentRef={undefined}
+              />
+              <ArticlePageGreeting />
+            </Page>
+          }
+        />
+      }
+      off={
+        <Page
+          data-testid="ArticlesPage"
+          onScrollEnd={onLoadNextPart}
+          className={classNames(cls.articlesPage, {}, [className])}
+          parentRef={parentRef}
+          saveScroll
+        >
+          <ArticlesPageFilters />
+          <ArticleInfiniteList
+            onLoadNextPart={onLoadNextPart}
+            parentRef={parentRef}
+          />
+          <ArticlePageGreeting />
+        </Page>
+      }
+    />
+  )
+
   return (
     <DynamicModuleLoader reducers={initialReducers} removeAfterUnmount={false}>
-      <Page
-        data-testid="ArticlesPage"
-        onScrollEnd={onLoadNextPart}
-        className={classNames(cls.articlesPage, {}, [className])}
-        parentRef={parentRef}
-        saveScroll
-      >
-        <ArticlesPageFilters />
-        <ArticleInfiniteList
-          onLoadNextPart={onLoadNextPart}
-          parentRef={parentRef}
-        />
-        <ArticlePageGreeting />
-      </Page>
+      {content}
     </DynamicModuleLoader>
   )
 }
