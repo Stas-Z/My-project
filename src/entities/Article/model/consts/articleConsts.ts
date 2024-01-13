@@ -13,8 +13,8 @@ export enum ArticleSortFiled {
 export enum ArticleType {
   ALL = 'All',
   IT = 'IT',
-  SCIENCE = 'Science',
   ECONOMICS = 'Economics',
+  SCIENCE = 'Science',
 }
 
 export enum ArticleView {

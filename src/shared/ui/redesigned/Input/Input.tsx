@@ -1,4 +1,4 @@
-import React, { InputHTMLAttributes, memo } from 'react'
+import React, { InputHTMLAttributes, ReactNode, memo, useState } from 'react'
 
 import { Mods, classNames } from '@/shared/lib/classNames/classNames'
 
@@ -31,9 +31,17 @@ interface InputProps extends HTMLInputProps {
    */
   readonly?: boolean
   /**
-   * @description Flag to add additional editing class.
+   * Content to render on the left side of input
+   * @example
+   * <Input addonLeft={<Icon Svg={SearchIcon} />} />
    */
-  editing?: boolean
+  addonLeft?: ReactNode
+  /**
+   * Content to render on the right side of input
+   * @example
+   * <Input addonRight={<Icon Svg={SearchIcon} />} />
+   */
+  addonRight?: ReactNode
 }
 
 export const Input = memo((props: InputProps) => {
@@ -44,9 +52,20 @@ export const Input = memo((props: InputProps) => {
     type = 'text',
     placeholder,
     readonly,
-    editing,
+    addonLeft,
+    addonRight,
     ...otherProps
   } = props
+
+  const [isFocused, setIsFocused] = useState(false)
+
+  const onBlur = () => {
+    setIsFocused(false)
+  }
+
+  const onFocus = () => {
+    setIsFocused(true)
+  }
 
   const onChangeHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
     onChange?.(e.target.value)
@@ -54,24 +73,26 @@ export const Input = memo((props: InputProps) => {
 
   const mods: Mods = {
     [cls.readonly]: readonly,
-    [cls.editing]: editing,
+    [cls.focused]: isFocused,
+    [cls.withAddonLeft]: Boolean(addonLeft),
+    [cls.withAddonRight]: Boolean(addonRight),
   }
 
   return (
     <div className={classNames(cls.inputWrapper, mods, [className])}>
-      {placeholder && (
-        <div className={cls.placeholder}>{`${placeholder}>`}</div>
-      )}
-      <div className={cls.inputBlock}>
-        <input
-          type={type}
-          value={value}
-          onChange={onChangeHandler}
-          className={cls.input}
-          readOnly={readonly}
-          {...otherProps}
-        />
-      </div>
+      {addonLeft && <div className={cls.addonLeft}>{addonLeft}</div>}
+      <input
+        type={type}
+        value={value}
+        onChange={onChangeHandler}
+        className={cls.input}
+        readOnly={readonly}
+        placeholder={placeholder}
+        onBlur={onBlur}
+        onFocus={onFocus}
+        {...otherProps}
+      />
+      {addonRight && <div className={cls.addonRight}>{addonRight}</div>}
     </div>
   )
 })

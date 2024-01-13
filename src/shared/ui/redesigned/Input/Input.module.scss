@@ -1,50 +1,51 @@
 .inputWrapper {
   display: flex;
+  align-items: center;
+  border-radius: 48px;
+  padding: 8px 16px;
+  border: 1px solid var(--icon-redesigned);
+  height: 32px;
+  width: 100%;
 }
 
-.placeholder {
-  margin-right: 5px;
+.addonLeft,
+.addonRight {
+  display: flex;
+}
+
+.withAddonLeft {
+  padding-left: 8px;
+}
+
+.withAddonRight {
+  padding-right: 8px;
+}
+
+.focused {
+  border: 1px solid var(--accent-redesigned);
+
+  .addonLeft svg,
+  .addonRight svg {
+    color: var(--accent-redesigned);
+  }
 }
 
 .input {
-  background: transparent;
   border: none;
   outline-color: transparent;
   width: 100%;
-  color: var(--primary-color);
+  color: var(--text-redesigned);
+  background: none;
+
+  &::placeholder {
+    color: var(--hint-redesigned);
+  }
 
   &:focus {
     outline: none;
   }
-
-  &[type="number"]::-webkit-outer-spin-button,
-  &[type="number"]::-webkit-inner-spin-button {
-    appearance: none;
-  }
-
-  &[type="number"] {
-    appearance: textfield;
-
-    &:hover,
-    &:focus {
-      appearance: number-input;
-    }
-  }
-}
-
-.inputBlock {
-  flex-grow: 1;
-  position: relative;
 }
 
 .readonly {
-  .input {
-    opacity: 0.7;
-  }
-}
-
-.editing {
-  .placeholder {
-    opacity: 0.7;
-  }
+  opacity: 0.7;
 }

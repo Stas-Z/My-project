@@ -39,6 +39,18 @@ interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
    * @description Flag to make button's width 100%.
    */
   fullWidth?: boolean
+  /**
+   * Content to render on the left side of input
+   * @example
+   * <Input addonLeft={<Icon Svg={SearchIcon} />} />
+   */
+  addonLeft?: ReactNode
+  /**
+   * Content to render on the right side of input
+   * @example
+   * <Input addonRight={<Icon Svg={SearchIcon} />} />
+   */
+  addonRight?: ReactNode
 }
 
 export const Button = memo((props: ButtonProps) => {
@@ -50,6 +62,8 @@ export const Button = memo((props: ButtonProps) => {
     size = 'm',
     disabled,
     fullWidth,
+    addonLeft,
+    addonRight,
     ...otherProps
   } = props
 
@@ -57,6 +71,7 @@ export const Button = memo((props: ButtonProps) => {
     [cls.square]: square,
     [cls.disabled]: disabled,
     [cls.fullWidth]: fullWidth,
+    [cls.withAddon]: Boolean(addonLeft) || Boolean(addonRight),
   }
   const addClass = [className, cls[variant], cls[size]]
 
@@ -67,7 +82,9 @@ export const Button = memo((props: ButtonProps) => {
       className={classNames(cls.button, mods, addClass)}
       {...otherProps}
     >
+      {addonLeft && <div className={cls.addonLeft}>{addonLeft}</div>}
       {children}
+      {addonRight && <div className={cls.addonRight}>{addonRight}</div>}
     </button>
   )
 })

@@ -1,9 +1,11 @@
 import { Meta, StoryObj } from '@storybook/react'
 
+import ArrowIcon from '@/shared/assets/tests/arrow-bottom.svg'
 import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator/ThemeDecorator'
 import { Theme } from '@/shared/const/theme'
 
 import { Button } from './Button'
+import { Icon } from '../Icon'
 
 export default {
   title: 'shared/redesigned/Button',
@@ -17,6 +19,50 @@ export default {
 } as Meta<typeof Button>
 
 type Template = StoryObj<typeof Button>
+
+export const Filled: Template = {
+  args: { children: 'Text', variant: 'filled' },
+  decorators: [ThemeDecorator(Theme.LIGHT, true)],
+}
+export const FilledDark: Template = {
+  args: { children: 'Text', variant: 'filled' },
+  decorators: [ThemeDecorator(Theme.DARK, true)],
+}
+export const FilledChoco: Template = {
+  args: { children: 'Text', variant: 'filled' },
+  decorators: [ThemeDecorator(Theme.CHOCOLATE, true)],
+}
+export const FilledWithAddon: Template = {
+  args: {
+    children: 'Text',
+    variant: 'filled',
+    addonRight: <Icon Svg={ArrowIcon} />,
+  },
+  decorators: [ThemeDecorator(Theme.LIGHT, true)],
+}
+export const Clear: Template = {
+  args: {
+    children: 'Text',
+    variant: 'clear',
+  },
+  decorators: [ThemeDecorator(Theme.LIGHT, true)],
+}
+
+export const ClearDark: Template = {
+  args: {
+    children: 'Text',
+    variant: 'clear',
+  },
+  decorators: [ThemeDecorator(Theme.DARK, true)],
+}
+
+export const ClearChoco: Template = {
+  args: {
+    children: 'Text',
+    variant: 'clear',
+  },
+  decorators: [ThemeDecorator(Theme.CHOCOLATE, true)],
+}
 
 export const Outline: Template = {
   args: { children: 'Text' },
@@ -73,28 +119,4 @@ export const OutlineSizeXl: Template = {
     size: 'xl',
   },
   decorators: [ThemeDecorator(Theme.LIGHT, true)],
-}
-
-export const Clear: Template = {
-  args: {
-    children: 'Text',
-    variant: 'clear',
-  },
-  decorators: [ThemeDecorator(Theme.LIGHT, true)],
-}
-
-export const ClearDark: Template = {
-  args: {
-    children: 'Text',
-    variant: 'clear',
-  },
-  decorators: [ThemeDecorator(Theme.DARK, true)],
-}
-
-export const ClearChoco: Template = {
-  args: {
-    children: 'Text',
-    variant: 'clear',
-  },
-  decorators: [ThemeDecorator(Theme.CHOCOLATE, true)],
 }

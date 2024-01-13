@@ -1,9 +1,11 @@
 import { Meta, StoryObj } from '@storybook/react'
 
+import SearchIcon from '@/shared/assets/tests/search.svg'
 import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator/ThemeDecorator'
 import { Theme } from '@/shared/const/theme'
 
 import { Input } from './Input'
+import { Icon } from '../Icon'
 
 export default {
   title: 'shared/redesigned/Input',
@@ -19,6 +21,14 @@ export const Light: Template = {
   args: {
     placeholder: 'Text Sample',
     value: '123123',
+  },
+  decorators: [ThemeDecorator(Theme.LIGHT, true)],
+}
+export const WithAddon: Template = {
+  args: {
+    placeholder: 'Text Sample',
+    value: '123123',
+    addonLeft: <Icon Svg={SearchIcon} />,
   },
   decorators: [ThemeDecorator(Theme.LIGHT, true)],
 }

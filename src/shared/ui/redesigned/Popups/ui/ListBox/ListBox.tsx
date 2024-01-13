@@ -2,6 +2,7 @@ import { Fragment, ReactNode, useMemo } from 'react'
 
 import { Listbox as HListbox } from '@headlessui/react'
 
+import ArrowIcon from '@/shared/assets/icons/arrow-bottom.svg'
 import { classNames } from '@/shared/lib/classNames/classNames'
 import { typedMemo } from '@/shared/lib/react/typedMemo/typedMemo'
 import { TestProps } from '@/shared/types/tests'
@@ -10,6 +11,7 @@ import { DropdownDirection } from '@/shared/types/ui'
 import cls from './ListBox.module.scss'
 import { HStack } from '../../../../redesigned/Stack'
 import { Button } from '../../../Button/Button'
+import { Icon } from '../../../Icon'
 import popupCls from '../../styles/popup.module.scss'
 
 export interface ListBoxItem<T extends string> {
@@ -95,6 +97,7 @@ export const ListBox = typedMemo(<T extends string>(props: ListBoxProps<T>) => {
             disabled={readonly}
             variant="filled"
             data-testid={`${dataTestId}.Button`}
+            addonRight={<Icon Svg={ArrowIcon} />}
           >
             {selectedItem?.content ?? defaultValue}
           </Button>
@@ -112,18 +115,20 @@ export const ListBox = typedMemo(<T extends string>(props: ListBoxProps<T>) => {
               disabled={item.disabled}
               as={Fragment}
             >
-              {({ active, selected }) => (
-                <li
-                  className={classNames(cls.item, {
-                    [popupCls.active]: active,
-                    [popupCls.selected]: selected,
-                    [popupCls.disabled]: item.disabled,
-                  })}
-                >
-                  <span>{item.content}</span>
-                  {selected}
-                </li>
-              )}
+              {({ active, selected }) => {
+                return (
+                  <li
+                    className={classNames(cls.item, {
+                      [popupCls.active]: active,
+                      [popupCls.selected]: selected,
+                      [popupCls.disabled]: item.disabled,
+                    })}
+                  >
+                    <span>{item.content}</span>
+                    {selected}
+                  </li>
+                )
+              }}
             </HListbox.Option>
           ))}
         </HListbox.Options>
