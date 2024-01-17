@@ -70,10 +70,37 @@ export const RowGap16: Template = {
     ),
   },
 }
+export const RowGap24: Template = {
+  args: {
+    gap: '24',
+    children: (
+      <>
+        <div>first</div>
+        <div>second</div>
+        <div>third</div>
+        <div>fourth</div>
+      </>
+    ),
+  },
+}
 
 export const RowGap32: Template = {
   args: {
     gap: '32',
+    children: (
+      <>
+        <div>first</div>
+        <div>second</div>
+        <div>third</div>
+        <div>fourth</div>
+      </>
+    ),
+  },
+}
+
+export const RowJustifyBetween: Template = {
+  args: {
+    justify: 'between',
     children: (
       <>
         <div>first</div>
@@ -113,7 +140,34 @@ export const ColumnGap16: Template = {
     ),
   },
 }
-
+export const ColumnGap24: Template = {
+  args: {
+    gap: '24',
+    direction: 'column',
+    children: (
+      <>
+        <div>first</div>
+        <div>second</div>
+        <div>third</div>
+        <div>fourth</div>
+      </>
+    ),
+  },
+}
+export const ColumnAlignStart: Template = {
+  args: {
+    direction: 'column',
+    align: 'start',
+    children: (
+      <>
+        <div>first</div>
+        <div>second</div>
+        <div>third</div>
+        <div>fourth</div>
+      </>
+    ),
+  },
+}
 export const ColumnAlignEnd: Template = {
   args: {
     direction: 'column',

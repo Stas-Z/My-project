@@ -5,15 +5,10 @@ import { Card } from '@/shared/ui/redesigned/Card'
 import { Text } from '@/shared/ui/redesigned/Text'
 
 import cls from './NotificationItemRedesigned.module.scss'
-import { Notification } from '../../../model/types/notifications'
-
-interface NotificationItemRedesignedProps {
-  className?: string
-  item: Notification
-}
+import { NotificationItemProps } from '../NotificationItem'
 
 export const NotificationItemRedesigned = memo(
-  (props: NotificationItemRedesignedProps) => {
+  (props: NotificationItemProps) => {
     const { className, item } = props
 
     const content = (

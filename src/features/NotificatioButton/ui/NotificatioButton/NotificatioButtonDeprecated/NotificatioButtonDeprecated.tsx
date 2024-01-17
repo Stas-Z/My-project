@@ -10,13 +10,14 @@ import { Icon } from '@/shared/ui/deprecated/Icon'
 import { Popover } from '@/shared/ui/deprecated/Popups'
 
 import cls from './NotificatioButtonDeprecated.module.scss'
+import { NotificatioButtonProps } from '../NotificatioButton'
 
-interface NotificatioButtonDeprecatedProps {
-  className?: string
-}
-
+/**
+ * Use redesigned component
+ * @deprecated
+ */
 export const NotificatioButtonDeprecated = memo(
-  (props: NotificatioButtonDeprecatedProps) => {
+  (props: NotificatioButtonProps) => {
     const { className } = props
     const isMobile = useDevice()
 

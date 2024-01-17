@@ -9,13 +9,10 @@ import { Icon } from '@/shared/ui/redesigned/Icon'
 import { Popover } from '@/shared/ui/redesigned/Popups'
 
 import cls from './NotificatioButtonRedesigned.module.scss'
-
-interface NotificatioButtonRedesignedProps {
-  className?: string
-}
+import { NotificatioButtonProps } from '../NotificatioButton'
 
 export const NotificatioButtonRedesigned = memo(
-  (props: NotificatioButtonRedesignedProps) => {
+  (props: NotificatioButtonProps) => {
     const { className } = props
     const isMobile = useDevice()
 

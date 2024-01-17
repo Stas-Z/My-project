@@ -5,7 +5,7 @@ import { ToggleFeatures } from '@/shared/lib/features'
 import { NotificationListDeprecated } from './NotificationListDeprecated/NotificationListDeprecated'
 import { NotificationListRedesigned } from './NotificationListRedesigned/NotificationListRedesigned'
 
-interface NotificationListProps {
+export interface NotificationListProps {
   className?: string
 }
 

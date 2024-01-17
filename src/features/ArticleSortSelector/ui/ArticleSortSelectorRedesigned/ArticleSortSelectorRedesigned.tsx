@@ -10,16 +10,10 @@ import { ListBoxItem } from '@/shared/ui/redesigned/Popups/ui/ListBox/ListBox'
 import { VStack } from '@/shared/ui/redesigned/Stack'
 import { Text } from '@/shared/ui/redesigned/Text'
 
-interface ArticleSortSelectorRedesignedProps {
-  className?: string
-  sort: ArticleSortFiled
-  order: SortOrder
-  onChangeOrder: (newOrder: SortOrder) => void
-  onChangeSort: (newSort: ArticleSortFiled) => void
-}
+import { ArticleSortSelectorProps } from '../ArticleSortSelector'
 
 export const ArticleSortSelectorRedesigned = memo(
-  (props: ArticleSortSelectorRedesignedProps) => {
+  (props: ArticleSortSelectorProps) => {
     const { className, onChangeOrder, onChangeSort, order, sort } = props
     const { t } = useTranslation('translation-articles')
 

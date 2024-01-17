@@ -5,7 +5,7 @@ import { ToggleFeatures } from '@/shared/lib/features'
 import { NotificatioButtonDeprecated } from './NotificatioButtonDeprecated/NotificatioButtonDeprecated'
 import { NotificatioButtonRedesigned } from './NotificatioButtonRedesigned/NotificatioButtonRedesigned'
 
-interface NotificatioButtonProps {
+export interface NotificatioButtonProps {
   className?: string
 }
 

@@ -6,7 +6,7 @@ import { Theme } from '@/shared/const/theme'
 import { StickyContentLayout } from './StickyContentLayout'
 
 export default {
-  title: 'shared/StickyContentLayout',
+  title: 'shared/layouts/StickyContentLayout',
   component: StickyContentLayout,
   args: { left: 'Left', content: 'Content', right: 'Right' },
   argTypes: {

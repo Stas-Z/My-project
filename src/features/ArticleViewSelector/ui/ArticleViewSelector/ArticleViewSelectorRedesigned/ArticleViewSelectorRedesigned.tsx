@@ -10,12 +10,7 @@ import { Icon } from '@/shared/ui/redesigned/Icon'
 import { HStack } from '@/shared/ui/redesigned/Stack'
 
 import cls from './ArticleViewSelectorRedesigned.module.scss'
-
-interface ArticleViewSelectorRedesignedProps {
-  className?: string
-  view: ArticleView
-  onViewClick?: (view: ArticleView) => void
-}
+import { ArticleViewSelectorProps } from '../ArticleViewSelector'
 
 const viewTypes = [
   {
@@ -31,7 +26,7 @@ const viewTypes = [
 ]
 
 export const ArticleViewSelectorRedesigned = memo(
-  (props: ArticleViewSelectorRedesignedProps) => {
+  (props: ArticleViewSelectorProps) => {
     const { className, view, onViewClick } = props
 
     const onClick = (newView: ArticleView) => () => {

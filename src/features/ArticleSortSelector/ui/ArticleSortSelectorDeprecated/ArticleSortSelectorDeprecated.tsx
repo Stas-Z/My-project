@@ -8,17 +8,14 @@ import { SortOrder } from '@/shared/types/sort'
 import { Select, SelectOption } from '@/shared/ui/deprecated/Select'
 
 import cls from './ArticleSortSelectorDeprecated.module.scss'
+import { ArticleSortSelectorProps } from '../ArticleSortSelector'
 
-interface ArticleSortSelectorDeprecatedProps {
-  className?: string
-  sort: ArticleSortFiled
-  order: SortOrder
-  onChangeOrder: (newOrder: SortOrder) => void
-  onChangeSort: (newSort: ArticleSortFiled) => void
-}
-
+/**
+ * Use redesigned component
+ * @deprecated
+ */
 export const ArticleSortSelectorDeprecated = memo(
-  (props: ArticleSortSelectorDeprecatedProps) => {
+  (props: ArticleSortSelectorProps) => {
     const { className, onChangeOrder, onChangeSort, order, sort } = props
     const { t } = useTranslation('translation-articles')
 

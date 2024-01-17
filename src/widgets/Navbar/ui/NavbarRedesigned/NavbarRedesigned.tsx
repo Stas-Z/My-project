@@ -13,12 +13,9 @@ import { HStack } from '@/shared/ui/redesigned/Stack'
 import { Text } from '@/shared/ui/redesigned/Text'
 
 import cls from './NavbarRedesigned.module.scss'
+import { NavbarProps } from '../Navbar'
 
-interface NavbarRedesignedProps {
-  className?: string
-}
-
-export const NavbarRedesigned = memo(({ className }: NavbarRedesignedProps) => {
+export const NavbarRedesigned = memo(({ className }: NavbarProps) => {
   const { t } = useTranslation()
   const [isAuthModal, setIsAuthModal] = useState(false)
   const authData = useSelector(getUserAuthData)

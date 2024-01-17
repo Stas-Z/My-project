@@ -5,7 +5,7 @@ import { ToggleFeatures } from '@/shared/lib/features'
 import { NavbarDeprecated } from './NavbarDeprecated/NavbarDeprecated'
 import { NavbarRedesigned } from './NavbarRedesigned/NavbarRedesigned'
 
-interface NavbarProps {
+export interface NavbarProps {
   className?: string
 }
 

@@ -3,13 +3,17 @@ import React, { InputHTMLAttributes, ReactNode, memo, useState } from 'react'
 import { Mods, classNames } from '@/shared/lib/classNames/classNames'
 
 import cls from './Input.module.scss'
+import { HStack } from '../Stack'
+import { Text } from '../Text'
 
 // Исключаем пропсы которые передаём вторым аргументом.
 // Omit<'то что мы забераем','то что мы исключаем'>
 type HTMLInputProps = Omit<
   InputHTMLAttributes<HTMLInputElement>,
-  'value' | 'onChange' | 'readOnly'
+  'value' | 'onChange' | 'readOnly' | 'size'
 >
+
+type InputSize = 's' | 'm' | 'l'
 
 // В InputHTMLAttributes уже есть value и onChange, поэтому их надо исключить через Omit.
 // Omit позовляет из типа забрать все пропсы и исключить те, которые нам не нужны.
@@ -42,6 +46,14 @@ interface InputProps extends HTMLInputProps {
    * <Input addonRight={<Icon Svg={SearchIcon} />} />
    */
   addonRight?: ReactNode
+  /**
+   * @description Label for input
+   */
+  label?: string
+  /**
+   * @description The height of input
+   */
+  size?: InputSize
 }
 
 export const Input = memo((props: InputProps) => {
@@ -50,10 +62,11 @@ export const Input = memo((props: InputProps) => {
     value,
     onChange,
     type = 'text',
-    placeholder,
     readonly,
     addonLeft,
     addonRight,
+    label,
+    size = 'm',
     ...otherProps
   } = props
 
@@ -78,8 +91,8 @@ export const Input = memo((props: InputProps) => {
     [cls.withAddonRight]: Boolean(addonRight),
   }
 
-  return (
-    <div className={classNames(cls.inputWrapper, mods, [className])}>
+  const input = (
+    <div className={classNames(cls.inputWrapper, mods, [className, cls[size]])}>
       {addonLeft && <div className={cls.addonLeft}>{addonLeft}</div>}
       <input
         type={type}
@@ -87,7 +100,6 @@ export const Input = memo((props: InputProps) => {
         onChange={onChangeHandler}
         className={cls.input}
         readOnly={readonly}
-        placeholder={placeholder}
         onBlur={onBlur}
         onFocus={onFocus}
         {...otherProps}
@@ -95,4 +107,15 @@ export const Input = memo((props: InputProps) => {
       {addonRight && <div className={cls.addonRight}>{addonRight}</div>}
     </div>
   )
+
+  if (label) {
+    return (
+      <HStack max gap="8">
+        <Text text={label} />
+        {input}
+      </HStack>
+    )
+  }
+
+  return input
 })

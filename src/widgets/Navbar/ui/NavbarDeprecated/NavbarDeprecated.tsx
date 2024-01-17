@@ -15,16 +15,13 @@ import { Text, TextTheme } from '@/shared/ui/deprecated/Text'
 import { HStack } from '@/shared/ui/redesigned/Stack'
 
 import cls from './NavbarDeprecated.module.scss'
-
-interface NavbarDeprecatedProps {
-  className?: string
-}
+import { NavbarProps } from '../Navbar'
 
 /**
  * Use redesigned component
  * @deprecated
  */
-export const NavbarDeprecated = memo(({ className }: NavbarDeprecatedProps) => {
+export const NavbarDeprecated = memo(({ className }: NavbarProps) => {
   const { t } = useTranslation()
   const [isAuthModal, setIsAuthModal] = useState(false)
   const authData = useSelector(getUserAuthData)

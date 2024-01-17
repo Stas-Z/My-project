@@ -6,17 +6,17 @@ import avatar from '@/shared/assets/tests/profilePic.jpg'
 import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator/ThemeDecorator'
 import { Theme } from '@/shared/const/theme'
 
-import { ProfileCard } from './ProfileCard'
+import { ProfileCardDeprecated } from './ProfileCardDeprecated'
 
 export default {
-  title: 'entities/ProfileCard',
-  component: ProfileCard,
+  title: 'entities/ProfileCard/ProfileCardDeprecated',
+  component: ProfileCardDeprecated,
   argTypes: {
     backgroundColor: { control: 'color' },
   },
-} as Meta<typeof ProfileCard>
+} as Meta<typeof ProfileCardDeprecated>
 
-type Template = StoryObj<typeof ProfileCard>
+type Template = StoryObj<typeof ProfileCardDeprecated>
 
 const data = {
   first: 'Станислав',

@@ -6,7 +6,7 @@ import { NotificationItemDeprecated } from './NotificationItemDeprecated/Notific
 import { NotificationItemRedesigned } from './NotificationItemRedesigned/NotificationItemRedesigned'
 import { Notification } from '../../model/types/notifications'
 
-interface NotificationItemProps {
+export interface NotificationItemProps {
   className?: string
   item: Notification
 }

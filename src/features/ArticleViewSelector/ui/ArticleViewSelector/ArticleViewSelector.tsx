@@ -6,7 +6,7 @@ import { ToggleFeatures } from '@/shared/lib/features'
 import { ArticleViewSelectorDeprecated } from './ArticleViewSelectorDeprecated/ArticleViewSelectorDeprecated'
 import { ArticleViewSelectorRedesigned } from './ArticleViewSelectorRedesigned/ArticleViewSelectorRedesigned'
 
-interface ArticleViewSelectorProps {
+export interface ArticleViewSelectorProps {
   className?: string
   view: ArticleView
   onViewClick?: (view: ArticleView) => void

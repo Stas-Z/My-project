@@ -9,12 +9,7 @@ import { Button, ButtonTheme } from '@/shared/ui/deprecated/Button'
 import { Icon } from '@/shared/ui/deprecated/Icon'
 
 import cls from './ArticleViewSelectorDeprecated.module.scss'
-
-interface ArticleViewSelectorDeprecatedProps {
-  className?: string
-  view: ArticleView
-  onViewClick?: (view: ArticleView) => void
-}
+import { ArticleViewSelectorProps } from '../ArticleViewSelector'
 
 const viewTypes = [
   {
@@ -28,9 +23,12 @@ const viewTypes = [
     icon: ListIcon,
   },
 ]
-
+/**
+ * Use redesigned component
+ * @deprecated
+ */
 export const ArticleViewSelectorDeprecated = memo(
-  (props: ArticleViewSelectorDeprecatedProps) => {
+  (props: ArticleViewSelectorProps) => {
     const { className, view, onViewClick } = props
 
     const onClick = (newView: ArticleView) => () => {

@@ -17,10 +17,27 @@ export default {
 
 type Template = StoryObj<typeof Input>
 
-export const Light: Template = {
+export const sizeS: Template = {
   args: {
     placeholder: 'Text Sample',
     value: '123123',
+    size: 's',
+  },
+  decorators: [ThemeDecorator(Theme.LIGHT, true)],
+}
+export const sizeM: Template = {
+  args: {
+    placeholder: 'Text Sample',
+    value: '123123',
+    size: 'm',
+  },
+  decorators: [ThemeDecorator(Theme.LIGHT, true)],
+}
+export const sizeL: Template = {
+  args: {
+    placeholder: 'Text Sample',
+    value: '123123',
+    size: 'l',
   },
   decorators: [ThemeDecorator(Theme.LIGHT, true)],
 }

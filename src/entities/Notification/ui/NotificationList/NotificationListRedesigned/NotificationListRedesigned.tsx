@@ -7,13 +7,10 @@ import { VStack } from '@/shared/ui/redesigned/Stack'
 import cls from './NotificationListRedesigned.module.scss'
 import { useNotifications } from '../../../api/notificationApi'
 import { NotificationItem } from '../../NotificationItem/NotificationItem'
-
-interface NotificationListRedesignedProps {
-  className?: string
-}
+import { NotificationListProps } from '../NotificationList'
 
 export const NotificationListRedesigned = memo(
-  (props: NotificationListRedesignedProps) => {
+  (props: NotificationListProps) => {
     const { className } = props
     const { data, isLoading } = useNotifications(null, {
       pollingInterval: 10000,

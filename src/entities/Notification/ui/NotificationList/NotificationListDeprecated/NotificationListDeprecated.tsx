@@ -7,13 +7,14 @@ import { VStack } from '@/shared/ui/redesigned/Stack'
 import cls from './NotificationListDeprecated.module.scss'
 import { useNotifications } from '../../../api/notificationApi'
 import { NotificationItem } from '../../NotificationItem/NotificationItem'
+import { NotificationListProps } from '../NotificationList'
 
-interface NotificationListDeprecatedProps {
-  className?: string
-}
-
+/**
+ * Use redesigned component
+ * @deprecated
+ */
 export const NotificationListDeprecated = memo(
-  (props: NotificationListDeprecatedProps) => {
+  (props: NotificationListProps) => {
     const { className } = props
     const { data, isLoading } = useNotifications(null, {
       pollingInterval: 10000,

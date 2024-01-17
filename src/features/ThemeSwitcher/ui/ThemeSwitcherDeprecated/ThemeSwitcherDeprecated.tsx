@@ -13,7 +13,10 @@ interface ThemeSwitcherDeprecatedProps {
   onToggleHandler?: () => void
   theme?: Theme
 }
-
+/**
+ * Use redesigned component
+ * @deprecated
+ */
 export const ThemeSwitcherDeprecated = memo(
   ({ className, onToggleHandler, theme }: ThemeSwitcherDeprecatedProps) => {
     return (

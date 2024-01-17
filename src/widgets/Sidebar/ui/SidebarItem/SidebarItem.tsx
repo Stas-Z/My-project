@@ -6,7 +6,7 @@ import { SidebarItemDeprecated } from './SidebarItemDeprecated/SidebarItemDeprec
 import { SidebarItemRedesigned } from './SidebarItemRedesigned/SidebarItemRedesigned'
 import { SidebarItemType } from '../../model/types/sidebar'
 
-interface SidebarItemProps {
+export interface SidebarItemProps {
   item: SidebarItemType
   collapsed: boolean
 }

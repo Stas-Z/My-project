@@ -7,7 +7,7 @@ import { SortOrder } from '@/shared/types/sort'
 import { ArticleSortSelectorDeprecated } from './ArticleSortSelectorDeprecated/ArticleSortSelectorDeprecated'
 import { ArticleSortSelectorRedesigned } from './ArticleSortSelectorRedesigned/ArticleSortSelectorRedesigned'
 
-interface ArticleSortSelectorProps {
+export interface ArticleSortSelectorProps {
   className?: string
   sort: ArticleSortFiled
   order: SortOrder

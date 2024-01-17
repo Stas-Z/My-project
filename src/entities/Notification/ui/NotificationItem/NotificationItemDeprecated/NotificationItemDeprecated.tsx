@@ -5,15 +5,15 @@ import { Card, CardTheme } from '@/shared/ui/deprecated/Card'
 import { Text } from '@/shared/ui/deprecated/Text'
 
 import cls from './NotificationItemDeprecated.module.scss'
-import { Notification } from '../../../model/types/notifications'
+import { NotificationItemProps } from '../NotificationItem'
 
-interface NotificationItemDeprecatedProps {
-  className?: string
-  item: Notification
-}
+/**
+ * Use redesigned component
+ * @deprecated
+ */
 
 export const NotificationItemDeprecated = memo(
-  (props: NotificationItemDeprecatedProps) => {
+  (props: NotificationItemProps) => {
     const { className, item } = props
 
     const content = (

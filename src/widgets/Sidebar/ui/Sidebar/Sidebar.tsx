@@ -5,7 +5,7 @@ import { ToggleFeatures } from '@/shared/lib/features'
 import { SidebarDeprecated } from './SidebarDeprecated/SidebarDeprecated'
 import { SidebarRedesigned } from './SidebarRedesigned/SidebarRedesigned'
 
-interface SidebarProps {
+export interface SidebarProps {
   className?: string
 }
 

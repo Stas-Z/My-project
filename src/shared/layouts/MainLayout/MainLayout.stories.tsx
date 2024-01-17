@@ -6,7 +6,7 @@ import { Theme } from '@/shared/const/theme'
 import { MainLayout } from './MainLayout'
 
 export default {
-  title: 'shared/MainLayout',
+  title: 'shared/layouts/MainLayout',
   component: MainLayout,
   args: {
     content: 'Content',
