@@ -8,6 +8,7 @@ import { PolymorphicComponentProp } from '../../../../types/polymorphic'
 export type FlexJustify = 'start' | 'center' | 'end' | 'between'
 export type FlexAlign = 'start' | 'center' | 'end' | 'unset'
 export type FlexDirection = 'row' | 'column'
+export type FlexWrap = 'nowrap' | 'wrap'
 export type FlexGap = '4' | '8' | '16' | '24' | '32'
 
 const justifyClasses: Record<FlexJustify, string> = {
@@ -62,6 +63,7 @@ export interface FlexProps {
    * @description Flag to set width: 100%
    */
   max?: boolean
+  wrap?: FlexWrap
 }
 
 export const defaultFlexTag = 'div'
@@ -77,6 +79,7 @@ export const Flex = <E extends ElementType = typeof defaultFlexTag>(
     direction = 'row',
     gap,
     max,
+    wrap = 'nowrap',
     as,
     ...otherProps
   } = props
@@ -86,6 +89,7 @@ export const Flex = <E extends ElementType = typeof defaultFlexTag>(
     justifyClasses[justify],
     alignClasses[align],
     directionClasses[direction],
+    cls[wrap],
     gap && gapClasses[gap],
   ]
 

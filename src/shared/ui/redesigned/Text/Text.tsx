@@ -73,7 +73,6 @@ export const Text = memo((props: TextProps) => {
 
   const HeaderTag = mapSizeToHeaderTag[size]
   const sizeClass = mapSizeToClass[size]
-  console.log(sizeClass)
 
   const additionalClasses = [
     className,

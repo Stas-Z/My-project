@@ -19,7 +19,7 @@ export default {
   parameters: {
     mockData: [
       {
-        url: `${__API__}/articles?_limit=4`,
+        url: `${__API__}/articles?_limit=4&_expand=user:1`,
         method: 'GET',
         status: 200,
         response: articles,

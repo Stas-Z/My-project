@@ -12,6 +12,7 @@ import { useTranslation } from 'react-i18next'
 import { ARTICLE_LIST_ITEM_LOCALSTORAGE_IDX } from '@/shared/const/localstorage'
 import { classNames } from '@/shared/lib/classNames/classNames'
 import { Text, TextSize } from '@/shared/ui/deprecated/Text'
+import { HStack } from '@/shared/ui/redesigned/Stack'
 import { Virtualize } from '@/shared/ui/redesigned/Virtualize'
 
 import cls from './ArticleList.module.scss'
@@ -42,7 +43,7 @@ const ItemContainerComp: FC<{ index: number }> = ({ index }) => (
 )
 
 const getArticleSkeletons = (view: ArticleView) =>
-  new Array(view === ArticleView.GRID ? 4 : 3).fill(0).map((item, index) => (
+  new Array(view === ArticleView.GRID ? 6 : 3).fill(0).map((item, index) => (
     // eslint-disable-next-line
     <ArticleListItemSkeleton className={cls.card} key={index} view={view} />
   ))
@@ -90,7 +91,7 @@ export const ArticleList = memo((props: ArticleListProps) => {
     )
   }
 
-  if (virtualized) {
+  if (!isLoading && virtualized) {
     return (
       <div
         className={classNames(cls.articleList, {}, [className, cls[view]])}
@@ -112,18 +113,16 @@ export const ArticleList = memo((props: ArticleListProps) => {
   }
 
   return (
-    <div
-      className={classNames(cls.articleList, {}, [
-        className,
-        cls[view],
-        cls.recommended,
-      ])}
+    <HStack
+      wrap="wrap"
+      gap="32"
+      className={classNames(cls.articleList, {}, [className, cls[view]])}
       data-testid="ArticleList"
     >
       {!isLoading && articles.length > 0
         ? articles.map((item, index) => renderArticle(index, item))
         : null}
       {isLoading && getArticleSkeletons(view)}
-    </div>
+    </HStack>
   )
 })

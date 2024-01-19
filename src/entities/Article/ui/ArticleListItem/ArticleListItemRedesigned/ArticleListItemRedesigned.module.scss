@@ -9,4 +9,73 @@
     height: 66px;
     overflow: hidden;
   }
+
+  // Skeleton
+  .header {
+    display: flex;
+    align-items: center;
+  }
+
+  .username {
+    margin-left: 8px;
+  }
+
+  .title {
+    margin-top: 8px;
+  }
+
+  .skeletonImg {
+    margin: 16px 0;
+    max-height: 420px;
+    width: 100%;
+  }
+
+  &.articleListItem {
+    width: 100%;
+  }
+}
+
+.grid {
+  .card {
+    width: 249px;
+    height: 350px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .img {
+    width: 100%;
+    object-fit: cover;
+    min-height: 140px;
+    max-height: 140px;
+  }
+
+  .info {
+    padding: 0 8px 16px;
+    height: 100%;
+  }
+
+  .footer {
+    height: 100%;
+    justify-content: flex-end;
+  }
+
+  .userInfo {
+    padding-left: 8px;
+  }
+
+  .skeletonTitle {
+    min-height: 32px;
+  }
+
+  .textBlock {
+    height: 113px;
+    overflow: hidden;
+    min-height: 113px;
+    -webkit-line-clamp: 4;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+  }
 }

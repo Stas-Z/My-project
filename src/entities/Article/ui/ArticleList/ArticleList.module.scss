@@ -10,10 +10,9 @@
 }
 
 .itemContainer {
-  width: 230px;
   display: flex;
   flex-wrap: wrap;
-  gap: 30px;
+  gap: 32px;
 
   @media (max-width: 1024px) {
     width: 50%;
