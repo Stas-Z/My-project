@@ -1,4 +1,4 @@
-import { Fragment, ReactNode, memo } from 'react'
+import { Fragment, ReactNode, memo, useMemo } from 'react'
 
 import { Listbox as HListbox } from '@headlessui/react'
 
@@ -77,6 +77,10 @@ export const ListBox = memo((props: ListBoxProps) => {
     'data-testid': dataTestId = 'ListBox',
   } = props
 
+  const selectedItem = useMemo(() => {
+    return items?.find((item) => item.value === value)
+  }, [items, value])
+
   return (
     <HStack gap="8" className={classNames('', {}, [popupCls.popup])}>
       {label && (
@@ -97,7 +101,7 @@ export const ListBox = memo((props: ListBoxProps) => {
             theme={ButtonTheme.CLEAR}
             data-testid={`${dataTestId}.Button`}
           >
-            {value ?? defaultValue}
+            {selectedItem?.content ?? defaultValue}
           </Button>
         </HListbox.Button>
         <HListbox.Options

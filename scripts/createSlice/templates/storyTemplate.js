@@ -19,7 +19,8 @@ export default {
 type Template = StoryObj<typeof ${componentName}>
 
 export const Light: Template = {
-  args: {}
+  args: {},
+  decorators: [ThemeDecorator(Theme.LIGHT)]
 }
 
 export const Dark: Template = {
