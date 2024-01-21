@@ -7,7 +7,12 @@ import {
   useRef,
 } from 'react'
 
-import { Virtuoso, VirtuosoGrid, VirtuosoHandle } from 'react-virtuoso'
+import {
+  LogLevel,
+  Virtuoso,
+  VirtuosoGrid,
+  VirtuosoHandle,
+} from 'react-virtuoso'
 
 import { classNames } from '@/shared/lib/classNames/classNames'
 
@@ -99,28 +104,30 @@ export const Virtualize = <T,>(props: VirtualizeProps<T>) => {
     <Virtuoso
       className={classNames(cls.virtualize, {}, [className])}
       data={data}
-      itemContent={(index, item) =>
-        isLoading ? renderSkeleton?.(index) : renderNode(index, item)
-      }
+      itemContent={renderNode}
       endReached={onScrollEnd}
+      overscan={500}
+      role="feed"
       initialTopMostItemIndex={lastIndex}
       customScrollParent={parentRef?.current}
       useWindowScroll
+      ref={ref}
+      logLevel={LogLevel.DEBUG}
     />
   ) : (
     <VirtuosoGrid
       className={classNames(cls.virtualize, {}, [className])}
       ref={ref}
       data={data}
-      itemContent={(index, item) =>
-        isLoading ? renderSkeleton?.(index) : renderNode(index, item)
-      }
+      itemContent={(index, item) => renderNode(index, item)}
       components={{ ScrollSeekPlaceholder: placeholder }}
       scrollSeekConfiguration={{
         enter: (velocity) => Math.abs(velocity) > 200,
         exit: (velocity) => Math.abs(velocity) < 30,
       }}
       endReached={onScrollEnd}
+      overscan={500}
+      role="feed"
       listClassName={cls.itemsGridWrapper}
       customScrollParent={parentRef?.current}
       useWindowScroll

@@ -42,8 +42,12 @@ export const ArticleListItemRedesigned = memo((props: ArticleListItemProps) => {
       <Text text={String(article.views)} />
     </HStack>
   )
-  const errorFallbackList = <Icon width="100%" height={250} Svg={NoImage} />
-  const errorFallbackGrid = <Icon width={200} height={200} Svg={NoImage} />
+  const errorFallbackList = (
+    <Icon width="100%" height={250} Svg={NoImage} className={cls.img} />
+  )
+  const errorFallbackGrid = (
+    <Icon width={200} height={200} Svg={NoImage} className={cls.img} />
+  )
 
   const onButtonClick = () => {
     if (index) {

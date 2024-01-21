@@ -18,10 +18,11 @@ interface ArticleInfiniteListProps {
   className?: string
   onLoadNextPart?: () => void
   parentRef?: MutableRefObject<HTMLDivElement>
+  virtualized?: boolean
 }
 
 export const ArticleInfiniteList = memo((props: ArticleInfiniteListProps) => {
-  const { className, onLoadNextPart, parentRef } = props
+  const { className, onLoadNextPart, parentRef, virtualized = false } = props
   const { t } = useTranslation('translation-articles')
 
   const articles = useSelector(getArticles.selectAll)
@@ -47,7 +48,7 @@ export const ArticleInfiniteList = memo((props: ArticleInfiniteListProps) => {
       className={className}
       onLoadNextPart={onLoadNextPart}
       parentRef={parentRef}
-      virtualized
+      virtualized={virtualized}
     />
   )
 })

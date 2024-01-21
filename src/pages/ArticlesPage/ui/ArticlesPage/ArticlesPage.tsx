@@ -66,6 +66,7 @@ const ArticlesPage = (props: ArticlesPageProps) => {
               <ArticleInfiniteList
                 onLoadNextPart={onLoadNextPart}
                 parentRef={undefined}
+                virtualized
               />
               <ArticlePageGreeting />
             </Page>
@@ -84,6 +85,7 @@ const ArticlesPage = (props: ArticlesPageProps) => {
           <ArticleInfiniteList
             onLoadNextPart={onLoadNextPart}
             parentRef={parentRef}
+            virtualized
           />
           <ArticlePageGreeting />
         </Page>

@@ -35,7 +35,6 @@ export const CountrySelect = memo((props: CountrySelectProps) => {
       })),
     [],
   )
-  console.log(countryOptions)
 
   const propsList = {
     className,

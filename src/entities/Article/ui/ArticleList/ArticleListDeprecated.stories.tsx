@@ -18,12 +18,14 @@ export default {
 
 type Template = StoryObj<typeof ArticleList>
 
-const article = articleMock
+const articlesList = new Array(3).fill(null).map((array, index) => ({
+  ...articleMock,
+  id: String(index),
+}))
 
 export const Grid: Template = {
   args: {
-    virtualized: true,
-    articles: [article, article, article],
+    articles: articlesList,
     view: ArticleView.GRID,
   },
   decorators: [ThemeDecorator(Theme.LIGHT)],
@@ -31,8 +33,7 @@ export const Grid: Template = {
 
 export const GridLoading: Template = {
   args: {
-    virtualized: true,
-    articles: [article, article, article],
+    articles: articlesList,
     view: ArticleView.GRID,
     isLoading: true,
   },
@@ -41,8 +42,7 @@ export const GridLoading: Template = {
 
 export const GridDark: Template = {
   args: {
-    virtualized: true,
-    articles: [article, article, article],
+    articles: articlesList,
     view: ArticleView.GRID,
   },
   decorators: [ThemeDecorator(Theme.DARK)],
@@ -50,8 +50,7 @@ export const GridDark: Template = {
 
 export const GridDarkLoading: Template = {
   args: {
-    virtualized: true,
-    articles: [article, article, article],
+    articles: articlesList,
     view: ArticleView.GRID,
     isLoading: true,
   },
@@ -60,8 +59,7 @@ export const GridDarkLoading: Template = {
 
 export const GridChoco: Template = {
   args: {
-    virtualized: true,
-    articles: [article, article, article],
+    articles: articlesList,
     view: ArticleView.GRID,
   },
   decorators: [ThemeDecorator(Theme.CHOCOLATE)],
@@ -69,8 +67,7 @@ export const GridChoco: Template = {
 
 export const GridChocoLoading: Template = {
   args: {
-    virtualized: true,
-    articles: [article, article, article],
+    articles: articlesList,
     view: ArticleView.GRID,
     isLoading: true,
   },
@@ -79,8 +76,7 @@ export const GridChocoLoading: Template = {
 
 export const List: Template = {
   args: {
-    virtualized: true,
-    articles: [article, article, article],
+    articles: articlesList,
     view: ArticleView.LIST,
   },
   decorators: [ThemeDecorator(Theme.LIGHT), LokiDelayDecorator()],
@@ -88,8 +84,7 @@ export const List: Template = {
 
 export const ListLoading: Template = {
   args: {
-    virtualized: true,
-    articles: [article, article, article],
+    articles: articlesList,
     view: ArticleView.LIST,
     isLoading: true,
   },
@@ -98,8 +93,7 @@ export const ListLoading: Template = {
 
 export const ListDark: Template = {
   args: {
-    virtualized: true,
-    articles: [article, article, article],
+    articles: articlesList,
     view: ArticleView.LIST,
   },
   decorators: [ThemeDecorator(Theme.DARK), LokiDelayDecorator()],
@@ -107,8 +101,7 @@ export const ListDark: Template = {
 
 export const ListDarkLoading: Template = {
   args: {
-    virtualized: true,
-    articles: [article, article, article],
+    articles: articlesList,
     view: ArticleView.LIST,
     isLoading: true,
   },
@@ -117,8 +110,7 @@ export const ListDarkLoading: Template = {
 
 export const ListChoco: Template = {
   args: {
-    virtualized: true,
-    articles: [article, article, article],
+    articles: articlesList,
     view: ArticleView.LIST,
   },
   decorators: [ThemeDecorator(Theme.CHOCOLATE), LokiDelayDecorator()],
@@ -126,8 +118,7 @@ export const ListChoco: Template = {
 
 export const ListChocoLoading: Template = {
   args: {
-    virtualized: true,
-    articles: [article, article, article],
+    articles: articlesList,
     view: ArticleView.LIST,
     isLoading: true,
   },

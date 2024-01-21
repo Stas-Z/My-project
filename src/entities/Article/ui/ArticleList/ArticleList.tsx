@@ -43,7 +43,7 @@ const ItemContainerComp: FC<{ index: number }> = ({ index }) => (
 )
 
 const getArticleSkeletons = (view: ArticleView) =>
-  new Array(view === ArticleView.GRID ? 6 : 3).fill(0).map((item, index) => (
+  new Array(view === ArticleView.GRID ? 4 : 2).fill(0).map((item, index) => (
     // eslint-disable-next-line
     <ArticleListItemSkeleton className={cls.card} key={index} view={view} />
   ))
@@ -72,16 +72,18 @@ export const ArticleList = memo((props: ArticleListProps) => {
     setSelectedArticleId(+paged)
   }, [isLoading, view])
 
-  const renderArticle = (index: number, article: Article) => (
-    <ArticleListItem
-      article={article}
-      view={view}
-      className={cls.card}
-      key={article.id}
-      target={target}
-      index={index}
-    />
-  )
+  const renderArticle = (index: number, article: Article) => {
+    return (
+      <ArticleListItem
+        article={article}
+        view={view}
+        className={cls.card}
+        key={article.id}
+        target={target}
+        index={index}
+      />
+    )
+  }
 
   if (!isLoading && !articles.length) {
     return (
@@ -91,7 +93,7 @@ export const ArticleList = memo((props: ArticleListProps) => {
     )
   }
 
-  if (!isLoading && virtualized) {
+  if (virtualized) {
     return (
       <div
         className={classNames(cls.articleList, {}, [className, cls[view]])}
@@ -108,6 +110,9 @@ export const ArticleList = memo((props: ArticleListProps) => {
           view={view}
           placeholder={ItemContainerComp}
         />
+        <HStack gap="32" wrap="wrap">
+          {isLoading && getArticleSkeletons(view)}
+        </HStack>
       </div>
     )
   }

@@ -71,18 +71,31 @@ export const UiDesingSwitcher = memo((props: UiDesingSwitcherProps) => {
     defaultValue: t('Choose style'),
   }
 
-  return (
+  const UiDesingSwitcherRedesigned = (
     <HStack gap="16">
       <Text text={t('Choose style')} />
       {isLoading ? (
-        <Skeleton width={123} height={32} border="16px" />
+        <SkeletonRedesigned width={123} height={32} border="16px" />
       ) : (
-        <ToggleFeatures
-          feature="isAppRedesigned"
-          on={<ListBoxRedesigned {...propsList} />}
-          off={<ListBoxDeprecated {...propsList} />}
-        />
+        <ListBoxRedesigned {...propsList} />
       )}
     </HStack>
+  )
+  const UiDesingSwitcherDeprecated = (
+    <HStack gap="16">
+      {isLoading ? (
+        <SkeletonDeprecated width={193} height={24} border="5px" />
+      ) : (
+        <ListBoxDeprecated {...propsList} label={t('Choose style')} />
+      )}
+    </HStack>
+  )
+
+  return (
+    <ToggleFeatures
+      feature="isAppRedesigned"
+      on={UiDesingSwitcherRedesigned}
+      off={UiDesingSwitcherDeprecated}
+    />
   )
 })

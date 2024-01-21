@@ -13,13 +13,6 @@ export default {
   argTypes: {
     backgroundColor: { control: 'color' },
   },
-  decorators: [
-    (Story) => (
-      <div style={{ display: 'flex', width: '100%' }}>
-        <Story />
-      </div>
-    ),
-  ],
 } as Meta<typeof ArticleListItemDeprecated>
 
 type Template = StoryObj<typeof ArticleListItemDeprecated>
