@@ -4,8 +4,8 @@ import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator/ThemeDe
 import { Theme } from '@/shared/const/theme'
 
 import { ArticleListItemDeprecated } from './ArticleListItemDeprecated'
-import { articleMock } from '../../../mocks/data'
 import { ArticleView } from '../../../model/consts/articleConsts'
+import { articleMock } from '../../../model/mocks/data'
 
 export default {
   title: 'entities/Article/ArticleListItem/ArticleListItemDeprecated',

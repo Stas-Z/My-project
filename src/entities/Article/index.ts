@@ -1,4 +1,4 @@
-export { articleMock, articlesMock, entitiesMock } from './mocks/data'
+export { articleMock, articlesMock, entitiesMock } from './model/mocks/data'
 export { ArticleList } from './ui/ArticleList/ArticleList'
 export { getArticleDetailsData } from './model/selectors/getArticleDetailsData/getArticleDetailsData'
 export { ArticleDetails } from './ui/ArticleDetails/ArticleDetails'

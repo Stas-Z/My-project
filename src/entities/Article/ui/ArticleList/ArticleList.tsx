@@ -17,6 +17,7 @@ import { Virtualize } from '@/shared/ui/redesigned/Virtualize'
 
 import cls from './ArticleList.module.scss'
 import { ArticleView } from '../../model/consts/articleConsts'
+import { useArticleListSkeletons } from '../../model/lib/useArticleListSkeleton'
 import { Article } from '../../model/types/article'
 import { ArticleListItem } from '../ArticleListItem/ArticleListItem'
 import { ArticleListItemSkeleton } from '../ArticleListItem/ArticleListItemSkeleton'
@@ -42,12 +43,6 @@ const ItemContainerComp: FC<{ index: number }> = ({ index }) => (
   </div>
 )
 
-const getArticleSkeletons = (view: ArticleView) =>
-  new Array(view === ArticleView.GRID ? 4 : 2).fill(0).map((item, index) => (
-    // eslint-disable-next-line
-    <ArticleListItemSkeleton className={cls.card} key={index} view={view} />
-  ))
-
 export const ArticleList = memo((props: ArticleListProps) => {
   const {
     className,
@@ -61,6 +56,11 @@ export const ArticleList = memo((props: ArticleListProps) => {
   } = props
   const { t } = useTranslation('translation-articles')
   const [selectedArticleId, setSelectedArticleId] = useState(-1)
+
+  const getArticleSkeletons = useArticleListSkeletons({
+    view,
+    classname: cls.card,
+  })
 
   const getSkeletons = () => (
     <ArticleListItemSkeleton className={cls.card} view={view} />
@@ -111,7 +111,7 @@ export const ArticleList = memo((props: ArticleListProps) => {
           placeholder={ItemContainerComp}
         />
         <HStack gap="32" wrap="wrap">
-          {isLoading && getArticleSkeletons(view)}
+          {isLoading && getArticleSkeletons}
         </HStack>
       </div>
     )
@@ -127,7 +127,7 @@ export const ArticleList = memo((props: ArticleListProps) => {
       {!isLoading && articles.length > 0
         ? articles.map((item, index) => renderArticle(index, item))
         : null}
-      {isLoading && getArticleSkeletons(view)}
+      {isLoading && getArticleSkeletons}
     </HStack>
   )
 })

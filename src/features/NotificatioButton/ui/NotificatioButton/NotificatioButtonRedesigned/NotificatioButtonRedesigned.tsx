@@ -4,7 +4,7 @@ import { NotificationList } from '@/entities/Notification'
 import NotificationIcon from '@/shared/assets/icons/notification.svg'
 import { classNames } from '@/shared/lib/classNames/classNames'
 import { useDevice } from '@/shared/lib/hooks/useDevice/useDevice'
-import { Drawer } from '@/shared/ui/deprecated/Drawer'
+import { Drawer } from '@/shared/ui/redesigned/Drawer'
 import { Icon } from '@/shared/ui/redesigned/Icon'
 import { Popover } from '@/shared/ui/redesigned/Popups'
 

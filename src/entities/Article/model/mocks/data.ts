@@ -1,6 +1,6 @@
 /* eslint-disable max-len */
-import { ArticleBlockType, ArticleType } from '../model/consts/articleConsts'
-import { Article } from '../model/types/article'
+import { ArticleBlockType, ArticleType } from '../consts/articleConsts'
+import { Article } from '../types/article'
 
 export const articleMock: Article = {
   id: '1',

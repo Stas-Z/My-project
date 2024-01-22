@@ -4,14 +4,11 @@
 @import "themes/normal";
 @import "themes/chocolate";
 
-body {
-  font: var(--font-m);
-}
-
 .app {
+  font: var(--font-m);
+  color: var(--primary-color);
   background: var(--bg-color);
   min-height: 100vh;
-  color: var(--primary-color);
 }
 
 .app_redesigned {

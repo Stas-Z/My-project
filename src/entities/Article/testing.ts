@@ -4,4 +4,4 @@ export {
   ArticleSortFiled,
   ArticleType,
 } from './model/consts/articleConsts'
-export { articleMock, articlesMock, entitiesMock } from './mocks/data'
+export { articleMock, articlesMock, entitiesMock } from './model/mocks/data'

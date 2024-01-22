@@ -5,7 +5,7 @@ import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator/ThemeDe
 import { Theme } from '@/shared/const/theme'
 
 import { ArticleDetails } from './ArticleDetails'
-import { articleMock } from '../../mocks/data'
+import { articleMock } from '../../model/mocks/data'
 
 export default {
   title: 'entities/Article/ArticleDetails',
