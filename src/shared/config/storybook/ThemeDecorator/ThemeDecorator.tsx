@@ -6,13 +6,16 @@ import { Theme } from '@/shared/const/theme'
 
 export const ThemeDecorator =
   (theme: Theme, newDesign?: boolean) => (StoryComponent: StoryFn) => {
-    localStorage.removeItem('isArticleRatingEnabled')
+    localStorage.removeItem('isAppRedesigned')
     if (newDesign) {
-      localStorage.setItem('isArticleRatingEnabled', 'true')
+      localStorage.setItem('isAppRedesigned', 'true')
     }
     return (
       <ThemeProvider initialTheme={theme}>
-        <div className={newDesign ? `app_redesigned ${theme}` : `app ${theme}`}>
+        <div
+          id="app"
+          className={newDesign ? `app_redesigned ${theme}` : `app ${theme}`}
+        >
           <StoryComponent />
         </div>
       </ThemeProvider>

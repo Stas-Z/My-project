@@ -14,7 +14,7 @@ export function toggleFeatures<T>({
   on,
 }: ToggleFeaturesOptions<T>): T {
   if (__PROJECT__ === 'storybook') {
-    const test = localStorage.getItem('isArticleRatingEnabled')
+    const test = localStorage.getItem('isAppRedesigned')
     if (test) {
       return on()
     }
