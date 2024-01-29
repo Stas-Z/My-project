@@ -1,5 +1,10 @@
 import { MutableRefObject, ReactNode, useEffect, useRef } from 'react'
 
+import { useSelector } from 'react-redux'
+import { useLocation } from 'react-router-dom'
+
+import { StateSchema } from '@/app/providers/StoreProvider'
+import { getScrollSaveByPath } from '@/features/ScrollSave'
 import { ARTICLE_LIST_ITEM_LOCALSTORAGE_IDX } from '@/shared/const/localstorage'
 import { classNames } from '@/shared/lib/classNames/classNames'
 import { toggleFeatures } from '@/shared/lib/features'
@@ -26,8 +31,21 @@ export const Page = (props: PageProps) => {
     'data-testid': dataTestId,
   } = props
 
+  const { pathname } = useLocation()
+  const scrollPosition = useSelector((state: StateSchema) =>
+    getScrollSaveByPath(state, pathname),
+  )
+
   const triggerRef = useRef() as MutableRefObject<HTMLDivElement>
   const wrapperRef = useRef() as MutableRefObject<HTMLDivElement>
+
+  useEffect(() => {
+    if (wrapperRef.current) {
+      wrapperRef.current.scrollTop = scrollPosition
+      return
+    }
+    document.body.scrollIntoView()
+  }, [scrollPosition])
 
   useInfiniteScroll({
     triggerRef,
