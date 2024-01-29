@@ -25,5 +25,9 @@
   "Edit article whith ID": "Редактирование статьи с ID = ",
   "An error occurred while loading the recommendations": "Произошла ошибка при загрузки рекомендаций.",
   "An error occurred while loading the articles": "Ошибка при загрузке статей",
-  "Article rating coming soon": "Оценка статей скоро появится!"
+  "Article rating coming soon": "Оценка статей скоро появится!",
+  "{{count}} views_zero": "{{count}} просмотров",
+  "{{count}} views_one": "{{count}} просмотр",
+  "{{count}} views_few": "{{count}} просмотра",
+  "{{count}} views_many": "{{count}} просмотров"
 }

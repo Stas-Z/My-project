@@ -27,6 +27,10 @@ interface CardProps extends HTMLAttributes<HTMLDivElement> {
    */
   max?: boolean
   /**
+   * @description Flag to make card height 100%.
+   */
+  fullHeight?: boolean
+  /**
    * @description Sets padding.
    * @default '8'
    */
@@ -48,6 +52,7 @@ export const Card = (props: CardProps) => {
   const {
     className,
     children,
+    fullHeight,
     variant = 'normal',
     max,
     padding = '8',
@@ -58,12 +63,11 @@ export const Card = (props: CardProps) => {
   const paddingClass = mapPaddingToClass[padding]
   return (
     <div
-      className={classNames(cls.card, { [cls.max]: max }, [
-        className,
-        cls[variant],
-        cls[paddingClass],
-        cls[border],
-      ])}
+      className={classNames(
+        cls.card,
+        { [cls.max]: max, [cls.fullHeight]: fullHeight },
+        [className, cls[variant], cls[paddingClass], cls[border]],
+      )}
       {...otherProps}
     >
       {children}

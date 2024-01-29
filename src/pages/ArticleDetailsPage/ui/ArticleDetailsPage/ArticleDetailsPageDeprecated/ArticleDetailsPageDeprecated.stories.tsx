@@ -6,13 +6,13 @@ import { StoreDecorator } from '@/shared/config/storybook/StoreDecorator/StoreDe
 import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator/ThemeDecorator'
 import { Theme } from '@/shared/const/theme'
 
-import ArticleDetailsPage from './ArticleDetailsPage'
+import { ArticleDetailsPageDeprecated } from './ArticleDetailsPageDeprecated'
 
 const articles = articlesMock
 
 export default {
-  title: 'pages/ArticleDetailsPage/ArticleDetailsPage',
-  component: ArticleDetailsPage,
+  title: 'pages/ArticleDetailsPage/ArticleDetailsPageDeprecated',
+  component: ArticleDetailsPageDeprecated,
   parameters: {
     router: {
       path: '/articles/:id',
@@ -41,9 +41,9 @@ export default {
   argTypes: {
     backgroundColor: { control: 'color' },
   },
-} as Meta<typeof ArticleDetailsPage>
+} as Meta<typeof ArticleDetailsPageDeprecated>
 
-type Template = StoryObj<typeof ArticleDetailsPage>
+type Template = StoryObj<typeof ArticleDetailsPageDeprecated>
 
 const article = articleMock
 

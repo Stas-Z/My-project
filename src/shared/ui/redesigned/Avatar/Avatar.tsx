@@ -7,6 +7,8 @@ import cls from './Avatar.module.scss'
 import { AppImage } from '../../redesigned/AppImage'
 import { Icon } from '../Icon'
 import { Skeleton } from '../Skeleton'
+import { HStack } from '../Stack'
+import { Text } from '../Text'
 
 interface AvatarProps {
   /**
@@ -25,10 +27,14 @@ interface AvatarProps {
    * @description An alternative text description of the image.
    */
   alt?: string
+  /**
+   * @description Username.
+   */
+  username?: string
 }
 
 export const Avatar = (props: AvatarProps) => {
-  const { className, size = 100, src, alt } = props
+  const { className, size = 100, src, alt, username } = props
 
   const styles = useMemo<CSSProperties>(
     () => ({
@@ -41,7 +47,7 @@ export const Avatar = (props: AvatarProps) => {
   const fallback = <Skeleton width={size} height={size} border="50%" />
   const errorFallback = <Icon height={size} width={size} Svg={UserIcon} />
 
-  return (
+  const content = (
     <AppImage
       fallback={fallback}
       errorFallback={errorFallback}
@@ -51,4 +57,15 @@ export const Avatar = (props: AvatarProps) => {
       className={classNames(cls.avatar, {}, [className])}
     />
   )
+
+  if (username) {
+    return (
+      <HStack gap="8">
+        {content}
+        <Text text={username} bold />
+      </HStack>
+    )
+  }
+
+  return content
 }

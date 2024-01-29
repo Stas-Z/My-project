@@ -25,5 +25,7 @@
   "Edit article whith ID": "Edit article whith ID = ",
   "An error occurred while loading the recommendations": "An error occurred while loading the recommendations",
   "An error occurred while loading the articles": "An error occurred while loading the articles",
-  "Article rating coming soon": "Article rating coming soon!"
+  "Article rating coming soon": "Article rating coming soon!",
+  "{{count}} views_one": "{{count}} view",
+  "{{count}} views_other": "{{count}} views"
 }

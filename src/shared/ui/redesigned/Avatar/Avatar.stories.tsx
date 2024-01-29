@@ -39,3 +39,12 @@ export const Default: Template = {
   },
   decorators: [ThemeDecorator(Theme.LIGHT, true)],
 }
+
+export const WithUsername: Template = {
+  args: {
+    size: 50,
+    src: AvatarImg,
+    username: 'Boris',
+  },
+  decorators: [ThemeDecorator(Theme.LIGHT, true)],
+}
