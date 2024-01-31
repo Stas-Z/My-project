@@ -6,7 +6,9 @@ import { useParams } from 'react-router-dom'
 import { EditableProfileCardForm } from '@/features/EditableProfileCard'
 import { ProfileRating } from '@/features/ProfileRating'
 import { classNames } from '@/shared/lib/classNames/classNames'
+import { ToggleFeatures } from '@/shared/lib/features'
 import { Text } from '@/shared/ui/deprecated/Text'
+import { Card } from '@/shared/ui/redesigned/Card'
 import { VStack } from '@/shared/ui/redesigned/Stack'
 import { Page } from '@/widgets/Page'
 
@@ -25,13 +27,24 @@ const ProfilePage = (props: ProfilePageProps) => {
   if (!id) {
     return <Text title={t('Profile not found')} className={cls.error} />
   }
+  const content = (
+    <VStack max gap="32">
+      <EditableProfileCardForm id={id} />
+      <ProfileRating profileId={id} />
+    </VStack>
+  )
 
   return (
     <Page data-testid="ProfilePage" className={classNames('', {}, [className])}>
-      <VStack max gap="16">
-        <EditableProfileCardForm id={id} />
-        <ProfileRating profileId={id} />
-      </VStack>
+      <ToggleFeatures
+        feature="isAppRedesigned"
+        on={
+          <Card max border="round" padding="24">
+            {content}
+          </Card>
+        }
+        off={content}
+      />
     </Page>
   )
 }

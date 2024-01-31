@@ -3,11 +3,14 @@ import { memo, useCallback } from 'react'
 import { useTranslation } from 'react-i18next'
 import { useSelector } from 'react-redux'
 
-import { RatingCard } from '@/entities/Rating'
+import { RatingCard, RatingSkeleton } from '@/entities/Rating'
 import { getUserAuthData } from '@/entities/User'
-import { Card } from '@/shared/ui/deprecated/Card'
-import { Skeleton } from '@/shared/ui/deprecated/Skeleton'
-import { Text, TextAlign } from '@/shared/ui/deprecated/Text'
+import { ToggleFeatures, toggleFeatures } from '@/shared/lib/features'
+import { Card as CardDeprecated } from '@/shared/ui/deprecated/Card'
+import { Skeleton as SkeletonDeprecated } from '@/shared/ui/deprecated/Skeleton'
+import { Text as TextDeprecated, TextAlign } from '@/shared/ui/deprecated/Text'
+import { Card as CardRedesigned } from '@/shared/ui/redesigned/Card'
+import { Text } from '@/shared/ui/redesigned/Text'
 
 import { useGetProfileRating, useRateProfile } from '../../api/profileRatingApi'
 
@@ -59,13 +62,34 @@ export const ProfileRating = memo((props: ProfileRatingProps) => {
   )
 
   if (isLoading) {
-    return <Skeleton width="100%" height={120} />
+    return (
+      <ToggleFeatures
+        feature="isAppRedesigned"
+        on={RatingSkeleton}
+        off={<SkeletonDeprecated width="100%" height={120} />}
+      />
+    )
   }
+
+  const Card = toggleFeatures({
+    name: 'isAppRedesigned',
+    on: () => CardRedesigned,
+    off: () => CardDeprecated,
+  })
 
   if (isError) {
     return (
       <Card max>
-        <Text align={TextAlign.CENTER} title={t('An error occurred')} />
+        <ToggleFeatures
+          feature="isAppRedesigned"
+          on={<Text align="center" title={t('An error occurred')} />}
+          off={
+            <TextDeprecated
+              align={TextAlign.CENTER}
+              title={t('An error occurred')}
+            />
+          }
+        />
       </Card>
     )
   }

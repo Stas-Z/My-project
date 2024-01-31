@@ -10,7 +10,6 @@ import { NotificatioButton } from '@/features/NotificatioButton'
 import { classNames } from '@/shared/lib/classNames/classNames'
 import { Button } from '@/shared/ui/redesigned/Button'
 import { HStack } from '@/shared/ui/redesigned/Stack'
-import { Text } from '@/shared/ui/redesigned/Text'
 
 import cls from './NavbarRedesigned.module.scss'
 import { NavbarProps } from '../Navbar'
@@ -40,14 +39,10 @@ export const NavbarRedesigned = memo(({ className }: NavbarProps) => {
 
   return (
     <header className={classNames(cls.navbar, {}, [className])}>
-      <Text
-        className={cls.appName}
-        title={t('OpenBlog App')}
-        variant="primary"
-      />
       <Button onClick={onShowModal} variant="clear" className={cls.links}>
         {t('Sign in')}
       </Button>
+
       <LoginModal isOpen={isAuthModal} onClose={onCloseModal} />
     </header>
   )

@@ -3,15 +3,13 @@ import { memo, useCallback } from 'react'
 import { useTranslation } from 'react-i18next'
 import { useSelector } from 'react-redux'
 
-import { RatingCard } from '@/entities/Rating'
+import { RatingCard, RatingSkeleton } from '@/entities/Rating'
 import { getUserAuthData } from '@/entities/User'
 import { ToggleFeatures, toggleFeatures } from '@/shared/lib/features'
 import { Card as CardDeprecated } from '@/shared/ui/deprecated/Card'
 import { Skeleton as SkeletonDeprecated } from '@/shared/ui/deprecated/Skeleton'
 import { Text as TextDeprecated, TextAlign } from '@/shared/ui/deprecated/Text'
 import { Card as CardRedesigned } from '@/shared/ui/redesigned/Card'
-import { Skeleton } from '@/shared/ui/redesigned/Skeleton'
-import { VStack } from '@/shared/ui/redesigned/Stack'
 import { Text } from '@/shared/ui/redesigned/Text'
 
 import { useGetArticleRating, useRateArticle } from '../../api/articleRatingApi'
@@ -64,20 +62,11 @@ const ArticleRating = (props: ArticleRatingProps) => {
     [handleRateArticle],
   )
 
-  const skeletonRedesigned = (
-    <CardRedesigned max>
-      <VStack align="center" gap="8">
-        <Skeleton width={280} height={28} border="8px" />
-        <Skeleton width={192} height={32} border="8px" />
-      </VStack>
-    </CardRedesigned>
-  )
-
   if (isLoading) {
     return (
       <ToggleFeatures
         feature="isAppRedesigned"
-        on={skeletonRedesigned}
+        on={RatingSkeleton}
         off={<SkeletonDeprecated width="100%" height={120} />}
       />
     )

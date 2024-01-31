@@ -5,7 +5,6 @@ import { useTranslation } from 'react-i18next'
 import { CountrySelect } from '@/entities/Country'
 import { CurrencySelect } from '@/entities/Currency'
 import { classNames } from '@/shared/lib/classNames/classNames'
-import { Avatar } from '@/shared/ui/redesigned/Avatar'
 import { Card } from '@/shared/ui/redesigned/Card'
 import { Input } from '@/shared/ui/redesigned/Input'
 import { Skeleton } from '@/shared/ui/redesigned/Skeleton'
@@ -35,11 +34,8 @@ export const ProfileCardRedesigned = memo((props: ProfileCardProps) => {
 
   if (isLoading) {
     return (
-      <Card padding="24" max>
+      <Card padding="0" max>
         <VStack gap="32" align="center">
-          <HStack>
-            <Skeleton border="50%" height={128} width={128} />
-          </HStack>
           <HStack gap="24" max>
             <VStack gap="16" max>
               <Skeleton height={38} width="100%" border="20px" />
@@ -50,8 +46,8 @@ export const ProfileCardRedesigned = memo((props: ProfileCardProps) => {
             <VStack gap="16" max>
               <Skeleton height={38} width="100%" border="20px" />
               <Skeleton height={38} width="100%" border="20px" />
-              <Skeleton height={38} width="100%" border="20px" />
-              <Skeleton height={38} width="100%" border="20px" />
+              <Skeleton height={38} width="70%" border="20px" />
+              <Skeleton height={38} width="70%" border="20px" />
             </VStack>
           </HStack>
         </VStack>
@@ -76,13 +72,8 @@ export const ProfileCardRedesigned = memo((props: ProfileCardProps) => {
   }
 
   return (
-    <Card max className={className} padding="24">
+    <Card max className={className} padding="0">
       <VStack gap="32">
-        {data?.avatar && (
-          <HStack justify="center" max>
-            <Avatar src={data?.avatar} alt="avatar" size={128} />
-          </HStack>
-        )}
         <HStack gap="24" max align="start">
           <VStack gap="16" max>
             <Input

@@ -40,28 +40,14 @@ export const FilledWithAddon: Template = {
   },
   decorators: [ThemeDecorator(Theme.LIGHT, true)],
 }
-export const Clear: Template = {
-  args: {
-    children: 'Text',
-    variant: 'clear',
-  },
+
+export const FilledSave: Template = {
+  args: { children: 'Text', variant: 'filled', color: 'save' },
   decorators: [ThemeDecorator(Theme.LIGHT, true)],
 }
-
-export const ClearDark: Template = {
-  args: {
-    children: 'Text',
-    variant: 'clear',
-  },
-  decorators: [ThemeDecorator(Theme.DARK, true)],
-}
-
-export const ClearChoco: Template = {
-  args: {
-    children: 'Text',
-    variant: 'clear',
-  },
-  decorators: [ThemeDecorator(Theme.CHOCOLATE, true)],
+export const FilledCancel: Template = {
+  args: { children: 'Text', variant: 'filled', color: 'cancel' },
+  decorators: [ThemeDecorator(Theme.LIGHT, true)],
 }
 
 export const Outline: Template = {
@@ -117,6 +103,22 @@ export const OutlineSizeXl: Template = {
   args: {
     children: 'Text',
     size: 'xl',
+  },
+  decorators: [ThemeDecorator(Theme.LIGHT, true)],
+}
+
+export const OutlineSave: Template = {
+  args: { children: 'Text', color: 'save' },
+  decorators: [ThemeDecorator(Theme.LIGHT, true)],
+}
+export const OutlineCancel: Template = {
+  args: { children: 'Text', color: 'cancel' },
+  decorators: [ThemeDecorator(Theme.LIGHT, true)],
+}
+export const Clear: Template = {
+  args: {
+    children: 'Text',
+    variant: 'clear',
   },
   decorators: [ThemeDecorator(Theme.LIGHT, true)],
 }

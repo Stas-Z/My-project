@@ -6,6 +6,8 @@ import cls from './Button.module.scss'
 
 export type ButtonVariant = 'clear' | 'outline' | 'filled'
 
+export type ButtonColor = 'normal' | 'save' | 'cancel'
+
 export type ButtonSize = 'm' | 'l' | 'xl'
 
 interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
@@ -51,6 +53,7 @@ interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
    * <Input addonRight={<Icon Svg={SearchIcon} />} />
    */
   addonRight?: ReactNode
+  color?: ButtonColor
 }
 
 export const Button = memo((props: ButtonProps) => {
@@ -64,6 +67,7 @@ export const Button = memo((props: ButtonProps) => {
     fullWidth,
     addonLeft,
     addonRight,
+    color = 'normal',
     ...otherProps
   } = props
 
@@ -73,7 +77,7 @@ export const Button = memo((props: ButtonProps) => {
     [cls.fullWidth]: fullWidth,
     [cls.withAddon]: Boolean(addonLeft) || Boolean(addonRight),
   }
-  const addClass = [className, cls[variant], cls[size]]
+  const addClass = [className, cls[variant], cls[size], cls[color]]
 
   return (
     <button

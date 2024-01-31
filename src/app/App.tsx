@@ -43,7 +43,7 @@ const App = () => {
               }
               sidebar={<Sidebar />}
               // eslint-disable-next-line i18next/no-literal-string
-              toolbar={<div>asdsadasd</div>}
+              // toolbar={<div>asdsadasd</div>}
             />
           </Suspense>
         </div>

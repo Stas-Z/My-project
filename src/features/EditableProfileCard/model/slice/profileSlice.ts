@@ -8,7 +8,7 @@ import { ProfileSchema } from '../types/editableProfileCardSchema'
 
 const initialState: ProfileSchema = {
   readonly: true,
-  isLoading: false,
+  isLoading: true,
   data: undefined,
   error: undefined,
 }

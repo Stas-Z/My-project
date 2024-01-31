@@ -53,6 +53,14 @@ export const Round: Template = {
   },
   decorators: [ThemeDecorator(Theme.LIGHT, true)],
 }
+export const Partial: Template = {
+  args: {
+    children: <Text title="title" text="text - text" />,
+    variant: 'normal',
+    border: 'partial',
+  },
+  decorators: [ThemeDecorator(Theme.LIGHT, true)],
+}
 
 export const Normal: Template = {
   args: {
