@@ -7,7 +7,7 @@ import cls from './Avatar.module.scss'
 import { AppImage } from '../../redesigned/AppImage'
 import { Icon } from '../Icon'
 import { Skeleton } from '../Skeleton'
-import { HStack } from '../Stack'
+import { HStack, VStack } from '../Stack'
 import { Text } from '../Text'
 
 interface AvatarProps {
@@ -31,10 +31,11 @@ interface AvatarProps {
    * @description Username.
    */
   username?: string
+  vertical?: boolean
 }
 
 export const Avatar = (props: AvatarProps) => {
-  const { className, size = 100, src, alt, username } = props
+  const { className, size = 100, src, alt, username, vertical } = props
 
   const styles = useMemo<CSSProperties>(
     () => ({
@@ -59,6 +60,14 @@ export const Avatar = (props: AvatarProps) => {
   )
 
   if (username) {
+    if (vertical) {
+      return (
+        <VStack gap="8" align="center">
+          {content}
+          <Text text={username} bold className={cls.vertical} />
+        </VStack>
+      )
+    }
     return (
       <HStack gap="8">
         {content}

@@ -4,7 +4,13 @@ import { useTranslation } from 'react-i18next'
 
 import { ArticleList } from '@/entities/Article'
 import { classNames } from '@/shared/lib/classNames/classNames'
-import { Text, TextAlign, TextSize } from '@/shared/ui/deprecated/Text'
+import { ToggleFeatures, toggleFeatures } from '@/shared/lib/features'
+import {
+  Text as TextDeprecated,
+  TextAlign,
+  TextSize,
+} from '@/shared/ui/deprecated/Text'
+import { Text } from '@/shared/ui/redesigned/Text'
 
 import cls from './ArticleRecommendationsList.module.scss'
 import { useArticleRecommendationsList } from '../../api/ArticleRecommendationApi'
@@ -28,9 +34,20 @@ const ArticleRecommendationsList = (props: ArticleRecommendationsListProps) => {
       <div
         className={classNames(cls.articleRecommendationsList, {}, [className])}
       >
-        <Text
-          align={TextAlign.CENTER}
-          title={t('An error occurred while loading the recommendations')}
+        <ToggleFeatures
+          feature="isAppRedesigned"
+          on={
+            <Text
+              align="center"
+              title={t('An error occurred while loading the recommendations')}
+            />
+          }
+          off={
+            <TextDeprecated
+              align={TextAlign.CENTER}
+              title={t('An error occurred while loading the recommendations')}
+            />
+          }
         />
       </div>
     )
@@ -39,13 +56,35 @@ const ArticleRecommendationsList = (props: ArticleRecommendationsListProps) => {
   return (
     <div
       data-testid="ArticleRecommendationsList"
-      className={classNames(cls.articleRecommendationsList, {}, [className])}
+      className={classNames(
+        toggleFeatures({
+          name: 'isAppRedesigned',
+          on: () => cls.articleRecommendationsListRedesigned,
+          off: () => cls.articleRecommendationsList,
+        }),
+        {},
+        [className],
+      )}
     >
-      <Text
-        size={TextSize.L}
-        className={cls.commentTitle}
-        title={t('You may also like')}
+      <ToggleFeatures
+        feature="isAppRedesigned"
+        on={
+          <Text
+            size="l"
+            className={cls.commentTitle}
+            title={t('We recommend')}
+            bold
+          />
+        }
+        off={
+          <TextDeprecated
+            size={TextSize.L}
+            className={cls.commentTitle}
+            title={t('You may also like')}
+          />
+        }
       />
+
       <ArticleList
         articles={recommends}
         isLoading={isLoading}

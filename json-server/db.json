@@ -54,9 +54,7 @@
       "views": 1022,
       "createdAt": "26.04.2022",
       "userId": "1",
-      "type": [
-        "IT"
-      ],
+      "type": ["IT"],
       "blocks": [
         {
           "id": "1",
@@ -126,9 +124,7 @@
       "views": 5204,
       "createdAt": "26.02.2022",
       "userId": "1",
-      "type": [
-        "IT"
-      ],
+      "type": ["IT"],
       "blocks": [
         {
           "id": "1",
@@ -150,9 +146,7 @@
       "views": 94002,
       "createdAt": "26.02.2019",
       "userId": "1",
-      "type": [
-        "IT"
-      ],
+      "type": ["IT"],
       "blocks": [
         {
           "id": "1",
@@ -174,9 +168,7 @@
       "views": 10222,
       "createdAt": "24.01.2022",
       "userId": "1",
-      "type": [
-        "IT"
-      ],
+      "type": ["IT"],
       "blocks": [
         {
           "id": "1",
@@ -198,9 +190,7 @@
       "views": 10222,
       "createdAt": "26.02.2020",
       "userId": "1",
-      "type": [
-        "IT"
-      ],
+      "type": ["IT"],
       "blocks": [
         {
           "id": "1",
@@ -222,9 +212,7 @@
       "views": 1022,
       "createdAt": "26.02.2022",
       "userId": "1",
-      "type": [
-        "IT"
-      ],
+      "type": ["IT"],
       "blocks": [
         {
           "id": "1",
@@ -246,9 +234,7 @@
       "views": 100,
       "createdAt": "21.02.2022",
       "userId": "1",
-      "type": [
-        "IT"
-      ],
+      "type": ["IT"],
       "blocks": [
         {
           "id": "1",
@@ -270,9 +256,7 @@
       "views": 102222,
       "createdAt": "26.02.2022",
       "userId": "1",
-      "type": [
-        "IT"
-      ],
+      "type": ["IT"],
       "blocks": [
         {
           "id": "1",
@@ -294,9 +278,7 @@
       "views": 1022,
       "createdAt": "26.02.2022",
       "userId": "1",
-      "type": [
-        "IT"
-      ],
+      "type": ["IT"],
       "blocks": [
         {
           "id": "1",
@@ -318,9 +300,7 @@
       "views": 1022,
       "createdAt": "26.02.2022",
       "userId": "3",
-      "type": [
-        "IT"
-      ],
+      "type": ["IT"],
       "blocks": [
         {
           "id": "1",
@@ -342,9 +322,7 @@
       "views": 1022,
       "createdAt": "26.02.2022",
       "userId": "1",
-      "type": [
-        "IT"
-      ],
+      "type": ["IT"],
       "blocks": [
         {
           "id": "1",
@@ -366,9 +344,7 @@
       "views": 1022,
       "createdAt": "26.02.2022",
       "userId": "1",
-      "type": [
-        "IT"
-      ],
+      "type": ["IT"],
       "blocks": [
         {
           "id": "1",
@@ -390,9 +366,7 @@
       "views": 1022,
       "createdAt": "26.02.2022",
       "userId": "1",
-      "type": [
-        "IT"
-      ],
+      "type": ["IT"],
       "blocks": [
         {
           "id": "1",
@@ -414,9 +388,7 @@
       "views": 1022,
       "createdAt": "26.02.2022",
       "userId": "1",
-      "type": [
-        "IT"
-      ],
+      "type": ["IT"],
       "blocks": [
         {
           "id": "1",
@@ -438,9 +410,7 @@
       "views": 1022,
       "createdAt": "26.02.2022",
       "userId": "1",
-      "type": [
-        "IT"
-      ],
+      "type": ["IT"],
       "blocks": [
         {
           "id": "1",
@@ -462,9 +432,7 @@
       "views": 1022,
       "createdAt": "26.02.2022",
       "userId": "1",
-      "type": [
-        "IT"
-      ],
+      "type": ["IT"],
       "blocks": [
         {
           "id": "1",
@@ -486,9 +454,7 @@
       "views": 1022,
       "createdAt": "26.02.2022",
       "userId": "1",
-      "type": [
-        "IT"
-      ],
+      "type": ["IT"],
       "blocks": [
         {
           "id": "1",
@@ -510,9 +476,7 @@
       "views": 1022,
       "createdAt": "26.02.2022",
       "userId": "1",
-      "type": [
-        "Economics"
-      ],
+      "type": ["Economics"],
       "blocks": [
         {
           "id": "1",
@@ -534,9 +498,7 @@
       "views": 1022,
       "createdAt": "26.02.2022",
       "userId": "1",
-      "type": [
-        "Science"
-      ],
+      "type": ["Science"],
       "blocks": [
         {
           "id": "1",
@@ -558,11 +520,7 @@
       "views": 1022,
       "createdAt": "26.04.2022",
       "userId": "1",
-      "type": [
-        "IT",
-        "Economics",
-        "Science"
-      ],
+      "type": ["IT", "Economics", "Science"],
       "blocks": [
         {
           "id": "1",
@@ -627,130 +585,28 @@
   ],
   "comments": [
     {
-      "id": "1",
-      "text": "some comment",
       "articleId": "1",
-      "userId": "1"
-    },
-    {
-      "id": "2",
-      "text": "some comment 2",
-      "articleId": "1",
-      "userId": "1"
-    },
-    {
-      "id": "3",
-      "text": "some comment 3",
-      "articleId": "1",
-      "userId": "2"
+      "userId": "1",
+      "text": "Программа, которую по традиции называют «Hello, world!», очень проста. Она выводит куда-либо фразу «Hello, world!», или другую подобную, средствами некоего языка. JavaScript — это язык, программы на котором можно выполнять в разных средах. В нашем случае речь идёт о браузерах и о серверной платформе Node.js. Если до сих пор вы не написали ни строчки кода на JS и читаете этот текст в браузере, на настольном компьютере, это значит, что вы буквально в считанных секундах от своей первой JavaScript-программы. Существуют и другие способы запуска JS-кода в браузере. Так, если говорить об обычном использовании программ на JavaScript, они загружаются в браузер для обеспечения работы веб-страниц. Как правило, код оформляют в виде отдельных файлов с расширением .js, которые подключают к веб-страницам, но программный код можно включать и непосредственно в код страницы. Всё это делается с помощью тега <script>. Когда браузер обнаруживает такой код, он выполняет его. Подробности о теге script можно посмотреть на сайте w3school.com. В частности, рассмотрим пример, демонстрирующий работу с веб-страницей средствами JavaScript, приведённый на этом ресурсе. Этот пример можно запустить и средствами данного ресурса (ищите кнопку Try it Yourself), но мы поступим немного иначе. А именно, создадим в каком-нибудь текстовом редакторе (например — в VS Code или в Notepad++) новый файл, который назовём hello.html, и добавим в него следующий код:",
+      "id": 1
     },
     {
       "articleId": "1",
       "userId": "1",
-      "text": "123",
-      "id": "cGa5LDm"
-    },
-    {
-      "articleId": "1",
-      "userId": "2",
-      "text": "Lev",
-      "id": "3RcMAFO"
-    },
-    {
-      "articleId": "1",
-      "userId": "2",
-      "text": "вававава",
-      "id": "U7gqQsR"
-    },
-    {
-      "articleId": "1",
-      "userId": "2",
-      "text": "ыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыи пмммммммммммммммммммммммммммммммыыыыыыыыы ыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыы",
-      "id": "u8xROgg"
-    },
-    {
-      "articleId": "1",
-      "userId": "2",
-      "text": "[f[f[f[f[[f",
-      "id": "ibOXJ9f"
+      "text": "Программа, которую по традиции называют «Hello, world!», очень проста. Она выводит куда-либо фразу «Hello, world!», или другую подобную, средствами некоего языка",
+      "id": 2
     },
     {
       "articleId": "1",
       "userId": "1",
-      "text": "Hello World",
-      "id": "XlpAnJL"
-    },
-    {
-      "articleId": "1",
-      "userId": "1",
-      "text": "test",
-      "id": "2P950Sq"
+      "text": "Программа, которую по традиции называют «Hello, world!», очень проста. Она выводит куда-либо фразу «Hello, world!», или другую подобную, средствами некоего языка. JavaScript — это язык, программы на котором можно выполнять в разных средах. В нашем случае речь идёт о браузерах и о серверной платформе Node.js.",
+      "id": 3
     },
     {
       "articleId": "2",
       "userId": "1",
-      "text": "Comment",
-      "id": "wjrNGHd"
-    },
-    {
-      "articleId": "3",
-      "userId": "1",
-      "text": "l;jfklfjlksdf",
-      "id": "zmHsrmW"
-    },
-    {
-      "articleId": "18",
-      "userId": "1",
-      "text": "test",
-      "id": "8DMEOSd"
-    },
-    {
-      "articleId": "1",
-      "userId": "1",
-      "text": "cjfj",
-      "id": "JL83LIN"
-    },
-    {
-      "articleId": "1",
-      "userId": "1",
-      "text": "11111111111111111",
-      "id": "ote7Ivn"
-    },
-    {
-      "articleId": "6",
-      "userId": "1",
-      "text": "Программа, которую по традиции называют «Hello, world!», очень проста. Она выводит куда-либо фразу «Hello, world!», или другую подобную, средствами некоего языка.",
-      "id": "Tj_vnGW"
-    },
-    {
-      "articleId": "2",
-      "userId": "1",
-      "text": "1233",
-      "id": "vKunS-Q"
-    },
-    {
-      "articleId": "2",
-      "userId": "1",
-      "text": "789",
-      "id": "Wxks0eI"
-    },
-    {
-      "articleId": "2",
-      "userId": "1",
-      "text": "sss",
-      "id": "mXz6KCQ"
-    },
-    {
-      "articleId": "2",
-      "userId": "1",
-      "text": "aaa",
-      "id": "FJHBbyM"
-    },
-    {
-      "articleId": "1",
-      "userId": "3",
-      "text": "mjkjj",
-      "id": "y_N6jGE"
+      "text": "JavaScript — это язык, программы на котором можно выполнять в разных средах. В нашем случае речь идёт о браузерах и о серверной платформе Node.js. Если до сих пор вы не написали ни строчки кода на JS и читаете этот текст в браузере, на настольном компьютере, это значит, что вы буквально в считанных секундах от своей первой JavaScript-программы.",
+      "id": 4
     }
   ],
   "users": [
@@ -758,9 +614,7 @@
       "id": "1",
       "username": "admin",
       "password": "123",
-      "roles": [
-        "ADMIN"
-      ],
+      "roles": ["ADMIN"],
       "features": {
         "isArticleRatingEnabled": true,
         "isCounterEnabled": false,
@@ -778,9 +632,7 @@
       "id": "2",
       "username": "userLev",
       "password": "123",
-      "roles": [
-        "USER"
-      ],
+      "roles": ["USER"],
       "features": {
         "isArticleRatingEnabled": true,
         "isCounterEnabled": false
@@ -797,9 +649,7 @@
       "id": "3",
       "username": "user",
       "password": "123",
-      "roles": [
-        "USER"
-      ],
+      "roles": ["USER"],
       "features": {
         "isArticleRatingEnabled": true,
         "isCounterEnabled": true
@@ -816,9 +666,7 @@
       "id": "4",
       "username": "manager",
       "password": "123",
-      "roles": [
-        "MANAGER"
-      ],
+      "roles": ["MANAGER"],
       "features": {
         "isArticleRatingEnabled": false,
         "isCounterEnabled": false
@@ -835,9 +683,7 @@
       "id": "5",
       "username": "testuser",
       "password": "123",
-      "roles": [
-        "ADMIN"
-      ],
+      "roles": ["ADMIN"],
       "features": {
         "isArticleRatingEnabled": true,
         "isCounterEnabled": false
@@ -921,6 +767,13 @@
       "feedback": "Хорошая статья",
       "userId": "1",
       "articleId": "2"
+    },
+    {
+      "articleId": "13",
+      "rate": 4,
+      "userId": "1",
+      "feedback": "Круто!",
+      "id": "9YnME9g"
     }
   ],
   "profile-ratings": [

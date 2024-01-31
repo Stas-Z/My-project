@@ -1,0 +1,46 @@
+.commentCard {
+  position: relative;
+}
+
+.username {
+  margin-left: 10px;
+}
+
+.loading {
+  border: none;
+}
+
+.text {
+  overflow: hidden;
+  -webkit-line-clamp: 7;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+}
+
+.textOpen {
+  -webkit-line-clamp: unset;
+}
+
+.readMore {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  background: var(--dark-bg-redesigned);
+  color: var(--icon-redesigned);
+
+  &::before {
+    position: absolute;
+    content: "";
+    top: 0;
+    left: -25px;
+    width: 26px;
+    height: 18px;
+    background: linear-gradient(270deg, var(--dark-bg-redesigned) 7.05%, rgb(252 252 253 / 0%) 76.92%);
+  }
+}
+
+.readMoreOpen {
+  position: inherit;
+  background: var(--dark-bg-redesigned);
+  color: var(--icon-redesigned);
+}

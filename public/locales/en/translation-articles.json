@@ -27,5 +27,7 @@
   "An error occurred while loading the articles": "An error occurred while loading the articles",
   "Article rating coming soon": "Article rating coming soon!",
   "{{count}} views_one": "{{count}} view",
-  "{{count}} views_other": "{{count}} views"
+  "{{count}} views_other": "{{count}} views",
+  "We recommend": "We recommend",
+  "Comments": "Comments"
 }

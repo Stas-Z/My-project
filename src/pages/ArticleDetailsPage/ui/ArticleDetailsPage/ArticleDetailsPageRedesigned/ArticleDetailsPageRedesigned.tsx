@@ -2,9 +2,11 @@ import { useTranslation } from 'react-i18next'
 import { useParams } from 'react-router-dom'
 
 import { ArticleComments } from '@/features/ArticleComments'
+import { ArticleRecommendationsList } from '@/features/ArticleDetailsRecommendations'
 import { ArticleRating } from '@/features/ArticleRating'
 import { StickyContentLayout } from '@/shared/layouts/StickyContentLayout'
 import { classNames } from '@/shared/lib/classNames/classNames'
+import { Card } from '@/shared/ui/redesigned/Card'
 import { VStack } from '@/shared/ui/redesigned/Stack'
 import { Page } from '@/widgets/Page'
 
@@ -22,7 +24,9 @@ export const ArticleDetailsPageRedesigned = (
   if (!id) {
     return (
       <Page className={classNames('', {}, [className])}>
-        {t('Article not found')}
+        <Card max border="round" className={className} padding="24">
+          {t('Article not found')}
+        </Card>
       </Page>
     )
   }
@@ -31,12 +35,14 @@ export const ArticleDetailsPageRedesigned = (
     <StickyContentLayout
       content={
         <Page className={classNames('', {}, [className])} saveScroll>
-          <VStack gap="16" max align="unset">
-            <ArticleDetailsContainer />
-            <ArticleRating articleId={id} />
-            {/* <ArticleRecommendationsList /> */}
-            <ArticleComments id={id} />
-          </VStack>
+          <Card max border="round" className={className} padding="24">
+            <VStack gap="16" max align="unset">
+              <ArticleDetailsContainer />
+              <ArticleRating articleId={id} />
+              <ArticleRecommendationsList />
+              <ArticleComments id={id} />
+            </VStack>
+          </Card>
         </Page>
       }
       right={<ArticleAdditionalInfoContainer />}

@@ -3,7 +3,7 @@
   "Articles Details Page": "Сведения о статьях",
   "Article not found": "Статья не найдена",
   "An error occurred while loading the article": "Произошла ошибка при загрузки статьи.",
-  "Comments": "Коментарии",
+  "Comments": "Комментарии",
   "Read more": "Читать далее...",
   "Go back": "Назад к списку",
   "Sort by": "Сортировать по:",
@@ -29,5 +29,6 @@
   "{{count}} views_zero": "{{count}} просмотров",
   "{{count}} views_one": "{{count}} просмотр",
   "{{count}} views_few": "{{count}} просмотра",
-  "{{count}} views_many": "{{count}} просмотров"
+  "{{count}} views_many": "{{count}} просмотров",
+  "We recommend": "Рекомендуем"
 }

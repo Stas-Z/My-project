@@ -9,10 +9,12 @@ import {
   DynamicModuleLoader,
   ReducersList,
 } from '@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader'
+import { ToggleFeatures } from '@/shared/lib/features'
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch'
 import { useInitialEffect } from '@/shared/lib/hooks/useInitialEffect/useInitialEffect'
-import { Text, TextSize } from '@/shared/ui/deprecated/Text'
+import { Text as TextDeprecated, TextSize } from '@/shared/ui/deprecated/Text'
 import { VStack } from '@/shared/ui/redesigned/Stack'
+import { Text } from '@/shared/ui/redesigned/Text'
 
 import cls from './ArticleComments.module.scss'
 import { getArticleCommentsIsLoading } from '../../model/selectors/articleCommentsSelectors'
@@ -58,11 +60,25 @@ export const ArticleComments = memo((props: ArticleCommentsProps) => {
         gap="16"
         className={classNames(cls.articleComments, {}, [className])}
       >
-        <Text
-          size={TextSize.L}
-          className={cls.commentTitle}
-          title={t('Comments')}
+        <ToggleFeatures
+          feature="isAppRedesigned"
+          on={
+            <Text
+              size="l"
+              className={cls.commentTitle}
+              title={t('Comments')}
+              bold
+            />
+          }
+          off={
+            <TextDeprecated
+              size={TextSize.L}
+              className={cls.commentTitle}
+              title={t('Comments')}
+            />
+          }
         />
+
         <CommentForm
           onSendComment={onSendComment}
           isLoading={commentsIsLoading}

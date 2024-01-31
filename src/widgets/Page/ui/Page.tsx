@@ -9,6 +9,7 @@ import { ARTICLE_LIST_ITEM_LOCALSTORAGE_IDX } from '@/shared/const/localstorage'
 import { classNames } from '@/shared/lib/classNames/classNames'
 import { toggleFeatures } from '@/shared/lib/features'
 import { useInfiniteScroll } from '@/shared/lib/hooks/useInfiniteScroll/useInfiniteScroll'
+import { useInitialEffect } from '@/shared/lib/hooks/useInitialEffect/useInitialEffect'
 import { TestProps } from '@/shared/types/tests'
 
 import cls from './Page.module.scss'
@@ -39,13 +40,13 @@ export const Page = (props: PageProps) => {
   const triggerRef = useRef() as MutableRefObject<HTMLDivElement>
   const wrapperRef = useRef() as MutableRefObject<HTMLDivElement>
 
-  useEffect(() => {
+  useInitialEffect(() => {
     if (wrapperRef.current) {
       wrapperRef.current.scrollTop = scrollPosition
       return
     }
     document.body.scrollIntoView()
-  }, [scrollPosition])
+  })
 
   useInfiniteScroll({
     triggerRef,
