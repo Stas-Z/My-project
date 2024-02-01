@@ -21,8 +21,10 @@ const App = () => {
   const inited = useSelector(getUserInited) // Нужно для того чтобы инициализация user'а происходила до отрисовки <AppRouter />
 
   useEffect(() => {
-    dispatch(initAuthData())
-  }, [dispatch])
+    if (!inited) {
+      dispatch(initAuthData())
+    }
+  }, [dispatch, inited])
 
   if (!inited) {
     return <PageLoader />

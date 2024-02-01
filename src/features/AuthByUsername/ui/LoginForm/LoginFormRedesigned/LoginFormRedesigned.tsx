@@ -5,6 +5,7 @@ import { useSelector } from 'react-redux'
 
 import { classNames } from '@/shared/lib/classNames/classNames'
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch'
+import { useForceUpdate } from '@/shared/lib/render/forceUpdate'
 import { Button } from '@/shared/ui/redesigned/Button'
 import { Input } from '@/shared/ui/redesigned/Input'
 import { VStack } from '@/shared/ui/redesigned/Stack'
@@ -23,6 +24,8 @@ export const LoginFormRedesigned = memo((props: LoginFormProps) => {
 
   const { username, password, isLoading, error } = useSelector(getLoginState)
 
+  const forceUpdate = useForceUpdate()
+
   const onChangeUsername = useCallback(
     (value: string) => {
       dispatch(loginActions.setUsername(value))
@@ -40,8 +43,9 @@ export const LoginFormRedesigned = memo((props: LoginFormProps) => {
     const result = await dispatch(loginByUsername({ password, username }))
     if (result.meta.requestStatus === 'fulfilled') {
       onSuccess?.()
+      forceUpdate()
     }
-  }, [dispatch, password, username, onSuccess])
+  }, [dispatch, password, username, onSuccess, forceUpdate])
 
   const onKeyDown = useCallback(
     (e: KeyboardEvent) => {

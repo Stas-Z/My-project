@@ -3,11 +3,13 @@ import { memo, useEffect, useState } from 'react'
 import { useTranslation } from 'react-i18next'
 
 import { saveJsonSettings, useJsonSettings } from '@/entities/User'
+import { ToggleFeatures } from '@/shared/lib/features'
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch'
 import { useDevice } from '@/shared/lib/hooks/useDevice/useDevice'
-import { Text } from '@/shared/ui/deprecated/Text'
+import { Text as TextDerecated } from '@/shared/ui/deprecated/Text'
 import { Drawer } from '@/shared/ui/redesigned/Drawer'
 import { Modal } from '@/shared/ui/redesigned/Modal'
+import { Text } from '@/shared/ui/redesigned/Text'
 
 export const ArticlePageGreeting = memo(() => {
   const { t } = useTranslation()
@@ -26,9 +28,20 @@ export const ArticlePageGreeting = memo(() => {
   const onClose = () => setIsOpen(false)
 
   const text = (
-    <Text
-      title={t('Welcome to the article page')}
-      text={t('Here you can search and view articles on various topics')}
+    <ToggleFeatures
+      feature="isAppRedesigned"
+      on={
+        <Text
+          title={t('Welcome to the article page')}
+          text={t('Here you can search and view articles on various topics')}
+        />
+      }
+      off={
+        <TextDerecated
+          title={t('Welcome to the article page')}
+          text={t('Here you can search and view articles on various topics')}
+        />
+      }
     />
   )
 

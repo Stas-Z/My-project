@@ -11,6 +11,7 @@ import {
   updateFeatureFlag,
 } from '@/shared/lib/features'
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch'
+import { useForceUpdate } from '@/shared/lib/render/forceUpdate'
 import { ListBox as ListBoxDeprecated } from '@/shared/ui/deprecated/Popups'
 import { Skeleton as SkeletonDeprecated } from '@/shared/ui/deprecated/Skeleton'
 import { ListBox as ListBoxRedesigned } from '@/shared/ui/redesigned/Popups'
@@ -27,6 +28,7 @@ export const UiDesingSwitcher = memo((props: UiDesingSwitcherProps) => {
   const { t } = useTranslation()
   const isAppRedesigned = getFeatureFlag('isAppRedesigned')
   const authData = useSelector(getUserAuthData)
+  const forceUpdate = useForceUpdate()
 
   const dispatch = useAppDispatch()
 
@@ -61,6 +63,7 @@ export const UiDesingSwitcher = memo((props: UiDesingSwitcherProps) => {
         }),
       ).unwrap()
       setIsLoading(false)
+      forceUpdate()
     }
   }
 
