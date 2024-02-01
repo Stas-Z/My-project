@@ -28,9 +28,12 @@ interface AvatarProps {
    */
   alt?: string
   /**
-   * @description Username.
+   * @description add username.
    */
   username?: string
+  /**
+   * @description place username under avatar.
+   */
   vertical?: boolean
 }
 

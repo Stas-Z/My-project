@@ -63,6 +63,14 @@ export interface FlexProps {
    * @description Flag to set width: 100%
    */
   max?: boolean
+  /**
+   * @description Flag to set height: 100%
+   */
+  maxHeight?: boolean
+  /**
+   * @description Flag to flex-wrap
+   * @default 'nowrap'
+   */
   wrap?: FlexWrap
 }
 
@@ -79,6 +87,7 @@ export const Flex = <E extends ElementType = typeof defaultFlexTag>(
     direction = 'row',
     gap,
     max,
+    maxHeight,
     wrap = 'nowrap',
     as,
     ...otherProps
@@ -95,6 +104,7 @@ export const Flex = <E extends ElementType = typeof defaultFlexTag>(
 
   const mods: Mods = {
     [cls.max]: max,
+    [cls.maxHeight]: maxHeight,
   }
   const Tag = as ?? defaultFlexTag
 

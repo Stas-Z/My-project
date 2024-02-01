@@ -7,7 +7,6 @@ import { getUserAuthData } from '@/entities/User'
 import {
   ToggleFeatures,
   getFeatureFlag,
-  toggleFeatures,
   updateFeatureFlag,
 } from '@/shared/lib/features'
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch'
@@ -44,12 +43,6 @@ export const UiDesingSwitcher = memo((props: UiDesingSwitcherProps) => {
       value: 'old',
     },
   ]
-
-  const Skeleton = toggleFeatures({
-    name: 'isAppRedesigned',
-    on: () => SkeletonRedesigned,
-    off: () => SkeletonDeprecated,
-  })
 
   const onChange = async (value: string) => {
     if (authData) {

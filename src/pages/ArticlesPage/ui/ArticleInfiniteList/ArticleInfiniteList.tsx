@@ -4,7 +4,9 @@ import { useTranslation } from 'react-i18next'
 import { useSelector } from 'react-redux'
 
 import { ArticleList } from '@/entities/Article'
-import { Text } from '@/shared/ui/deprecated/Text'
+import { ToggleFeatures } from '@/shared/lib/features'
+import { Text as TextDerecated } from '@/shared/ui/deprecated/Text'
+import { Text } from '@/shared/ui/redesigned/Text'
 
 import cls from './ArticleInfiniteList.module.scss'
 import {
@@ -33,9 +35,20 @@ export const ArticleInfiniteList = memo((props: ArticleInfiniteListProps) => {
 
   if (error) {
     return (
-      <Text
-        title={t('An error occurred while loading the articles')}
-        className={cls.error}
+      <ToggleFeatures
+        feature="isAppRedesigned"
+        on={
+          <Text
+            title={t('An error occurred while loading the articles')}
+            className={cls.error}
+          />
+        }
+        off={
+          <TextDerecated
+            title={t('An error occurred while loading the articles')}
+            className={cls.error}
+          />
+        }
       />
     )
   }

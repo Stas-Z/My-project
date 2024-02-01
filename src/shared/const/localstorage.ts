@@ -5,3 +5,5 @@ export const ARTICLES_VIEW_LOCALSTORAGE_KEY = 'articles_view'
 export const ARTICLE_LIST_ITEM_LOCALSTORAGE_IDX = 'articles_list_item_idx'
 
 export const LOCAL_STORAGE_THEME_KEY = 'theme'
+
+export const LOCAL_STORAGE_LAST_DESIGN_KEY = 'last_design'

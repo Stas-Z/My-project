@@ -22,17 +22,11 @@ export default {
 
 type Template = StoryObj<typeof ArticleEditPage>
 
-export const Light: Template = {
+export const Deprecated: Template = {
   args: {},
   decorators: [ThemeDecorator(Theme.LIGHT), StoreDecorator({})],
 }
-
-export const Dark: Template = {
+export const Redesigned: Template = {
   args: {},
-  decorators: [ThemeDecorator(Theme.DARK), StoreDecorator({})],
-}
-
-export const Choco: Template = {
-  args: {},
-  decorators: [ThemeDecorator(Theme.CHOCOLATE), StoreDecorator({})],
+  decorators: [ThemeDecorator(Theme.LIGHT, true), StoreDecorator({})],
 }

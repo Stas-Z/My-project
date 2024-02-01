@@ -9,7 +9,7 @@ import { Theme } from '@/shared/const/theme'
 import { ArticleInfiniteList } from './ArticleInfiniteList'
 
 export default {
-  title: 'pages/Article/ArticleInfiniteList',
+  title: 'pages/Article/ArticleInfiniteList/Redesigned',
   component: ArticleInfiniteList,
   argTypes: {
     backgroundColor: { control: 'color' },
@@ -24,7 +24,7 @@ const ids = ['1', '2', '3', '4', '5']
 export const Grid: Template = {
   args: {},
   decorators: [
-    ThemeDecorator(Theme.LIGHT),
+    ThemeDecorator(Theme.LIGHT, true),
     StoreDecorator({ articlesPage: { entities, ids } }),
     LokiDelayDecorator(),
   ],
@@ -33,7 +33,7 @@ export const Grid: Template = {
 export const GridLoading: Template = {
   args: {},
   decorators: [
-    ThemeDecorator(Theme.LIGHT),
+    ThemeDecorator(Theme.LIGHT, true),
     StoreDecorator({ articlesPage: { entities, ids, isLoading: true } }),
     LokiDelayDecorator(),
   ],
@@ -42,7 +42,7 @@ export const GridLoading: Template = {
 export const GridDark: Template = {
   args: {},
   decorators: [
-    ThemeDecorator(Theme.DARK),
+    ThemeDecorator(Theme.DARK, true),
     StoreDecorator({ articlesPage: { entities, ids } }),
     LokiDelayDecorator(),
   ],
@@ -51,7 +51,7 @@ export const GridDark: Template = {
 export const GridDarkLoading: Template = {
   args: {},
   decorators: [
-    ThemeDecorator(Theme.DARK),
+    ThemeDecorator(Theme.DARK, true),
     StoreDecorator({ articlesPage: { entities, ids, isLoading: true } }),
     LokiDelayDecorator(),
   ],
@@ -60,7 +60,7 @@ export const GridDarkLoading: Template = {
 export const GridChoco: Template = {
   args: {},
   decorators: [
-    ThemeDecorator(Theme.CHOCOLATE),
+    ThemeDecorator(Theme.CHOCOLATE, true),
     StoreDecorator({ articlesPage: { entities, ids } }),
     LokiDelayDecorator(),
   ],
@@ -69,7 +69,7 @@ export const GridChoco: Template = {
 export const GridChocoLoading: Template = {
   args: {},
   decorators: [
-    ThemeDecorator(Theme.CHOCOLATE),
+    ThemeDecorator(Theme.CHOCOLATE, true),
     StoreDecorator({ articlesPage: { entities, ids, isLoading: true } }),
     LokiDelayDecorator(),
   ],
@@ -78,7 +78,7 @@ export const GridChocoLoading: Template = {
 export const List: Template = {
   args: {},
   decorators: [
-    ThemeDecorator(Theme.LIGHT),
+    ThemeDecorator(Theme.LIGHT, true),
     StoreDecorator({ articlesPage: { entities, ids, view: ArticleView.LIST } }),
     LokiDelayDecorator(),
   ],
@@ -87,7 +87,7 @@ export const List: Template = {
 export const ListLoading: Template = {
   args: {},
   decorators: [
-    ThemeDecorator(Theme.LIGHT),
+    ThemeDecorator(Theme.LIGHT, true),
     StoreDecorator({
       articlesPage: {
         entities,
@@ -103,7 +103,7 @@ export const ListLoading: Template = {
 export const ListDark: Template = {
   args: {},
   decorators: [
-    ThemeDecorator(Theme.DARK),
+    ThemeDecorator(Theme.DARK, true),
     StoreDecorator({ articlesPage: { entities, ids, view: ArticleView.LIST } }),
     LokiDelayDecorator(),
   ],
@@ -112,7 +112,7 @@ export const ListDark: Template = {
 export const ListDarkLoading: Template = {
   args: {},
   decorators: [
-    ThemeDecorator(Theme.DARK),
+    ThemeDecorator(Theme.DARK, true),
     StoreDecorator({
       articlesPage: {
         entities,
@@ -128,7 +128,7 @@ export const ListDarkLoading: Template = {
 export const ListChoco: Template = {
   args: {},
   decorators: [
-    ThemeDecorator(Theme.CHOCOLATE),
+    ThemeDecorator(Theme.CHOCOLATE, true),
     StoreDecorator({ articlesPage: { entities, ids, view: ArticleView.LIST } }),
     LokiDelayDecorator(),
   ],
@@ -137,7 +137,7 @@ export const ListChoco: Template = {
 export const ListChocoLoading: Template = {
   args: {},
   decorators: [
-    ThemeDecorator(Theme.CHOCOLATE),
+    ThemeDecorator(Theme.CHOCOLATE, true),
     StoreDecorator({
       articlesPage: {
         entities,
@@ -153,7 +153,7 @@ export const ListChocoLoading: Template = {
 export const Error: Template = {
   args: {},
   decorators: [
-    ThemeDecorator(Theme.LIGHT),
+    ThemeDecorator(Theme.LIGHT, true),
     StoreDecorator({ articlesPage: { entities, ids, error: 'true' } }),
     LokiDelayDecorator(),
   ],
