@@ -1,6 +1,7 @@
 import { Meta, StoryObj } from '@storybook/react'
 
 import { LokiDelayDecorator } from '@/shared/config/storybook/LokiDelayDecorator/LokiDelayDecorator'
+import { NewDesignDecorator } from '@/shared/config/storybook/NewDesignDecorator/NewDesignDecorator'
 import { StoreDecorator } from '@/shared/config/storybook/StoreDecorator/StoreDecorator'
 import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator/ThemeDecorator'
 import { Theme } from '@/shared/const/theme'
@@ -54,6 +55,7 @@ export default {
   argTypes: {
     backgroundColor: { control: 'color' },
   },
+  decorators: [NewDesignDecorator],
 } as Meta<typeof NotificationListRedesigned>
 
 type Template = StoryObj<typeof NotificationListRedesigned>
@@ -61,7 +63,7 @@ type Template = StoryObj<typeof NotificationListRedesigned>
 export const Light: Template = {
   args: {},
   decorators: [
-    ThemeDecorator(Theme.LIGHT, true),
+    ThemeDecorator(Theme.LIGHT),
     StoreDecorator({}),
     LokiDelayDecorator(),
   ],
@@ -70,7 +72,7 @@ export const Light: Template = {
 export const Dark: Template = {
   args: {},
   decorators: [
-    ThemeDecorator(Theme.DARK, true),
+    ThemeDecorator(Theme.DARK),
     StoreDecorator({}),
     LokiDelayDecorator(),
   ],
@@ -79,7 +81,7 @@ export const Dark: Template = {
 export const Choco: Template = {
   args: {},
   decorators: [
-    ThemeDecorator(Theme.CHOCOLATE, true),
+    ThemeDecorator(Theme.CHOCOLATE),
     StoreDecorator({}),
     LokiDelayDecorator(),
   ],

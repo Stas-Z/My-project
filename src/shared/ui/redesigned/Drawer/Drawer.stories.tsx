@@ -2,6 +2,7 @@ import { StoryObj, Meta } from '@storybook/react'
 
 import { AnimationDecorator } from '@/shared/config/storybook/AnimationDecorator/AnimationDecorator'
 import { LokiDelayDecorator } from '@/shared/config/storybook/LokiDelayDecorator/LokiDelayDecorator'
+import { NewDesignDecorator } from '@/shared/config/storybook/NewDesignDecorator/NewDesignDecorator'
 import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator/ThemeDecorator'
 import { Theme } from '@/shared/const/theme'
 
@@ -16,7 +17,7 @@ export default {
   argTypes: {
     backgroundColor: { control: 'color' },
   },
-  decorators: [AnimationDecorator()],
+  decorators: [AnimationDecorator(), NewDesignDecorator],
 } as Meta<typeof Drawer>
 
 type Template = StoryObj<typeof Drawer>
@@ -26,7 +27,7 @@ export const Light: Template = {
     isOpen: true,
     children: data,
   },
-  decorators: [ThemeDecorator(Theme.LIGHT, true), LokiDelayDecorator()],
+  decorators: [ThemeDecorator(Theme.LIGHT), LokiDelayDecorator()],
 }
 
 export const Dark: Template = {
@@ -34,7 +35,7 @@ export const Dark: Template = {
     isOpen: true,
     children: <div style={{ color: '#04ff04' }}>{data}</div>,
   },
-  decorators: [ThemeDecorator(Theme.DARK, true), LokiDelayDecorator()],
+  decorators: [ThemeDecorator(Theme.DARK), LokiDelayDecorator()],
 }
 
 export const Choco: Template = {
@@ -42,5 +43,5 @@ export const Choco: Template = {
     isOpen: true,
     children: data,
   },
-  decorators: [ThemeDecorator(Theme.CHOCOLATE, true), LokiDelayDecorator()],
+  decorators: [ThemeDecorator(Theme.CHOCOLATE), LokiDelayDecorator()],
 }

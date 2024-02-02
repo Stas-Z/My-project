@@ -1,6 +1,7 @@
 import { Meta, StoryObj } from '@storybook/react'
 
 import SearchIcon from '@/shared/assets/tests/search.svg'
+import { NewDesignDecorator } from '@/shared/config/storybook/NewDesignDecorator/NewDesignDecorator'
 import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator/ThemeDecorator'
 import { Theme } from '@/shared/const/theme'
 
@@ -13,6 +14,7 @@ export default {
   argTypes: {
     backgroundColor: { control: 'color' },
   },
+  decorators: [NewDesignDecorator],
 } as Meta<typeof Input>
 
 type Template = StoryObj<typeof Input>
@@ -23,7 +25,7 @@ export const sizeS: Template = {
     value: '123123',
     size: 's',
   },
-  decorators: [ThemeDecorator(Theme.LIGHT, true)],
+  decorators: [ThemeDecorator(Theme.LIGHT)],
 }
 export const sizeM: Template = {
   args: {
@@ -31,7 +33,7 @@ export const sizeM: Template = {
     value: '123123',
     size: 'm',
   },
-  decorators: [ThemeDecorator(Theme.LIGHT, true)],
+  decorators: [ThemeDecorator(Theme.LIGHT)],
 }
 export const sizeL: Template = {
   args: {
@@ -39,7 +41,7 @@ export const sizeL: Template = {
     value: '123123',
     size: 'l',
   },
-  decorators: [ThemeDecorator(Theme.LIGHT, true)],
+  decorators: [ThemeDecorator(Theme.LIGHT)],
 }
 export const WithAddon: Template = {
   args: {
@@ -47,7 +49,7 @@ export const WithAddon: Template = {
     value: '123123',
     addonLeft: <Icon Svg={SearchIcon} />,
   },
-  decorators: [ThemeDecorator(Theme.LIGHT, true)],
+  decorators: [ThemeDecorator(Theme.LIGHT)],
 }
 
 export const Dark: Template = {
@@ -55,7 +57,7 @@ export const Dark: Template = {
     placeholder: 'Text Sample',
     value: '123123',
   },
-  decorators: [ThemeDecorator(Theme.DARK, true)],
+  decorators: [ThemeDecorator(Theme.DARK)],
 }
 
 export const Choco: Template = {
@@ -63,5 +65,5 @@ export const Choco: Template = {
     placeholder: 'Text Sample',
     value: '123123',
   },
-  decorators: [ThemeDecorator(Theme.CHOCOLATE, true)],
+  decorators: [ThemeDecorator(Theme.CHOCOLATE)],
 }

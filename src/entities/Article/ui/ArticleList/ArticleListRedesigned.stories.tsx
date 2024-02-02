@@ -1,6 +1,7 @@
 import { StoryObj, Meta } from '@storybook/react'
 
 import { LokiDelayDecorator } from '@/shared/config/storybook/LokiDelayDecorator/LokiDelayDecorator'
+import { NewDesignDecorator } from '@/shared/config/storybook/NewDesignDecorator/NewDesignDecorator'
 import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator/ThemeDecorator'
 import { Theme } from '@/shared/const/theme'
 
@@ -14,6 +15,7 @@ export default {
   argTypes: {
     backgroundColor: { control: 'color' },
   },
+  decorators: [NewDesignDecorator],
 } as Meta<typeof ArticleList>
 
 type Template = StoryObj<typeof ArticleList>
@@ -28,7 +30,7 @@ export const Grid: Template = {
     articles: articlesList,
     view: ArticleView.GRID,
   },
-  decorators: [ThemeDecorator(Theme.LIGHT, true)],
+  decorators: [ThemeDecorator(Theme.LIGHT)],
 }
 
 export const GridLoading: Template = {
@@ -37,7 +39,7 @@ export const GridLoading: Template = {
     view: ArticleView.GRID,
     isLoading: true,
   },
-  decorators: [ThemeDecorator(Theme.LIGHT, true)],
+  decorators: [ThemeDecorator(Theme.LIGHT)],
 }
 
 export const GridDark: Template = {
@@ -45,7 +47,7 @@ export const GridDark: Template = {
     articles: articlesList,
     view: ArticleView.GRID,
   },
-  decorators: [ThemeDecorator(Theme.DARK, true)],
+  decorators: [ThemeDecorator(Theme.DARK)],
 }
 
 export const GridDarkLoading: Template = {
@@ -54,7 +56,7 @@ export const GridDarkLoading: Template = {
     view: ArticleView.GRID,
     isLoading: true,
   },
-  decorators: [ThemeDecorator(Theme.DARK, true)],
+  decorators: [ThemeDecorator(Theme.DARK)],
 }
 
 export const GridChoco: Template = {
@@ -62,7 +64,7 @@ export const GridChoco: Template = {
     articles: articlesList,
     view: ArticleView.GRID,
   },
-  decorators: [ThemeDecorator(Theme.CHOCOLATE, true)],
+  decorators: [ThemeDecorator(Theme.CHOCOLATE)],
 }
 
 export const GridChocoLoading: Template = {
@@ -71,7 +73,7 @@ export const GridChocoLoading: Template = {
     view: ArticleView.GRID,
     isLoading: true,
   },
-  decorators: [ThemeDecorator(Theme.CHOCOLATE, true)],
+  decorators: [ThemeDecorator(Theme.CHOCOLATE)],
 }
 
 export const List: Template = {
@@ -79,7 +81,7 @@ export const List: Template = {
     articles: articlesList,
     view: ArticleView.LIST,
   },
-  decorators: [ThemeDecorator(Theme.LIGHT, true), LokiDelayDecorator()],
+  decorators: [ThemeDecorator(Theme.LIGHT), LokiDelayDecorator()],
 }
 
 export const ListLoading: Template = {
@@ -88,7 +90,7 @@ export const ListLoading: Template = {
     view: ArticleView.LIST,
     isLoading: true,
   },
-  decorators: [ThemeDecorator(Theme.LIGHT, true)],
+  decorators: [ThemeDecorator(Theme.LIGHT)],
 }
 
 export const ListDark: Template = {
@@ -96,7 +98,7 @@ export const ListDark: Template = {
     articles: articlesList,
     view: ArticleView.LIST,
   },
-  decorators: [ThemeDecorator(Theme.DARK, true), LokiDelayDecorator()],
+  decorators: [ThemeDecorator(Theme.DARK), LokiDelayDecorator()],
 }
 
 export const ListDarkLoading: Template = {
@@ -105,7 +107,7 @@ export const ListDarkLoading: Template = {
     view: ArticleView.LIST,
     isLoading: true,
   },
-  decorators: [ThemeDecorator(Theme.DARK, true)],
+  decorators: [ThemeDecorator(Theme.DARK)],
 }
 
 export const ListChoco: Template = {
@@ -113,7 +115,7 @@ export const ListChoco: Template = {
     articles: articlesList,
     view: ArticleView.LIST,
   },
-  decorators: [ThemeDecorator(Theme.CHOCOLATE, true), LokiDelayDecorator()],
+  decorators: [ThemeDecorator(Theme.CHOCOLATE), LokiDelayDecorator()],
 }
 
 export const ListChocoLoading: Template = {
@@ -122,5 +124,5 @@ export const ListChocoLoading: Template = {
     view: ArticleView.LIST,
     isLoading: true,
   },
-  decorators: [ThemeDecorator(Theme.CHOCOLATE, true)],
+  decorators: [ThemeDecorator(Theme.CHOCOLATE)],
 }

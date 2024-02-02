@@ -2,6 +2,7 @@ import { Meta, StoryObj } from '@storybook/react'
 
 import { ArticleView, entitiesMock } from '@/entities/Article/testing'
 import { LokiDelayDecorator } from '@/shared/config/storybook/LokiDelayDecorator/LokiDelayDecorator'
+import { NewDesignDecorator } from '@/shared/config/storybook/NewDesignDecorator/NewDesignDecorator'
 import { StoreDecorator } from '@/shared/config/storybook/StoreDecorator/StoreDecorator'
 import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator/ThemeDecorator'
 import { Theme } from '@/shared/const/theme'
@@ -198,22 +199,24 @@ export const ListChocoLoading: Template = {
 export const GridRedesigned: Template = {
   args: {},
   decorators: [
-    ThemeDecorator(Theme.LIGHT, true),
+    ThemeDecorator(Theme.LIGHT),
     StoreDecorator({
       articlesPage: { entities, ids },
       user: { authData: { jsonSettings: { isArticlesPageWasOpend: true } } },
     }),
+    NewDesignDecorator,
     LokiDelayDecorator(),
   ],
 }
 export const ListRedesigned: Template = {
   args: {},
   decorators: [
-    ThemeDecorator(Theme.LIGHT, true),
+    ThemeDecorator(Theme.LIGHT),
     StoreDecorator({
       articlesPage: { entities, ids, view: ArticleView.LIST },
       user: { authData: { jsonSettings: { isArticlesPageWasOpend: true } } },
     }),
+    NewDesignDecorator,
     LokiDelayDecorator(),
   ],
 }

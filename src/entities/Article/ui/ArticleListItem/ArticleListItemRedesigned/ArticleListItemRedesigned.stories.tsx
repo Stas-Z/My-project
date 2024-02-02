@@ -1,5 +1,6 @@
 import { StoryObj, Meta } from '@storybook/react'
 
+import { NewDesignDecorator } from '@/shared/config/storybook/NewDesignDecorator/NewDesignDecorator'
 import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator/ThemeDecorator'
 import { Theme } from '@/shared/const/theme'
 
@@ -13,6 +14,7 @@ export default {
   argTypes: {
     backgroundColor: { control: 'color' },
   },
+  decorators: [NewDesignDecorator],
 } as Meta<typeof ArticleListItemRedesigned>
 
 type Template = StoryObj<typeof ArticleListItemRedesigned>
@@ -24,7 +26,7 @@ export const Grid: Template = {
     article,
     view: ArticleView.GRID,
   },
-  decorators: [ThemeDecorator(Theme.LIGHT, true)],
+  decorators: [ThemeDecorator(Theme.LIGHT)],
 }
 
 export const GridDark: Template = {
@@ -32,7 +34,7 @@ export const GridDark: Template = {
     article,
     view: ArticleView.GRID,
   },
-  decorators: [ThemeDecorator(Theme.DARK, true)],
+  decorators: [ThemeDecorator(Theme.DARK)],
 }
 
 export const GridChoco: Template = {
@@ -40,7 +42,7 @@ export const GridChoco: Template = {
     article,
     view: ArticleView.GRID,
   },
-  decorators: [ThemeDecorator(Theme.CHOCOLATE, true)],
+  decorators: [ThemeDecorator(Theme.CHOCOLATE)],
 }
 
 export const List: Template = {
@@ -48,7 +50,7 @@ export const List: Template = {
     article,
     view: ArticleView.LIST,
   },
-  decorators: [ThemeDecorator(Theme.LIGHT, true)],
+  decorators: [ThemeDecorator(Theme.LIGHT)],
 }
 
 export const ListDark: Template = {
@@ -56,7 +58,7 @@ export const ListDark: Template = {
     article,
     view: ArticleView.LIST,
   },
-  decorators: [ThemeDecorator(Theme.DARK, true)],
+  decorators: [ThemeDecorator(Theme.DARK)],
 }
 
 export const ListChoco: Template = {
@@ -64,5 +66,5 @@ export const ListChoco: Template = {
     article,
     view: ArticleView.LIST,
   },
-  decorators: [ThemeDecorator(Theme.CHOCOLATE, true)],
+  decorators: [ThemeDecorator(Theme.CHOCOLATE)],
 }

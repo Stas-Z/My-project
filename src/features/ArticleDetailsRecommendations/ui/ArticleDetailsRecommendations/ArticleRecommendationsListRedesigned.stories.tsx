@@ -2,6 +2,7 @@ import { Meta, StoryObj } from '@storybook/react'
 
 import { articlesMock } from '@/entities/Article/testing'
 import { LokiDelayDecorator } from '@/shared/config/storybook/LokiDelayDecorator/LokiDelayDecorator'
+import { NewDesignDecorator } from '@/shared/config/storybook/NewDesignDecorator/NewDesignDecorator'
 import { StoreDecorator } from '@/shared/config/storybook/StoreDecorator/StoreDecorator'
 import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator/ThemeDecorator'
 import { Theme } from '@/shared/const/theme'
@@ -11,7 +12,7 @@ import ArticleRecommendationsList from './ArticleRecommendationsList'
 const articles = articlesMock
 
 export default {
-  title: 'features/Article/ArticleDetailsRecommendations',
+  title: 'features/Article/ArticleDetailsRecommendations/Redesigned',
   component: ArticleRecommendationsList,
   argTypes: {
     backgroundColor: { control: 'color' },
@@ -26,6 +27,7 @@ export default {
       },
     ],
   },
+  decorators: [NewDesignDecorator],
 } as Meta<typeof ArticleRecommendationsList>
 
 type Template = StoryObj<typeof ArticleRecommendationsList>

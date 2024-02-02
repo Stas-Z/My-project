@@ -2,6 +2,7 @@ import { Meta, StoryObj } from '@storybook/react'
 import { within, fireEvent } from '@storybook/testing-library'
 
 import { LokiDelayDecorator } from '@/shared/config/storybook/LokiDelayDecorator/LokiDelayDecorator'
+import { NewDesignDecorator } from '@/shared/config/storybook/NewDesignDecorator/NewDesignDecorator'
 import { PaddingDecorator } from '@/shared/config/storybook/PaddingDecorator/PaddingDecorator'
 import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator/ThemeDecorator'
 import { Theme } from '@/shared/const/theme'
@@ -14,7 +15,7 @@ export default {
   argTypes: {
     backgroundColor: { control: 'color' },
   },
-  decorators: [LokiDelayDecorator()],
+  decorators: [NewDesignDecorator, LokiDelayDecorator()],
   play: async ({ canvasElement }) => {
     const canvas = within(canvasElement)
     await fireEvent.click(canvas.getByTestId('ListBox.Button'))
@@ -39,7 +40,7 @@ export const TopLeft: Template = {
     items: people,
     direction: 'top_left',
   },
-  decorators: [PaddingDecorator(250), ThemeDecorator(Theme.LIGHT, true)],
+  decorators: [PaddingDecorator(250), ThemeDecorator(Theme.LIGHT)],
 }
 
 export const TopRight: Template = {
@@ -50,7 +51,7 @@ export const TopRight: Template = {
     items: people,
     direction: 'top_right',
   },
-  decorators: [PaddingDecorator(250), ThemeDecorator(Theme.LIGHT, true)],
+  decorators: [PaddingDecorator(250), ThemeDecorator(Theme.LIGHT)],
 }
 
 export const BottomLeft: Template = {
@@ -61,7 +62,7 @@ export const BottomLeft: Template = {
     items: people,
     direction: 'bottom_left',
   },
-  decorators: [PaddingDecorator(250), ThemeDecorator(Theme.LIGHT, true)],
+  decorators: [PaddingDecorator(250), ThemeDecorator(Theme.LIGHT)],
 }
 
 export const BottomRight: Template = {
@@ -72,7 +73,7 @@ export const BottomRight: Template = {
     items: people,
     direction: 'bottom_right',
   },
-  decorators: [PaddingDecorator(250), ThemeDecorator(Theme.LIGHT, true)],
+  decorators: [PaddingDecorator(250), ThemeDecorator(Theme.LIGHT)],
 }
 
 export const Dark: Template = {
@@ -83,7 +84,7 @@ export const Dark: Template = {
     items: people,
     direction: 'bottom_right',
   },
-  decorators: [PaddingDecorator(250), ThemeDecorator(Theme.DARK, true)],
+  decorators: [PaddingDecorator(250), ThemeDecorator(Theme.DARK)],
 }
 
 export const Choco: Template = {
@@ -94,5 +95,5 @@ export const Choco: Template = {
     items: people,
     direction: 'bottom_right',
   },
-  decorators: [PaddingDecorator(250), ThemeDecorator(Theme.CHOCOLATE, true)],
+  decorators: [PaddingDecorator(250), ThemeDecorator(Theme.CHOCOLATE)],
 }

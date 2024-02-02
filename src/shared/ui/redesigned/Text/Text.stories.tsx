@@ -1,5 +1,6 @@
 import { Meta, StoryObj } from '@storybook/react'
 
+import { NewDesignDecorator } from '@/shared/config/storybook/NewDesignDecorator/NewDesignDecorator'
 import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator/ThemeDecorator'
 import { Theme } from '@/shared/const/theme'
 
@@ -11,6 +12,7 @@ export default {
   argTypes: {
     backgroundColor: { control: 'color' },
   },
+  decorators: [NewDesignDecorator],
 } as Meta<typeof Text>
 
 type Template = StoryObj<typeof Text>
@@ -21,7 +23,7 @@ export const SizeS: Template = {
     title: 'Title Sample',
     text: 'Text Sample',
   },
-  decorators: [ThemeDecorator(Theme.LIGHT, true)],
+  decorators: [ThemeDecorator(Theme.LIGHT)],
 }
 
 export const SizeM: Template = {
@@ -29,7 +31,7 @@ export const SizeM: Template = {
     title: 'Title Sample',
     text: 'Text Sample',
   },
-  decorators: [ThemeDecorator(Theme.LIGHT, true)],
+  decorators: [ThemeDecorator(Theme.LIGHT)],
 }
 
 export const SizeL: Template = {
@@ -38,21 +40,21 @@ export const SizeL: Template = {
     text: 'Text Sample',
     size: 'l',
   },
-  decorators: [ThemeDecorator(Theme.LIGHT, true)],
+  decorators: [ThemeDecorator(Theme.LIGHT)],
 }
 
 export const OnlyTitle: Template = {
   args: {
     title: 'Title Sample',
   },
-  decorators: [ThemeDecorator(Theme.LIGHT, true)],
+  decorators: [ThemeDecorator(Theme.LIGHT)],
 }
 
 export const OnlyText: Template = {
   args: {
     text: 'Text Sample',
   },
-  decorators: [ThemeDecorator(Theme.LIGHT, true)],
+  decorators: [ThemeDecorator(Theme.LIGHT)],
 }
 
 export const Dark: Template = {
@@ -60,7 +62,7 @@ export const Dark: Template = {
     title: 'Title Sample',
     text: 'Text Sample',
   },
-  decorators: [ThemeDecorator(Theme.DARK, true)],
+  decorators: [ThemeDecorator(Theme.DARK)],
 }
 
 export const Choco: Template = {
@@ -68,7 +70,7 @@ export const Choco: Template = {
     title: 'Title Sample',
     text: 'Text Sample',
   },
-  decorators: [ThemeDecorator(Theme.CHOCOLATE, true)],
+  decorators: [ThemeDecorator(Theme.CHOCOLATE)],
 }
 
 export const Error: Template = {
@@ -77,5 +79,5 @@ export const Error: Template = {
     text: 'Text Sample',
     variant: 'error',
   },
-  decorators: [ThemeDecorator(Theme.LIGHT, true)],
+  decorators: [ThemeDecorator(Theme.LIGHT)],
 }

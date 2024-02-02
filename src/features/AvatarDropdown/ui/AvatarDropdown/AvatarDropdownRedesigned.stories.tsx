@@ -3,6 +3,7 @@ import { within, fireEvent } from '@storybook/testing-library'
 
 import { UserRole } from '@/entities/User/testing'
 import { LokiDelayDecorator } from '@/shared/config/storybook/LokiDelayDecorator/LokiDelayDecorator'
+import { NewDesignDecorator } from '@/shared/config/storybook/NewDesignDecorator/NewDesignDecorator'
 import { StoreDecorator } from '@/shared/config/storybook/StoreDecorator/StoreDecorator'
 import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator/ThemeDecorator'
 import { Theme } from '@/shared/const/theme'
@@ -12,7 +13,7 @@ import { AvatarDropdown } from './AvatarDropdown'
 export default {
   title: 'features/AvatarDropdown/Redesigned',
   component: AvatarDropdown,
-  decorators: [LokiDelayDecorator()],
+  decorators: [NewDesignDecorator, LokiDelayDecorator()],
   play: async ({ canvasElement }) => {
     const canvas = within(canvasElement)
     await fireEvent.click(canvas.getByTestId('AvatarDropdown.Trigger'))
@@ -32,7 +33,7 @@ export const Light: Template = {
         <StoryComponent />
       </div>
     ),
-    ThemeDecorator(Theme.LIGHT, true),
+    ThemeDecorator(Theme.LIGHT),
     StoreDecorator({
       user: { authData: { id: '1', roles: [UserRole.ADMIN] } },
     }),
@@ -47,7 +48,7 @@ export const Dark: Template = {
         <StoryComponent />
       </div>
     ),
-    ThemeDecorator(Theme.DARK, true),
+    ThemeDecorator(Theme.DARK),
     StoreDecorator({
       user: { authData: { id: '1', roles: [UserRole.ADMIN] } },
     }),
@@ -62,7 +63,7 @@ export const Choco: Template = {
         <StoryComponent />
       </div>
     ),
-    ThemeDecorator(Theme.CHOCOLATE, true),
+    ThemeDecorator(Theme.CHOCOLATE),
     StoreDecorator({
       user: { authData: { id: '1', roles: [UserRole.ADMIN] } },
     }),

@@ -1,5 +1,6 @@
 import { StoryObj, Meta } from '@storybook/react'
 
+import { NewDesignDecorator } from '@/shared/config/storybook/NewDesignDecorator/NewDesignDecorator'
 import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator/ThemeDecorator'
 import { Theme } from '@/shared/const/theme'
 
@@ -12,6 +13,7 @@ export default {
   argTypes: {
     backgroundColor: { control: 'color' },
   },
+  decorators: [NewDesignDecorator],
 } as Meta<typeof CommentList>
 
 type Template = StoryObj<typeof CommentList>
@@ -48,45 +50,45 @@ const comments: Comment[] = [
 
 export const Light: Template = {
   args: { comments },
-  decorators: [ThemeDecorator(Theme.LIGHT, true)],
+  decorators: [ThemeDecorator(Theme.LIGHT)],
 }
 
 export const Loading: Template = {
   args: { comments, isLoading: true },
-  decorators: [ThemeDecorator(Theme.LIGHT, true)],
+  decorators: [ThemeDecorator(Theme.LIGHT)],
 }
 
 export const NoComments: Template = {
   args: {},
-  decorators: [ThemeDecorator(Theme.LIGHT, true)],
+  decorators: [ThemeDecorator(Theme.LIGHT)],
 }
 
 export const Dark: Template = {
   args: { comments },
-  decorators: [ThemeDecorator(Theme.DARK, true)],
+  decorators: [ThemeDecorator(Theme.DARK)],
 }
 
 export const DarkLoading: Template = {
   args: { comments, isLoading: true },
-  decorators: [ThemeDecorator(Theme.DARK, true)],
+  decorators: [ThemeDecorator(Theme.DARK)],
 }
 
 export const DarkNoComments: Template = {
   args: {},
-  decorators: [ThemeDecorator(Theme.DARK, true)],
+  decorators: [ThemeDecorator(Theme.DARK)],
 }
 
 export const Choco: Template = {
   args: { comments },
-  decorators: [ThemeDecorator(Theme.CHOCOLATE, true)],
+  decorators: [ThemeDecorator(Theme.CHOCOLATE)],
 }
 
 export const ChocoLoading: Template = {
   args: { comments, isLoading: true },
-  decorators: [ThemeDecorator(Theme.CHOCOLATE, true)],
+  decorators: [ThemeDecorator(Theme.CHOCOLATE)],
 }
 
 export const ChocoNoComments: Template = {
   args: {},
-  decorators: [ThemeDecorator(Theme.CHOCOLATE, true)],
+  decorators: [ThemeDecorator(Theme.CHOCOLATE)],
 }

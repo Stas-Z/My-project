@@ -2,7 +2,7 @@ import { memo, useCallback, useMemo } from 'react'
 
 import { useTranslation } from 'react-i18next'
 
-import { ToggleFeatures } from '@/shared/lib/features'
+import { ToggleFeatures, toggleFeatures } from '@/shared/lib/features'
 import { DropdownDirection } from '@/shared/types/ui'
 import { ListBox as ListBoxDeprecated } from '@/shared/ui/deprecated/Popups'
 import { ListBox } from '@/shared/ui/redesigned/Popups'
@@ -35,13 +35,19 @@ export const CurrencySelect = memo((props: CurrencySelectProps) => {
     [],
   )
 
+  const label = toggleFeatures({
+    name: 'isAppRedesigned',
+    on: () => t('Currency'),
+    off: () => t('Currency name'),
+  })
+
   const propsList = {
     className,
     value,
     items: currencyOptions,
     onChange: onChangeHandler,
-    defaultValue: t('Currency'),
-    label: t('Currency'),
+    defaultValue: label,
+    label,
     readonly,
     direction: 'top_right' as DropdownDirection,
   }

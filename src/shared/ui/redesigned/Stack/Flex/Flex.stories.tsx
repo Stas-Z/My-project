@@ -1,5 +1,6 @@
 import { Meta, StoryObj } from '@storybook/react'
 
+import { NewDesignDecorator } from '@/shared/config/storybook/NewDesignDecorator/NewDesignDecorator'
 import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator/ThemeDecorator'
 import { Theme } from '@/shared/const/theme'
 
@@ -8,7 +9,7 @@ import { Flex } from './Flex'
 export default {
   title: 'shared/redesigned/Flex',
   component: Flex,
-  decorators: [ThemeDecorator(Theme.LIGHT, true)],
+  decorators: [NewDesignDecorator, ThemeDecorator(Theme.LIGHT)],
   argTypes: {
     backgroundColor: { control: 'color' },
   },

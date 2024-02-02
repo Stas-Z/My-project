@@ -37,7 +37,7 @@ export const EditableProfileCardFormRedesigned = (
   const isLoading = useSelector(getProfileIsLoading)
   const readonly = useSelector(getProfileReadonly)
   const validateErrors = useSelector(getProfileValidateErrors)
-  console.log(isLoading)
+
   const ValidateErrorTranslates = {
     [ValidateProfileEror.SERVER_ERROR]: t('Server error'),
     [ValidateProfileEror.INCORRECT_AGE]: t('Wrong age'),

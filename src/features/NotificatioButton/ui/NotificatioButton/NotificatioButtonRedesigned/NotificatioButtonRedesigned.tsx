@@ -27,7 +27,12 @@ export const NotificatioButtonRedesigned = memo(
     }, [])
 
     const trigger = (
-      <Icon Svg={NotificationIcon} onClick={onOpenDrawer} clickable />
+      <Icon
+        Svg={NotificationIcon}
+        onClick={onOpenDrawer}
+        clickable
+        data-testid="NotificatioButton.Trigger"
+      />
     )
     return (
       <div>

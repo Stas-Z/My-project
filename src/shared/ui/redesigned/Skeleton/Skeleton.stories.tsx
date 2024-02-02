@@ -1,5 +1,6 @@
 import { StoryObj, Meta } from '@storybook/react'
 
+import { NewDesignDecorator } from '@/shared/config/storybook/NewDesignDecorator/NewDesignDecorator'
 import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator/ThemeDecorator'
 import { Theme } from '@/shared/const/theme'
 
@@ -11,6 +12,7 @@ export default {
   argTypes: {
     backgroundColor: { control: 'color' },
   },
+  decorators: [NewDesignDecorator],
 } as Meta<typeof Skeleton>
 
 type Template = StoryObj<typeof Skeleton>
@@ -21,7 +23,7 @@ export const Circle: Template = {
     width: 100,
     height: 100,
   },
-  decorators: [ThemeDecorator(Theme.LIGHT, true)],
+  decorators: [ThemeDecorator(Theme.LIGHT)],
 }
 
 export const DarkCircle: Template = {
@@ -30,7 +32,7 @@ export const DarkCircle: Template = {
     width: 100,
     height: 100,
   },
-  decorators: [ThemeDecorator(Theme.DARK, true)],
+  decorators: [ThemeDecorator(Theme.DARK)],
 }
 
 export const ChocoCircle: Template = {
@@ -39,7 +41,7 @@ export const ChocoCircle: Template = {
     width: 100,
     height: 100,
   },
-  decorators: [ThemeDecorator(Theme.CHOCOLATE, true)],
+  decorators: [ThemeDecorator(Theme.CHOCOLATE)],
 }
 
 export const Light: Template = {
@@ -47,7 +49,7 @@ export const Light: Template = {
     width: '100%',
     height: 200,
   },
-  decorators: [ThemeDecorator(Theme.LIGHT, true)],
+  decorators: [ThemeDecorator(Theme.LIGHT)],
 }
 
 export const Dark: Template = {
@@ -55,7 +57,7 @@ export const Dark: Template = {
     width: '100%',
     height: 200,
   },
-  decorators: [ThemeDecorator(Theme.DARK, true)],
+  decorators: [ThemeDecorator(Theme.DARK)],
 }
 
 export const Choco: Template = {
@@ -63,5 +65,5 @@ export const Choco: Template = {
     width: '100%',
     height: 200,
   },
-  decorators: [ThemeDecorator(Theme.CHOCOLATE, true)],
+  decorators: [ThemeDecorator(Theme.CHOCOLATE)],
 }

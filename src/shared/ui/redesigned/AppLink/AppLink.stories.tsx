@@ -1,6 +1,7 @@
 import { StoryObj, Meta } from '@storybook/react'
 
 import { LokiDelayDecorator } from '@/shared/config/storybook/LokiDelayDecorator/LokiDelayDecorator'
+import { NewDesignDecorator } from '@/shared/config/storybook/NewDesignDecorator/NewDesignDecorator'
 import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator/ThemeDecorator'
 import { Theme } from '@/shared/const/theme'
 
@@ -13,6 +14,7 @@ export default {
     backgroundColor: { control: 'color' },
   },
   args: { to: '/' },
+  decorators: [NewDesignDecorator],
 } as Meta<typeof AppLink>
 
 type Template = StoryObj<typeof AppLink>
@@ -21,21 +23,21 @@ export const Primary: Template = {
   args: {
     children: 'Text',
   },
-  decorators: [ThemeDecorator(Theme.LIGHT, true), LokiDelayDecorator()],
+  decorators: [ThemeDecorator(Theme.LIGHT), LokiDelayDecorator()],
 }
 
 export const Dark: Template = {
   args: {
     children: 'Text',
   },
-  decorators: [ThemeDecorator(Theme.DARK, true), LokiDelayDecorator()],
+  decorators: [ThemeDecorator(Theme.DARK), LokiDelayDecorator()],
 }
 
 export const Choco: Template = {
   args: {
     children: 'Text',
   },
-  decorators: [ThemeDecorator(Theme.CHOCOLATE, true), LokiDelayDecorator()],
+  decorators: [ThemeDecorator(Theme.CHOCOLATE), LokiDelayDecorator()],
 }
 
 export const Red: Template = {
@@ -43,7 +45,7 @@ export const Red: Template = {
     children: 'Text',
     variant: 'red',
   },
-  decorators: [ThemeDecorator(Theme.LIGHT, true), LokiDelayDecorator()],
+  decorators: [ThemeDecorator(Theme.LIGHT), LokiDelayDecorator()],
 }
 
 export const RedDark: Template = {
@@ -51,5 +53,5 @@ export const RedDark: Template = {
     children: 'Text',
     variant: 'red',
   },
-  decorators: [ThemeDecorator(Theme.DARK, true), LokiDelayDecorator()],
+  decorators: [ThemeDecorator(Theme.DARK), LokiDelayDecorator()],
 }

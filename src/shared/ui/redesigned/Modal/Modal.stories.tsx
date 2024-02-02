@@ -1,6 +1,7 @@
 import { StoryObj, Meta } from '@storybook/react'
 
 import { LokiDelayDecorator } from '@/shared/config/storybook/LokiDelayDecorator/LokiDelayDecorator'
+import { NewDesignDecorator } from '@/shared/config/storybook/NewDesignDecorator/NewDesignDecorator'
 import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator/ThemeDecorator'
 import { Theme } from '@/shared/const/theme'
 
@@ -12,6 +13,7 @@ export default {
   argTypes: {
     backgroundColor: { control: 'color' },
   },
+  decorators: [NewDesignDecorator],
 } as Meta<typeof Modal>
 
 type Template = StoryObj<typeof Modal>
@@ -22,7 +24,7 @@ export const Light: Template = {
     children:
       'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Reprehenderit, iste ut obcaecati, esse temporibus et quasi, omnis dolorum eveniet quos eius corrupti nam magni inventore excepturi dolor! Officiis, placeat sed.',
   },
-  decorators: [ThemeDecorator(Theme.LIGHT, true), LokiDelayDecorator()],
+  decorators: [ThemeDecorator(Theme.LIGHT), LokiDelayDecorator()],
 }
 
 export const Dark: Template = {
@@ -31,7 +33,7 @@ export const Dark: Template = {
     children:
       'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Reprehenderit, iste ut obcaecati, esse temporibus et quasi, omnis dolorum eveniet quos eius corrupti nam magni inventore excepturi dolor! Officiis, placeat sed.',
   },
-  decorators: [ThemeDecorator(Theme.DARK, true), LokiDelayDecorator()],
+  decorators: [ThemeDecorator(Theme.DARK), LokiDelayDecorator()],
 }
 
 export const Choco: Template = {
@@ -40,5 +42,5 @@ export const Choco: Template = {
     children:
       'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Reprehenderit, iste ut obcaecati, esse temporibus et quasi, omnis dolorum eveniet quos eius corrupti nam magni inventore excepturi dolor! Officiis, placeat sed.',
   },
-  decorators: [ThemeDecorator(Theme.CHOCOLATE, true), LokiDelayDecorator()],
+  decorators: [ThemeDecorator(Theme.CHOCOLATE), LokiDelayDecorator()],
 }

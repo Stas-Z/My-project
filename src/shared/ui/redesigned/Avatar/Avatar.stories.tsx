@@ -1,6 +1,7 @@
 import { Meta, StoryObj } from '@storybook/react'
 
 import AvatarImg from '@/shared/assets/tests/avatar.png'
+import { NewDesignDecorator } from '@/shared/config/storybook/NewDesignDecorator/NewDesignDecorator'
 import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator/ThemeDecorator'
 import { Theme } from '@/shared/const/theme'
 
@@ -12,6 +13,7 @@ export default {
   argTypes: {
     backgroundColor: { control: 'color' },
   },
+  decorators: [NewDesignDecorator],
 } as Meta<typeof Avatar>
 
 type Template = StoryObj<typeof Avatar>
@@ -21,7 +23,7 @@ export const Normal: Template = {
     size: 150,
     src: AvatarImg,
   },
-  decorators: [ThemeDecorator(Theme.LIGHT, true)],
+  decorators: [ThemeDecorator(Theme.LIGHT)],
 }
 
 export const Small: Template = {
@@ -29,7 +31,7 @@ export const Small: Template = {
     size: 50,
     src: AvatarImg,
   },
-  decorators: [ThemeDecorator(Theme.LIGHT, true)],
+  decorators: [ThemeDecorator(Theme.LIGHT)],
 }
 
 export const Default: Template = {
@@ -37,7 +39,7 @@ export const Default: Template = {
     size: 150,
     src: '',
   },
-  decorators: [ThemeDecorator(Theme.LIGHT, true)],
+  decorators: [ThemeDecorator(Theme.LIGHT)],
 }
 
 export const WithUsername: Template = {
@@ -46,7 +48,7 @@ export const WithUsername: Template = {
     src: AvatarImg,
     username: 'Boris',
   },
-  decorators: [ThemeDecorator(Theme.LIGHT, true)],
+  decorators: [ThemeDecorator(Theme.LIGHT)],
 }
 export const WithUsernameVertical: Template = {
   args: {
@@ -55,5 +57,5 @@ export const WithUsernameVertical: Template = {
     username: 'Boris',
     vertical: true,
   },
-  decorators: [ThemeDecorator(Theme.LIGHT, true)],
+  decorators: [ThemeDecorator(Theme.LIGHT)],
 }

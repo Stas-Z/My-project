@@ -2,6 +2,7 @@ import { Meta, StoryObj } from '@storybook/react'
 
 import { articleMock, articlesMock } from '@/entities/Article/testing'
 import { rtkApi } from '@/shared/api/rtkApi'
+import { NewDesignDecorator } from '@/shared/config/storybook/NewDesignDecorator/NewDesignDecorator'
 import { StoreDecorator } from '@/shared/config/storybook/StoreDecorator/StoreDecorator'
 import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator/ThemeDecorator'
 import { Theme } from '@/shared/const/theme'
@@ -41,6 +42,7 @@ export default {
   argTypes: {
     backgroundColor: { control: 'color' },
   },
+  decorators: [NewDesignDecorator],
 } as Meta<typeof ArticleDetailsPageRedesigned>
 
 type Template = StoryObj<typeof ArticleDetailsPageRedesigned>
@@ -80,7 +82,7 @@ const idsComments = ['1', '2']
 export const Light: Template = {
   args: {},
   decorators: [
-    ThemeDecorator(Theme.LIGHT, true),
+    ThemeDecorator(Theme.LIGHT),
     StoreDecorator({
       articleDetails: { data: article },
       articleComments: { entities: entitiesComments, ids: idsComments },
@@ -110,7 +112,7 @@ export const Loading: Template = {
     ],
   },
   decorators: [
-    ThemeDecorator(Theme.LIGHT, true),
+    ThemeDecorator(Theme.LIGHT),
     StoreDecorator({
       articleDetails: { isLoading: true },
       articleComments: {
@@ -125,7 +127,7 @@ export const Loading: Template = {
 export const Error: Template = {
   args: {},
   decorators: [
-    ThemeDecorator(Theme.LIGHT, true),
+    ThemeDecorator(Theme.LIGHT),
     StoreDecorator({
       articleDetails: { error: 'error' },
     }),
@@ -151,7 +153,7 @@ export const Error: Template = {
 export const Dark: Template = {
   args: {},
   decorators: [
-    ThemeDecorator(Theme.DARK, true),
+    ThemeDecorator(Theme.DARK),
     StoreDecorator({
       articleDetails: { data: article },
       articleComments: { entities: entitiesComments, ids: idsComments },
@@ -165,7 +167,7 @@ export const Dark: Template = {
 export const Choco: Template = {
   args: {},
   decorators: [
-    ThemeDecorator(Theme.CHOCOLATE, true),
+    ThemeDecorator(Theme.CHOCOLATE),
     StoreDecorator({
       articleDetails: { data: article },
       articleComments: { entities: entitiesComments, ids: idsComments },

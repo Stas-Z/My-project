@@ -82,7 +82,7 @@ export const ListBox = typedMemo(<T extends string>(props: ListBoxProps<T>) => {
     <HStack gap="8" className={classNames('', {}, [popupCls.popup])}>
       {label && (
         <span className={classNames('', { [cls.editing]: editing })}>
-          {`${label}>`}
+          {`${label}`}
         </span>
       )}
       <HListbox

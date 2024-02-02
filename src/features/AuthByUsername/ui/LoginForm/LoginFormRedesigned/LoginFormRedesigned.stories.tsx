@@ -1,5 +1,6 @@
 import { Meta, StoryObj } from '@storybook/react'
 
+import { NewDesignDecorator } from '@/shared/config/storybook/NewDesignDecorator/NewDesignDecorator'
 import { StoreDecorator } from '@/shared/config/storybook/StoreDecorator/StoreDecorator'
 import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator/ThemeDecorator'
 import { Theme } from '@/shared/const/theme'
@@ -12,6 +13,7 @@ export default {
   argTypes: {
     backgroundColor: { control: 'color' },
   },
+  decorators: [NewDesignDecorator],
 } as Meta<typeof LoginFormRedesigned>
 
 type Template = StoryObj<typeof LoginFormRedesigned>
@@ -19,7 +21,7 @@ type Template = StoryObj<typeof LoginFormRedesigned>
 export const Light: Template = {
   args: {},
   decorators: [
-    ThemeDecorator(Theme.LIGHT, true),
+    ThemeDecorator(Theme.LIGHT),
     StoreDecorator({
       loginForm: { username: 'admin', password: '123' },
     }),
@@ -29,7 +31,7 @@ export const Light: Template = {
 export const WithError: Template = {
   args: {},
   decorators: [
-    ThemeDecorator(Theme.LIGHT, true),
+    ThemeDecorator(Theme.LIGHT),
     StoreDecorator({
       loginForm: { error: 'ERROR' },
     }),
@@ -39,7 +41,7 @@ export const WithError: Template = {
 export const Loading: Template = {
   args: {},
   decorators: [
-    ThemeDecorator(Theme.LIGHT, true),
+    ThemeDecorator(Theme.LIGHT),
     StoreDecorator({
       loginForm: { username: 'admin', password: '123', isLoading: true },
     }),
@@ -49,7 +51,7 @@ export const Loading: Template = {
 export const Dark: Template = {
   args: {},
   decorators: [
-    ThemeDecorator(Theme.DARK, true),
+    ThemeDecorator(Theme.DARK),
     StoreDecorator({
       loginForm: { username: 'admin', password: '123' },
     }),
@@ -59,7 +61,7 @@ export const Dark: Template = {
 export const WithErrorDark: Template = {
   args: {},
   decorators: [
-    ThemeDecorator(Theme.DARK, true),
+    ThemeDecorator(Theme.DARK),
     StoreDecorator({
       loginForm: { error: 'ERROR' },
     }),
@@ -69,7 +71,7 @@ export const WithErrorDark: Template = {
 export const LoadingDark: Template = {
   args: {},
   decorators: [
-    ThemeDecorator(Theme.DARK, true),
+    ThemeDecorator(Theme.DARK),
     StoreDecorator({
       loginForm: { username: 'admin', password: '123', isLoading: true },
     }),
@@ -79,7 +81,7 @@ export const LoadingDark: Template = {
 export const Choco: Template = {
   args: {},
   decorators: [
-    ThemeDecorator(Theme.CHOCOLATE, true),
+    ThemeDecorator(Theme.CHOCOLATE),
     StoreDecorator({
       loginForm: { username: 'admin', password: '123' },
     }),
@@ -89,7 +91,7 @@ export const Choco: Template = {
 export const WithErrorChoco: Template = {
   args: {},
   decorators: [
-    ThemeDecorator(Theme.CHOCOLATE, true),
+    ThemeDecorator(Theme.CHOCOLATE),
     StoreDecorator({
       loginForm: { error: 'ERROR' },
     }),
@@ -99,7 +101,7 @@ export const WithErrorChoco: Template = {
 export const LoadingChoco: Template = {
   args: {},
   decorators: [
-    ThemeDecorator(Theme.CHOCOLATE, true),
+    ThemeDecorator(Theme.CHOCOLATE),
     StoreDecorator({
       loginForm: { username: 'admin', password: '123', isLoading: true },
     }),

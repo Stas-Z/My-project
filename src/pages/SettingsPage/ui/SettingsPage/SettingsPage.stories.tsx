@@ -1,5 +1,6 @@
 import { StoryObj, Meta } from '@storybook/react'
 
+import { NewDesignDecorator } from '@/shared/config/storybook/NewDesignDecorator/NewDesignDecorator'
 import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator/ThemeDecorator'
 import { Theme } from '@/shared/const/theme'
 
@@ -32,15 +33,15 @@ export const ChocoDeprecated: Template = {
 
 export const LightRedesigned: Template = {
   args: {},
-  decorators: [ThemeDecorator(Theme.LIGHT, true)],
+  decorators: [ThemeDecorator(Theme.LIGHT), NewDesignDecorator],
 }
 
 export const DarkRedesigned: Template = {
   args: {},
-  decorators: [ThemeDecorator(Theme.DARK, true)],
+  decorators: [ThemeDecorator(Theme.DARK), NewDesignDecorator],
 }
 
 export const ChocoRedesigned: Template = {
   args: {},
-  decorators: [ThemeDecorator(Theme.CHOCOLATE, true)],
+  decorators: [ThemeDecorator(Theme.CHOCOLATE), NewDesignDecorator],
 }

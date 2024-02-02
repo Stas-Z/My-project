@@ -116,16 +116,20 @@ export const ProfileCardRedesigned = memo((props: ProfileCardProps) => {
               onChange={onChangeAvatar}
               readonly={readonly}
             />
-            <CurrencySelect
-              value={data?.currency}
-              onChange={onChangeCurrency}
-              readonly={readonly}
-            />
-            <CountrySelect
-              value={data?.country}
-              onChange={onChangeCountry}
-              readonly={readonly}
-            />
+            <VStack max maxHeight justify="center" className={cls.select}>
+              <CurrencySelect
+                value={data?.currency}
+                onChange={onChangeCurrency}
+                readonly={readonly}
+              />
+            </VStack>
+            <VStack max maxHeight justify="center" className={cls.select}>
+              <CountrySelect
+                value={data?.country}
+                onChange={onChangeCountry}
+                readonly={readonly}
+              />
+            </VStack>
           </VStack>
         </HStack>
       </VStack>

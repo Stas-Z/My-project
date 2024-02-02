@@ -1,5 +1,6 @@
 import { StoryObj, Meta } from '@storybook/react'
 
+import { NewDesignDecorator } from '@/shared/config/storybook/NewDesignDecorator/NewDesignDecorator'
 import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator/ThemeDecorator'
 import { Theme } from '@/shared/const/theme'
 
@@ -12,6 +13,7 @@ export default {
   argTypes: {
     backgroundColor: { control: 'color' },
   },
+  decorators: [NewDesignDecorator],
 } as Meta<typeof Card>
 
 type Template = StoryObj<typeof Card>
@@ -21,28 +23,28 @@ export const Padding0: Template = {
     children: <Text title="title" text="text - text" />,
     padding: '0',
   },
-  decorators: [ThemeDecorator(Theme.LIGHT, true)],
+  decorators: [ThemeDecorator(Theme.LIGHT)],
 }
 export const Padding8: Template = {
   args: {
     children: <Text title="title" text="text - text" />,
     padding: '8',
   },
-  decorators: [ThemeDecorator(Theme.LIGHT, true)],
+  decorators: [ThemeDecorator(Theme.LIGHT)],
 }
 export const Padding16: Template = {
   args: {
     children: <Text title="title" text="text - text" />,
     padding: '16',
   },
-  decorators: [ThemeDecorator(Theme.LIGHT, true)],
+  decorators: [ThemeDecorator(Theme.LIGHT)],
 }
 export const Padding24: Template = {
   args: {
     children: <Text title="title" text="text - text" />,
     padding: '24',
   },
-  decorators: [ThemeDecorator(Theme.LIGHT, true)],
+  decorators: [ThemeDecorator(Theme.LIGHT)],
 }
 
 export const Round: Template = {
@@ -51,7 +53,7 @@ export const Round: Template = {
     variant: 'normal',
     border: 'round',
   },
-  decorators: [ThemeDecorator(Theme.LIGHT, true)],
+  decorators: [ThemeDecorator(Theme.LIGHT)],
 }
 export const Partial: Template = {
   args: {
@@ -59,7 +61,7 @@ export const Partial: Template = {
     variant: 'normal',
     border: 'partial',
   },
-  decorators: [ThemeDecorator(Theme.LIGHT, true)],
+  decorators: [ThemeDecorator(Theme.LIGHT)],
 }
 
 export const Normal: Template = {
@@ -67,7 +69,7 @@ export const Normal: Template = {
     children: <Text title="title" text="text - text" />,
     variant: 'normal',
   },
-  decorators: [ThemeDecorator(Theme.LIGHT, true)],
+  decorators: [ThemeDecorator(Theme.LIGHT)],
 }
 
 export const Light: Template = {
@@ -75,14 +77,14 @@ export const Light: Template = {
     children: <Text title="title" text="text - text" />,
     variant: 'light',
   },
-  decorators: [ThemeDecorator(Theme.LIGHT, true)],
+  decorators: [ThemeDecorator(Theme.LIGHT)],
 }
 export const Outlined: Template = {
   args: {
     children: <Text title="title" text="text - text" />,
     variant: 'outlined',
   },
-  decorators: [ThemeDecorator(Theme.LIGHT, true)],
+  decorators: [ThemeDecorator(Theme.LIGHT)],
 }
 
 export const DarkNormal: Template = {
@@ -90,21 +92,21 @@ export const DarkNormal: Template = {
     children: <Text title="title" text="text - text" />,
     variant: 'normal',
   },
-  decorators: [ThemeDecorator(Theme.DARK, true)],
+  decorators: [ThemeDecorator(Theme.DARK)],
 }
 export const DarkLight: Template = {
   args: {
     children: <Text title="title" text="text - text" />,
     variant: 'light',
   },
-  decorators: [ThemeDecorator(Theme.DARK, true)],
+  decorators: [ThemeDecorator(Theme.DARK)],
 }
 export const DarkOutlined: Template = {
   args: {
     children: <Text title="title" text="text - text" />,
     variant: 'outlined',
   },
-  decorators: [ThemeDecorator(Theme.DARK, true)],
+  decorators: [ThemeDecorator(Theme.DARK)],
 }
 
 export const ChocoNormal: Template = {
@@ -112,19 +114,19 @@ export const ChocoNormal: Template = {
     children: <Text title="title" text="text - text" />,
     variant: 'normal',
   },
-  decorators: [ThemeDecorator(Theme.CHOCOLATE, true)],
+  decorators: [ThemeDecorator(Theme.CHOCOLATE)],
 }
 export const ChocoLight: Template = {
   args: {
     children: <Text title="title" text="text - text" />,
     variant: 'light',
   },
-  decorators: [ThemeDecorator(Theme.CHOCOLATE, true)],
+  decorators: [ThemeDecorator(Theme.CHOCOLATE)],
 }
 export const ChocoOutlined: Template = {
   args: {
     children: <Text title="title" text="text - text" />,
     variant: 'outlined',
   },
-  decorators: [ThemeDecorator(Theme.CHOCOLATE, true)],
+  decorators: [ThemeDecorator(Theme.CHOCOLATE)],
 }

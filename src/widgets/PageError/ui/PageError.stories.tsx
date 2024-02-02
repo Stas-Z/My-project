@@ -1,5 +1,6 @@
 import { StoryObj, Meta } from '@storybook/react'
 
+import { NewDesignDecorator } from '@/shared/config/storybook/NewDesignDecorator/NewDesignDecorator'
 import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator/ThemeDecorator'
 import { Theme } from '@/shared/const/theme'
 
@@ -15,17 +16,11 @@ export default {
 
 type Template = StoryObj<typeof PageError>
 
-export const Light: Template = {
+export const Deprecated: Template = {
   args: {},
   decorators: [ThemeDecorator(Theme.LIGHT)],
 }
-
-export const Dark: Template = {
+export const Redesigned: Template = {
   args: {},
-  decorators: [ThemeDecorator(Theme.DARK)],
-}
-
-export const Choco: Template = {
-  args: {},
-  decorators: [ThemeDecorator(Theme.CHOCOLATE)],
+  decorators: [ThemeDecorator(Theme.LIGHT), NewDesignDecorator],
 }

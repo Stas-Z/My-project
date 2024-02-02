@@ -1,6 +1,7 @@
 import { StoryObj, Meta } from '@storybook/react'
 
 import { Notification } from '@/entities/Notification/testing'
+import { NewDesignDecorator } from '@/shared/config/storybook/NewDesignDecorator/NewDesignDecorator'
 import { StoreDecorator } from '@/shared/config/storybook/StoreDecorator/StoreDecorator'
 import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator/ThemeDecorator'
 import { Theme } from '@/shared/const/theme'
@@ -53,19 +54,20 @@ export default {
   argTypes: {
     backgroundColor: { control: 'color' },
   },
+  decorators: [NewDesignDecorator],
 } as Meta<typeof NavbarRedesigned>
 
 type Template = StoryObj<typeof NavbarRedesigned>
 
 export const Light: Template = {
   args: {},
-  decorators: [ThemeDecorator(Theme.LIGHT, true), StoreDecorator({})],
+  decorators: [ThemeDecorator(Theme.LIGHT), StoreDecorator({})],
 }
 
 export const AuthLight: Template = {
   args: {},
   decorators: [
-    ThemeDecorator(Theme.LIGHT, true),
+    ThemeDecorator(Theme.LIGHT),
     StoreDecorator({
       user: { authData: {} },
     }),
@@ -74,13 +76,13 @@ export const AuthLight: Template = {
 
 export const Dark: Template = {
   args: {},
-  decorators: [ThemeDecorator(Theme.DARK, true), StoreDecorator({})],
+  decorators: [ThemeDecorator(Theme.DARK), StoreDecorator({})],
 }
 
 export const AuthDark: Template = {
   args: {},
   decorators: [
-    ThemeDecorator(Theme.DARK, true),
+    ThemeDecorator(Theme.DARK),
     StoreDecorator({
       user: { authData: {} },
     }),
@@ -89,13 +91,13 @@ export const AuthDark: Template = {
 
 export const Choco: Template = {
   args: {},
-  decorators: [ThemeDecorator(Theme.CHOCOLATE, true), StoreDecorator({})],
+  decorators: [ThemeDecorator(Theme.CHOCOLATE), StoreDecorator({})],
 }
 
 export const AuthChoco: Template = {
   args: {},
   decorators: [
-    ThemeDecorator(Theme.CHOCOLATE, true),
+    ThemeDecorator(Theme.CHOCOLATE),
     StoreDecorator({
       user: { authData: {} },
     }),

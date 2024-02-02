@@ -2,6 +2,7 @@ import { Meta, StoryObj } from '@storybook/react'
 import { fireEvent, within } from '@storybook/testing-library'
 
 import { LokiDelayDecorator } from '@/shared/config/storybook/LokiDelayDecorator/LokiDelayDecorator'
+import { NewDesignDecorator } from '@/shared/config/storybook/NewDesignDecorator/NewDesignDecorator'
 import { StoreDecorator } from '@/shared/config/storybook/StoreDecorator/StoreDecorator'
 import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator/ThemeDecorator'
 import { Theme } from '@/shared/const/theme'
@@ -14,6 +15,7 @@ export default {
   argTypes: {
     backgroundColor: { control: 'color' },
   },
+  decorators: [NewDesignDecorator],
 } as Meta<typeof SidebarRedesigned>
 
 type Template = StoryObj<typeof SidebarRedesigned>
@@ -26,7 +28,7 @@ export const Light: Template = {
         <StoryComponent />
       </div>
     ),
-    ThemeDecorator(Theme.LIGHT, true),
+    ThemeDecorator(Theme.LIGHT),
     StoreDecorator({
       user: {
         authData: {},
@@ -44,7 +46,7 @@ export const LightCollpsed: Template = {
       </div>
     ),
     LokiDelayDecorator(),
-    ThemeDecorator(Theme.LIGHT, true),
+    ThemeDecorator(Theme.LIGHT),
     StoreDecorator({ user: { authData: {} } }),
   ],
   play: async ({ canvasElement }) => {
@@ -61,7 +63,7 @@ export const LightNoAuth: Template = {
         <StoryComponent />
       </div>
     ),
-    ThemeDecorator(Theme.LIGHT, true),
+    ThemeDecorator(Theme.LIGHT),
   ],
 }
 
@@ -73,7 +75,7 @@ export const Dark: Template = {
         <StoryComponent />
       </div>
     ),
-    ThemeDecorator(Theme.DARK, true),
+    ThemeDecorator(Theme.DARK),
     StoreDecorator({ user: { authData: {} } }),
   ],
 }
@@ -86,7 +88,7 @@ export const Choco: Template = {
         <StoryComponent />
       </div>
     ),
-    ThemeDecorator(Theme.CHOCOLATE, true),
+    ThemeDecorator(Theme.CHOCOLATE),
     StoreDecorator({ user: { authData: {} } }),
   ],
 }

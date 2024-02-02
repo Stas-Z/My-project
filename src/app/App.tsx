@@ -1,4 +1,4 @@
-import { Suspense, useEffect } from 'react'
+import { memo, Suspense, useEffect } from 'react'
 
 import { useSelector } from 'react-redux'
 
@@ -16,8 +16,9 @@ import { Sidebar } from '@/widgets/Sidebar'
 import { useAppToolbar } from './lib/useAppToolbar'
 import { ErrorBoundary } from './providers/ErrorBoundary'
 import { AppRouter } from './providers/router'
+import { withTheme } from './providers/ThemeProvider/ui/withTheme'
 
-const App = () => {
+const App = memo(() => {
   const { theme } = useTheme()
   const dispatch = useAppDispatch()
   const inited = useSelector(getUserInited) // Нужно для того чтобы инициализация user'а происходила до отрисовки <AppRouter />
@@ -74,6 +75,6 @@ const App = () => {
       }
     />
   )
-}
+})
 
-export default App
+export default withTheme(App)

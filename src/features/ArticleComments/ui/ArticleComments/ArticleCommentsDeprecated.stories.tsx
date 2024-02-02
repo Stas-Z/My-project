@@ -7,7 +7,7 @@ import { Theme } from '@/shared/const/theme'
 import { ArticleComments } from './ArticleComments'
 
 export default {
-  title: 'features/Article/ArticleComments',
+  title: 'features/Article/ArticleComments/Deprecated',
   component: ArticleComments,
   parameters: {
     router: {

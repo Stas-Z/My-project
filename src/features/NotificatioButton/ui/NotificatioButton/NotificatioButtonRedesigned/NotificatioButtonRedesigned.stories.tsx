@@ -3,6 +3,7 @@ import { within, fireEvent } from '@storybook/testing-library'
 
 import { Notification } from '@/entities/Notification/testing'
 import { LokiDelayDecorator } from '@/shared/config/storybook/LokiDelayDecorator/LokiDelayDecorator'
+import { NewDesignDecorator } from '@/shared/config/storybook/NewDesignDecorator/NewDesignDecorator'
 import { StoreDecorator } from '@/shared/config/storybook/StoreDecorator/StoreDecorator'
 import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator/ThemeDecorator'
 import { Theme } from '@/shared/const/theme'
@@ -42,7 +43,7 @@ const items: Notification[] = [
 export default {
   title: 'features/NotificatioButton/NotificatioButtonRedesigned',
   component: NotificatioButtonRedesigned,
-  decorators: [LokiDelayDecorator()],
+  decorators: [NewDesignDecorator, LokiDelayDecorator()],
   play: async ({ canvasElement }) => {
     const canvas = within(canvasElement)
     await fireEvent.click(canvas.getByTestId('NotificatioButton.Trigger'))

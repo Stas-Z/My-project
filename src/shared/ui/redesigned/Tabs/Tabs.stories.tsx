@@ -1,6 +1,7 @@
 import { action } from '@storybook/addon-actions'
 import { StoryObj, Meta } from '@storybook/react'
 
+import { NewDesignDecorator } from '@/shared/config/storybook/NewDesignDecorator/NewDesignDecorator'
 import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator/ThemeDecorator'
 import { Theme } from '@/shared/const/theme'
 
@@ -12,6 +13,7 @@ export default {
   argTypes: {
     backgroundColor: { control: 'color' },
   },
+  decorators: [NewDesignDecorator],
 } as Meta<typeof Tabs>
 
 type Template = StoryObj<typeof Tabs>
@@ -35,7 +37,7 @@ export const Light: Template = {
     value: 'tab 2',
     onTabClick: action('onTabClick'),
   },
-  decorators: [ThemeDecorator(Theme.LIGHT, true)],
+  decorators: [ThemeDecorator(Theme.LIGHT)],
 }
 
 export const Dark: Template = {
@@ -57,7 +59,7 @@ export const Dark: Template = {
     value: 'tab 2',
     onTabClick: action('onTabClick'),
   },
-  decorators: [ThemeDecorator(Theme.DARK, true)],
+  decorators: [ThemeDecorator(Theme.DARK)],
 }
 
 export const Choco: Template = {
@@ -79,5 +81,5 @@ export const Choco: Template = {
     value: 'tab 2',
     onTabClick: action('onTabClick'),
   },
-  decorators: [ThemeDecorator(Theme.CHOCOLATE, true)],
+  decorators: [ThemeDecorator(Theme.CHOCOLATE)],
 }

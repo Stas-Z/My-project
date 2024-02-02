@@ -2,6 +2,7 @@ import { Meta, StoryObj } from '@storybook/react'
 
 import { Country } from '@/entities/Country/testing'
 import { Currency } from '@/entities/Currency/testing'
+import { NewDesignDecorator } from '@/shared/config/storybook/NewDesignDecorator/NewDesignDecorator'
 import { StoreDecorator } from '@/shared/config/storybook/StoreDecorator/StoreDecorator'
 import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator/ThemeDecorator'
 import { Theme } from '@/shared/const/theme'
@@ -28,6 +29,7 @@ export default {
   argTypes: {
     backgroundColor: { control: 'color' },
   },
+  decorators: [NewDesignDecorator],
 } as Meta<typeof ProfilePage>
 
 type Template = StoryObj<typeof ProfilePage>
@@ -46,7 +48,7 @@ const data = {
 export const Light: Template = {
   args: {},
   decorators: [
-    ThemeDecorator(Theme.LIGHT, true),
+    ThemeDecorator(Theme.LIGHT),
     StoreDecorator({
       profile: {
         readonly: true,
@@ -58,7 +60,7 @@ export const Light: Template = {
 
 export const Dark: Template = {
   decorators: [
-    ThemeDecorator(Theme.DARK, true),
+    ThemeDecorator(Theme.DARK),
     StoreDecorator({
       profile: {
         readonly: true,
@@ -70,7 +72,7 @@ export const Dark: Template = {
 
 export const Choco: Template = {
   decorators: [
-    ThemeDecorator(Theme.CHOCOLATE, true),
+    ThemeDecorator(Theme.CHOCOLATE),
     StoreDecorator({
       profile: {
         readonly: true,
@@ -82,7 +84,7 @@ export const Choco: Template = {
 
 export const Error: Template = {
   decorators: [
-    ThemeDecorator(Theme.LIGHT, true),
+    ThemeDecorator(Theme.LIGHT),
     StoreDecorator({
       profile: {
         readonly: true,

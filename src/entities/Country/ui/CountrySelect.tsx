@@ -2,7 +2,7 @@ import { memo, useCallback, useMemo } from 'react'
 
 import { useTranslation } from 'react-i18next'
 
-import { ToggleFeatures } from '@/shared/lib/features'
+import { ToggleFeatures, toggleFeatures } from '@/shared/lib/features'
 import { DropdownDirection } from '@/shared/types/ui'
 import { ListBox as ListBoxDeprecated } from '@/shared/ui/deprecated/Popups'
 import { ListBox } from '@/shared/ui/redesigned/Popups'
@@ -36,13 +36,19 @@ export const CountrySelect = memo((props: CountrySelectProps) => {
     [],
   )
 
+  const label = toggleFeatures({
+    name: 'isAppRedesigned',
+    on: () => t('Country'),
+    off: () => t('Country name'),
+  })
+
   const propsList = {
     className,
     value,
     items: countryOptions,
     onChange: onChangeHandler,
-    defaultValue: t('Country'),
-    label: t('Country'),
+    defaultValue: label,
+    label,
     readonly,
     direction: 'top_right' as DropdownDirection,
   }

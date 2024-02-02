@@ -2,6 +2,7 @@ import { StoryObj, Meta } from '@storybook/react'
 import { fireEvent, within } from '@storybook/testing-library'
 
 import { LokiDelayDecorator } from '@/shared/config/storybook/LokiDelayDecorator/LokiDelayDecorator'
+import { NewDesignDecorator } from '@/shared/config/storybook/NewDesignDecorator/NewDesignDecorator'
 import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator/ThemeDecorator'
 import { Theme } from '@/shared/const/theme'
 
@@ -13,6 +14,7 @@ export default {
   argTypes: {
     backgroundColor: { control: 'color' },
   },
+  decorators: [NewDesignDecorator],
 } as Meta<typeof RatingCardRedesigned>
 
 type Template = StoryObj<typeof RatingCardRedesigned>
@@ -23,7 +25,7 @@ export const WithRating: Template = {
     title: 'title',
     rate: 4,
   },
-  decorators: [ThemeDecorator(Theme.LIGHT, true)],
+  decorators: [ThemeDecorator(Theme.LIGHT)],
 }
 
 export const OpenModal: Template = {
@@ -37,7 +39,7 @@ export const OpenModal: Template = {
     const canvas = within(canvasElement)
     await fireEvent.click(canvas.getByTestId('StarRating.3'))
   },
-  decorators: [ThemeDecorator(Theme.LIGHT, true), LokiDelayDecorator()],
+  decorators: [ThemeDecorator(Theme.LIGHT), LokiDelayDecorator()],
 }
 export const Light: Template = {
   args: {
@@ -46,7 +48,7 @@ export const Light: Template = {
     title: 'title',
     rate: 0,
   },
-  decorators: [ThemeDecorator(Theme.LIGHT, true)],
+  decorators: [ThemeDecorator(Theme.LIGHT)],
 }
 
 export const Dark: Template = {
@@ -55,7 +57,7 @@ export const Dark: Template = {
     hasFeedback: true,
     title: 'title',
   },
-  decorators: [ThemeDecorator(Theme.DARK, true)],
+  decorators: [ThemeDecorator(Theme.DARK)],
 }
 
 export const Choco: Template = {
@@ -64,5 +66,5 @@ export const Choco: Template = {
     hasFeedback: true,
     title: 'title',
   },
-  decorators: [ThemeDecorator(Theme.CHOCOLATE, true)],
+  decorators: [ThemeDecorator(Theme.CHOCOLATE)],
 }

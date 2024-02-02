@@ -53,6 +53,9 @@ interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
    * <Input addonRight={<Icon Svg={SearchIcon} />} />
    */
   addonRight?: ReactNode
+  /**
+   * @description Button color.
+   */
   color?: ButtonColor
 }
 

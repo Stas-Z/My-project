@@ -109,6 +109,15 @@
 
 .disabled {
   opacity: 0.5;
+
+  &:hover {
+    color: var(--text-redesigned);
+
+    .addonLeft svg,
+    .addonRight svg {
+      color: var(--hint-redesigned);
+    }
+  }
 }
 
 .fullWidth {
