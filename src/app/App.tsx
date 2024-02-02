@@ -13,6 +13,7 @@ import { Navbar } from '@/widgets/Navbar'
 import { PageLoader } from '@/widgets/PageLoader'
 import { Sidebar } from '@/widgets/Sidebar'
 
+import { useAppToolbar } from './lib/useAppToolbar'
 import { ErrorBoundary } from './providers/ErrorBoundary'
 import { AppRouter } from './providers/router'
 
@@ -20,6 +21,8 @@ const App = () => {
   const { theme } = useTheme()
   const dispatch = useAppDispatch()
   const inited = useSelector(getUserInited) // Нужно для того чтобы инициализация user'а происходила до отрисовки <AppRouter />
+
+  const toolBar = useAppToolbar()
 
   useEffect(() => {
     if (!inited) {
@@ -51,8 +54,7 @@ const App = () => {
                 </ErrorBoundary>
               }
               sidebar={<Sidebar />}
-              // eslint-disable-next-line i18next/no-literal-string
-              // toolbar={<div>asdsadasd</div>}
+              toolbar={toolBar}
             />
           </Suspense>
         </div>
