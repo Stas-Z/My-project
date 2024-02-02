@@ -34,6 +34,7 @@ export const ArticleTextBlockComponent = memo(
                 key={block.id}
               />
             }
+            key={block.id}
           />
         )}
         {block.paragraphs.map((paragraph) => {
@@ -54,6 +55,7 @@ export const ArticleTextBlockComponent = memo(
                   key={paragraph}
                 />
               }
+              key={paragraph}
             />
           )
         })}

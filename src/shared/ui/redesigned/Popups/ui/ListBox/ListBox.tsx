@@ -92,15 +92,14 @@ export const ListBox = typedMemo(<T extends string>(props: ListBoxProps<T>) => {
         value={value}
         onChange={onChange}
       >
-        <HListbox.Button as="div">
-          <Button
-            disabled={readonly}
-            variant="filled"
-            data-testid={`${dataTestId}.Button`}
-            addonRight={<Icon Svg={ArrowIcon} />}
-          >
-            {selectedItem?.content ?? defaultValue}
-          </Button>
+        <HListbox.Button
+          as={Button}
+          disabled={readonly}
+          variant="filled"
+          data-testid={`${dataTestId}.Button`}
+          addonRight={<Icon Svg={ArrowIcon} />}
+        >
+          {selectedItem?.content ?? defaultValue}
         </HListbox.Button>
         <HListbox.Options
           className={classNames(cls.options, {}, [
