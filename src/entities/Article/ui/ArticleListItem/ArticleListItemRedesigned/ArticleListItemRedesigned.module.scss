@@ -38,8 +38,8 @@
 
 .grid {
   .card {
-    width: 249px;
-    height: 350px;
+    width: 235px;
+    height: 335px;
     overflow: hidden;
     display: flex;
     flex-direction: column;
@@ -72,10 +72,10 @@
   }
 
   .textBlock {
-    height: 113px;
+    height: 85px;
     overflow: hidden;
-    min-height: 113px;
-    -webkit-line-clamp: 4;
+    min-height: 85px;
+    -webkit-line-clamp: 3;
     display: -webkit-box;
     -webkit-box-orient: vertical;
   }
